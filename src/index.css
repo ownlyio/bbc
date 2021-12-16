@@ -2748,3 +2748,25 @@ body {
 .cursor-pointer {
   cursor: pointer;
 }
+.letter-spacing-1 {
+  letter-spacing: 0.01em;
+}
+.letter-spacing-5 {
+  letter-spacing: 0.05em;
+}
+.shadow-custom-1 {
+  box-shadow: 5px 5px 8px -4px rgba(0, 0, 0, 0.85);
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.background-image-cover {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.background-image-contain {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
