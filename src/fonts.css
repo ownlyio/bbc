@@ -1,0 +1,105 @@
+@font-face {
+  font-family: Rubik-Regular;
+  src: url("../fonts/Rubix/Rubik-Regular.ttf");
+}
+.rubik-regular {
+  font-family: Rubik-Regular;
+}
+@font-face {
+  font-family: Rubik-Bold;
+  src: url("../fonts/Rubix/Rubik-Bold.ttf");
+}
+.rubik-bold {
+  font-family: Rubik-Bold;
+}
+@font-face {
+  font-family: Rubik-Black;
+  src: url("../fonts/Rubix/Rubik-Black.ttf");
+}
+.rubik-black {
+  font-family: Rubik-Black;
+}
+@font-face {
+  font-family: NeogroteskEss-Regular;
+  src: url("../fonts/Neo/NeogroteskEss-Regular.otf");
+}
+.neo-regular {
+  font-family: NeogroteskEss-Regular;
+}
+@font-face {
+  font-family: NeogroteskEss-Bold;
+  src: url("../fonts/Neo/NeogroteskEss-Bold.otf");
+}
+.neo-bold {
+  font-family: NeogroteskEss-Bold;
+}
+@font-face {
+  font-family: NeogroteskEss-Black;
+  src: url("../fonts/Neo/NeogroteskEss-Black.otf");
+}
+.neo-black {
+  font-family: NeogroteskEss-Black;
+}
+@font-face {
+  font-family: NeogroteskEss-RegularIt;
+  src: url("../fonts/Neo/NeogroteskEss-RegularIt.otf");
+}
+.neo-regular-italic {
+  font-family: NeogroteskEss-RegularIt;
+}
+@font-face {
+  font-family: NeogroteskEss-Light;
+  src: url("../fonts/Neo/NeogroteskEss-Light.otf");
+}
+.neo-light {
+  font-family: NeogroteskEss-Light;
+}
+@font-face {
+  font-family: NeogroteskEss-LightIt;
+  src: url("../fonts/Neo/NeogroteskEss-LightIt.otf");
+}
+.neo-light-italic {
+  font-family: NeogroteskEss-LightIt;
+}
+@font-face {
+  font-family: Alegreya-Italic;
+  src: url("../fonts/Alegreya/Alegreya-Italic.ttf");
+}
+.alegreya-italic {
+  font-family: Alegreya-Italic;
+}
+@font-face {
+  font-family: Alegreya-BoldItalic;
+  src: url("../fonts/Alegreya/Alegreya-BoldItalic.ttf");
+}
+.alegreya-bold-italic {
+  font-family: Alegreya-BoldItalic;
+}
+@font-face {
+  font-family: Alegreya-Regular;
+  src: url("../fonts/Alegreya/Alegreya-Regular.ttf");
+}
+.alegreya-regular {
+  font-family: Alegreya-Regular;
+}
+@font-face {
+  font-family: Alegreya-Bold;
+  src: url("../fonts/Alegreya/Alegreya-Bold.ttf");
+}
+.alegreya-bold {
+  font-family: Alegreya-Bold;
+}
+@font-face {
+  font-family: Helvetica-Roman;
+  src: url("../fonts/Helvetica/HelveticaLTStd-Roman_0.otf");
+}
+.helvetica-roman {
+  font-family: Helvetica-Roman;
+}
+@font-face {
+  font-family: Helvetica-Light;
+  src: url("../fonts/Helvetica/HelveticaLTStd-Light_0.otf");
+}
+.helvetica-light {
+  font-family: Helvetica-Light;
+}
