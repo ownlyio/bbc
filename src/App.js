@@ -33,7 +33,7 @@ function App() {
                             <div className="col-12 col-md-7">
                                 <p className="text-center font-size-170 text-color-2 neo-bold mb-1">Stake OWN/BUSD LP Tokens</p>
                                 <p className="text-center font-size-90 text-color-6 neo-light mb-4">Stake your <b>CAKE LP Tokens</b> and receive <b>OWN</b></p>
-                                <p className="total-dep bg-color-4 text-white text-center font-size-110 text-color-6 neo-light mb-4"><b>TOTAL DEPOSITS:</b> 0.000000000000 OWN/BUSD</p>
+                                <p className="total-dep bg-color-4 text-white text-center font-size-110 neo-light mb-4"><b>TOTAL DEPOSITS:</b> 0.000000000000 OWN/BUSD</p>
 
                                 <div className="mx-auto" style={{"width": "85%"}}>
                                     <div className="app-card">
