@@ -16,8 +16,9 @@ function App() {
                     <section id="app-staking" className="mb-4">
                         <div className="row justify-content-center align-items-center">
                             <div className="col-12 col-md-5">
-                                <p className="text-center font-size-170 text-color-3 neo-bold mb-1">Acquire OWN/BUSD LP Tokens</p>
+                                <p className="text-center font-size-170 text-color-3 neo-bold mb-1">Get OWN/BUSD LP Tokens</p>
                                 <p className="text-center font-size-90 text-color-6 neo-light mb-4">Add liquidity to OWN/BUSD on <b>PancakeSwap</b></p>
+                                <p className="total-dep bg-color-5 text-white text-center font-size-90 neo-light mb-4"><b>YOUR BALANCE:</b> 0.000000000000 OWN/BUSD</p>
                                 <div className="d-flex justify-content-center mb-3">
                                     <div style={{"width": "50px"}}>
                                         <img src={ownlyLogo} className="w-100" alt="Ownly Logo" />
@@ -33,7 +34,8 @@ function App() {
                             <div className="col-12 col-md-7">
                                 <p className="text-center font-size-170 text-color-2 neo-bold mb-1">Stake OWN/BUSD LP Tokens</p>
                                 <p className="text-center font-size-90 text-color-6 neo-light mb-4">Stake your <b>CAKE LP Tokens</b> and receive <b>OWN</b></p>
-                                <p className="total-dep bg-color-4 text-white text-center font-size-110 neo-light mb-4"><b>TOTAL DEPOSITS:</b> 0.000000000000 OWN/BUSD</p>
+                                <p className="total-dep bg-color-4 text-white text-center font-size-110 neo-light mb-2"><b>TOTAL DEPOSITS:</b> 0.000000000000 OWN/BUSD</p>
+                                <p className="text-center font-size-90 text-color-6 neo-light mb-4"><b>Smart Contract:</b> <a href="#" className="stake-link">0xabcdefabcdefabcdefabcdefabcdefabcdef</a></p>
 
                                 <div className="mx-auto" style={{"width": "85%"}}>
                                     <div className="app-card">
@@ -45,16 +47,20 @@ function App() {
 
                                                 <button className="font-size-80 btn stake-btn neo-bold">MAX</button>
                                             </div>
-                                            <div className="d-flex justify-content-between">
+                                            <div className="d-flex justify-content-between mb-1">
                                                 <button className="btn stake-btn-func btn-custom-2">APPROVE</button>
-                                                <button className="btn stake-btn-func btn-custom-2">STAKE</button>
+                                                <button className="btn stake-btn-func btn-custom-2" disabled>STAKE</button>
+                                            </div>
+                                            <div className="d-flex justify-content-between">
+                                                <button className="btn stake-btn-func btn-custom-2" disabled>UNSTAKE</button>
+                                                <button className="btn stake-btn-func btn-custom-2" disabled>WITHDRAW</button>
                                             </div>
                                         </form>
 
                                         <hr className="my-4" />
 
                                         <div className="d-flex justify-content-between">
-                                            <p className="mb-3 neo-bold font-size-90">Total LP Tokens Staked</p>
+                                            <p className="mb-3 neo-bold font-size-90">Your Total LP Tokens Staked</p>
                                             <p className="mb-3 neo-regular font-size-90">0.000000000000 OWN/BUSD</p>
                                         </div>
                                         <div className="d-flex justify-content-between">

@@ -47,3 +47,12 @@
 .stake-btn-func {
   width: 49%;
 }
+
+.stake-link {
+  color: #000000;
+}
+
+.stake-link:hover,
+.stake-link:focus {
+  color: #16b99a;
+}
