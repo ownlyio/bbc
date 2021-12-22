@@ -28,7 +28,7 @@ function App() {
                                     </div>
                                 </div>
                                 <div className="mx-auto" style={{"width": "60%"}}>
-                                    <button className="w-100 btn btn-custom-7 rounded-lg">ADD LIQUIDITY FOR OWN/BUSD</button>
+                                    <a href="https://pancakeswap.finance/add/0x7665CB7b0d01Df1c9f9B9cC66019F00aBD6959bA/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56" target="_blank" rel="noreferrer" className="w-100 btn btn-custom-7 rounded-lg">ADD LIQUIDITY FOR OWN/BUSD</a>
                                 </div>
                             </div>
                             <div className="col-12 col-md-7">
