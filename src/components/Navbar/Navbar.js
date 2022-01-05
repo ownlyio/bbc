@@ -1,7 +1,7 @@
 import './Navbar.css'
 import ownTokenWebpLogo from '../../img/ownly/own-token.webp'
 
-function Navbar() {
+function Navbar({ connect, disconnect, active, account, shortenAddress }) {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom fixed-top">
             <div className="container">
@@ -29,10 +29,16 @@ function Navbar() {
                         <li className="nav-item">
                             <a className="text-color-6 text-decoration-none" href="#" id="account-address"></a>
                         </li>
-                        <li className="nav-item" id="connect-to-metamask-container">
-                            <button type="button" className="d-none d-sm-block btn btn-custom-9 shadow-sm font-size-90 py-2 px-4" id="connect-to-metamask" style={{"borderRadius": "100px"}}>Connect&nbsp;Wallet</button>
-                            <button type="button" className="d-block d-sm-none btn btn-custom-9 shadow-sm font-size-90 py-2 px-4" id="connect-to-metamask" style={{"borderRadius": "100px"}}>Connect</button>
-                        </li>
+                        { active ? (
+                            <li className="nav-item" id="connect-to-metamask-container">
+                                <button onClick={disconnect} type="button" className="d-none d-sm-block btn btn-custom-9 shadow-sm font-size-90 py-2 px-4" id="connect-to-metamask" style={{"borderRadius": "100px"}}>Connected: {shortenAddress(account, 6, 6)}</button>
+                            </li>
+                        ) : (
+                            <li className="nav-item" id="connect-to-metamask-container">
+                                <button onClick={connect} type="button" className="d-none d-sm-block btn btn-custom-9 shadow-sm font-size-90 py-2 px-4" id="connect-to-metamask" style={{"borderRadius": "100px"}}>Connect&nbsp;Wallet</button>
+                                <button onClick={connect} type="button" className="d-block d-sm-none btn btn-custom-9 shadow-sm font-size-90 py-2 px-4" id="connect-to-metamask" style={{"borderRadius": "100px"}}>Connect</button>
+                            </li>
+                        )}
                     </ul>
                 </div>
             </div>
