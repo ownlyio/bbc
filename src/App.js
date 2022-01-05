@@ -15,7 +15,7 @@ function App() {
                 <div className="container">
                     <section id="app-staking" className="mb-4">
                         <div className="row justify-content-center align-items-center">
-                            <div className="col-12 col-md-5">
+                            <div className="col-12 col-lg-5">
                                 <p className="text-center font-size-170 text-color-3 neo-bold mb-1">Get OWN/BUSD LP Tokens</p>
                                 <p className="text-center font-size-90 text-color-6 neo-light mb-4">Add liquidity to OWN/BUSD on <b>PancakeSwap</b></p>
                                 <p className="total-dep bg-color-5 text-white text-center font-size-90 neo-light mb-4"><b>YOUR BALANCE:</b> 0.000000000000 OWN/BUSD</p>
@@ -27,18 +27,21 @@ function App() {
                                         <img src={busdLogo} className="w-100" alt="BUSD Logo" />
                                     </div>
                                 </div>
-                                <div className="mx-auto" style={{"width": "60%"}}>
+                                <div className="add-liquidity mx-auto" style={{"width": "60%"}}>
                                     <a href="https://pancakeswap.finance/add/0x7665CB7b0d01Df1c9f9B9cC66019F00aBD6959bA/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56" target="_blank" rel="noreferrer" className="w-100 btn btn-custom-7 rounded-lg">ADD LIQUIDITY FOR OWN/BUSD</a>
                                 </div>
                             </div>
-                            <div className="col-12 col-md-7">
+                            <div className="col-12 col-lg-7">
+                                <hr className="my-5 d-block d-lg-none" />
+
                                 <p className="text-center font-size-170 text-color-2 neo-bold mb-1">Stake OWN/BUSD LP Tokens</p>
                                 <p className="text-center font-size-90 text-color-6 neo-light mb-4">Stake your <b>CAKE LP Tokens</b> and receive <b>OWN</b></p>
                                 <p className="total-dep bg-color-4 text-white text-center font-size-110 neo-light mb-2"><b>TOTAL DEPOSITS:</b> 0.000000000000 OWN/BUSD</p>
-                                <p className="text-center font-size-90 text-color-6 neo-light mb-4"><b>Smart Contract:</b> <a href="#" target="_blank" rel="noreferrer" className="stake-link">0xabcdefabcdefabcdefabcdefabcdefabcdef</a></p>
+                                <p className="text-center font-size-90 text-color-6 neo-light mb-4"><b>Smart Contract:</b> <a href="https://testnet.bscscan.com/address/0xf8ddba8fd0fa088dd8ca61a96458f22ab1857d8d" target="_blank" rel="noreferrer" className="stake-link">0xf8ddba8fd0fa088dd8ca61a96458f22ab1857d8d</a></p>
 
-                                <div className="mx-auto" style={{"width": "85%"}}>
+                                <div className="staking-card mx-auto" style={{"width": "85%"}}>
                                     <div className="app-card">
+                                        {/* STAKING FORM */}
                                         <form>
                                             <p className="font-size-110 neo-light mb-1">Stake</p>
                                             <div className="form-group stake-form">
@@ -56,29 +59,56 @@ function App() {
                                                 <button className="btn stake-btn-func btn-custom-2" disabled>WITHDRAW</button>
                                             </div>
                                         </form>
+                                        {/* END STAKING FORM */}
 
                                         <hr className="my-4" />
 
-                                        <div className="d-flex justify-content-between">
-                                            <p className="mb-3 neo-bold font-size-90">Your Total LP Tokens Staked</p>
-                                            <p className="mb-3 neo-regular font-size-90">0.000000000000 OWN/BUSD</p>
+                                        {/* DETAILS */}
+                                        <div className="d-none d-sm-block">
+                                            <div className="d-flex justify-content-between">
+                                                <p className="mb-3 neo-bold font-size-90">Your Total LP Tokens Staked</p>
+                                                <p className="mb-3 neo-regular font-size-90">0.000000000000 OWN/BUSD</p>
+                                            </div>
+                                            <div className="d-flex justify-content-between">
+                                                <p className="mb-3 neo-bold font-size-90">Rewards Earned</p>
+                                                <p className="mb-3 neo-regular font-size-90">0.000000000000 OWN</p>
+                                            </div>
+                                            <div className="d-flex justify-content-between">
+                                                <p className="mb-3 neo-bold font-size-90">APR</p>
+                                                <p className="mb-3 neo-regular font-size-90">-- %</p>
+                                            </div>
+                                            <div className="d-flex justify-content-between">
+                                                <p className="mb-3 neo-bold font-size-90">Rate</p>
+                                                <p className="mb-3 neo-regular font-size-90">0.000000000000 OWN / week</p>
+                                            </div>
+                                            <div className="d-flex justify-content-between">
+                                                <p className="mb-3 neo-bold font-size-90">Duration</p>
+                                                <p className="mb-3 neo-regular font-size-90">-- Days</p>
+                                            </div>
                                         </div>
-                                        <div className="d-flex justify-content-between">
-                                            <p className="mb-3 neo-bold font-size-90">Rewards Earned</p>
-                                            <p className="mb-3 neo-regular font-size-90">0.000000000000 OWN</p>
+                                        <div className="d-block d-sm-none">
+                                            <div className="mb-3">
+                                                <p className="mb-1 neo-bold font-size-110">Your Total LP Tokens Staked</p>
+                                                <p className="mb-1 neo-regular font-size-90">0.000000000000 OWN/BUSD</p>
+                                            </div>
+                                            <div className="mb-3">
+                                                <p className="mb-1 neo-bold font-size-110">Rewards Earned</p>
+                                                <p className="mb-1 neo-regular font-size-90">0.000000000000 OWN</p>
+                                            </div>
+                                            <div className="mb-3">
+                                                <p className="mb-1 neo-bold font-size-110">APR</p>
+                                                <p className="mb-1 neo-regular font-size-90">-- %</p>
+                                            </div>
+                                            <div className="mb-3">
+                                                <p className="mb-1 neo-bold font-size-110">Rate</p>
+                                                <p className="mb-1 neo-regular font-size-90">0.000000000000 OWN / week</p>
+                                            </div>
+                                            <div className="mb-3">
+                                                <p className="mb-1 neo-bold font-size-110">Duration</p>
+                                                <p className="mb-1 neo-regular font-size-90">-- Days</p>
+                                            </div>
                                         </div>
-                                        <div className="d-flex justify-content-between">
-                                            <p className="mb-3 neo-bold font-size-90">APR</p>
-                                            <p className="mb-3 neo-regular font-size-90">-- %</p>
-                                        </div>
-                                        <div className="d-flex justify-content-between">
-                                            <p className="mb-3 neo-bold font-size-90">Rate</p>
-                                            <p className="mb-3 neo-regular font-size-90">0.000000000000 OWN / week</p>
-                                        </div>
-                                        <div className="d-flex justify-content-between">
-                                            <p className="mb-3 neo-bold font-size-90">Duration</p>
-                                            <p className="mb-3 neo-regular font-size-90">-- Days</p>
-                                        </div>
+                                        {/* END DETAILS */}
                                     </div>
                                 </div>
                             </div>

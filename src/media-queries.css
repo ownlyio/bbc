@@ -1,0 +1,12 @@
+@media (max-width: 1399px) {
+  .add-liquidity,
+  .total-dep {
+    width: 80% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .staking-card {
+    width: 100% !important;
+  }
+}

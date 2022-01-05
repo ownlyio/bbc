@@ -30,7 +30,8 @@ function Navbar() {
                             <a className="text-color-6 text-decoration-none" href="#" id="account-address"></a>
                         </li>
                         <li className="nav-item" id="connect-to-metamask-container">
-                            <button type="button" className="btn btn-custom-9 shadow-sm font-size-90 py-2 px-4" id="connect-to-metamask" style={{"borderRadius": "100px"}}>Connect&nbsp;Wallet</button>
+                            <button type="button" className="d-none d-sm-block btn btn-custom-9 shadow-sm font-size-90 py-2 px-4" id="connect-to-metamask" style={{"borderRadius": "100px"}}>Connect&nbsp;Wallet</button>
+                            <button type="button" className="d-block d-sm-none btn btn-custom-9 shadow-sm font-size-90 py-2 px-4" id="connect-to-metamask" style={{"borderRadius": "100px"}}>Connect</button>
                         </li>
                     </ul>
                 </div>
