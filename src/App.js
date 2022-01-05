@@ -7,6 +7,13 @@ import ownlyLogo from './img/ownly/own-token.webp'
 import busdLogo from './img/busd/busd.webp'
 
 function App() {
+    const shortenAddress = (address, prefixCount, postfixCount) => {
+        let prefix = address.substr(0, prefixCount);
+        let postfix = address.substr(address.length - postfixCount, address.length);
+    
+        return prefix + "..." + postfix;
+    }
+
     return (
         <Router basename={process.env.PUBLIC_URL}>
             <div className="app" style={{"backgroundColor": "rgb(244, 246, 248)"}}>
@@ -37,7 +44,9 @@ function App() {
                                 <p className="text-center font-size-170 text-color-2 neo-bold mb-1">Stake OWN/BUSD LP Tokens</p>
                                 <p className="text-center font-size-90 text-color-6 neo-light mb-4">Stake your <b>CAKE LP Tokens</b> and receive <b>OWN</b></p>
                                 <p className="total-dep bg-color-4 text-white text-center font-size-110 neo-light mb-2"><b>TOTAL DEPOSITS:</b> 0.000000000000 OWN/BUSD</p>
-                                <p className="text-center font-size-90 text-color-6 neo-light mb-4"><b>Smart Contract:</b> <a href="https://testnet.bscscan.com/address/0xf8ddba8fd0fa088dd8ca61a96458f22ab1857d8d" target="_blank" rel="noreferrer" className="stake-link">0xf8ddba8fd0fa088dd8ca61a96458f22ab1857d8d</a></p>
+
+                                <p className="d-none d-sm-block text-center font-size-90 text-color-6 neo-light mb-4"><b>Smart Contract:</b> <a href="https://testnet.bscscan.com/address/0xf8ddba8fd0fa088dd8ca61a96458f22ab1857d8d" target="_blank" rel="noreferrer" className="stake-link">0xf8ddba8fd0fa088dd8ca61a96458f22ab1857d8d</a></p>
+                                <p className="d-block d-sm-none text-center font-size-90 text-color-6 neo-light mb-4"><b>Smart Contract:</b> <a href="https://testnet.bscscan.com/address/0xf8ddba8fd0fa088dd8ca61a96458f22ab1857d8d" target="_blank" rel="noreferrer" className="stake-link">{shortenAddress("0xf8ddba8fd0fa088dd8ca61a96458f22ab1857d8d", 15, 15)}</a></p>
 
                                 <div className="staking-card mx-auto" style={{"width": "85%"}}>
                                     <div className="app-card">
