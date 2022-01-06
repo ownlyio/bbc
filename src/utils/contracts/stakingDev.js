@@ -1,5 +1,5 @@
-const address = "0xf8ddba8fd0fa088dd8ca61a96458f22ab1857d8d"
-const abi = [
+const stakingAddress = "0xf8ddba8fd0fa088dd8ca61a96458f22ab1857d8d"
+const stakingAbi = [
     {
         "inputs":[
             {
@@ -496,4 +496,4 @@ const abi = [
     }
 ]
 
-export { abi, address }
+export { stakingAbi, stakingAddress }

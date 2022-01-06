@@ -1,36 +1,24 @@
 import './App.css'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { useState } from 'react'
-import { useWeb3React } from "@web3-react/core"
-import { injected } from './utils/injector'
-import web3 from "web3"
 
 import Navbar from './components/Navbar/Navbar'
-import Footer from './components/Footer/Footer';
+import Footer from './components/Footer/Footer'
 
 import ownlyLogo from './img/ownly/own-token.webp'
 import busdLogo from './img/busd/busd.webp'
 
+import { stakingTokenAbi, stakingTokenAddress } from './utils/contracts/stakingTokenDev'
+import { stakingAbi, stakingAddress } from './utils/contracts/stakingDev'
+
+import { configureWeb3 } from './utils/web3Init'
+
 function App() {
-    const { active, account, library, activate, deactivate } = useWeb3React()
-    const [state, setState] = useState({})
-
-    const connect = async () => {
-        try {
-            await activate(injected)
-            console.log(active, account, library)
-        } catch (ex) {
-            console.log(ex)
-        }
-    }
-
-    const disconnect = async () => {
-        try {
-            deactivate()
-        } catch (ex) {
-            console.log(ex)
-        }
-    }
+    const [state, setState] = useState({
+        isConnected: false,
+        account: "",
+        currentLPBalance: 0,
+    })
 
     const shortenAddress = (address, prefixCount, postfixCount) => {
         let prefix = address.substr(0, prefixCount);
@@ -43,10 +31,24 @@ function App() {
         setState(prevState => ({...prevState, [name]: value}))
     }
 
+    const connect = async () => {
+        const web3 = configureWeb3()
+        await window.ethereum.enable()
+        const acct = await web3.eth.getAccounts()
+        if (acct.length > 0) {
+            _setState("isConnected", true)
+            _setState("account", acct[0])
+        }
+
+        // initialize contracts
+        const stakingContract = new web3.eth.Contract(stakingAbi, stakingAddress)
+        const stakingTokenContract = new web3.eth.Contract(stakingTokenAbi, stakingTokenAddress)
+    }
+
     return (
         <Router basename={process.env.PUBLIC_URL}>
             <div className="app" style={{"backgroundColor": "rgb(244, 246, 248)"}}>
-                <Navbar connect={connect} disconnect={disconnect} active={active} account={account} shortenAddress={shortenAddress} />
+                <Navbar connect={connect} isConnected={state.isConnected} account={state.account} shortenAddress={shortenAddress} />
 
                 <div className="container">
                     <section id="app-staking" className="mb-4">
