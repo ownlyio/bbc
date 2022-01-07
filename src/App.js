@@ -118,7 +118,7 @@ function App() {
                                         <form>
                                             <p className="font-size-110 neo-light mb-1">Stake</p>
                                             <div className="form-group stake-form">
-                                                <input type="text" className="form-control form-control-lg stake-input" placeholder="Amount" />
+                                                <input type="number" className="form-control form-control-lg stake-input" placeholder="Amount" />
                                                 {/* <small id="stake-help" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
 
                                                 <button className="font-size-80 btn stake-btn neo-bold">MAX</button>
