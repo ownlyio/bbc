@@ -26,9 +26,6 @@ function Navbar({connect, isConnected, account, shortenAddress}) {
 
                 <div className="justify-content-between" id="navbarSupportedContent" style={{"flexGrow": "initial"}}>
                     <ul className="navbar-nav mb-2 mb-lg-0">
-                        <li className="nav-item">
-                            <a className="text-color-6 text-decoration-none" href="#" id="account-address"></a>
-                        </li>
                         { isConnected ? (
                             <li className="nav-item" id="connect-to-metamask-container">
                                 <button type="button" className="d-none d-sm-block btn btn-custom-9 shadow-sm font-size-90 py-2 px-4" id="connect-to-metamask" style={{"borderRadius": "100px"}}>Connected: {shortenAddress(account, 6, 6)}</button>
