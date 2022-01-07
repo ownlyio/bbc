@@ -25,7 +25,6 @@ function App() {
     const [state, setState] = useState({
         isConnected: false,
         account: "",
-        updatedAmount: '',
         currentLPBalance: 0,
         isApproved: false,
         totalLPTokensStaked: 0,
@@ -102,7 +101,7 @@ function App() {
     }
 
     const triggerMaxAmount = () => {
-        _setState("updatedAmount", state.currentLPBalance)
+        document.getElementById("stake-input-num").value = state.currentLPBalance
     }
 
     return (
@@ -145,7 +144,7 @@ function App() {
                                         <form>
                                             <p className="font-size-110 neo-light mb-1">Stake</p>
                                             <div className="form-group stake-form">
-                                                <input type="number" className="form-control form-control-lg stake-input" placeholder="Amount" value={state.updatedAmount} />
+                                                <input type="number" id="stake-input-num" className="form-control form-control-lg stake-input" placeholder="Amount" />
                                                 {/* <small id="stake-help" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
 
                                                 <button type="button" onClick={triggerMaxAmount} className="font-size-80 btn stake-btn neo-bold" disabled={!state.isConnected}>MAX</button>
@@ -156,11 +155,11 @@ function App() {
                                                 ) : (
                                                     <button type="button" onClick={handleShowNotConnected} className="btn stake-btn-func btn-custom-2" disabled={state.isApproved}>APPROVE</button>
                                                 )}
-                                                <button className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved}>STAKE</button>
+                                                <button type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved}>STAKE</button>
                                             </div>
                                             <div className="d-flex justify-content-between">
-                                                <button className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved}>UNSTAKE</button>
-                                                <button className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved}>WITHDRAW</button>
+                                                <button type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved}>UNSTAKE</button>
+                                                <button type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved}>WITHDRAW</button>
                                             </div>
                                         </form>
                                         {/* END STAKING FORM */}
