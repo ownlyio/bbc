@@ -1,6 +1,9 @@
 import './App.css'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Button, Modal } from 'react-bootstrap'
+import { faCheckCircle, faExclamationCircle } from '@fortawesome/free-solid-svg-icons'
 
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
@@ -16,14 +19,25 @@ import { configureWeb3 } from './utils/web3Init'
 
 function App() {
     let web3, stakingContract, stakingTokenContract
+    const [_web3, setWeb3] = useState()
+    const [_stakingContract, setStakingContract] = useState()
+    const [_stakingTokenContract, setStakingTokenContract] = useState()
     const [state, setState] = useState({
         isConnected: false,
         account: "",
+        updatedAmount: '',
         currentLPBalance: 0,
         isApproved: false,
         totalLPTokensStaked: 0,
         lpStakingDuration: 0,
+        userCurrentLPStaked: 0,
+        userRewardsEarned: 0,
     })
+
+    // Modals
+    const [showNotConnected, setShowNotConnected] = useState(false)
+    const handleCloseNotConnected = () => setShowNotConnected(false)
+    const handleShowNotConnected = () => setShowNotConnected(true)
 
     useEffect(() => {
         async function _init() {
@@ -32,6 +46,10 @@ function App() {
             // initialize contracts
             stakingContract = new web3.eth.Contract(stakingAbi, stakingAddress)
             stakingTokenContract = new web3.eth.Contract(stakingTokenAbi, stakingTokenAddress)
+
+            setWeb3(web3)
+            setStakingContract(stakingContract)
+            setStakingTokenContract(stakingTokenContract)
     
             // get total deposits
             const totalLP = await stakingContract.methods.totalSupply().call()
@@ -47,14 +65,19 @@ function App() {
 
     const connect = async () => {
         await window.ethereum.enable()
-        const acct = await web3.eth.getAccounts()
+        const acct = await _web3.eth.getAccounts()
         if (acct.length > 0) {
             _setState("isConnected", true)
             _setState("account", acct[0])
         }
 
-        const lpTokenBal = await stakingTokenContract.methods.balanceOf(acct[0]).call()
-        _setState("currentLPBalance", web3.utils.fromWei(lpTokenBal))
+        // get details of user account
+        const lpTokenBal = await _stakingTokenContract.methods.balanceOf(acct[0]).call()
+        _setState("currentLPBalance", _web3.utils.fromWei(lpTokenBal))
+        const lpTokenStaked = await _stakingContract.methods.balanceOf(acct[0]).call()
+        _setState("userCurrentLPStaked", _web3.utils.fromWei(lpTokenStaked))
+        const rewardsEarned = await _stakingContract.methods.earned(acct[0]).call()
+        _setState("userRewardsEarned", _web3.utils.fromWei(rewardsEarned))
     }
 
     // Utility functions
@@ -76,6 +99,10 @@ function App() {
 
     const _setState = (name, value) => {
         setState(prevState => ({...prevState, [name]: value}))
+    }
+
+    const triggerMaxAmount = () => {
+        _setState("updatedAmount", state.currentLPBalance)
     }
 
     return (
@@ -118,13 +145,17 @@ function App() {
                                         <form>
                                             <p className="font-size-110 neo-light mb-1">Stake</p>
                                             <div className="form-group stake-form">
-                                                <input type="number" className="form-control form-control-lg stake-input" placeholder="Amount" />
+                                                <input type="number" className="form-control form-control-lg stake-input" placeholder="Amount" value={state.updatedAmount} />
                                                 {/* <small id="stake-help" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
 
-                                                <button className="font-size-80 btn stake-btn neo-bold">MAX</button>
+                                                <button type="button" onClick={triggerMaxAmount} className="font-size-80 btn stake-btn neo-bold" disabled={!state.isConnected}>MAX</button>
                                             </div>
                                             <div className="d-flex justify-content-between mb-1">
-                                                <button className="btn stake-btn-func btn-custom-2" disabled={state.isApproved}>APPROVE</button>
+                                                { state.isConnected ? (
+                                                    <button type="button" className="btn stake-btn-func btn-custom-2" disabled={state.isApproved}>APPROVE</button>
+                                                ) : (
+                                                    <button type="button" onClick={handleShowNotConnected} className="btn stake-btn-func btn-custom-2" disabled={state.isApproved}>APPROVE</button>
+                                                )}
                                                 <button className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved}>STAKE</button>
                                             </div>
                                             <div className="d-flex justify-content-between">
@@ -141,7 +172,7 @@ function App() {
                                             <div className="d-flex justify-content-between">
                                                 <p className="mb-3 neo-bold font-size-90">Your Total LP Tokens Staked</p>
                                                 { state.isConnected ? (
-                                                    <p className="mb-3 neo-regular font-size-90">0.000000000000 OWN/BUSD</p>
+                                                    <p className="mb-3 neo-regular font-size-90">{state.userCurrentLPStaked} OWN/BUSD</p>
                                                 ) : (
                                                     <p className="mb-3 neo-regular font-size-90">Connect Wallet</p>
                                                 )}
@@ -149,7 +180,7 @@ function App() {
                                             <div className="d-flex justify-content-between">
                                                 <p className="mb-3 neo-bold font-size-90">Rewards Earned</p>
                                                 { state.isConnected ? (
-                                                    <p className="mb-3 neo-regular font-size-90">0.000000000000 OWN/BUSD</p>
+                                                    <p className="mb-3 neo-regular font-size-90">{state.userRewardsEarned} OWN</p>
                                                 ) : (
                                                     <p className="mb-3 neo-regular font-size-90">Connect Wallet</p>
                                                 )}
@@ -175,7 +206,7 @@ function App() {
                                             <div className="mb-3">
                                                 <p className="mb-1 neo-bold font-size-110">Your Total LP Tokens Staked</p>
                                                 { state.isConnected ? (
-                                                    <p className="mb-1 neo-regular font-size-90">0.000000000000 OWN/BUSD</p>
+                                                    <p className="mb-1 neo-regular font-size-90">{state.userCurrentLPStaked} OWN/BUSD</p>
                                                 ) : (
                                                     <p className="mb-1 neo-regular font-size-90">Connect Wallet</p>
                                                 )}
@@ -183,7 +214,7 @@ function App() {
                                             <div className="mb-3">
                                                 <p className="mb-1 neo-bold font-size-110">Rewards Earned</p>
                                                 { state.isConnected ? (
-                                                    <p className="mb-1 neo-regular font-size-90">0.000000000000 OWN/BUSD</p>
+                                                    <p className="mb-1 neo-regular font-size-90">{state.userRewardsEarned} OWN</p>
                                                 ) : (
                                                     <p className="mb-1 neo-regular font-size-90">Connect Wallet</p>
                                                 )}
@@ -214,6 +245,25 @@ function App() {
                 </div>
 
                 <Footer />
+
+                {/* Modals */}
+                
+                {/* Modal for not connected */}
+                <Modal show={showNotConnected} onHide={handleCloseNotConnected} backdrop="static" keyboard={false} size="sm" centered>
+                    <Modal.Body>
+                        <div className="text-center mb-3">
+                            <FontAwesomeIcon color="red" size="6x" icon={faExclamationCircle} />
+                        </div>
+                        <p className="app-error-modal-content text-center font-andes text-lg">Please connect to your Metamask Wallet.</p>
+                    </Modal.Body>
+                    <Modal.Footer className="justify-content-center">
+                        <Button className="font-w-hermann w-hermann-reg" variant="secondary" onClick={handleCloseNotConnected}>
+                            Close
+                        </Button>
+                    </Modal.Footer>
+                </Modal> 
+
+                {/* End Modals */}
             </div>
         </Router>
     );
