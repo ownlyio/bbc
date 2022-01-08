@@ -57,6 +57,12 @@ function App() {
     const [showStaked, setShowStaked] = useState(false)
     const handleCloseStaked = () => setShowStaked(false)
     const handleShowStaked = () => setShowStaked(true)
+    const [showClaim, setShowClaim] = useState(false)
+    const handleCloseClaim = () => setShowClaim(false)
+    const handleShowClaim = () => setShowClaim(true)
+    const [showExit, setShowExit] = useState(false)
+    const handleCloseExit = () => setShowExit(false)
+    const handleShowExit = () => setShowExit(true)
 
     useEffect(() => {
         async function _init() {
@@ -74,19 +80,20 @@ function App() {
             const duration = await stakingContract.methods.periodFinish().call()
             _setState("lpStakingDuration", convertTimestamp(duration))
     
-            initializeDetails()
+            // get total deposits
+            const totalLP = await stakingContract.methods.totalSupply().call()
+            _setState("totalLPTokensStaked", web3.utils.fromWei(totalLP))
         }
         
         _init()
     }, [])
 
     // contract functions
-    const initializeDetails = async (refreshBalance = 0) => {
+    const initializeDetails = async () => {
         // get total deposits
-        const totalLP = await stakingContract.methods.totalSupply().call()
-        _setState("totalLPTokensStaked", web3.utils.fromWei(totalLP))
-
-        if (refreshBalance) getDetailsOfUserAcct(state.account)
+        const totalLP = await _stakingContract.methods.totalSupply().call()
+        _setState("totalLPTokensStaked", _web3.utils.fromWei(totalLP))
+        getDetailsOfUserAcct(state.account)
     }
 
     const getDetailsOfUserAcct = async acct  => {
@@ -164,7 +171,7 @@ function App() {
                 handleShowStaked()
                 _setState("txHash", receipt.transactionHash)
                 _setState("helpText", `${stakeAmountEth} OWN/BUSD successfully staked.`)
-                initializeDetails(1)
+                initializeDetails()
 
                 // reset values
                 document.getElementById("stake-input-num").value = 0
@@ -293,7 +300,7 @@ function App() {
                                             </div>
                                             <div className="d-flex justify-content-between">
                                                 <p className="mb-3 neo-bold font-size-90">Rate</p>
-                                                <p className="mb-3 neo-regular font-size-90">1000000 OWN / week</p>
+                                                <p className="mb-3 neo-regular font-size-90">7000000 OWN / week</p>
                                             </div>
                                             <div className="d-flex justify-content-between">
                                                 <p className="mb-3 neo-bold font-size-90">Duration</p>
@@ -327,7 +334,7 @@ function App() {
                                             </div>
                                             <div className="mb-3">
                                                 <p className="mb-1 neo-bold font-size-110">Rate</p>
-                                                <p className="mb-1 neo-regular font-size-90">1000000 OWN / week</p>
+                                                <p className="mb-1 neo-regular font-size-90">7000000 OWN / week</p>
                                             </div>
                                             <div className="mb-3">
                                                 <p className="mb-1 neo-bold font-size-110">Duration</p>
@@ -419,6 +426,42 @@ function App() {
                     </Modal.Body>
                     <Modal.Footer className="justify-content-center">
                         <Button className="font-w-hermann w-hermann-reg" variant="secondary" onClick={handleCloseStaked}>
+                            Close
+                        </Button>
+                        <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => window.open(explorerUrl + state.txHash, '_blank').focus()}>
+                            View on EtherScan
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+
+                {/* Modal for successful claim */}
+                <Modal show={showClaim} onHide={handleCloseClaim} backdrop="static" keyboard={false} size="md" centered>
+                    <Modal.Body>
+                        <div className="text-center mb-3">
+                            <FontAwesomeIcon color="green" size="6x" icon={faCheckCircle} />
+                        </div>
+                        <p className="app-success-modal-content text-center font-andes text-lg">Your reward tokens are claimed successfully.</p>
+                    </Modal.Body>
+                    <Modal.Footer className="justify-content-center">
+                        <Button className="font-w-hermann w-hermann-reg" variant="secondary" onClick={handleCloseClaim}>
+                            Close
+                        </Button>
+                        <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => window.open(explorerUrl + state.txHash, '_blank').focus()}>
+                            View on EtherScan
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+
+                {/* Modal for successful exit */}
+                <Modal show={showExit} onHide={handleCloseExit} backdrop="static" keyboard={false} size="md" centered>
+                    <Modal.Body>
+                        <div className="text-center mb-3">
+                            <FontAwesomeIcon color="green" size="6x" icon={faCheckCircle} />
+                        </div>
+                        <p className="app-success-modal-content text-center font-andes text-lg">You have successfully withdrawn your staked LP Tokens and reward tokens.</p>
+                    </Modal.Body>
+                    <Modal.Footer className="justify-content-center">
+                        <Button className="font-w-hermann w-hermann-reg" variant="secondary" onClick={handleCloseExit}>
                             Close
                         </Button>
                         <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => window.open(explorerUrl + state.txHash, '_blank').focus()}>
