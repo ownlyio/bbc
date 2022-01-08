@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button, Modal } from 'react-bootstrap'
-import { faCheckCircle, faExclamationCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCheckCircle, faExclamationCircle, faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
@@ -31,12 +31,30 @@ function App() {
         lpStakingDuration: 0,
         userCurrentLPStaked: 0,
         userRewardsEarned: 0,
+        txError: "",
+        txHash: "",
     })
+
+    // Other Variables
+    // const explorerUrl = "https://bscscan.com//tx/"
+    const explorerUrl = "https://testnet.bscscan.com/"
 
     // Modals
     const [showNotConnected, setShowNotConnected] = useState(false)
     const handleCloseNotConnected = () => setShowNotConnected(false)
     const handleShowNotConnected = () => setShowNotConnected(true)
+    const [showPleaseWait, setShowPleaseWait] = useState(false)
+    const handleClosePleaseWait = () => setShowPleaseWait(false)
+    const handleShowPleaseWait = () => setShowPleaseWait(true)
+    const [showOnApprove, setShowOnApprove] = useState(false)
+    const handleCloseOnApprove = () => setShowOnApprove(false)
+    const handleShowOnApprove = () => setShowOnApprove(true)
+    const [showOnError, setShowOnError] = useState(false)
+    const handleCloseOnError = () => setShowOnError(false)
+    const handleShowOnError = () => setShowOnError(true)
+    const [showStaked, setShowStaked] = useState(false)
+    const handleCloseStaked = () => setShowStaked(false)
+    const handleShowStaked = () => setShowStaked(true)
 
     useEffect(() => {
         async function _init() {
@@ -62,9 +80,9 @@ function App() {
         _init()
     }, [])
 
+    // contract functions
     const connect = async () => {
-        await window.ethereum.enable()
-        const acct = await _web3.eth.getAccounts()
+        const acct = await window.ethereum.request({ method: "eth_requestAccounts"})
         if (acct.length > 0) {
             _setState("isConnected", true)
             _setState("account", acct[0])
@@ -77,6 +95,34 @@ function App() {
         _setState("userCurrentLPStaked", _web3.utils.fromWei(lpTokenStaked))
         const rewardsEarned = await _stakingContract.methods.earned(acct[0]).call()
         _setState("userRewardsEarned", _web3.utils.fromWei(rewardsEarned))
+    }
+
+    const approveStaking = async () => {
+        const approveAmount = getStakeAmount()
+
+        if (approveAmount == 0 || approveAmount == "") {
+            handleShowOnError()
+            _setState("txError", "Please provide a valid amount!")
+        } else {
+            await _stakingTokenContract.methods.approve(stakingAddress, approveAmount).send({
+                from: state.account
+            })
+            .on('transactionHash', function(hash){
+                handleShowPleaseWait()
+            })
+            .on('error', function(error) {
+                handleClosePleaseWait()
+                handleShowOnError()
+                _setState("isApproved", false)
+                _setState("txError", error.message)
+            })
+            .then(async function(receipt) {
+                handleClosePleaseWait()
+                handleShowOnApprove()
+                _setState("isApproved", true)
+                _setState("txHash", receipt.transactionHash)
+            })
+        }
     }
 
     // Utility functions
@@ -94,6 +140,10 @@ function App() {
         let postfix = address.substr(address.length - postfixCount, address.length);
     
         return prefix + "..." + postfix;
+    }
+
+    const getStakeAmount = () => {
+        return document.getElementById("stake-input-num").value
     }
 
     const _setState = (name, value) => {
@@ -143,15 +193,15 @@ function App() {
                                         {/* STAKING FORM */}
                                         <form>
                                             <p className="font-size-110 neo-light mb-1">Stake</p>
-                                            <div className="form-group stake-form">
-                                                <input type="number" id="stake-input-num" className="form-control form-control-lg stake-input" placeholder="Amount" />
-                                                {/* <small id="stake-help" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
+                                            <div className="form-group stake-form mb-3">
+                                                <input type="number" id="stake-input-num" className="form-control form-control-lg stake-input" placeholder="Amount" readOnly={state.isApproved} />
+                                                <small id="stake-help" className="form-text text-muted">Please enter an amount greater than 0.</small>
 
-                                                <button type="button" onClick={triggerMaxAmount} className="font-size-80 btn stake-btn neo-bold" disabled={!state.isConnected}>MAX</button>
+                                                <button type="button" onClick={triggerMaxAmount} className="font-size-80 btn stake-btn neo-bold" disabled={!state.isConnected || state.isApproved}>MAX</button>
                                             </div>
                                             <div className="d-flex justify-content-between mb-1">
                                                 { state.isConnected ? (
-                                                    <button type="button" className="btn stake-btn-func btn-custom-2" disabled={state.isApproved}>APPROVE</button>
+                                                    <button onClick={approveStaking} type="button" className="btn stake-btn-func btn-custom-2" disabled={state.isApproved}>APPROVE</button>
                                                 ) : (
                                                     <button type="button" onClick={handleShowNotConnected} className="btn stake-btn-func btn-custom-2" disabled={state.isApproved}>APPROVE</button>
                                                 )}
@@ -261,6 +311,72 @@ function App() {
                         </Button>
                     </Modal.Footer>
                 </Modal> 
+
+                {/* Modal for error transaction */}
+                <Modal show={showOnError} onHide={handleCloseOnError} backdrop="static" keyboard={false} size="sm" centered>
+                    <Modal.Body>
+                        <div className="text-center mb-3">
+                            <FontAwesomeIcon color="red" size="6x" icon={faExclamationCircle} />
+                        </div>
+                        <p className="app-error-modal-content text-center font-andes text-lg">Error: {state.txError}</p>
+                    </Modal.Body>
+                    <Modal.Footer className="justify-content-center">
+                        <Button className="font-w-hermann w-hermann-reg" variant="secondary" onClick={handleCloseOnError}>
+                            Close
+                        </Button>
+                    </Modal.Footer>
+                </Modal> 
+
+                {/* Modal for waiting */}
+                <Modal show={showPleaseWait} onHide={handleClosePleaseWait} backdrop="static" keyboard={false} size="sm" centered>
+                    <Modal.Body>
+                        <div className="text-center mb-3">
+                            <FontAwesomeIcon color="grey" size="6x" icon={faSpinner} spin />
+                        </div>
+                        <p className="app-error-modal-content text-center font-andes text-lg">Please wait...</p>
+                    </Modal.Body>
+                    <Modal.Footer className="justify-content-center">
+                        <Button className="font-w-hermann w-hermann-reg" variant="secondary" onClick={handleClosePleaseWait}>
+                            Close
+                        </Button>
+                    </Modal.Footer>
+                </Modal> 
+
+                {/* Modal for successful approve */}
+                <Modal show={showOnApprove} onHide={handleCloseOnApprove} backdrop="static" keyboard={false} size="md" centered>
+                    <Modal.Body>
+                        <div className="text-center mb-3">
+                            <FontAwesomeIcon color="green" size="6x" icon={faCheckCircle} />
+                        </div>
+                        <p className="app-success-modal-content text-center font-andes text-lg">Your transaction was approved. You can now proceed.</p>
+                    </Modal.Body>
+                    <Modal.Footer className="justify-content-center">
+                        <Button className="font-w-hermann w-hermann-reg" variant="secondary" onClick={handleCloseOnApprove}>
+                            Close
+                        </Button>
+                        <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => window.open(explorerUrl + state.txHash, '_blank').focus()}>
+                            View on EtherScan
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+
+                {/* Modal for successful staking */}
+                <Modal show={showStaked} onHide={handleCloseStaked} backdrop="static" keyboard={false} size="md" centered>
+                    <Modal.Body>
+                        <div className="text-center mb-3">
+                            <FontAwesomeIcon color="green" size="6x" icon={faCheckCircle} />
+                        </div>
+                        <p className="app-success-modal-content text-center font-andes text-lg">Your LP tokens are staked successfully.</p>
+                    </Modal.Body>
+                    <Modal.Footer className="justify-content-center">
+                        <Button className="font-w-hermann w-hermann-reg" variant="secondary" onClick={handleCloseStaked}>
+                            Close
+                        </Button>
+                        <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => window.open(explorerUrl + state.txHash, '_blank').focus()}>
+                            View on EtherScan
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
 
                 {/* End Modals */}
             </div>
