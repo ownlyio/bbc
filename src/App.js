@@ -11,11 +11,16 @@ import Footer from './components/Footer/Footer'
 import ownlyLogo from './img/ownly/own-token.webp'
 import busdLogo from './img/busd/busd.webp'
 
+// PRODUCTION
 // import { stakingTokenAbi, stakingTokenAddress } from './utils/contracts/stakingToken'
+// import { stakingAbi, stakingAddress } from './utils/contracts/staking'
+
+// DEVELOPMENT
 import { stakingTokenAbi, stakingTokenAddress } from './utils/contracts/stakingTokenDev'
 import { stakingAbi, stakingAddress } from './utils/contracts/stakingDev'
 
 import { configureWeb3 } from './utils/web3Init'
+import { getApr } from './utils/apr'
 
 function App() {
     let web3, stakingContract, stakingTokenContract
@@ -30,6 +35,7 @@ function App() {
         isApproved: false,
         isLoaded: false,
         stakedAmount: 0,
+        apr: 0,
         totalLPTokensStaked: 0,
         lpStakingDuration: 0,
         userCurrentLPStaked: 0,
