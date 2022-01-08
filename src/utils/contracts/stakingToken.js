@@ -1,6 +1,6 @@
 // Cake-LP Token Contract and ABI
-const stakingTokenLp = "0x5b14378D1Bab6bF323Ebd6cFd4A26Ec2c49598Da"
-const stakingTokenLpABI = [
+const stakingTokenAddress = "0x5b14378D1Bab6bF323Ebd6cFd4A26Ec2c49598Da"
+const stakingTokenAbi = [
     {
         "inputs":[
             
@@ -756,4 +756,4 @@ const stakingTokenLpABI = [
     }
 ]
 
-export { stakingTokenLpABI, stakingTokenLp }
+export { stakingTokenAbi, stakingTokenAddress }
