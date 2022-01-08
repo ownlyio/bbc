@@ -11,7 +11,7 @@ import Footer from './components/Footer/Footer'
 import ownlyLogo from './img/ownly/own-token.webp'
 import busdLogo from './img/busd/busd.webp'
 
-// import { stakingTokenLpABI, stakingTokenLp } from './utils/contracts/stakingToken'
+// import { stakingTokenAbi, stakingTokenAddress } from './utils/contracts/stakingToken'
 import { stakingTokenAbi, stakingTokenAddress } from './utils/contracts/stakingTokenDev'
 import { stakingAbi, stakingAddress } from './utils/contracts/stakingDev'
 
@@ -28,6 +28,7 @@ function App() {
         helpText: "Please enter an amount greater than 0.",
         currentLPBalance: 0,
         isApproved: false,
+        stakedAmount: 0,
         totalLPTokensStaked: 0,
         lpStakingDuration: 0,
         userCurrentLPStaked: 0,
@@ -68,20 +69,35 @@ function App() {
             setWeb3(web3)
             setStakingContract(stakingContract)
             setStakingTokenContract(stakingTokenContract)
-    
-            // get total deposits
-            const totalLP = await stakingContract.methods.totalSupply().call()
-            _setState("totalLPTokensStaked", web3.utils.fromWei(totalLP))
 
             // get staking duration
             const duration = await stakingContract.methods.periodFinish().call()
             _setState("lpStakingDuration", convertTimestamp(duration))
+    
+            initializeDetails()
         }
         
         _init()
     }, [])
 
     // contract functions
+    const initializeDetails = async (refreshBalance = 0) => {
+        // get total deposits
+        const totalLP = await stakingContract.methods.totalSupply().call()
+        _setState("totalLPTokensStaked", web3.utils.fromWei(totalLP))
+
+        if (refreshBalance) getDetailsOfUserAcct(state.account)
+    }
+
+    const getDetailsOfUserAcct = async acct  => {
+        const lpTokenBal = await _stakingTokenContract.methods.balanceOf(acct).call()
+        _setState("currentLPBalance", _web3.utils.fromWei(lpTokenBal))
+        const lpTokenStaked = await _stakingContract.methods.balanceOf(acct).call()
+        _setState("userCurrentLPStaked", _web3.utils.fromWei(lpTokenStaked))
+        const rewardsEarned = await _stakingContract.methods.earned(acct).call()
+        _setState("userRewardsEarned", _web3.utils.fromWei(rewardsEarned))
+    }
+
     const connect = async () => {
         const acct = await window.ethereum.request({ method: "eth_requestAccounts"})
         if (acct.length > 0) {
@@ -89,17 +105,12 @@ function App() {
             _setState("account", acct[0])
         }
 
-        // get details of user account
-        const lpTokenBal = await _stakingTokenContract.methods.balanceOf(acct[0]).call()
-        _setState("currentLPBalance", _web3.utils.fromWei(lpTokenBal))
-        const lpTokenStaked = await _stakingContract.methods.balanceOf(acct[0]).call()
-        _setState("userCurrentLPStaked", _web3.utils.fromWei(lpTokenStaked))
-        const rewardsEarned = await _stakingContract.methods.earned(acct[0]).call()
-        _setState("userRewardsEarned", _web3.utils.fromWei(rewardsEarned))
+        getDetailsOfUserAcct(acct[0])
     }
 
     const approveStaking = async () => {
         const approveAmount = getStakeAmount()
+        const approveAmountEth = _web3.utils.fromWei(approveAmount)
 
         if (approveAmount === 0 || approveAmount === "") {
             handleShowOnError()
@@ -122,7 +133,42 @@ function App() {
                 handleShowOnApprove()
                 _setState("isApproved", true)
                 _setState("txHash", receipt.transactionHash)
-                _setState("helpText", `${approveAmount} OWN/BUSD ready for staking.`)
+                _setState("stakedAmount", approveAmount)
+                _setState("helpText", `${approveAmountEth} OWN/BUSD ready for staking.`)
+            })
+        }
+    }
+
+    const enterStaking = async () => {
+        const stakeAmount = state.stakedAmount
+        const stakeAmountEth = _web3.utils.fromWei(stakeAmount)
+
+        if (stakeAmount === 0 || stakeAmount === "") {
+            handleShowOnError()
+            _setState("txError", "Please provide a valid amount!")
+        } else {
+            await _stakingContract.methods.stake(stakeAmount).send({
+                from: state.account
+            })
+            .on('transactionHash', function(hash){
+                handleShowPleaseWait()
+            })
+            .on('error', function(error) {
+                handleClosePleaseWait()
+                handleShowOnError()
+                _setState("isStaked", false)
+                _setState("txError", error.message)
+            })
+            .then(async function(receipt) {
+                handleClosePleaseWait()
+                handleShowStaked()
+                _setState("txHash", receipt.transactionHash)
+                _setState("helpText", `${stakeAmountEth} OWN/BUSD successfully staked.`)
+                initializeDetails(1)
+
+                // reset values
+                document.getElementById("stake-input-num").value = 0
+                _setState("stakedAmount", 0)
             })
         }
     }
@@ -145,7 +191,8 @@ function App() {
     }
 
     const getStakeAmount = () => {
-        return document.getElementById("stake-input-num").value
+        const amt = document.getElementById("stake-input-num").value
+        return _web3.utils.toWei(amt)
     }
 
     const _setState = (name, value) => {
@@ -207,7 +254,7 @@ function App() {
                                                 ) : (
                                                     <button type="button" onClick={handleShowNotConnected} className="btn stake-btn-func btn-custom-2" disabled={state.isApproved}>APPROVE</button>
                                                 )}
-                                                <button type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved}>STAKE</button>
+                                                <button onClick={enterStaking} type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved}>STAKE</button>
                                             </div>
                                             <div className="d-flex justify-content-between">
                                                 <button type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved}>CLAIM</button>
