@@ -25,6 +25,7 @@ function App() {
     const [state, setState] = useState({
         isConnected: false,
         account: "",
+        helpText: "Please enter an amount greater than 0.",
         currentLPBalance: 0,
         isApproved: false,
         totalLPTokensStaked: 0,
@@ -37,7 +38,7 @@ function App() {
 
     // Other Variables
     // const explorerUrl = "https://bscscan.com//tx/"
-    const explorerUrl = "https://testnet.bscscan.com/"
+    const explorerUrl = "https://testnet.bscscan.com/tx/"
 
     // Modals
     const [showNotConnected, setShowNotConnected] = useState(false)
@@ -100,7 +101,7 @@ function App() {
     const approveStaking = async () => {
         const approveAmount = getStakeAmount()
 
-        if (approveAmount == 0 || approveAmount == "") {
+        if (approveAmount === 0 || approveAmount === "") {
             handleShowOnError()
             _setState("txError", "Please provide a valid amount!")
         } else {
@@ -121,6 +122,7 @@ function App() {
                 handleShowOnApprove()
                 _setState("isApproved", true)
                 _setState("txHash", receipt.transactionHash)
+                _setState("helpText", `${approveAmount} OWN/BUSD ready for staking.`)
             })
         }
     }
@@ -195,7 +197,7 @@ function App() {
                                             <p className="font-size-110 neo-light mb-1">Stake</p>
                                             <div className="form-group stake-form mb-3">
                                                 <input type="number" id="stake-input-num" className="form-control form-control-lg stake-input" placeholder="Amount" readOnly={state.isApproved} />
-                                                <small id="stake-help" className="form-text text-muted">Please enter an amount greater than 0.</small>
+                                                <small id="stake-help" className="form-text text-muted">{state.helpText}</small>
 
                                                 <button type="button" onClick={triggerMaxAmount} className="font-size-80 btn stake-btn neo-bold" disabled={!state.isConnected || state.isApproved}>MAX</button>
                                             </div>
@@ -208,8 +210,8 @@ function App() {
                                                 <button type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved}>STAKE</button>
                                             </div>
                                             <div className="d-flex justify-content-between">
-                                                <button type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved}>UNSTAKE</button>
-                                                <button type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved}>WITHDRAW</button>
+                                                <button type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved}>CLAIM</button>
+                                                <button type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved}>CLAIM & WITHDRAW</button>
                                             </div>
                                         </form>
                                         {/* END STAKING FORM */}
