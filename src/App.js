@@ -119,13 +119,14 @@ function App() {
     }
 
     const approveStaking = async () => {
-        const approveAmount = getStakeAmount()
-        const approveAmountEth = _web3.utils.fromWei(approveAmount)
+        const approveAmountEth = getStakeAmount()
 
-        if (approveAmount === 0 || approveAmount === "") {
+        if (approveAmountEth === "0" || approveAmountEth === 0 || approveAmountEth === "") {
             handleShowOnError()
             _setState("txError", "Please provide a valid amount!")
         } else {
+            const approveAmount = _web3.utils.toWei(approveAmountEth)
+        
             await _stakingTokenContract.methods.approve(stakingAddress, approveAmount).send({
                 from: state.account
             })
@@ -143,20 +144,21 @@ function App() {
                 handleShowOnApprove()
                 _setState("isApproved", true)
                 _setState("txHash", receipt.transactionHash)
-                _setState("stakedAmount", approveAmount)
+                _setState("stakedAmount", approveAmountEth)
                 _setState("helpText", `${approveAmountEth} OWN/BUSD ready for staking.`)
             })
         }
     }
 
     const enterStaking = async () => {
-        const stakeAmount = state.stakedAmount
-        const stakeAmountEth = _web3.utils.fromWei(stakeAmount)
+        const stakeAmountEth = state.stakedAmount
 
-        if (stakeAmount === 0 || stakeAmount === "") {
+        if (stakeAmountEth === "0" || stakeAmountEth === 0) {
             handleShowOnError()
             _setState("txError", "Please provide a valid amount!")
         } else {
+            const stakeAmount = _web3.utils.toWei(stakeAmountEth)
+            
             await _stakingContract.methods.stake(stakeAmount).send({
                 from: state.account
             })
@@ -172,7 +174,7 @@ function App() {
                 handleClosePleaseWait()
                 handleShowStaked()
                 _setState("txHash", receipt.transactionHash)
-                _setState("helpText", `${stakeAmountEth} OWN/BUSD successfully staked.`)
+                _setState("helpText", `${3} OWN/BUSD successfully staked.`)
                 updateDetails()
 
                 // reset values
@@ -185,7 +187,7 @@ function App() {
     const claimRewards = async () => {
         const rewards = state.userRewardsEarned
 
-        if (rewards === 0 || rewards === "") {
+        if (rewards === "0" || rewards === 0) {
             handleShowOnError()
             _setState("txError", "You do not have any reward tokens to claim.")
         } else {
@@ -213,7 +215,7 @@ function App() {
     const claimAndWithdraw = async () => {
         const withdrawAmt = state.userCurrentLPStaked
 
-        if (withdrawAmt === 0 || withdrawAmt === "") {
+        if (withdrawAmt === "0" || withdrawAmt === 0 ) {
             handleShowOnError()
             _setState("txError", "You do not have any LP Tokens staked.")
         } else {
@@ -256,8 +258,7 @@ function App() {
     }
 
     const getStakeAmount = () => {
-        const amt = document.getElementById("stake-input-num").value
-        return _web3.utils.toWei(amt)
+        return document.getElementById("stake-input-num").value
     }
 
     const _setState = (name, value) => {
