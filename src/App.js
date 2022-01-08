@@ -28,6 +28,7 @@ function App() {
         helpText: "Please enter an amount greater than 0.",
         currentLPBalance: 0,
         isApproved: false,
+        isLoaded: false,
         stakedAmount: 0,
         totalLPTokensStaked: 0,
         lpStakingDuration: 0,
@@ -89,7 +90,7 @@ function App() {
     }, [])
 
     // contract functions
-    const initializeDetails = async () => {
+    const updateDetails = async () => {
         // get total deposits
         const totalLP = await _stakingContract.methods.totalSupply().call()
         _setState("totalLPTokensStaked", _web3.utils.fromWei(totalLP))
@@ -103,6 +104,8 @@ function App() {
         _setState("userCurrentLPStaked", _web3.utils.fromWei(lpTokenStaked))
         const rewardsEarned = await _stakingContract.methods.earned(acct).call()
         _setState("userRewardsEarned", _web3.utils.fromWei(rewardsEarned))
+
+        _setState("isLoaded", true)
     }
 
     const connect = async () => {
@@ -163,7 +166,6 @@ function App() {
             .on('error', function(error) {
                 handleClosePleaseWait()
                 handleShowOnError()
-                _setState("isStaked", false)
                 _setState("txError", error.message)
             })
             .then(async function(receipt) {
@@ -171,11 +173,67 @@ function App() {
                 handleShowStaked()
                 _setState("txHash", receipt.transactionHash)
                 _setState("helpText", `${stakeAmountEth} OWN/BUSD successfully staked.`)
-                initializeDetails()
+                updateDetails()
 
                 // reset values
                 document.getElementById("stake-input-num").value = 0
                 _setState("stakedAmount", 0)
+            })
+        }
+    }
+
+    const claimRewards = async () => {
+        const rewards = state.userRewardsEarned
+
+        if (rewards === 0 || rewards === "") {
+            handleShowOnError()
+            _setState("txError", "You do not have any reward tokens to claim.")
+        } else {
+            await _stakingContract.methods.getReward().send({
+                from: state.account
+            })
+            .on('transactionHash', function(hash){
+                handleShowPleaseWait()
+            })
+            .on('error', function(error) {
+                handleClosePleaseWait()
+                handleShowOnError()
+                _setState("txError", error.message)
+            })
+            .then(async function(receipt) {
+                handleClosePleaseWait()
+                handleShowClaim()
+                _setState("txHash", receipt.transactionHash)
+                _setState("helpText", 'Please enter an amount greater than 0.')
+                updateDetails()
+            })
+        }
+    }
+
+    const claimAndWithdraw = async () => {
+        const withdrawAmt = state.userCurrentLPStaked
+
+        if (withdrawAmt === 0 || withdrawAmt === "") {
+            handleShowOnError()
+            _setState("txError", "You do not have any LP Tokens staked.")
+        } else {
+            await _stakingContract.methods.exit().send({
+                from: state.account
+            })
+            .on('transactionHash', function(hash){
+                handleShowPleaseWait()
+            })
+            .on('error', function(error) {
+                handleClosePleaseWait()
+                handleShowOnError()
+                _setState("txError", error.message)
+            })
+            .then(async function(receipt) {
+                handleClosePleaseWait()
+                handleShowExit()
+                _setState("txHash", receipt.transactionHash)
+                _setState("helpText", 'Please enter an amount greater than 0.')
+                updateDetails()
             })
         }
     }
@@ -264,8 +322,8 @@ function App() {
                                                 <button onClick={enterStaking} type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved}>STAKE</button>
                                             </div>
                                             <div className="d-flex justify-content-between">
-                                                <button type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved}>CLAIM</button>
-                                                <button type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved}>CLAIM & WITHDRAW</button>
+                                                <button onClick={claimRewards} type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isLoaded}>CLAIM</button>
+                                                <button onClick={claimAndWithdraw} type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isLoaded}>CLAIM & WITHDRAW</button>
                                             </div>
                                         </form>
                                         {/* END STAKING FORM */}
