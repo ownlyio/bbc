@@ -118,9 +118,22 @@ function App() {
         }
         
         _init()
+        accountChangedListener()
     }, [])
 
-    // app and contract functions
+    // web3, metamask and contract functions
+    // account change listener
+    const accountChangedListener = () => {
+        window.ethereum.on('accountsChanged', (accounts) => {
+            if (accounts.length > 0) {
+                _setState("account", accounts[0])
+            } else {
+                _setState("txError", "No account detected.")
+                handleShowOnError()
+            }
+        })
+    }
+
     // function that will automatically update the details after approve, stake, claim and exit
     const updateDetails = async () => {
         // get total deposits
