@@ -79,9 +79,9 @@ function App() {
     useEffect(() => {
         async function _init() {
             // WEB3 RPC - BSC MAINNET
-            // const web3 = configureWeb3("https://bsc-dataseed.binance.org/")
+            // web3 = configureWeb3("https://bsc-dataseed.binance.org/")
             // WEB3 RPC - BSC TESTNET (COMMENT WHEN PRODUCTION)
-            const web3 = configureWeb3("https://data-seed-prebsc-1-s1.binance.org:8545/")
+            web3 = configureWeb3("https://data-seed-prebsc-1-s1.binance.org:8545/")
 
             // RPC Initialize
             stakingContract = new web3.eth.Contract(stakingAbi, stakingAddress)
@@ -107,10 +107,6 @@ function App() {
             // get total deposits
             const totalLP = await stakingContract.methods.totalSupply().call()
             _setState("totalLPTokensStaked", web3.utils.fromWei(totalLP))
-
-            // APR
-            const apr = await getApr()
-            _setState("apr", roundOff(apr))
         }
         
         _init()
@@ -132,12 +128,15 @@ function App() {
         const rewardsEarned = await _stakingContract.methods.earned(acct).call()
         _setState("userRewardsEarned", _web3.utils.fromWei(rewardsEarned))
 
+        // APR
+        const apr = await getApr()
+        _setState("apr", roundOff(apr))
+
         _setState("isLoaded", true)
     }
 
     const connect = async () => {
         if (state.hasMetamask) {
-            handleShowMetamaskInstall()
             const acct = await window.ethereum.request({ method: "eth_requestAccounts"})
             if (acct.length > 0) {
                 _setState("isConnected", true)
