@@ -393,6 +393,10 @@ function App() {
 
     // add thousands separator
     function addCommasToNumber(x) {
+        if (!Number.isInteger(Number(x))) {
+            x = Number(x).toFixed(5)
+        }
+        
         return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
     }
 
