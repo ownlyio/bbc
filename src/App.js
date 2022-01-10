@@ -26,7 +26,7 @@ import { getApr } from './utils/apr'
 import networks from './utils/networks'
 
 function App() {
-    let web3, stakingContract, stakingTokenContract
+    let web3, stakingContract
     const [_web3, setWeb3] = useState()
     const [_stakingContract, setStakingContract] = useState()
     const [_stakingTokenContract, setStakingTokenContract] = useState()
@@ -96,12 +96,11 @@ function App() {
 
             // RPC Initialize
             stakingContract = new web3.eth.Contract(stakingAbi, stakingAddress)
-            stakingTokenContract = new web3.eth.Contract(stakingTokenAbi, stakingTokenAddress)
 
             // Metamask
             const web3Metamask = configureWeb3()
 
-            if (web3Metamask != 1) { 
+            if (web3Metamask !== 1) { 
                 const stakingContractMetamask = new web3Metamask.eth.Contract(stakingAbi, stakingAddress)
                 const stakingTokenContractMetamask = new web3Metamask.eth.Contract(stakingTokenAbi, stakingTokenAddress)
                 setWeb3(web3Metamask)
@@ -142,9 +141,9 @@ function App() {
         if (window.ethereum) {
             window.ethereum.on('chainChanged', (chainId) => {
                 // PRODUCTION
-                // if (chainId != "0x38") {
+                // if (chainId !== "0x38") {
                 // DEVELOPMENT
-                if (chainId != "0x61") { 
+                if (chainId !== "0x61") { 
                     _setState("detectedChangeMessage", "Network change detected!")
                     handleShowDetected()
                 }
@@ -189,7 +188,7 @@ function App() {
 
             handleCloseWrongNetwork()
         } catch (error) {
-            if (error.code == 4902) {
+            if (error.code === 4902) {
                 try {
                     await web3.currentProvider.request({
                         method: "wallet_addEthereumChain",
@@ -208,7 +207,10 @@ function App() {
         if (state.hasMetamask) {
             const netId = await _web3.eth.net.getId() // 97 - BSC testnet, 56 - BSC Mainnet
             
-            if (netId == 97) {
+            // PRODUCTION
+            // if (netId === 56) {
+            // DEVELOPMENT
+            if (netId === 97) {
                 const acct = await window.ethereum.request({ method: "eth_requestAccounts"})
                 if (acct.length > 0) {
                     _setState("isConnected", true)
