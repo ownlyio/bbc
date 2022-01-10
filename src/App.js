@@ -10,6 +10,7 @@ import Footer from './components/Footer/Footer'
 
 import ownlyLogo from './img/ownly/own-token.webp'
 import busdLogo from './img/busd/busd.webp'
+import metamask from './img/metamask.png'
 
 // PRODUCTION
 // import { stakingTokenAbi, stakingTokenAddress } from './utils/contracts/stakingToken'
@@ -33,6 +34,7 @@ function App() {
         helpText: "Please enter an amount greater than 0.",
         currentLPBalance: 0,
         isApproved: false,
+        hasMetamask: false,
         isLoaded: false,
         stakedAmount: 0,
         apr: 0,
@@ -70,6 +72,9 @@ function App() {
     const [showExit, setShowExit] = useState(false)
     const handleCloseExit = () => setShowExit(false)
     const handleShowExit = () => setShowExit(true)
+    const [showMetamaskInstall, setShowMetamaskInstall] = useState(false)
+    const handleCloseMetamaskInstall = () => setShowMetamaskInstall(false)
+    const handleShowMetamaskInstall = () => setShowMetamaskInstall(true)
 
     useEffect(() => {
         async function _init() {
@@ -81,6 +86,19 @@ function App() {
             // RPC Initialize
             stakingContract = new web3.eth.Contract(stakingAbi, stakingAddress)
             stakingTokenContract = new web3.eth.Contract(stakingTokenAbi, stakingTokenAddress)
+
+            const web3Metamask = configureWeb3()
+
+            if (web3Metamask != 1) { 
+                const stakingContractMetamask = new web3.eth.Contract(stakingAbi, stakingAddress)
+                const stakingTokenContractMetamask = new web3.eth.Contract(stakingTokenAbi, stakingTokenAddress)
+                setWeb3(web3Metamask)
+                setStakingContract(stakingContractMetamask)
+                setStakingTokenContract(stakingTokenContractMetamask)
+                _setState("hasMetamask", true)
+            } else {
+                _setState("hasMetamask", false)
+            }
 
             // get staking duration
             const duration = await stakingContract.methods.periodFinish().call()
@@ -118,16 +136,8 @@ function App() {
     }
 
     const connect = async () => {
-        // Metamask
-        const web3Metamask = configureWeb3()
-
-        if (web3Metamask != 1) {
-            const stakingContractMetamask = new web3.eth.Contract(stakingAbi, stakingAddress)
-            const stakingTokenContractMetamask = new web3.eth.Contract(stakingTokenAbi, stakingTokenAddress)
-            setWeb3(web3Metamask)
-            setStakingContract(stakingContractMetamask)
-            setStakingTokenContract(stakingTokenContractMetamask)
-
+        if (state.hasMetamask) {
+            handleShowMetamaskInstall()
             const acct = await window.ethereum.request({ method: "eth_requestAccounts"})
             if (acct.length > 0) {
                 _setState("isConnected", true)
@@ -136,7 +146,7 @@ function App() {
 
             getDetailsOfUserAcct(acct[0])
         } else {
-            
+            handleShowMetamaskInstall()
         }
     }
 
@@ -554,6 +564,24 @@ function App() {
                         </Button>
                     </Modal.Footer>
                 </Modal>
+
+                {/* Modal for No Metamask */}
+                <Modal show={showMetamaskInstall} onHide={handleCloseMetamaskInstall} backdrop="static" keyboard={false} size="sm" centered>
+                    <Modal.Body>
+                        <div style={{"textAlign": "center"}}>
+                            <img src={metamask} alt="Metamask logo" />
+                        </div>
+                        <p className="app-metamask-modal-content text-center font-andes text-lg">Metamask is currently not installed</p>
+                    </Modal.Body>
+                    <Modal.Footer className="justify-content-center">
+                        <Button className="font-w-hermann w-hermann-reg" variant="secondary" onClick={handleCloseMetamaskInstall}>
+                            Close
+                        </Button>
+                        <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => window.open("https://metamask.io/download", '_blank').focus()}>
+                            Install Metamask
+                        </Button>
+                    </Modal.Footer>
+                </Modal>   
 
                 {/* End Modals */}
             </div>
