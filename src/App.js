@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button, Modal } from 'react-bootstrap'
-import { faCheckCircle, faExclamationCircle, faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { faCheckCircle, faExclamationCircle, faExternalLinkAlt, faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
@@ -422,10 +422,6 @@ function App() {
                                 <p className="text-center font-size-90 text-color-6 neo-light mb-4">Stake your <b>CAKE LP Tokens</b> and receive <b>OWN</b></p>
                                 <p className="total-dep bg-color-4 text-white text-center font-size-110 neo-light mb-2"><b>TOTAL DEPOSITS:</b> {state.totalLPTokensStaked} OWN/BUSD</p>
 
-                                {/* PRODUCTION */}
-                                <p className="d-none d-sm-block text-center font-size-90 text-color-6 neo-light mb-4"><b>Smart Contract:</b> <a href="https://testnet.bscscan.com/address/0x73B08F1d787Be5bb0a6572C0444A50A48d55902E" target="_blank" rel="noreferrer" className="stake-link">0x73B08F1d787Be5bb0a6572C0444A50A48d55902E</a></p>
-                                <p className="d-block d-sm-none text-center font-size-90 text-color-6 neo-light mb-4"><b>Smart Contract:</b> <a href="https://testnet.bscscan.com/address/0x73B08F1d787Be5bb0a6572C0444A50A48d55902E" target="_blank" rel="noreferrer" className="stake-link">{shortenAddress("0x73B08F1d787Be5bb0a6572C0444A50A48d55902E", 15, 15)}</a></p>
-
                                 <div className="staking-card mx-auto" style={{"width": "85%"}}>
                                     <div className="app-card">
                                         {/* STAKING FORM */}
@@ -524,6 +520,23 @@ function App() {
                                             </div>
                                         </div>
                                         {/* END DETAILS */}
+
+                                        <hr className="my-4" />
+
+
+                                        {/* PRODUCTION */}
+                                        <p className="font-size-90 text-color-6 neo-light mb-1">
+                                            <a href="https://testnet.bscscan.com/address/0x73B08F1d787Be5bb0a6572C0444A50A48d55902E" target="_blank" rel="noreferrer" className="stake-link">
+                                                <b>View Smart Contract</b>
+                                                &nbsp;<FontAwesomeIcon color="black" size="sm" icon={faExternalLinkAlt} />
+                                            </a>
+                                        </p>
+                                        <p className="font-size-90 text-color-6 neo-light mb-4">
+                                            <a href="https://pancakeswap.finance/info/pool/0x5b14378d1bab6bf323ebd6cfd4a26ec2c49598da" target="_blank" rel="noreferrer" className="stake-link">
+                                                <b>See Pair Info</b>
+                                                &nbsp;<FontAwesomeIcon color="black" size="sm" icon={faExternalLinkAlt} />
+                                            </a>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
