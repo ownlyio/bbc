@@ -3,10 +3,10 @@ import { configureWeb3 } from './web3Init'
 
 // PRODUCTION
 import { stakingTokenAbi, stakingTokenAddress } from './contracts/stakingToken'
-// import { stakingAbi, stakingAddress } from './contracts/staking'
+import { stakingAbi, stakingAddress } from './contracts/staking'
 
 // DEVELOPMENT
-import { stakingAbi, stakingAddress } from './contracts/stakingDev'
+// import { stakingAbi, stakingAddress } from './contracts/stakingDev'
 
 const getOwnPrice = () => {
     return axios.get("https://api.pancakeswap.info/api/v2/tokens/0x7665CB7b0d01Df1c9f9B9cC66019F00aBD6959bA")
@@ -24,7 +24,7 @@ export const getApr = async () => {
     const web3Test = configureWeb3("https://data-seed-prebsc-1-s1.binance.org:8545/")
 
     // Contracts
-    const stakingContract = new web3Test.eth.Contract(stakingAbi, stakingAddress)
+    const stakingContract = new web3.eth.Contract(stakingAbi, stakingAddress)
     const cakeLPContract = new web3.eth.Contract(stakingTokenAbi, stakingTokenAddress)
 
     // EPOCH CONSTANT
