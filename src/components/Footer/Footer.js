@@ -21,7 +21,7 @@ function Footer() {
 								<div className="font-size-90">
 									<div>SILI DELI: DOST-BU TBI Office, Ground floor,</div>
 									<div>Student Union Bldg., Bicol University Main Campus,</div>
-									<div>Daraga, Albay Sagpon</div>
+									<div>Legazpi City, Albay, Philippines 4500</div>
 								</div>
 							</div>
 							
@@ -36,7 +36,7 @@ function Footer() {
 								<div className="text-center me-3" style={{"minWidth": "20px"}}>
 									<i className="fas fa-phone font-size-120"></i>
 								</div>
-								<div className="font-size-90">0956 152 5513</div>
+								<div className="font-size-90">+63 977 143 1897</div>
 							</div>
 						</div>
 					</div>
