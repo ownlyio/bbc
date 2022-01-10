@@ -46,21 +46,10 @@ export const getApr = async () => {
     const totalLPSupply = web3.utils.fromWei(totalLPSupplyRes)
     const totalStaked = web3.utils.fromWei(totalStakedRes)
 
-    console.log(rewardForDuration, duration, tokenTotalInPool, totalLPSupply, totalStaked)
-
-    // Sample only
-    // let rewardForDuration = 1323030.999999999998592000;
-    // let duration = 10368000;
-    // let tokenTotalInPool = [226858584.839718510712195247, 14138.660619163811689051];
-    // let totalLPSupply = 1696962.909123223061708783;
-    // let totalStaked = 10115.570471107175258332;
-
     const ownPriceResult = await getOwnPrice()
     const busdPriceResult = await getBusdPrice()
     const ownPrice = ownPriceResult.data.data.price
     const busdPrice = busdPriceResult.data.data.price
-
-    console.log(ownPrice, busdPrice)
 
     const totalRewardsPerYear = rewardForDuration * (EPOCH_PER_YEAR / duration)
 
@@ -68,9 +57,7 @@ export const getApr = async () => {
     const totalLiquidity = (tokenTotalInPool[0] * ownPrice) + (tokenTotalInPool[1] * busdPrice)
     const totalStakingTokensInPool = (totalLiquidity / totalLPSupply) * totalStaked
 
-    console.log(totalRewardsPerYear, totalRewardPricePerYear, totalLiquidity, totalStakingTokensInPool)
-
     const apr = (totalRewardPricePerYear / totalStakingTokensInPool) * 100
-    console.log(apr)
+
     return apr
 }

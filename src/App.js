@@ -73,15 +73,14 @@ function App() {
 
     useEffect(() => {
         async function _init() {
-            web3 = configureWeb3()
+            // WEB3 RPC - BSC MAINNET
+            // const web3 = configureWeb3("https://bsc-dataseed.binance.org/")
+            // WEB3 RPC - BSC TESTNET (COMMENT WHEN PRODUCTION)
+            const web3 = configureWeb3("https://data-seed-prebsc-1-s1.binance.org:8545/")
 
-            // initialize contracts
+            // RPC Initialize
             stakingContract = new web3.eth.Contract(stakingAbi, stakingAddress)
             stakingTokenContract = new web3.eth.Contract(stakingTokenAbi, stakingTokenAddress)
-
-            setWeb3(web3)
-            setStakingContract(stakingContract)
-            setStakingTokenContract(stakingTokenContract)
 
             // get staking duration
             const duration = await stakingContract.methods.periodFinish().call()
@@ -119,13 +118,26 @@ function App() {
     }
 
     const connect = async () => {
-        const acct = await window.ethereum.request({ method: "eth_requestAccounts"})
-        if (acct.length > 0) {
-            _setState("isConnected", true)
-            _setState("account", acct[0])
-        }
+        // Metamask
+        const web3Metamask = configureWeb3()
 
-        getDetailsOfUserAcct(acct[0])
+        if (web3Metamask != 1) {
+            const stakingContractMetamask = new web3.eth.Contract(stakingAbi, stakingAddress)
+            const stakingTokenContractMetamask = new web3.eth.Contract(stakingTokenAbi, stakingTokenAddress)
+            setWeb3(web3Metamask)
+            setStakingContract(stakingContractMetamask)
+            setStakingTokenContract(stakingTokenContractMetamask)
+
+            const acct = await window.ethereum.request({ method: "eth_requestAccounts"})
+            if (acct.length > 0) {
+                _setState("isConnected", true)
+                _setState("account", acct[0])
+            }
+
+            getDetailsOfUserAcct(acct[0])
+        } else {
+            
+        }
     }
 
     const approveStaking = async () => {
