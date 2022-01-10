@@ -593,7 +593,7 @@ function App() {
                             Close
                         </Button>
                         <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => window.open(explorerUrl + state.txHash, '_blank').focus()}>
-                            View on EtherScan
+                            View on BscScan
                         </Button>
                     </Modal.Footer>
                 </Modal>
@@ -611,7 +611,7 @@ function App() {
                             Close
                         </Button>
                         <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => window.open(explorerUrl + state.txHash, '_blank').focus()}>
-                            View on EtherScan
+                            View on BscScan
                         </Button>
                     </Modal.Footer>
                 </Modal>
@@ -629,7 +629,7 @@ function App() {
                             Close
                         </Button>
                         <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => window.open(explorerUrl + state.txHash, '_blank').focus()}>
-                            View on EtherScan
+                            View on BscScan
                         </Button>
                     </Modal.Footer>
                 </Modal>
@@ -647,7 +647,7 @@ function App() {
                             Close
                         </Button>
                         <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => window.open(explorerUrl + state.txHash, '_blank').focus()}>
-                            View on EtherScan
+                            View on BscScan
                         </Button>
                     </Modal.Footer>
                 </Modal>
