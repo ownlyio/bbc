@@ -92,7 +92,7 @@ function App() {
             _setState("totalLPTokensStaked", web3.utils.fromWei(totalLP))
 
             // APR
-            const apr = await getApr(web3)
+            const apr = await getApr()
             _setState("apr", roundOff(apr))
         }
         
