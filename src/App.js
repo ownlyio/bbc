@@ -87,11 +87,12 @@ function App() {
             stakingContract = new web3.eth.Contract(stakingAbi, stakingAddress)
             stakingTokenContract = new web3.eth.Contract(stakingTokenAbi, stakingTokenAddress)
 
+            // Metamask
             const web3Metamask = configureWeb3()
 
             if (web3Metamask != 1) { 
-                const stakingContractMetamask = new web3.eth.Contract(stakingAbi, stakingAddress)
-                const stakingTokenContractMetamask = new web3.eth.Contract(stakingTokenAbi, stakingTokenAddress)
+                const stakingContractMetamask = new web3Metamask.eth.Contract(stakingAbi, stakingAddress)
+                const stakingTokenContractMetamask = new web3Metamask.eth.Contract(stakingTokenAbi, stakingTokenAddress)
                 setWeb3(web3Metamask)
                 setStakingContract(stakingContractMetamask)
                 setStakingTokenContract(stakingTokenContractMetamask)
@@ -113,6 +114,7 @@ function App() {
     }, [])
 
     // contract functions
+    // function that will automatically update the details after approve, stake, claim and exit
     const updateDetails = async () => {
         // get total deposits
         const totalLP = await _stakingContract.methods.totalSupply().call()
@@ -120,6 +122,7 @@ function App() {
         getDetailsOfUserAcct(state.account)
     }
 
+    // function that will get the details of the user's account (balances, staked tokens etc)
     const getDetailsOfUserAcct = async acct  => {
         const lpTokenBal = await _stakingTokenContract.methods.balanceOf(acct).call()
         _setState("currentLPBalance", _web3.utils.fromWei(lpTokenBal))
@@ -135,6 +138,7 @@ function App() {
         _setState("isLoaded", true)
     }
 
+    // connect wallet
     const connect = async () => {
         if (state.hasMetamask) {
             const acct = await window.ethereum.request({ method: "eth_requestAccounts"})
@@ -149,6 +153,7 @@ function App() {
         }
     }
 
+    // approve
     const approveStaking = async () => {
         const approveAmountEth = getStakeAmount()
 
@@ -181,6 +186,7 @@ function App() {
         }
     }
 
+    // stake
     const enterStaking = async () => {
         const stakeAmountEth = state.stakedAmount
 
@@ -215,6 +221,7 @@ function App() {
         }
     }
 
+    // claim
     const claimRewards = async () => {
         const rewards = state.userRewardsEarned
 
@@ -243,6 +250,7 @@ function App() {
         }
     }
 
+    // exit
     const claimAndWithdraw = async () => {
         const withdrawAmt = state.userCurrentLPStaked
 
@@ -272,6 +280,7 @@ function App() {
     }
 
     // Utility functions
+    // convert a timestamp to days
     const convertTimestamp = unixTime => {
         const convDate = new Date(unixTime*1000);
         const date1 = new Date(convDate.toLocaleDateString("en-US"))
@@ -281,6 +290,7 @@ function App() {
         return diffDays
     }
 
+    // make an address short
     const shortenAddress = (address, prefixCount, postfixCount) => {
         let prefix = address.substr(0, prefixCount);
         let postfix = address.substr(address.length - postfixCount, address.length);
@@ -288,18 +298,22 @@ function App() {
         return prefix + "..." + postfix;
     }
 
+    // get stake amount from text field
     const getStakeAmount = () => {
         return document.getElementById("stake-input-num").value
     }
 
+    // state updater
     const _setState = (name, value) => {
         setState(prevState => ({...prevState, [name]: value}))
     }
 
+    // MAX function
     const triggerMaxAmount = () => {
         document.getElementById("stake-input-num").value = state.currentLPBalance
     }
 
+    // round to the nearest hundredths
     const roundOff = num => {
         return +(Math.round(num + "e+2")  + "e-2");
     }
