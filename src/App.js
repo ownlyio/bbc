@@ -36,6 +36,7 @@ function App() {
         helpText: "Please enter an amount greater than 0.",
         currentLPBalance: 0,
         isApproved: false,
+        detectedChangeMessage: "",
         hasMetamask: false,
         isLoaded: false,
         stakedAmount: 0,
@@ -82,6 +83,9 @@ function App() {
     const [showWrongNetwork, setShowWrongNetwork] = useState(false)
     const handleCloseWrongNetwork = () => setShowWrongNetwork(false)
     const handleShowWrongNetwork = () => setShowWrongNetwork(true)
+    const [showDetected, setShowDetected] = useState(false)
+    const handleCloseDetected = () => setShowDetected(false)
+    const handleShowDetected = () => setShowDetected(true)
 
     useEffect(() => {
         async function _init() {
@@ -119,19 +123,33 @@ function App() {
         
         _init()
         accountChangedListener()
+        networkChangedListener()
     }, [])
 
     // web3, metamask and contract functions
-    // account change listener
+    // account change listener (metamask only)
     const accountChangedListener = () => {
-        window.ethereum.on('accountsChanged', (accounts) => {
-            if (accounts.length > 0) {
-                _setState("account", accounts[0])
-            } else {
-                _setState("txError", "No account detected.")
-                handleShowOnError()
-            }
-        })
+        if (window.ethereum) {
+            window.ethereum.on('accountsChanged', (accounts) => {
+                _setState("detectedChangeMessage", "Account change detected!")
+                handleShowDetected()
+            })
+        }
+    }
+
+    // network change listener (metamask only)
+    const networkChangedListener = () => {
+        if (window.ethereum) {
+            window.ethereum.on('chainChanged', (chainId) => {
+                // PRODUCTION
+                // if (chainId != "0x38") {
+                // DEVELOPMENT
+                if (chainId != "0x61") { 
+                    _setState("detectedChangeMessage", "Network change detected!")
+                    handleShowDetected()
+                }
+            })
+        }
     }
 
     // function that will automatically update the details after approve, stake, claim and exit
@@ -671,6 +689,21 @@ function App() {
                         {/* DEVELOPMENT */}
                         <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => switchNetwork("bsctestnet")}>
                             Switch Network
+                        </Button>
+                    </Modal.Footer>
+                </Modal>     
+
+                {/* Modal for change detection */}
+                <Modal show={showDetected} onHide={handleCloseDetected} backdrop="static" keyboard={false} size="sm" centered>
+                    <Modal.Body>
+                        <div className="text-center mb-3">
+                            <FontAwesomeIcon color="green" size="6x" icon={faExclamationCircle} />
+                        </div>
+                        <p className="app-network-modal-content text-center font-andes text-lg">{state.detectedChangeMessage}</p>
+                    </Modal.Body>
+                    <Modal.Footer className="justify-content-center">
+                        <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => window.location.reload()}>
+                            Reload
                         </Button>
                     </Modal.Footer>
                 </Modal>     
