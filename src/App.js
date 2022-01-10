@@ -20,8 +20,10 @@ import metamask from './img/metamask.png'
 import { stakingTokenAbi, stakingTokenAddress } from './utils/contracts/stakingTokenDev'
 import { stakingAbi, stakingAddress } from './utils/contracts/stakingDev'
 
+// Utils
 import { configureWeb3 } from './utils/web3Init'
 import { getApr } from './utils/apr'
+import networks from './utils/networks'
 
 function App() {
     let web3, stakingContract, stakingTokenContract
@@ -47,7 +49,9 @@ function App() {
     })
 
     // Other Variables
+    // PRODUCTION
     // const explorerUrl = "https://bscscan.com//tx/"
+    // DEVELOPMENT
     const explorerUrl = "https://testnet.bscscan.com/tx/"
 
     // Modals
@@ -75,6 +79,9 @@ function App() {
     const [showMetamaskInstall, setShowMetamaskInstall] = useState(false)
     const handleCloseMetamaskInstall = () => setShowMetamaskInstall(false)
     const handleShowMetamaskInstall = () => setShowMetamaskInstall(true)
+    const [showWrongNetwork, setShowWrongNetwork] = useState(false)
+    const handleCloseWrongNetwork = () => setShowWrongNetwork(false)
+    const handleShowWrongNetwork = () => setShowWrongNetwork(true)
 
     useEffect(() => {
         async function _init() {
@@ -113,7 +120,7 @@ function App() {
         _init()
     }, [])
 
-    // contract functions
+    // app and contract functions
     // function that will automatically update the details after approve, stake, claim and exit
     const updateDetails = async () => {
         // get total deposits
@@ -138,16 +145,49 @@ function App() {
         _setState("isLoaded", true)
     }
 
+    // switch network      
+    const switchNetwork = async (networkName) => {
+        try {
+            await _web3.currentProvider.request({
+                method: "wallet_switchEthereumChain",
+                // PRODUCTION
+                // params: [{ chainId: "0x38" }],
+                // DEVELOPMENT
+                params: [{ chainId: "0x61" }],
+            })
+
+            handleCloseWrongNetwork()
+        } catch (error) {
+            if (error.code == 4902) {
+                try {
+                    await web3.currentProvider.request({
+                        method: "wallet_addEthereumChain",
+                        params: [networks[networkName]],
+                    })
+                } catch (error) {
+                    _setState("txError", error.message)
+                    handleShowOnError()
+                }
+            }
+        }
+    }
+
     // connect wallet
     const connect = async () => {
         if (state.hasMetamask) {
-            const acct = await window.ethereum.request({ method: "eth_requestAccounts"})
-            if (acct.length > 0) {
-                _setState("isConnected", true)
-                _setState("account", acct[0])
-            }
+            const netId = await _web3.eth.net.getId() // 97 - BSC testnet, 56 - BSC Mainnet
+            
+            if (netId == 97) {
+                const acct = await window.ethereum.request({ method: "eth_requestAccounts"})
+                if (acct.length > 0) {
+                    _setState("isConnected", true)
+                    _setState("account", acct[0])
+                }
 
-            getDetailsOfUserAcct(acct[0])
+                getDetailsOfUserAcct(acct[0])
+            } else {
+                handleShowWrongNetwork()
+            }
         } else {
             handleShowMetamaskInstall()
         }
@@ -594,7 +634,33 @@ function App() {
                             Install Metamask
                         </Button>
                     </Modal.Footer>
-                </Modal>   
+                </Modal> 
+
+                {/* Modal for incorrect network */}
+                <Modal show={showWrongNetwork} onHide={handleCloseWrongNetwork} backdrop="static" keyboard={false} size="sm" centered>
+                    <Modal.Body>
+                        <div className="text-center mb-3">
+                            <FontAwesomeIcon color="green" size="6x" icon={faExclamationCircle} />
+                        </div>
+                        {/* PRODUCTION */}
+                        {/* <p className="app-network-modal-content text-center font-andes text-lg">Please connect to BSC Mainnet</p> */}
+                        {/* DEVELOPMENT */}
+                        <p className="app-network-modal-content text-center font-andes text-lg">Please connect to BSC Testnet</p>
+                    </Modal.Body>
+                    <Modal.Footer className="justify-content-center">
+                        <Button className="font-w-hermann w-hermann-reg" variant="secondary" onClick={handleCloseWrongNetwork}>
+                            Close
+                        </Button>
+                        {/* PRODUCTION */}
+                        {/* <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => switchNetwork("bscmainnet")}>
+                            Switch Network
+                        </Button> */}
+                        {/* DEVELOPMENT */}
+                        <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => switchNetwork("bsctestnet")}>
+                            Switch Network
+                        </Button>
+                    </Modal.Footer>
+                </Modal>     
 
                 {/* End Modals */}
             </div>
