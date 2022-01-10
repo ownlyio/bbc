@@ -422,8 +422,9 @@ function App() {
                                 <p className="text-center font-size-90 text-color-6 neo-light mb-4">Stake your <b>CAKE LP Tokens</b> and receive <b>OWN</b></p>
                                 <p className="total-dep bg-color-4 text-white text-center font-size-110 neo-light mb-2"><b>TOTAL DEPOSITS:</b> {state.totalLPTokensStaked} OWN/BUSD</p>
 
-                                <p className="d-none d-sm-block text-center font-size-90 text-color-6 neo-light mb-4"><b>Smart Contract:</b> <a href="https://testnet.bscscan.com/address/0xf8ddba8fd0fa088dd8ca61a96458f22ab1857d8d" target="_blank" rel="noreferrer" className="stake-link">0xf8ddba8fd0fa088dd8ca61a96458f22ab1857d8d</a></p>
-                                <p className="d-block d-sm-none text-center font-size-90 text-color-6 neo-light mb-4"><b>Smart Contract:</b> <a href="https://testnet.bscscan.com/address/0xf8ddba8fd0fa088dd8ca61a96458f22ab1857d8d" target="_blank" rel="noreferrer" className="stake-link">{shortenAddress("0xf8ddba8fd0fa088dd8ca61a96458f22ab1857d8d", 15, 15)}</a></p>
+                                {/* PRODUCTION */}
+                                <p className="d-none d-sm-block text-center font-size-90 text-color-6 neo-light mb-4"><b>Smart Contract:</b> <a href="https://testnet.bscscan.com/address/0x73B08F1d787Be5bb0a6572C0444A50A48d55902E" target="_blank" rel="noreferrer" className="stake-link">0x73B08F1d787Be5bb0a6572C0444A50A48d55902E</a></p>
+                                <p className="d-block d-sm-none text-center font-size-90 text-color-6 neo-light mb-4"><b>Smart Contract:</b> <a href="https://testnet.bscscan.com/address/0x73B08F1d787Be5bb0a6572C0444A50A48d55902E" target="_blank" rel="noreferrer" className="stake-link">{shortenAddress("0x73B08F1d787Be5bb0a6572C0444A50A48d55902E", 15, 15)}</a></p>
 
                                 <div className="staking-card mx-auto" style={{"width": "85%"}}>
                                     <div className="app-card">
