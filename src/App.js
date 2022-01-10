@@ -391,6 +391,11 @@ function App() {
         return +(Math.round(num + "e+2")  + "e-2");
     }
 
+    // add thousands separator
+    function addCommasToNumber(x) {
+        return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+    }
+
     return (
         <Router basename={process.env.PUBLIC_URL}>
             <div className="app" style={{"backgroundColor": "rgb(244, 246, 248)"}}>
@@ -402,7 +407,7 @@ function App() {
                             <div className="col-12 col-lg-5">
                                 <p className="text-center font-size-170 text-color-3 neo-bold mb-1">Get OWN/BUSD LP Tokens</p>
                                 <p className="text-center font-size-90 text-color-6 neo-light mb-4">Add liquidity to OWN/BUSD on <b>PancakeSwap</b></p>
-                                <p className="total-dep bg-color-5 text-white text-center font-size-90 neo-light mb-4"><b>YOUR BALANCE:</b> {state.currentLPBalance} OWN/BUSD</p>
+                                <p className="total-dep bg-color-5 text-white text-center font-size-90 neo-light mb-4"><b>YOUR BALANCE:</b> {addCommasToNumber(state.currentLPBalance)} OWN/BUSD</p>
                                 <div className="d-flex justify-content-center mb-3">
                                     <div style={{"width": "50px"}}>
                                         <img src={ownlyLogo} className="w-100" alt="Ownly Logo" />
@@ -420,7 +425,7 @@ function App() {
 
                                 <p className="text-center font-size-170 text-color-2 neo-bold mb-1">Stake OWN/BUSD LP Tokens</p>
                                 <p className="text-center font-size-90 text-color-6 neo-light mb-4">Stake your <b>CAKE LP Tokens</b> and receive <b>OWN</b></p>
-                                <p className="total-dep bg-color-4 text-white text-center font-size-110 neo-light mb-2"><b>TOTAL DEPOSITS:</b> {state.totalLPTokensStaked} OWN/BUSD</p>
+                                <p className="total-dep bg-color-4 text-white text-center font-size-110 neo-light mb-2"><b>TOTAL DEPOSITS:</b> {addCommasToNumber(state.totalLPTokensStaked)} OWN/BUSD</p>
 
                                 <div className="staking-card mx-auto" style={{"width": "85%"}}>
                                     <div className="app-card">
@@ -455,7 +460,7 @@ function App() {
                                             <div className="d-flex justify-content-between">
                                                 <p className="mb-3 neo-bold font-size-90">Your Total LP Tokens Staked</p>
                                                 { state.isConnected ? (
-                                                    <p className="mb-3 neo-regular font-size-90">{state.userCurrentLPStaked} OWN/BUSD</p>
+                                                    <p className="mb-3 neo-regular font-size-90">{addCommasToNumber(state.userCurrentLPStaked)} OWN/BUSD</p>
                                                 ) : (
                                                     <p className="mb-3 neo-regular font-size-90">Connect Wallet</p>
                                                 )}
@@ -463,7 +468,7 @@ function App() {
                                             <div className="d-flex justify-content-between">
                                                 <p className="mb-3 neo-bold font-size-90">Rewards Earned</p>
                                                 { state.isConnected ? (
-                                                    <p className="mb-3 neo-regular font-size-90">{state.userRewardsEarned} OWN</p>
+                                                    <p className="mb-3 neo-regular font-size-90">{addCommasToNumber(state.userRewardsEarned)} OWN</p>
                                                 ) : (
                                                     <p className="mb-3 neo-regular font-size-90">Connect Wallet</p>
                                                 )}
@@ -478,7 +483,7 @@ function App() {
                                             </div>
                                             <div className="d-flex justify-content-between">
                                                 <p className="mb-3 neo-bold font-size-90">Rate</p>
-                                                <p className="mb-3 neo-regular font-size-90">7000000 OWN / week</p>
+                                                <p className="mb-3 neo-regular font-size-90">7,000,000 OWN / week</p>
                                             </div>
                                             <div className="d-flex justify-content-between">
                                                 <p className="mb-3 neo-bold font-size-90">Duration</p>
@@ -489,7 +494,7 @@ function App() {
                                             <div className="mb-3">
                                                 <p className="mb-1 neo-bold font-size-110">Your Total LP Tokens Staked</p>
                                                 { state.isConnected ? (
-                                                    <p className="mb-1 neo-regular font-size-90">{state.userCurrentLPStaked} OWN/BUSD</p>
+                                                    <p className="mb-1 neo-regular font-size-90">{addCommasToNumber(state.userCurrentLPStaked)} OWN/BUSD</p>
                                                 ) : (
                                                     <p className="mb-1 neo-regular font-size-90">Connect Wallet</p>
                                                 )}
@@ -497,7 +502,7 @@ function App() {
                                             <div className="mb-3">
                                                 <p className="mb-1 neo-bold font-size-110">Rewards Earned</p>
                                                 { state.isConnected ? (
-                                                    <p className="mb-1 neo-regular font-size-90">{state.userRewardsEarned} OWN</p>
+                                                    <p className="mb-1 neo-regular font-size-90">{addCommasToNumber(state.userRewardsEarned)} OWN</p>
                                                 ) : (
                                                     <p className="mb-1 neo-regular font-size-90">Connect Wallet</p>
                                                 )}
@@ -512,7 +517,7 @@ function App() {
                                             </div>
                                             <div className="mb-3">
                                                 <p className="mb-1 neo-bold font-size-110">Rate</p>
-                                                <p className="mb-1 neo-regular font-size-90">7000000 OWN / week</p>
+                                                <p className="mb-1 neo-regular font-size-90">7,000,000 OWN / week</p>
                                             </div>
                                             <div className="mb-3">
                                                 <p className="mb-1 neo-bold font-size-110">Duration</p>
