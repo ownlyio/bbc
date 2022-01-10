@@ -90,6 +90,10 @@ function App() {
             // get total deposits
             const totalLP = await stakingContract.methods.totalSupply().call()
             _setState("totalLPTokensStaked", web3.utils.fromWei(totalLP))
+
+            // APR
+            const apr = await getApr(web3)
+            _setState("apr", roundOff(apr))
         }
         
         _init()
@@ -275,6 +279,10 @@ function App() {
         document.getElementById("stake-input-num").value = state.currentLPBalance
     }
 
+    const roundOff = num => {
+        return +(Math.round(num + "e+2")  + "e-2");
+    }
+
     return (
         <Router basename={process.env.PUBLIC_URL}>
             <div className="app" style={{"backgroundColor": "rgb(244, 246, 248)"}}>
@@ -358,7 +366,7 @@ function App() {
                                             <div className="d-flex justify-content-between">
                                                 <p className="mb-3 neo-bold font-size-90">APR</p>
                                                 { state.isConnected ? (
-                                                    <p className="mb-3 neo-regular font-size-90">-- %</p>
+                                                    <p className="mb-3 neo-regular font-size-90">{state.apr} %</p>
                                                 ) : (
                                                     <p className="mb-3 neo-regular font-size-90">Connect Wallet</p>
                                                 )}
@@ -392,7 +400,7 @@ function App() {
                                             <div className="mb-3">
                                                 <p className="mb-1 neo-bold font-size-110">APR</p>
                                                 { state.isConnected ? (
-                                                    <p className="mb-1 neo-regular font-size-90">-- %</p>
+                                                    <p className="mb-1 neo-regular font-size-90">{state.apr} %</p>
                                                 ) : (
                                                     <p className="mb-1 neo-regular font-size-90">Connect Wallet</p>
                                                 )}

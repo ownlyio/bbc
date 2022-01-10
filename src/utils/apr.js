@@ -22,29 +22,34 @@ export const getApr = async (web3) => {
 
     // EPOCH CONSTANT
     const EPOCH_PER_YEAR = 31556926 // Epoch per year
-    let ownPrice, busdPrice = 0
-    
+
     // Contract calls
-    const rewardForDuration = await stakingContract.methods.getRewardForDuration().call()
-    const duration = await stakingContract.methods.rewardsDuration().call()
-    const tokenTotalInPool = await cakeLPContract.methods.getReserves().call()
-    const totalLPSupply = await cakeLPContract.methods.totalSupply().call()
-    const totalStaked = await stakingContract.methods.totalSupply().call()
+    // const rewardForDuration = await stakingContract.methods.getRewardForDuration().call()
+    // const duration = await stakingContract.methods.rewardsDuration().call()
+    // const tokenTotalInPool = await cakeLPContract.methods.getReserves().call()
+    // const totalLPSupply = await cakeLPContract.methods.totalSupply().call()
+    // const totalStaked = await stakingContract.methods.totalSupply().call()
 
-    getOwnPrice().then(res => {
-        ownPrice = res.data.data.price
-        getBusdPrice().then(resp => {
-            busdPrice = resp.data.data.price
-            
-            const totalRewardsPerYear = rewardForDuration * (EPOCH_PER_YEAR / duration)
+    // Sample only
+    let rewardForDuration = 1323030.999999999998592000;
+    let duration = 10368000;
+    let tokenTotalInPool = [226858584.839718510712195247, 14138.660619163811689051];
+    let totalLPSupply = 1696962.909123223061708783;
+    let totalStaked = 10115.570471107175258332;
 
-            const totalRewardPricePerYear = ownPrice * totalRewardsPerYear
-            const totalLiquidity = (tokenTotalInPool[0] * ownPrice) + (tokenTotalInPool[1] * busdPrice)
-            const totalStakingTokensInPool = (totalLiquidity / totalLPSupply) * totalStaked
 
-            const apr = (totalRewardPricePerYear / totalStakingTokensInPool) * 100
+    const ownPriceResult = await getOwnPrice()
+    const busdPriceResult = await getBusdPrice()
+    const ownPrice = ownPriceResult.data.data.price
+    const busdPrice = busdPriceResult.data.data.price
 
-            return apr
-        })
-    })
+    const totalRewardsPerYear = rewardForDuration * (EPOCH_PER_YEAR / duration)
+
+    const totalRewardPricePerYear = ownPrice * totalRewardsPerYear
+    const totalLiquidity = (tokenTotalInPool[0] * ownPrice) + (tokenTotalInPool[1] * busdPrice)
+    const totalStakingTokensInPool = (totalLiquidity / totalLPSupply) * totalStaked
+
+    const apr = (totalRewardPricePerYear / totalStakingTokensInPool) * 100
+    
+    return apr
 }
