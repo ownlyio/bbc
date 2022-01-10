@@ -40,7 +40,7 @@ function App() {
         hasMetamask: false,
         isLoaded: false,
         stakedAmount: 0,
-        apr: 0,
+        apr: "--",
         totalLPTokensStaked: 0,
         lpStakingDuration: 0,
         userCurrentLPStaked: 0,
@@ -118,6 +118,10 @@ function App() {
             // get total deposits
             const totalLP = await stakingContract.methods.totalSupply().call()
             _setState("totalLPTokensStaked", web3.utils.fromWei(totalLP))
+
+            // APR
+            const apr = await getApr()
+            _setState("apr", roundOff(apr))
         }
         
         _init()
@@ -167,10 +171,6 @@ function App() {
         _setState("userCurrentLPStaked", _web3.utils.fromWei(lpTokenStaked))
         const rewardsEarned = await _stakingContract.methods.earned(acct).call()
         _setState("userRewardsEarned", _web3.utils.fromWei(rewardsEarned))
-
-        // APR
-        const apr = await getApr()
-        _setState("apr", roundOff(apr))
 
         _setState("isLoaded", true)
     }
@@ -475,11 +475,7 @@ function App() {
                                             </div>
                                             <div className="d-flex justify-content-between">
                                                 <p className="mb-3 neo-bold font-size-90">APR</p>
-                                                { state.isConnected ? (
-                                                    <p className="mb-3 neo-regular font-size-90">{state.apr} %</p>
-                                                ) : (
-                                                    <p className="mb-3 neo-regular font-size-90">Connect Wallet</p>
-                                                )}
+                                                <p className="mb-3 neo-regular font-size-90">{state.apr} %</p>
                                             </div>
                                             <div className="d-flex justify-content-between">
                                                 <p className="mb-3 neo-bold font-size-90">Rate</p>
@@ -509,11 +505,7 @@ function App() {
                                             </div>
                                             <div className="mb-3">
                                                 <p className="mb-1 neo-bold font-size-110">APR</p>
-                                                { state.isConnected ? (
-                                                    <p className="mb-1 neo-regular font-size-90">{state.apr} %</p>
-                                                ) : (
-                                                    <p className="mb-1 neo-regular font-size-90">Connect Wallet</p>
-                                                )}
+                                                <p className="mb-1 neo-regular font-size-90">{state.apr} %</p>
                                             </div>
                                             <div className="mb-3">
                                                 <p className="mb-1 neo-bold font-size-110">Rate</p>
