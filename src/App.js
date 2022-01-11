@@ -396,8 +396,12 @@ function App() {
         if (!Number.isInteger(Number(x))) {
             x = Number(x).toFixed(5)
         }
+
+        return x.toString().replace(/^[+-]?\d+/, function(int) {
+            return int.replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+        });
         
-        return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+        // return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
     }
 
     return (
