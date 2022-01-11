@@ -400,8 +400,6 @@ function App() {
         return x.toString().replace(/^[+-]?\d+/, function(int) {
             return int.replace(/(\d)(?=(\d{3})+$)/g, '$1,');
         });
-        
-        // return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
     }
 
     return (
