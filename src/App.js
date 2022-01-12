@@ -357,7 +357,7 @@ function App() {
     const convertTimestamp = unixTime => {
         const convDate = new Date(unixTime*1000);
         const date1 = new Date(convDate.toLocaleDateString("en-US"))
-        const date2 = new Date()
+        const date2 = new Date(new Date().toLocaleDateString("en-US", {timezone: "Asia/Manila"}))
         const diffTime = Math.abs(date1 - date2)
         const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)); 
         return diffDays
