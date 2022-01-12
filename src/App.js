@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button, Modal } from 'react-bootstrap'
 import { faCheckCircle, faExclamationCircle, faExternalLinkAlt, faSpinner } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios'
 
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
@@ -113,7 +114,8 @@ function App() {
 
             // get staking duration
             const duration = await stakingContract.methods.periodFinish().call()
-            _setState("lpStakingDuration", convertTimestamp(duration))
+            const calculatedDuration = await convertTimestamp(duration)
+            _setState("lpStakingDuration", calculatedDuration)
     
             // get total deposits
             const totalLP = await stakingContract.methods.totalSupply().call()
@@ -129,7 +131,7 @@ function App() {
         networkChangedListener()
     }, [])
 
-    // web3, metamask and contract functions
+    // axios, web3, metamask and contract functions
     // account change listener (metamask only)
     const accountChangedListener = () => {
         if (window.ethereum) {
@@ -354,13 +356,9 @@ function App() {
 
     // Utility functions
     // convert a timestamp to days
-    const convertTimestamp = unixTime => {
-        const convDate = new Date(unixTime*1000);
-        const date1 = new Date(convDate.toLocaleDateString("en-US"))
-        const date2 = new Date(new Date().toLocaleDateString("en-US", {timezone: "Asia/Manila"}))
-        const diffTime = Math.abs(date1 - date2)
-        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)); 
-        return diffDays
+    const convertTimestamp = async unixTime => {
+        const req = await axios.get(`https://ownly.tk/api/get-remaining-time-from-timestamp/${unixTime}`)
+        return Math.floor(req.data / (3600*24))
     }
 
     // make an address short
