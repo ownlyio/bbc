@@ -489,7 +489,7 @@ function App() {
                                             </div>
                                             <div className="d-flex justify-content-between">
                                                 <p className="mb-3 neo-bold font-size-90">Duration</p>
-                                                <p className="mb-3 neo-regular font-size-90">{state.lpStakingDuration} Days</p>
+                                                <p className="mb-3 neo-regular font-size-90">120 Days ({state.lpStakingDuration} remaining)</p>
                                             </div>
                                         </div>
                                         <div className="d-block d-sm-none">
@@ -519,7 +519,7 @@ function App() {
                                             </div>
                                             <div className="mb-3">
                                                 <p className="mb-1 neo-bold font-size-110">Duration</p>
-                                                <p className="mb-1 neo-regular font-size-90">{state.lpStakingDuration} Days</p>
+                                                <p className="mb-1 neo-regular font-size-90">120 Days ({state.lpStakingDuration} remaining)</p>
                                             </div>
                                         </div>
                                         {/* END DETAILS */}
