@@ -46,6 +46,7 @@ function App() {
         lpStakingDuration: 0,
         userCurrentLPStaked: 0,
         userRewardsEarned: 0,
+        userRate: 0,
         txError: "",
         txHash: "",
     })
@@ -169,7 +170,7 @@ function App() {
                                     address: earners[i],
                                     earned: earned
                                 }).then(data => {
-                                    
+
                                 }).catch(function(error) {
                                     console.log(error)
                                 })
@@ -229,6 +230,7 @@ function App() {
         _setState("userCurrentLPStaked", _web3.utils.fromWei(lpTokenStaked))
         const rewardsEarned = await _stakingContract.methods.earned(acct).call()
         _setState("userRewardsEarned", _web3.utils.fromWei(rewardsEarned))
+        computeUserRate()
 
         _setState("isLoaded", true)
     }
@@ -446,7 +448,7 @@ function App() {
     }
 
     // add thousands separator
-    function addCommasToNumber(x) {
+    const addCommasToNumber = x => {
         if (!Number.isInteger(Number(x))) {
             x = Number(x).toFixed(5)
         }
@@ -454,6 +456,14 @@ function App() {
         return x.toString().replace(/^[+-]?\d+/, function(int) {
             return int.replace(/(\d)(?=(\d{3})+$)/g, '$1,');
         });
+    }
+    
+    // compute for user's staking rate
+    const computeUserRate = () => {
+        const ownRewardPerWeek = 7000000
+        let rate = (ownRewardPerWeek * state.userCurrentLPStaked) / state.totalLPTokensStaked
+        console.log(rate)
+        _setState("userRate", rate)
     }
 
     return (
@@ -534,12 +544,20 @@ function App() {
                                                 )}
                                             </div>
                                             <div className="d-flex justify-content-between">
+                                                <p className="mb-3 neo-bold font-size-90">Your Rate</p>
+                                                { state.isConnected ? (
+                                                    <p className="mb-3 neo-regular font-size-90">{addCommasToNumber(state.userRate)} OWN / week</p>
+                                                ) : (
+                                                    <p className="mb-3 neo-regular font-size-90">Connect Wallet</p>
+                                                )}
+                                            </div>
+                                            <div className="d-flex justify-content-between">
                                                 <p className="mb-3 neo-bold font-size-90">APR</p>
                                                 <p className="mb-3 neo-regular font-size-90">{state.apr} %</p>
                                             </div>
                                             <div className="d-flex justify-content-between">
-                                                <p className="mb-3 neo-bold font-size-90">Rate</p>
-                                                <p className="mb-3 neo-regular font-size-90">7,000,000 OWN / week</p>
+                                                <p className="mb-3 neo-bold font-size-90">Total Rewards</p>
+                                                <p className="mb-3 neo-regular font-size-90">120,000,000 OWN</p>
                                             </div>
                                             <div className="d-flex justify-content-between">
                                                 <p className="mb-3 neo-bold font-size-90">Duration</p>
@@ -564,12 +582,20 @@ function App() {
                                                 )}
                                             </div>
                                             <div className="mb-3">
+                                                <p className="mb-1 neo-bold font-size-110">Your Rate</p>
+                                                { state.isConnected ? (
+                                                    <p className="mb-1 neo-regular font-size-90">{addCommasToNumber(state.userRate)} OWN / week</p>
+                                                ) : (
+                                                    <p className="mb-3 neo-regular font-size-90">Connect Wallet</p>
+                                                )}
+                                            </div>
+                                            <div className="mb-3">
                                                 <p className="mb-1 neo-bold font-size-110">APR</p>
                                                 <p className="mb-1 neo-regular font-size-90">{state.apr} %</p>
                                             </div>
                                             <div className="mb-3">
-                                                <p className="mb-1 neo-bold font-size-110">Rate</p>
-                                                <p className="mb-1 neo-regular font-size-90">7,000,000 OWN / week</p>
+                                                <p className="mb-1 neo-bold font-size-110">Total Rewards</p>
+                                                <p className="mb-1 neo-regular font-size-90">120,000,000 OWN</p>
                                             </div>
                                             <div className="mb-3">
                                                 <p className="mb-1 neo-bold font-size-110">Duration</p>
