@@ -129,9 +129,66 @@ function App() {
         _init()
         accountChangedListener()
         networkChangedListener()
+        getLiquidityStakingData(stakingAddress, 0)
     }, [])
 
-    // axios, web3, metamask and contract functions
+    // API, web3, metamask and contract functions
+    // get liquidity staking data
+    const getLiquidityStakingData = (address, page) => {
+        const ownlyAPI = "https://ownly.tk/"
+
+        axios.get(`https://api.covalenthq.com/v1/56/address/${address}/transactions_v2/?quote-currency=USD&format=JSON&block-signed-at-asc=true&no-logs=false&page-number=${page}&key=ckey_994c8fdd549f44fa9b2b27f59a0`).then(data => {
+            let events = ["Staked", "RewardPaid"]
+
+            if (data) {
+                let items = data.data.data.items
+                let transactions = []
+
+                for (let i = 0; i < items.length; i++) {
+                    let j = items[i].log_events.length - 1
+
+                    if (events.includes(items[i].log_events[j].decoded.name)) {
+                        transactions.push(items[i].log_events[j])
+                    }
+                }
+
+                axios.post(`${ownlyAPI}api/add-staking-transactions`, {
+                    transactions: transactions,
+                    staking: address
+                }).then(data => {
+                    console.log(data)
+                    let earners = data.earners
+
+                    let web3Liquidity = configureWeb3("https://bsc-dataseed.binance.org/")
+                    let stakingContractLiquidity = new web3Liquidity.eth.Contract(stakingAbi, address)
+
+                    for (let i = 0; i < earners.length; i++) {
+                        stakingContractLiquidity.methods.earned(earners[i]).call()
+                            .then(function(earned) {
+                                axios.post(`${ownlyAPI}api/update-staking-earnings`, {
+                                    staking: address,
+                                    address: earners[i],
+                                    earned: earned
+                                }).then(data => {
+                                    
+                                }).catch(function(error) {
+                                    console.log(error)
+                                })
+                            })
+                    }
+                }).catch(function(error) {
+                    console.log(error)
+                })
+
+                if (data.data.data.pagination.has_more) {
+                    setTimeout(function() {
+                        getLiquidityStakingData(address, page++)
+                    }, 5000)
+                }
+            }
+        })
+    }
+
     // account change listener (metamask only)
     const accountChangedListener = () => {
         if (window.ethereum) {
