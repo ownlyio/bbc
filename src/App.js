@@ -156,8 +156,7 @@ function App() {
                     transactions: transactions,
                     staking: address
                 }).then(data => {
-                    console.log(data)
-                    let earners = data.earners
+                    let earners = data.data.earners
 
                     let web3Liquidity = configureWeb3("https://bsc-dataseed.binance.org/")
                     let stakingContractLiquidity = new web3Liquidity.eth.Contract(stakingAbi, address)
