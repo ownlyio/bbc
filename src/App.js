@@ -8,6 +8,7 @@ import axios from 'axios'
 
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
+import TopStakers from './components/TopStakers/TopStakers'
 
 import ownlyLogo from './img/ownly/own-token.webp'
 import busdLogo from './img/busd/busd.webp'
@@ -88,6 +89,9 @@ function App() {
     const [showDetected, setShowDetected] = useState(false)
     const handleCloseDetected = () => setShowDetected(false)
     const handleShowDetected = () => setShowDetected(true)
+    const [showTopStakers, setShowTopStakers] = useState(false)
+    const handleCloseTopStakers = () => setShowTopStakers(false)
+    const handleShowTopStakers = () => setShowTopStakers(true)
 
     useEffect(() => {
         async function _init() {
@@ -497,6 +501,12 @@ function App() {
                                 <p className="text-center font-size-90 text-color-6 neo-light mb-4">Stake your <b>CAKE LP Tokens</b> and receive <b>OWN</b></p>
                                 <p className="total-dep bg-color-4 text-white text-center font-size-110 neo-light mb-2"><b>TOTAL DEPOSITS:</b> {addCommasToNumber(state.totalLPTokensStaked)} OWN/BUSD</p>
 
+                                <p className="font-size-90 text-center text-color-6 neo-light mb-4">
+                                    <a onClick={handleShowTopStakers} className="stake-link cursor-pointer">
+                                        <b>VIEW STAKERS' LEADERBOARD</b>
+                                    </a>
+                                </p>
+
                                 <div className="staking-card mx-auto" style={{"width": "85%"}}>
                                     <div className="app-card">
                                         {/* STAKING FORM */}
@@ -810,6 +820,18 @@ function App() {
                     <Modal.Footer className="justify-content-center">
                         <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => window.location.reload()}>
                             Reload
+                        </Button>
+                    </Modal.Footer>
+                </Modal>     
+
+                {/* Modal for stakers leaderboard */}
+                <Modal show={showTopStakers} onHide={handleCloseTopStakers} backdrop="static" keyboard={false} size="lg" centered>
+                    <Modal.Body>
+                        <TopStakers />
+                    </Modal.Body>
+                    <Modal.Footer className="justify-content-center">
+                        <Button className="font-w-hermann w-hermann-reg" variant="secondary" onClick={handleCloseTopStakers}>
+                            Close
                         </Button>
                     </Modal.Footer>
                 </Modal>     
