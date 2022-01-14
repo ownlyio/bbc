@@ -466,7 +466,6 @@ function App() {
     const computeUserRate = () => {
         const ownRewardPerWeek = 7000000
         let rate = (ownRewardPerWeek * state.userCurrentLPStaked) / state.totalLPTokensStaked
-        console.log(rate)
         _setState("userRate", rate)
     }
 
@@ -827,7 +826,7 @@ function App() {
                 {/* Modal for stakers leaderboard */}
                 <Modal show={showTopStakers} onHide={handleCloseTopStakers} backdrop="static" keyboard={false} size="lg" centered>
                     <Modal.Body>
-                        <TopStakers />
+                        <TopStakers shortenAddress={shortenAddress} addCommasToNumber={addCommasToNumber} />
                     </Modal.Body>
                     <Modal.Footer className="justify-content-center">
                         <Button className="font-w-hermann w-hermann-reg" variant="secondary" onClick={handleCloseTopStakers}>
