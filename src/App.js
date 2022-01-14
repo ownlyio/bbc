@@ -411,7 +411,7 @@ function App() {
                             <div className="col-12 col-lg-5">
                                 <p className="text-center font-size-170 text-color-3 neo-bold mb-1">Get OWN/BUSD LP Tokens</p>
                                 <p className="text-center font-size-90 text-color-6 neo-light mb-4">Add liquidity to OWN/BUSD on <b>PancakeSwap</b></p>
-                                <p className="total-dep bg-color-5 text-white text-center font-size-90 neo-light mb-4"><b>YOUR BALANCE:</b> {addCommasToNumber(state.currentLPBalance)} OWN/BUSD</p>
+                                <p className="total-dep bg-color-7 text-white text-center font-size-90 neo-light mb-4"><b>YOUR BALANCE:</b> {addCommasToNumber(state.currentLPBalance)} OWN/BUSD</p>
                                 <div className="d-flex justify-content-center mb-3">
                                     <div style={{"width": "50px"}}>
                                         <img src={ownlyLogo} className="w-100" alt="Ownly Logo" />
@@ -428,8 +428,8 @@ function App() {
                                 <hr className="my-5 d-block d-lg-none" />
 
                                 <p className="text-center font-size-170 text-color-2 neo-bold mb-1">Stake OWN/BUSD LP Tokens</p>
-                                <p className="text-center font-size-90 text-color-6 neo-light mb-4">Stake your <b>CAKE LP Tokens</b> and receive <b>OWN</b></p>
-                                <p className="total-dep bg-color-4 text-white text-center font-size-110 neo-light mb-2"><b>TOTAL DEPOSITS:</b> {addCommasToNumber(state.totalLPTokensStaked)} OWN/BUSD</p>
+                                <p className="text-center font-size-90 text-color-6 neo-light mb-3">Stake your <b>CAKE LP Tokens</b> and receive <b>OWN</b></p>
+                                <p className="total-dep bg-color-7 text-white text-center font-size-110 neo-light mb-3"><b>TOTAL DEPOSITS:</b> {addCommasToNumber(state.totalLPTokensStaked)} OWN/BUSD</p>
 
                                 <div className="staking-card mx-auto" style={{"width": "85%"}}>
                                     <div className="app-card">
