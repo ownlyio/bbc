@@ -4,9 +4,11 @@ import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button, Modal } from 'react-bootstrap'
 import { faCheckCircle, faExclamationCircle, faExternalLinkAlt, faSpinner } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios'
 
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
+import TopStakers from './components/TopStakers/TopStakers'
 
 import ownlyLogo from './img/ownly/own-token.webp'
 import busdLogo from './img/busd/busd.webp'
@@ -45,6 +47,7 @@ function App() {
         lpStakingDuration: 0,
         userCurrentLPStaked: 0,
         userRewardsEarned: 0,
+        userRate: 0,
         txError: "",
         txHash: "",
     })
@@ -86,6 +89,9 @@ function App() {
     const [showDetected, setShowDetected] = useState(false)
     const handleCloseDetected = () => setShowDetected(false)
     const handleShowDetected = () => setShowDetected(true)
+    const [showTopStakers, setShowTopStakers] = useState(false)
+    const handleCloseTopStakers = () => setShowTopStakers(false)
+    const handleShowTopStakers = () => setShowTopStakers(true)
 
     useEffect(() => {
         async function _init() {
@@ -113,7 +119,8 @@ function App() {
 
             // get staking duration
             const duration = await stakingContract.methods.periodFinish().call()
-            _setState("lpStakingDuration", convertTimestamp(duration))
+            const calculatedDuration = await convertTimestamp(duration)
+            _setState("lpStakingDuration", calculatedDuration)
     
             // get total deposits
             const totalLP = await stakingContract.methods.totalSupply().call()
@@ -127,9 +134,65 @@ function App() {
         _init()
         accountChangedListener()
         networkChangedListener()
+        getLiquidityStakingData(stakingAddress, 0)
     }, [])
 
-    // web3, metamask and contract functions
+    // API, web3, metamask and contract functions
+    // get liquidity staking data
+    const getLiquidityStakingData = (address, page) => {
+        const ownlyAPI = "https://ownly.tk/"
+
+        axios.get(`https://api.covalenthq.com/v1/56/address/${address}/transactions_v2/?quote-currency=USD&format=JSON&block-signed-at-asc=true&no-logs=false&page-number=${page}&key=ckey_994c8fdd549f44fa9b2b27f59a0`).then(data => {
+            let events = ["Staked", "RewardPaid"]
+
+            if (data) {
+                let items = data.data.data.items
+                let transactions = []
+
+                for (let i = 0; i < items.length; i++) {
+                    let j = items[i].log_events.length - 1
+
+                    if (events.includes(items[i].log_events[j].decoded.name)) {
+                        transactions.push(items[i].log_events[j])
+                    }
+                }
+
+                axios.post(`${ownlyAPI}api/add-staking-transactions`, {
+                    transactions: transactions,
+                    staking: address
+                }).then(data => {
+                    let earners = data.data.earners
+
+                    let web3Liquidity = configureWeb3("https://bsc-dataseed.binance.org/")
+                    let stakingContractLiquidity = new web3Liquidity.eth.Contract(stakingAbi, address)
+
+                    for (let i = 0; i < earners.length; i++) {
+                        stakingContractLiquidity.methods.earned(earners[i]).call()
+                            .then(function(earned) {
+                                axios.post(`${ownlyAPI}api/update-staking-earnings`, {
+                                    staking: address,
+                                    address: earners[i],
+                                    earned: earned
+                                }).then(data => {
+
+                                }).catch(function(error) {
+                                    console.log(error)
+                                })
+                            })
+                    }
+                }).catch(function(error) {
+                    console.log(error)
+                })
+
+                if (data.data.data.pagination.has_more) {
+                    setTimeout(function() {
+                        getLiquidityStakingData(address, page++)
+                    }, 5000)
+                }
+            }
+        })
+    }
+
     // account change listener (metamask only)
     const accountChangedListener = () => {
         if (window.ethereum) {
@@ -171,6 +234,7 @@ function App() {
         _setState("userCurrentLPStaked", _web3.utils.fromWei(lpTokenStaked))
         const rewardsEarned = await _stakingContract.methods.earned(acct).call()
         _setState("userRewardsEarned", _web3.utils.fromWei(rewardsEarned))
+        computeUserRate()
 
         _setState("isLoaded", true)
     }
@@ -354,13 +418,9 @@ function App() {
 
     // Utility functions
     // convert a timestamp to days
-    const convertTimestamp = unixTime => {
-        const convDate = new Date(unixTime*1000);
-        const date1 = new Date(convDate.toLocaleDateString("en-US"))
-        const date2 = new Date()
-        const diffTime = Math.abs(date1 - date2)
-        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)); 
-        return diffDays
+    const convertTimestamp = async unixTime => {
+        const req = await axios.get(`https://ownly.tk/api/get-remaining-time-from-timestamp/${unixTime}`)
+        return Math.floor(req.data / (3600*24))
     }
 
     // make an address short
@@ -392,12 +452,22 @@ function App() {
     }
 
     // add thousands separator
-    function addCommasToNumber(x) {
+    const addCommasToNumber = x => {
         if (!Number.isInteger(Number(x))) {
             x = Number(x).toFixed(5)
         }
-        
-        return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+
+        return x.toString().replace(/^[+-]?\d+/, function(int) {
+            return int.replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+        });
+    }
+    
+    // compute for user's staking rate
+    const computeUserRate = () => {
+        const ownRewardPerWeek = 7000000
+        let rate = (ownRewardPerWeek * state.userCurrentLPStaked) / state.totalLPTokensStaked
+        console.log(rate)
+        _setState("userRate", rate)
     }
 
     return (
@@ -430,6 +500,12 @@ function App() {
                                 <p className="text-center font-size-170 text-color-2 neo-bold mb-1">Stake OWN/BUSD LP Tokens</p>
                                 <p className="text-center font-size-90 text-color-6 neo-light mb-3">Stake your <b>CAKE LP Tokens</b> and receive <b>OWN</b></p>
                                 <p className="total-dep bg-color-7 text-white text-center font-size-110 neo-light mb-3"><b>TOTAL DEPOSITS:</b> {addCommasToNumber(state.totalLPTokensStaked)} OWN/BUSD</p>
+
+                                <p className="font-size-90 text-center text-color-6 neo-light mb-4">
+                                    <a onClick={handleShowTopStakers} className="stake-link cursor-pointer">
+                                        <b>VIEW STAKERS' LEADERBOARD</b>
+                                    </a>
+                                </p>
 
                                 <div className="staking-card mx-auto" style={{"width": "85%"}}>
                                     <div className="app-card">
@@ -478,16 +554,24 @@ function App() {
                                                 )}
                                             </div>
                                             <div className="d-flex justify-content-between">
+                                                <p className="mb-3 neo-bold font-size-90">Your Rate</p>
+                                                { state.isConnected ? (
+                                                    <p className="mb-3 neo-regular font-size-90">{addCommasToNumber(state.userRate)} OWN / week</p>
+                                                ) : (
+                                                    <p className="mb-3 neo-regular font-size-90">Connect Wallet</p>
+                                                )}
+                                            </div>
+                                            <div className="d-flex justify-content-between">
                                                 <p className="mb-3 neo-bold font-size-90">APR</p>
                                                 <p className="mb-3 neo-regular font-size-90">{state.apr} %</p>
                                             </div>
                                             <div className="d-flex justify-content-between">
-                                                <p className="mb-3 neo-bold font-size-90">Rate</p>
-                                                <p className="mb-3 neo-regular font-size-90">7,000,000 OWN / week</p>
+                                                <p className="mb-3 neo-bold font-size-90">Total Rewards</p>
+                                                <p className="mb-3 neo-regular font-size-90">120,000,000 OWN</p>
                                             </div>
                                             <div className="d-flex justify-content-between">
                                                 <p className="mb-3 neo-bold font-size-90">Duration</p>
-                                                <p className="mb-3 neo-regular font-size-90">{state.lpStakingDuration} Days</p>
+                                                <p className="mb-3 neo-regular font-size-90">120 Days ({state.lpStakingDuration} remaining)</p>
                                             </div>
                                         </div>
                                         <div className="d-block d-sm-none">
@@ -508,16 +592,24 @@ function App() {
                                                 )}
                                             </div>
                                             <div className="mb-3">
+                                                <p className="mb-1 neo-bold font-size-110">Your Rate</p>
+                                                { state.isConnected ? (
+                                                    <p className="mb-1 neo-regular font-size-90">{addCommasToNumber(state.userRate)} OWN / week</p>
+                                                ) : (
+                                                    <p className="mb-3 neo-regular font-size-90">Connect Wallet</p>
+                                                )}
+                                            </div>
+                                            <div className="mb-3">
                                                 <p className="mb-1 neo-bold font-size-110">APR</p>
                                                 <p className="mb-1 neo-regular font-size-90">{state.apr} %</p>
                                             </div>
                                             <div className="mb-3">
-                                                <p className="mb-1 neo-bold font-size-110">Rate</p>
-                                                <p className="mb-1 neo-regular font-size-90">7,000,000 OWN / week</p>
+                                                <p className="mb-1 neo-bold font-size-110">Total Rewards</p>
+                                                <p className="mb-1 neo-regular font-size-90">120,000,000 OWN</p>
                                             </div>
                                             <div className="mb-3">
                                                 <p className="mb-1 neo-bold font-size-110">Duration</p>
-                                                <p className="mb-1 neo-regular font-size-90">{state.lpStakingDuration} Days</p>
+                                                <p className="mb-1 neo-regular font-size-90">120 Days ({state.lpStakingDuration} remaining)</p>
                                             </div>
                                         </div>
                                         {/* END DETAILS */}
@@ -728,6 +820,18 @@ function App() {
                     <Modal.Footer className="justify-content-center">
                         <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => window.location.reload()}>
                             Reload
+                        </Button>
+                    </Modal.Footer>
+                </Modal>     
+
+                {/* Modal for stakers leaderboard */}
+                <Modal show={showTopStakers} onHide={handleCloseTopStakers} backdrop="static" keyboard={false} size="lg" centered>
+                    <Modal.Body>
+                        <TopStakers />
+                    </Modal.Body>
+                    <Modal.Footer className="justify-content-center">
+                        <Button className="font-w-hermann w-hermann-reg" variant="secondary" onClick={handleCloseTopStakers}>
+                            Close
                         </Button>
                     </Modal.Footer>
                 </Modal>     
