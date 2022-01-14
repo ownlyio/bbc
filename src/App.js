@@ -452,9 +452,9 @@ function App() {
     }
 
     // add thousands separator
-    const addCommasToNumber = x => {
+    const addCommasToNumber = (x, decimal) => {
         if (!Number.isInteger(Number(x))) {
-            x = Number(x).toFixed(5)
+            x = Number(x).toFixed(decimal)
         }
 
         return x.toString().replace(/^[+-]?\d+/, function(int) {
@@ -480,7 +480,7 @@ function App() {
                             <div className="col-12 col-lg-5">
                                 <p className="text-center font-size-170 text-color-3 neo-bold mb-1">Get OWN/BUSD LP Tokens</p>
                                 <p className="text-center font-size-90 text-color-6 neo-light mb-4">Add liquidity to OWN/BUSD on <b>PancakeSwap</b></p>
-                                <p className="total-dep bg-color-7 text-white text-center font-size-90 neo-light mb-4"><b>YOUR BALANCE:</b> {addCommasToNumber(state.currentLPBalance)} OWN/BUSD</p>
+                                <p className="total-dep bg-color-7 text-white text-center font-size-90 neo-light mb-4"><b>YOUR BALANCE:</b> {addCommasToNumber(state.currentLPBalance, 5)} OWN/BUSD</p>
                                 <div className="d-flex justify-content-center mb-3">
                                     <div style={{"width": "50px"}}>
                                         <img src={ownlyLogo} className="w-100" alt="Ownly Logo" />
@@ -498,7 +498,7 @@ function App() {
 
                                 <p className="text-center font-size-170 text-color-2 neo-bold mb-1">Stake OWN/BUSD LP Tokens</p>
                                 <p className="text-center font-size-90 text-color-6 neo-light mb-3">Stake your <b>CAKE LP Tokens</b> and receive <b>OWN</b></p>
-                                <p className="total-dep bg-color-7 text-white text-center font-size-110 neo-light mb-3"><b>TOTAL DEPOSITS:</b> {addCommasToNumber(state.totalLPTokensStaked)} OWN/BUSD</p>
+                                <p className="total-dep bg-color-7 text-white text-center font-size-110 neo-light mb-3"><b>TOTAL DEPOSITS:</b> {addCommasToNumber(state.totalLPTokensStaked, 5)} OWN/BUSD</p>
 
                                 <p className="font-size-90 text-center text-color-6 neo-light mb-4">
                                     <a onClick={handleShowTopStakers} className="stake-link cursor-pointer">
@@ -539,7 +539,7 @@ function App() {
                                             <div className="d-flex justify-content-between">
                                                 <p className="mb-3 neo-bold font-size-90">Your Total LP Tokens Staked</p>
                                                 { state.isConnected ? (
-                                                    <p className="mb-3 neo-regular font-size-90">{addCommasToNumber(state.userCurrentLPStaked)} OWN/BUSD</p>
+                                                    <p className="mb-3 neo-regular font-size-90">{addCommasToNumber(state.userCurrentLPStaked, 5)} OWN/BUSD</p>
                                                 ) : (
                                                     <p className="mb-3 neo-regular font-size-90">Connect Wallet</p>
                                                 )}
@@ -547,7 +547,7 @@ function App() {
                                             <div className="d-flex justify-content-between">
                                                 <p className="mb-3 neo-bold font-size-90">Rewards Earned</p>
                                                 { state.isConnected ? (
-                                                    <p className="mb-3 neo-regular font-size-90">{addCommasToNumber(state.userRewardsEarned)} OWN</p>
+                                                    <p className="mb-3 neo-regular font-size-90">{addCommasToNumber(state.userRewardsEarned, 5)} OWN</p>
                                                 ) : (
                                                     <p className="mb-3 neo-regular font-size-90">Connect Wallet</p>
                                                 )}
@@ -555,7 +555,7 @@ function App() {
                                             <div className="d-flex justify-content-between">
                                                 <p className="mb-3 neo-bold font-size-90">Your Rate</p>
                                                 { state.isConnected ? (
-                                                    <p className="mb-3 neo-regular font-size-90">{addCommasToNumber(state.userRate)} OWN / week</p>
+                                                    <p className="mb-3 neo-regular font-size-90">{addCommasToNumber(state.userRate, 5)} OWN / week</p>
                                                 ) : (
                                                     <p className="mb-3 neo-regular font-size-90">Connect Wallet</p>
                                                 )}
@@ -577,7 +577,7 @@ function App() {
                                             <div className="mb-3">
                                                 <p className="mb-1 neo-bold font-size-110">Your Total LP Tokens Staked</p>
                                                 { state.isConnected ? (
-                                                    <p className="mb-1 neo-regular font-size-90">{addCommasToNumber(state.userCurrentLPStaked)} OWN/BUSD</p>
+                                                    <p className="mb-1 neo-regular font-size-90">{addCommasToNumber(state.userCurrentLPStaked, 5)} OWN/BUSD</p>
                                                 ) : (
                                                     <p className="mb-1 neo-regular font-size-90">Connect Wallet</p>
                                                 )}
@@ -585,7 +585,7 @@ function App() {
                                             <div className="mb-3">
                                                 <p className="mb-1 neo-bold font-size-110">Rewards Earned</p>
                                                 { state.isConnected ? (
-                                                    <p className="mb-1 neo-regular font-size-90">{addCommasToNumber(state.userRewardsEarned)} OWN</p>
+                                                    <p className="mb-1 neo-regular font-size-90">{addCommasToNumber(state.userRewardsEarned, 5)} OWN</p>
                                                 ) : (
                                                     <p className="mb-1 neo-regular font-size-90">Connect Wallet</p>
                                                 )}
@@ -593,7 +593,7 @@ function App() {
                                             <div className="mb-3">
                                                 <p className="mb-1 neo-bold font-size-110">Your Rate</p>
                                                 { state.isConnected ? (
-                                                    <p className="mb-1 neo-regular font-size-90">{addCommasToNumber(state.userRate)} OWN / week</p>
+                                                    <p className="mb-1 neo-regular font-size-90">{addCommasToNumber(state.userRate, 5)} OWN / week</p>
                                                 ) : (
                                                     <p className="mb-3 neo-regular font-size-90">Connect Wallet</p>
                                                 )}
