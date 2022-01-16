@@ -482,15 +482,21 @@ function App() {
                                 <p className="text-center font-size-90 text-color-6 neo-light mb-4">Add liquidity to OWN/BUSD on <b>PancakeSwap</b></p>
                                 <p className="total-dep bg-color-7 text-white text-center font-size-90 neo-light mb-4"><b>YOUR BALANCE:</b> {addCommasToNumber(state.currentLPBalance, 5)} OWN/BUSD</p>
                                 <div className="d-flex justify-content-center mb-3">
-                                    <div style={{"width": "50px"}}>
+                                    <div className="mx-1" style={{"width": "70px"}}>
                                         <img src={ownlyLogo} className="w-100" alt="Ownly Logo" />
                                     </div>
-                                    <div style={{"width": "50px"}}>
+                                    <div className="mx-1" style={{"width": "70px"}}>
                                         <img src={busdLogo} className="w-100" alt="BUSD Logo" />
                                     </div>
                                 </div>
                                 <div className="add-liquidity mx-auto" style={{"width": "60%"}}>
-                                    <a href="https://pancakeswap.finance/add/0x7665CB7b0d01Df1c9f9B9cC66019F00aBD6959bA/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56" target="_blank" rel="noreferrer" className="w-100 btn btn-custom-7 rounded-lg">ADD LIQUIDITY FOR OWN/BUSD</a>
+                                    <a href="https://pancakeswap.finance/add/0x7665CB7b0d01Df1c9f9B9cC66019F00aBD6959bA/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56" target="_blank" rel="noreferrer" className="w-100 btn btn-custom-7 rounded-lg mb-2">ADD LIQUIDITY FOR OWN/BUSD</a>
+                                    <p className="font-size-90 text-color-6 neo-light mt-3 mb-4">
+                                        <a href="https://pancakeswap.finance/info/pool/0x5b14378d1bab6bf323ebd6cfd4a26ec2c49598da" target="_blank" rel="noreferrer" className="stake-link">
+                                            <b>See Pair Info</b>
+                                            &nbsp;<FontAwesomeIcon size="sm" icon={faExternalLinkAlt} />
+                                        </a>
+                                    </p>
                                 </div>
                             </div>
                             <div className="col-12 col-lg-7">
@@ -569,8 +575,8 @@ function App() {
                                                 <p className="mb-3 neo-regular font-size-90">120,000,000 OWN</p>
                                             </div>
                                             <div className="d-flex justify-content-between">
-                                                <p className="mb-3 neo-bold font-size-90">Duration</p>
-                                                <p className="mb-3 neo-regular font-size-90">120 Days ({state.lpStakingDuration} remaining)</p>
+                                                <p className="mb-0 neo-bold font-size-90">Duration</p>
+                                                <p className="mb-0 neo-regular font-size-90">120 Days ({state.lpStakingDuration} remaining)</p>
                                             </div>
                                         </div>
                                         <div className="d-block d-sm-none">
@@ -606,7 +612,7 @@ function App() {
                                                 <p className="mb-1 neo-bold font-size-110">Total Rewards</p>
                                                 <p className="mb-1 neo-regular font-size-90">120,000,000 OWN</p>
                                             </div>
-                                            <div className="mb-3">
+                                            <div>
                                                 <p className="mb-1 neo-bold font-size-110">Duration</p>
                                                 <p className="mb-1 neo-regular font-size-90">120 Days ({state.lpStakingDuration} remaining)</p>
                                             </div>
@@ -619,8 +625,8 @@ function App() {
                                         {/* PRODUCTION */}
                                         <p className="font-size-90 text-color-6 neo-light mb-1">
                                             <a href={`https://bscscan.com/address/${stakingAddress}`} target="_blank" rel="noreferrer" className="stake-link">
-                                                <b>View Smart Contract</b>
-                                                &nbsp;<FontAwesomeIcon color="black" size="sm" icon={faExternalLinkAlt} />
+                                                <b>View Staking Contract</b>
+                                                &nbsp;<FontAwesomeIcon size="sm" icon={faExternalLinkAlt} />
                                             </a>
                                         </p>
                                         {/* DEVELOPMENT */}
@@ -630,12 +636,6 @@ function App() {
                                                 &nbsp;<FontAwesomeIcon color="black" size="sm" icon={faExternalLinkAlt} />
                                             </a>
                                         </p> */}
-                                        <p className="font-size-90 text-color-6 neo-light mb-4">
-                                            <a href="https://pancakeswap.finance/info/pool/0x5b14378d1bab6bf323ebd6cfd4a26ec2c49598da" target="_blank" rel="noreferrer" className="stake-link">
-                                                <b>See Pair Info</b>
-                                                &nbsp;<FontAwesomeIcon color="black" size="sm" icon={faExternalLinkAlt} />
-                                            </a>
-                                        </p>
                                     </div>
                                 </div>
                             </div>
