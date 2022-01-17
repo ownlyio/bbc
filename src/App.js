@@ -38,7 +38,6 @@ function App() {
         helpText: "Please enter an amount greater than 0.",
         currentLPBalance: 0,
         isApproved: false,
-        hasRunningInterval: false,
         detectedChangeMessage: "",
         hasMetamask: false,
         isLoaded: false,
@@ -241,6 +240,29 @@ function App() {
         computeUserRate()
 
         _setState("isLoaded", true)
+        
+        // refresh data every 30 seconds
+        setInterval(() => {
+            async function _getDetails() {
+                // get total deposits
+                const totalLP = await _stakingContract.methods.totalSupply().call()
+                _setState("totalLPTokensStaked", _web3.utils.fromWei(totalLP))
+
+                // APR
+                const apr = await getApr()
+                _setState("apr", roundOff(apr))
+
+                const lpTokenBal = await _stakingTokenContract.methods.balanceOf(acct).call()
+                _setState("currentLPBalance", _web3.utils.fromWei(lpTokenBal))
+                const lpTokenStaked = await _stakingContract.methods.balanceOf(acct).call()
+                _setState("userCurrentLPStaked", _web3.utils.fromWei(lpTokenStaked))
+                const rewardsEarned = await _stakingContract.methods.earned(acct).call()
+                _setState("userRewardsEarned", _web3.utils.fromWei(rewardsEarned))
+                computeUserRate()
+            }
+            
+            _getDetails()
+        }, 30000)
     }
 
     // switch network      
@@ -284,10 +306,6 @@ function App() {
                     _setState("isConnected", true)
                     _setState("account", acct[0])
                 }
-
-                setInterval(() => {
-                    console.log('Hello')
-                }, 5000)
 
                 getDetailsOfUserAcct(acct[0])
             } else {
