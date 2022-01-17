@@ -23,7 +23,7 @@ function TopStakers({shortenAddress, addCommasToNumber}) {
     return (
         <div>
             <p className="text-center font-size-170 text-color-2 neo-bold mt-3 mb-2">Stakers' Leaderboard</p>
-            <p className="text-center font-size-100 neo-bold mb-4">The Top 3 Earners at the end of the staking period will receive a <a className="stake-link neo-bold" href="https://mustachioverse.com" target="_blank" rel="noreferrer">Mustachio NFT</a> each.</p>
+            <p className="text-center font-size-100 neo-bold mb-4">The Top 3 Earners at the end of the staking period will receive a <a className="stake-link neo-bold" href="https://mustachioverse.com" target="_blank" rel="noreferrer">Mustachio NFT</a> each and the rest of the stakers will receive The Elixir NFT!</p>
 
             <div className="table-responsive px-4">
                 {!isLoaded ? (
