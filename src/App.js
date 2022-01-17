@@ -285,6 +285,10 @@ function App() {
                     _setState("account", acct[0])
                 }
 
+                setInterval(() => {
+                    console.log('Hello')
+                }, 5000)
+
                 getDetailsOfUserAcct(acct[0])
             } else {
                 handleShowWrongNetwork()
@@ -456,7 +460,7 @@ function App() {
     }
 
     // add thousands separator
-    const addCommasToNumber = (x, decimal) => {
+    const addCommasToNumber = (x, decimal = 5) => {
         if (!Number.isInteger(Number(x))) {
             x = Number(x).toFixed(decimal)
         }
