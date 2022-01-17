@@ -2747,6 +2747,9 @@ body {
 .bg-color-20 {
   background-color: #9300a8 !important;
 }
+.bg-color-21 {
+  background-color: #5e5e5e !important;
+}
 .cursor-pointer {
   cursor: pointer;
 }
