@@ -3,7 +3,7 @@ import axios from "axios"
 import { useState, useEffect } from 'react'
 import { stakingAddress } from "../../utils/contracts/staking"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faMedal, faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 function TopStakers({shortenAddress, addCommasToNumber}) {
     const [earners, setEarners] = useState([])

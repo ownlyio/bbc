@@ -21,7 +21,7 @@ export const getApr = async () => {
     // WEB3 RPC - BSC MAINNET
     const web3 = configureWeb3("https://bsc-dataseed.binance.org/")
     // WEB3 RPC - BSC TESTNET (COMMENT WHEN PRODUCTION)
-    const web3Test = configureWeb3("https://data-seed-prebsc-1-s1.binance.org:8545/")
+    // const web3 = configureWeb3("https://data-seed-prebsc-1-s1.binance.org:8545/")
 
     // Contracts
     const stakingContract = new web3.eth.Contract(stakingAbi, stakingAddress)

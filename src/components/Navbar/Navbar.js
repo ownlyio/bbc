@@ -10,7 +10,7 @@ function Navbar({connect, isConnected, account, shortenAddress}) {
                         <img src={ownTokenWebpLogo} width="53" alt="Ownly" />
                     </a>
                     <div className="ps-2">
-                        <a href="#" className="link-color-1 text-decoration-none website-home-link">
+                        <a href="/" className="link-color-1 text-decoration-none website-home-link">
                             <div className="">
                                 <div className="d-flex align-items-center">
                                     <div className="font-size-150 font-size-sm-200 rubik-black website-home-link line-height-90">OWNLY</div>

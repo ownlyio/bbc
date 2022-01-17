@@ -38,6 +38,7 @@ function App() {
         helpText: "Please enter an amount greater than 0.",
         currentLPBalance: 0,
         isApproved: false,
+        hasRunningInterval: false,
         detectedChangeMessage: "",
         hasMetamask: false,
         isLoaded: false,
@@ -136,6 +137,7 @@ function App() {
         networkChangedListener()
         getLiquidityStakingData(stakingAddress, 0)
     }, [])
+    
 
     // API, web3, metamask and contract functions
     // get liquidity staking data
@@ -223,6 +225,8 @@ function App() {
         // get total deposits
         const totalLP = await _stakingContract.methods.totalSupply().call()
         _setState("totalLPTokensStaked", _web3.utils.fromWei(totalLP))
+        const apr = await getApr()
+        _setState("apr", roundOff(apr))
         getDetailsOfUserAcct(state.account)
     }
 
