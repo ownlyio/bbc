@@ -241,7 +241,7 @@ function App() {
 
         _setState("isLoaded", true)
         
-        // refresh data every 30 seconds
+        // refresh data every 10 seconds
         setInterval(() => {
             async function _getDetails() {
                 // get total deposits
@@ -262,7 +262,7 @@ function App() {
             }
             
             _getDetails()
-        }, 30000)
+        }, 10000)
     }
 
     // switch network      
