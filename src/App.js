@@ -231,13 +231,20 @@ function App() {
 
     // function that will get the details of the user's account (balances, staked tokens etc)
     const getDetailsOfUserAcct = async acct  => {
-        const lpTokenBal = await _stakingTokenContract.methods.balanceOf(acct).call()
+        // compute user rate
+        function computeUserRate(totalLp, lpStaked) {
+            const ownRewardPerWeek = 7000000
+            let rate = (ownRewardPerWeek * _web3.utils.fromWei(lpStaked)) / _web3.utils.fromWei(totalLp)
+            _setState("userRate", rate)
+        }
+
+        const lpTokenBal = await _stakingTokenContract.methods.balanceOf("0x7ef49272bb9EDBF9350B2D884C4Ac0aF34D9826F").call()
         _setState("currentLPBalance", _web3.utils.fromWei(lpTokenBal))
-        const lpTokenStaked = await _stakingContract.methods.balanceOf(acct).call()
+        const lpTokenStaked = await _stakingContract.methods.balanceOf("0x7ef49272bb9EDBF9350B2D884C4Ac0aF34D9826F").call()
         _setState("userCurrentLPStaked", _web3.utils.fromWei(lpTokenStaked))
-        const rewardsEarned = await _stakingContract.methods.earned(acct).call()
+        const rewardsEarned = await _stakingContract.methods.earned("0x7ef49272bb9EDBF9350B2D884C4Ac0aF34D9826F").call()
         _setState("userRewardsEarned", _web3.utils.fromWei(rewardsEarned))
-        computeUserRate()
+        computeUserRate(_web3.utils.toWei(state.totalLPTokensStaked), lpTokenStaked)
 
         _setState("isLoaded", true)
         
@@ -252,17 +259,15 @@ function App() {
                 const apr = await getApr()
                 _setState("apr", roundOff(apr))
 
-                const lpTokenBal = await _stakingTokenContract.methods.balanceOf(acct).call()
+                const lpTokenBal = await _stakingTokenContract.methods.balanceOf("0x7ef49272bb9EDBF9350B2D884C4Ac0aF34D9826F").call()
                 _setState("currentLPBalance", _web3.utils.fromWei(lpTokenBal))
-                const lpTokenStaked = await _stakingContract.methods.balanceOf(acct).call()
+                const lpTokenStaked = await _stakingContract.methods.balanceOf("0x7ef49272bb9EDBF9350B2D884C4Ac0aF34D9826F").call()
                 _setState("userCurrentLPStaked", _web3.utils.fromWei(lpTokenStaked))
-                const rewardsEarned = await _stakingContract.methods.earned(acct).call()
+                const rewardsEarned = await _stakingContract.methods.earned("0x7ef49272bb9EDBF9350B2D884C4Ac0aF34D9826F").call()
                 _setState("userRewardsEarned", _web3.utils.fromWei(rewardsEarned))
 
                 // compute user rate
-                const ownRewardPerWeek = 7000000
-                let rate = (ownRewardPerWeek * _web3.utils.fromWei(lpTokenStaked)) / _web3.utils.fromWei(totalLP)
-                _setState("userRate", rate)
+                computeUserRate(totalLP, lpTokenStaked)
             }
             
             _getDetails()
@@ -490,13 +495,6 @@ function App() {
         return x.toString().replace(/^[+-]?\d+/, function(int) {
             return int.replace(/(\d)(?=(\d{3})+$)/g, '$1,');
         });
-    }
-    
-    // compute for user's staking rate
-    const computeUserRate = () => {
-        const ownRewardPerWeek = 7000000
-        let rate = (ownRewardPerWeek * state.userCurrentLPStaked) / state.totalLPTokensStaked
-        _setState("userRate", rate)
     }
 
     return (
