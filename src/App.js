@@ -238,11 +238,11 @@ function App() {
             _setState("userRate", rate)
         }
 
-        const lpTokenBal = await _stakingTokenContract.methods.balanceOf("0x7ef49272bb9EDBF9350B2D884C4Ac0aF34D9826F").call()
+        const lpTokenBal = await _stakingTokenContract.methods.balanceOf(acct).call()
         _setState("currentLPBalance", _web3.utils.fromWei(lpTokenBal))
-        const lpTokenStaked = await _stakingContract.methods.balanceOf("0x7ef49272bb9EDBF9350B2D884C4Ac0aF34D9826F").call()
+        const lpTokenStaked = await _stakingContract.methods.balanceOf(acct).call()
         _setState("userCurrentLPStaked", _web3.utils.fromWei(lpTokenStaked))
-        const rewardsEarned = await _stakingContract.methods.earned("0x7ef49272bb9EDBF9350B2D884C4Ac0aF34D9826F").call()
+        const rewardsEarned = await _stakingContract.methods.earned(acct).call()
         _setState("userRewardsEarned", _web3.utils.fromWei(rewardsEarned))
         computeUserRate(_web3.utils.toWei(state.totalLPTokensStaked), lpTokenStaked)
 
@@ -259,11 +259,11 @@ function App() {
                 const apr = await getApr()
                 _setState("apr", roundOff(apr))
 
-                const lpTokenBal = await _stakingTokenContract.methods.balanceOf("0x7ef49272bb9EDBF9350B2D884C4Ac0aF34D9826F").call()
+                const lpTokenBal = await _stakingTokenContract.methods.balanceOf(acct).call()
                 _setState("currentLPBalance", _web3.utils.fromWei(lpTokenBal))
-                const lpTokenStaked = await _stakingContract.methods.balanceOf("0x7ef49272bb9EDBF9350B2D884C4Ac0aF34D9826F").call()
+                const lpTokenStaked = await _stakingContract.methods.balanceOf(acct).call()
                 _setState("userCurrentLPStaked", _web3.utils.fromWei(lpTokenStaked))
-                const rewardsEarned = await _stakingContract.methods.earned("0x7ef49272bb9EDBF9350B2D884C4Ac0aF34D9826F").call()
+                const rewardsEarned = await _stakingContract.methods.earned(acct).call()
                 _setState("userRewardsEarned", _web3.utils.fromWei(rewardsEarned))
 
                 // compute user rate
