@@ -258,10 +258,14 @@ function App() {
                 _setState("userCurrentLPStaked", _web3.utils.fromWei(lpTokenStaked))
                 const rewardsEarned = await _stakingContract.methods.earned(acct).call()
                 _setState("userRewardsEarned", _web3.utils.fromWei(rewardsEarned))
+
+                // compute user rate
+                const ownRewardPerWeek = 7000000
+                let rate = (ownRewardPerWeek * _web3.utils.fromWei(lpTokenStaked)) / _web3.utils.fromWei(totalLP)
+                _setState("userRate", rate)
             }
             
             _getDetails()
-            computeUserRate()
         }, 10000)
     }
 
