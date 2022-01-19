@@ -258,10 +258,10 @@ function App() {
                 _setState("userCurrentLPStaked", _web3.utils.fromWei(lpTokenStaked))
                 const rewardsEarned = await _stakingContract.methods.earned(acct).call()
                 _setState("userRewardsEarned", _web3.utils.fromWei(rewardsEarned))
-                computeUserRate()
             }
             
             _getDetails()
+            computeUserRate()
         }, 10000)
     }
 
