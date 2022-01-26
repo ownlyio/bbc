@@ -1,6 +1,7 @@
 import './Navbar.css'
 import ownTokenWebpLogo from '../../img/ownly/own-token.webp'
 
+// function Navbar({handleShowWalletProviders, isConnected, account, shortenAddress}) {
 function Navbar({connect, isConnected, account, shortenAddress}) {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom fixed-top">
@@ -34,6 +35,8 @@ function Navbar({connect, isConnected, account, shortenAddress}) {
                             <li className="nav-item" id="connect-to-metamask-container">
                                 <button onClick={connect} type="button" className="d-none d-sm-block btn btn-custom-7 shadow-sm font-size-90 py-2 px-4" id="connect-to-metamask" style={{"borderRadius": "100px"}}>Connect&nbsp;Wallet</button>
                                 <button onClick={connect} type="button" className="d-block d-sm-none btn btn-custom-7 shadow-sm font-size-90 py-2 px-4" id="connect-to-metamask" style={{"borderRadius": "100px"}}>Connect</button>
+                                {/* <button onClick={handleShowWalletProviders} type="button" className="d-none d-sm-block btn btn-custom-7 shadow-sm font-size-90 py-2 px-4" id="connect-to-metamask" style={{"borderRadius": "100px"}}>Connect&nbsp;Wallet</button>
+                                <button onClick={handleShowWalletProviders} type="button" className="d-block d-sm-none btn btn-custom-7 shadow-sm font-size-90 py-2 px-4" id="connect-to-metamask" style={{"borderRadius": "100px"}}>Connect</button> */}
                             </li>
                         )}
                     </ul>
