@@ -187,7 +187,7 @@ function App() {
 
                 if (data.data.data.pagination.has_more) {
                     setTimeout(function() {
-                        getLiquidityStakingData(address, page++)
+                        getLiquidityStakingData(address, page + 1)
                     }, 5000)
                 }
             }
