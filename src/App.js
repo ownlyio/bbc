@@ -165,7 +165,7 @@ function App() {
         _init()
         accountChangedListener()
         networkChangedListener()
-        // getLiquidityStakingData(stakingAddress, 0)
+        getLiquidityStakingData(stakingAddress, 0)
     }, [])
     
 
