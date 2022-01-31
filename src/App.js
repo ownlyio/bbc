@@ -190,7 +190,7 @@ function App() {
                 }
 
                 axios.post(`${ownlyAPI}api/add-staking-transactions`, {
-                    transactions: transactions,
+                    transactions: JSON.stringify(transactions),
                     staking: address
                 }).then(data => {
                     let earners = data.data.earners
