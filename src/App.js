@@ -201,15 +201,19 @@ function App() {
                     for (let i = 0; i < earners.length; i++) {
                         stakingContractLiquidity.methods.earned(earners[i]).call()
                             .then(function(earned) {
-                                axios.post(`${ownlyAPI}api/update-staking-earnings`, {
-                                    staking: address,
-                                    address: earners[i],
-                                    earned: earned
-                                }).then(data => {
+                                stakingContractLiquidity.methods.balanceOf(earners[i]).call()
+                                    .then(function(staked) {
+                                        axios.post(`${ownlyAPI}api/update-staking-earnings`, {
+                                            staking: address,
+                                            address: earners[i],
+                                            earned: earned,
+                                            staked: staked
+                                        }).then(data => {
 
-                                }).catch(function(error) {
-                                    console.log(error)
-                                })
+                                        }).catch(function(error) {
+                                            console.log(error)
+                                        })
+                                    });
                             })
                     }
                 }).catch(function(error) {
@@ -548,7 +552,9 @@ function App() {
 
     // add thousands separator
     const addCommasToNumber = (x, decimal = 5) => {
-        if (!Number.isInteger(Number(x))) {
+        console.log(Number(x));
+
+        if(!Number.isInteger(Number(x)) || Number(x) === 0) {
             x = Number(x).toFixed(decimal)
         }
 

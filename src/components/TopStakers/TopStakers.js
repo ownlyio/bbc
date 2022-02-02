@@ -39,7 +39,7 @@ function TopStakers({shortenAddress, addCommasToNumber}) {
                             <tr>
                                 <th className="text-center text-color-3"></th>
                                 <th className="text-center text-color-3">Address</th>
-                                <th className="text-center text-color-3">Amount Staked</th>
+                                <th className="text-center text-color-3">Current Amount Staked</th>
                                 <th className="text-center text-color-3">Earnings</th>
                             </tr>
                         </thead>
