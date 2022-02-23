@@ -95,9 +95,6 @@ function App() {
     const [showTopStakers, setShowTopStakers] = useState(false)
     const handleCloseTopStakers = () => setShowTopStakers(false)
     const handleShowTopStakers = () => setShowTopStakers(true)
-    const [showWalletProviders, setShowWalletProviders] = useState(false)
-    const handleCloseWalletProviders = () => setShowWalletProviders(false)
-    const handleShowWalletProviders = () => setShowWalletProviders(true)
 
     useEffect(() => {
         async function _init() {
@@ -122,31 +119,6 @@ function App() {
             } else {
                 _setState("hasMetamask", false)
             }
-
-            // Wallet Connect
-            // const provider = new WalletConnectProvider({
-            //     infuraId: "27e484dcd9e3efcfd25a83a78777cdf1",
-            //     supportedChainIds: [56]
-            //     // rpc: {
-            //     //     // PRODUCTION
-            //     //     56: "https://bsc-dataseed.binance.org/",
-            //     //     // DEVELOPMENT
-            //     //     // 97: "https://data-seed-prebsc-1-s1.binance.org:8545/",
-            //     // },
-            // })
-
-            // const web3WalletConnect = configureWeb3(provider)
-            
-            // if (web3WalletConnect !== 1) { 
-            //     const stakingContractWC = new web3WalletConnect.eth.Contract(stakingAbi, stakingAddress)
-            //     const stakingTokenContractWC = new web3WalletConnect.eth.Contract(stakingTokenAbi, stakingTokenAddress)
-            //     setWeb3(web3WalletConnect)
-            //     setStakingContract(stakingContractWC)
-            //     setStakingTokenContract(stakingTokenContractWC)
-            //     _setState("hasWalletConnect", true)
-            // } else {
-            //     _setState("hasWalletConnect", false)
-            // }
 
             // get staking duration
             const duration = await stakingContract.methods.periodFinish().call()
@@ -741,31 +713,6 @@ function App() {
                 <Footer />
 
                 {/* Modals */}
-                
-                {/* Modal for wallet choices */}
-                <Modal show={showWalletProviders} onHide={handleCloseWalletProviders} backdrop="static" keyboard={false} size="sm" centered>
-                    <Modal.Body>
-                        <p className="font-weight-bold text-center font-size-150 mb-3">Connect Wallet</p>
-                        <div onClick={() => connect("metamask")} className="d-flex justify-content-between align-items-center mb-3 py-1 px-2 cursor-pointer" style={{"border": "1px solid #aaa"}}>
-                            <p className="font-weight-bold font-size-120 mb-0">Metamask</p>
-                            <div className="w-1/5">
-                                <img src={metamask} alt="Metamask" className="w-100" />
-                            </div>
-                        </div>
-                        <div onClick={() => connect("walletconnect")} className="d-flex justify-content-between align-items-center py-1 px-2 cursor-pointer" style={{"border": "1px solid #aaa"}}>
-                            <p className="font-weight-bold font-size-120 mb-0">Wallet Connect</p>
-                            <div className="w-1/5">
-                                <img src={walletconnect} alt="Wallet Connect" className="w-100" />
-                            </div>
-                        </div>
-                    </Modal.Body>
-                    <Modal.Footer className="justify-content-center">
-                        <Button className="font-w-hermann w-hermann-reg" variant="secondary" onClick={handleCloseWalletProviders}>
-                            Close
-                        </Button>
-                    </Modal.Footer>
-                </Modal> 
-
                 {/* Modal for not connected */}
                 <Modal show={showNotConnected} onHide={handleCloseNotConnected} backdrop="static" keyboard={false} size="sm" centered>
                     <Modal.Body>
