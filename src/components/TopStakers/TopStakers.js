@@ -1,7 +1,7 @@
 import './TopStakers.css'
 import axios from "axios"
 import { useState, useEffect } from 'react'
-import { stakingAddress } from "../../utils/contracts/staking"
+import { stakingAddress } from "../../utils/contracts/liquidity/cakelp-own/staking"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 

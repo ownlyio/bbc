@@ -2,11 +2,11 @@ import axios from 'axios'
 import { configureWeb3 } from './web3Init'
 
 // PRODUCTION
-import { stakingTokenAbi, stakingTokenAddress } from './contracts/stakingToken'
-import { stakingAbi, stakingAddress } from './contracts/staking'
+import { stakingTokenAbi, stakingTokenAddress } from './contracts/liquidity/cakelp-own/stakingToken'
+import { stakingAbi, stakingAddress } from './contracts/liquidity/cakelp-own/staking'
 
 // DEVELOPMENT
-// import { stakingAbi, stakingAddress } from './contracts/stakingDev'
+// import { stakingAbi, stakingAddress } from './contracts/liquidity/cakelp-own/stakingDev'
 
 const getOwnPrice = () => {
     return axios.get("https://api.pancakeswap.info/api/v2/tokens/0x7665CB7b0d01Df1c9f9B9cC66019F00aBD6959bA")

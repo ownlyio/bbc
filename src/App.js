@@ -17,12 +17,12 @@ import metamask from './img/metamask.png'
 import walletconnect from './img/walletconnect.jpg'
 
 // PRODUCTION
-import { stakingTokenAbi, stakingTokenAddress } from './utils/contracts/stakingToken'
-import { stakingAbi, stakingAddress } from './utils/contracts/staking'
+import { stakingTokenAbi, stakingTokenAddress } from './utils/contracts/liquidity/cakelp-own/stakingToken'
+import { stakingAbi, stakingAddress } from './utils/contracts/liquidity/cakelp-own/staking'
 
 // DEVELOPMENT
-// import { stakingTokenAbi, stakingTokenAddress } from './utils/contracts/stakingTokenDev'
-// import { stakingAbi, stakingAddress } from './utils/contracts/stakingDev'
+// import { stakingTokenAbi, stakingTokenAddress } from './utils/contracts/liquidity/cakelp-own/stakingTokenDev'
+// import { stakingAbi, stakingAddress } from './utils/contracts/liquidity/cakelp-own/stakingDev'
 
 // Utils
 import { configureWeb3 } from './utils/web3Init'
@@ -326,7 +326,6 @@ function App() {
                     }
 
                     getDetailsOfUserAcct(acct[0])
-                    handleCloseWalletProviders()
                 } else {
                     handleShowWrongNetwork()
                 }
