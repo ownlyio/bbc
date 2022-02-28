@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button, Modal } from 'react-bootstrap'
 import { faCheckCircle, faExclamationCircle, faExternalLinkAlt, faSpinner } from '@fortawesome/free-solid-svg-icons'
-import WalletConnectProvider from "@walletconnect/web3-provider"
 import axios from 'axios'
 
 import Navbar from './components/Navbar/Navbar'
@@ -14,7 +13,6 @@ import TopStakers from './components/TopStakers/TopStakers'
 import ownlyLogo from './img/ownly/own-token.webp'
 import busdLogo from './img/busd/busd.webp'
 import metamask from './img/metamask.png'
-import walletconnect from './img/walletconnect.jpg'
 
 // PRODUCTION
 import { stakingTokenAbi, stakingTokenAddress } from './utils/contracts/liquidity/cakelp-own/stakingToken'
@@ -309,55 +307,27 @@ function App() {
     }
 
     // connect wallet
-    // const connect = async wallet => {
     const connect = async () => {
-        // if (wallet === "metamask") {
-            if (state.hasMetamask) {
-                const netId = await _web3.eth.net.getId() // 97 - BSC testnet, 56 - BSC Mainnet
-                
-                // PRODUCTION
-                if (netId === 56) {
-                // DEVELOPMENT
-                // if (netId === 97) {
-                    const acct = await window.ethereum.request({ method: "eth_requestAccounts"})
-                    if (acct.length > 0) {
-                        _setState("isConnected", true)
-                        _setState("account", acct[0])
-                    }
-
-                    getDetailsOfUserAcct(acct[0])
-                } else {
-                    handleShowWrongNetwork()
+        if (state.hasMetamask) {
+            const netId = await _web3.eth.net.getId() // 97 - BSC testnet, 56 - BSC Mainnet
+            
+            // PRODUCTION
+            if (netId === 56) {
+            // DEVELOPMENT
+            // if (netId === 97) {
+                const acct = await window.ethereum.request({ method: "eth_requestAccounts"})
+                if (acct.length > 0) {
+                    _setState("isConnected", true)
+                    _setState("account", acct[0])
                 }
+
+                getDetailsOfUserAcct(acct[0])
             } else {
-                handleShowMetamaskInstall()
+                handleShowWrongNetwork()
             }
-        // } else if (wallet === "walletconnect") {
-        //     if (state.hasWalletConnect) {
-        //         const provider = new WalletConnectProvider({
-        //             infuraId: "27e484dcd9e3efcfd25a83a78777cdf1",
-        //             supportedChainIds: [56]
-        //             // rpc: {
-        //             //     // PRODUCTION
-        //             //     56: "https://bsc-dataseed.binance.org/",
-        //             //     // DEVELOPMENT
-        //             //     // 97: "https://data-seed-prebsc-1-s1.binance.org:8545/",
-        //             // },
-        //         })
-
-        //         const acct = await provider.enable()
-        //         if (acct.length > 0) {
-        //             _setState("isConnected", true)
-        //             _setState("account", acct[0])
-        //         }
-
-        //         getDetailsOfUserAcct(acct[0])
-        //         handleCloseWalletProviders()
-        //     } else {
-        //         _setState("txError", "Failed to connect wallet. Please try again!")
-        //         handleShowOnError()
-        //     }
-        // }
+        } else {
+            handleShowMetamaskInstall()
+        }
     }
 
     // approve
