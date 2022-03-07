@@ -9,4 +9,8 @@
   .staking-card {
     width: 100% !important;
   }
+
+  .cd-content {
+    margin-top: 20px;
+  }
 }

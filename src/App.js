@@ -13,6 +13,7 @@ import TopStakers from './components/TopStakers/TopStakers'
 import ownlyLogo from './img/ownly/own-token.webp'
 import busdLogo from './img/busd/busd.webp'
 import metamask from './img/metamask.png'
+import mustachioStaking from './img/staking/own-mustachio-rulers.png'
 
 // PRODUCTION
 import { stakingTokenAbi, stakingTokenAddress } from './utils/contracts/liquidity/cakelp-own/stakingToken'
@@ -51,6 +52,10 @@ function App() {
         userRate: 0,
         txError: "",
         txHash: "",
+        cdDays: "00",
+        cdHrs: "00",
+        cdMins: "00",
+        cdSecs: "00",
     })
 
     // Other Variables
@@ -136,6 +141,7 @@ function App() {
         accountChangedListener()
         networkChangedListener()
         getLiquidityStakingData(stakingAddress, 0)
+        countdownTimer()
     }, [])
     
 
@@ -493,8 +499,6 @@ function App() {
 
     // add thousands separator
     const addCommasToNumber = (x, decimal = 5) => {
-        console.log(Number(x));
-
         if(!Number.isInteger(Number(x)) || Number(x) === 0) {
             x = Number(x).toFixed(decimal)
         }
@@ -504,6 +508,48 @@ function App() {
         });
     }
 
+    // countdown
+    const countdownTimer = () => {
+        const stakngTime = "2022-03-10%2019:00:00" // March 10, 2022 7PM UNIX Timestamp
+        axios.get(`https://ownly.tk/api/get-remaining-time/${stakngTime}`).then(data => {
+            let remainingTime = data.data
+            let countDownDate = new Date().getTime() + (remainingTime * 1000);
+
+            let x = setInterval(function() {
+                let now = new Date().getTime()
+                let distance = countDownDate - now
+    
+                let days = pad_zeroes(Math.floor(distance / (1000 * 60 * 60 * 24)))
+                let hours = pad_zeroes(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)))
+                let minutes = pad_zeroes(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)))
+                let seconds = pad_zeroes(Math.floor((distance % (1000 * 60)) / 1000))
+    
+                _setState("cdDays", days)
+                _setState("cdHrs", hours)
+                _setState("cdMins", minutes)
+                _setState("cdSecs", seconds)
+    
+                if (distance < 0) {
+                    clearInterval(x)
+                    _setState("cdDays", "00")
+                    _setState("cdHrs", "00")
+                    _setState("cdMins", "00")
+                    _setState("cdSecs", "00")
+                }
+            }, 500)
+        })
+    }
+
+    const pad_zeroes = (number) => {
+        number = number.toString();
+    
+        while(number.length < 2) {
+            number = "0" + number;
+        }
+    
+        return number;
+    };
+
     return (
         <Router basename={process.env.PUBLIC_URL}>
             <div className="app" style={{"backgroundColor": "rgb(244, 246, 248)"}}>
@@ -511,6 +557,47 @@ function App() {
                 {/* <Navbar handleShowWalletProviders={handleShowWalletProviders} isConnected={state.isConnected} account={state.account} shortenAddress={shortenAddress} /> */}
 
                 <div className="container">
+                    <section id="app-countdown" className="mb-4">
+                        <div className="row justify-content-center align-items-center">
+                            <div className="col-12 col-md-4">
+                                <div className="app-countdown-img">
+                                    <img src={mustachioStaking} alt="OWN-Mustachio Rulers Logo" className="w-100" />
+                                </div>
+                                <p className="app-countdown-title text-center font-size-120 font-size-sm-150 font-size-lg-170 text-color-6 neo-black mb-2">Stake OWN, Earn Mustachio Ruler</p>
+                                <p className="app-countdown-sub text-center font-size-70 font-size-sm-100 font-size-md-120 font-size-sm-100 font-size-lg-120 text-color-6 mb-1">Coming Soon...</p>
+                            </div>
+                            <div className="col-12 col-md-8">
+                                <div className="cd-content d-flex align-items-center justify-content-around">
+                                    <div className="app-countdown-days">
+                                        <p className="neo-black font-size-120 font-size-sm-150 font-size-md-220 font-size-lg-300 text-color-6 text-center mb-1">{state.cdDays}</p>
+                                        <p className="font-size-70 font-size-sm-100 font-size-md-120 text-color-6 text-center mb-0">DAYS</p>
+                                    </div>
+                                    <div className="app-countdown-colon">
+                                        <p className="neo-black font-size-120 font-size-sm-150 font-size-md-220 font-size-lg-300 text-color-6 text-center mb-1">:</p>
+                                    </div>
+                                    <div className="app-countdown-hours">
+                                        <p className="neo-black font-size-120 font-size-sm-150 font-size-md-220 font-size-lg-300 text-color-6 text-center mb-1">{state.cdHrs}</p>
+                                        <p className="font-size-70 font-size-sm-100 font-size-md-120 text-color-6 text-center mb-0">HOURS</p>
+                                    </div>
+                                    <div className="app-countdown-colon">
+                                        <p className="neo-black font-size-120 font-size-sm-150 font-size-md-220 font-size-lg-300 text-color-6 text-center mb-1">:</p>
+                                    </div>
+                                    <div className="app-countdown-minutes">
+                                        <p className="neo-black font-size-120 font-size-sm-150 font-size-md-220 font-size-lg-300 text-color-6 text-center mb-1">{state.cdMins}</p>
+                                        <p className="font-size-70 font-size-sm-100 font-size-md-120 text-color-6 text-center mb-0">MINUTES</p>
+                                    </div>
+                                    <div className="app-countdown-colon">
+                                        <p className="neo-black font-size-120 font-size-sm-150 font-size-md-220 font-size-lg-300 text-color-6 text-center mb-1">:</p>
+                                    </div>
+                                    <div className="app-countdown-seconds">
+                                        <p className="neo-black font-size-120 font-size-sm-150 font-size-md-220 font-size-lg-300 text-color-6 text-center mb-1">{state.cdSecs}</p>
+                                        <p className="font-size-70 font-size-sm-100 font-size-md-120 text-color-6 text-center mb-0">SECONDS</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <hr />
                     <section id="app-staking" className="mb-4">
                         <div className="row justify-content-center align-items-center">
                             <div className="col-12 col-lg-5">

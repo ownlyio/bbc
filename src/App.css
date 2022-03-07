@@ -1,6 +1,19 @@
-#app-staking {
+#app-countdown {
   margin-top: 80px;
-  padding: 5rem 0;
+}
+
+.app-countdown-img {
+  width: 40%;
+  margin: 5% auto 3%;
+}
+
+.app-countdown-title {
+  width: 70%;
+  margin: 0 auto;
+}
+
+#app-staking {
+  padding: 2rem 0 5rem;
 }
 
 .app-card {
