@@ -561,9 +561,9 @@ function App() {
                         <div className="row justify-content-center align-items-center">
                             <div className="col-12 col-md-4">
                                 <div className="app-countdown-img">
-                                    <img src={mustachioStaking} alt="OWN-Mustachio Rulers Logo" className="w-100" />
+                                    <img src={mustachioStaking} alt="OWN-Mustachio Marauders Logo" className="w-100" />
                                 </div>
-                                <p className="app-countdown-title text-center font-size-120 font-size-sm-150 font-size-lg-170 text-color-6 neo-black mb-2">Stake OWN, Earn Mustachio Ruler</p>
+                                <p className="app-countdown-title text-center font-size-120 font-size-sm-150 font-size-lg-170 text-color-6 neo-black mb-2">Stake OWN, Earn Mustachio Marauder</p>
                                 <p className="app-countdown-sub text-center font-size-70 font-size-sm-100 font-size-md-120 font-size-sm-100 font-size-lg-120 text-color-6 mb-1">Coming Soon...</p>
                             </div>
                             <div className="col-12 col-md-8">
