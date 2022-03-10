@@ -153,8 +153,12 @@ function ItemCakeLPOWN(props) {
     }, [isConnected, acct])
 
     return (
-        <div className="col-12 col-md-6 col-lg-4 s-item liquidity">
+        <div className="col-12 col-md-6 col-lg-4 mt-3 s-item liquidity">
             <div className="splatform-item">
+                <div className="splatform-badge-liquidity font-size-80">
+                    Liquidity
+                </div>
+
                 <div className="splatform-item-img">
                     <img className="w-100" src={ownBusd} alt="Stake OWN/BUSD, Earn OWN" />
                 </div>

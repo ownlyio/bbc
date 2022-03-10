@@ -111,7 +111,7 @@ export default function Home(props) {
                     <p className="splatform-title font-size-250 text-center text-color-4 neo-bold mb-3">Our Staking Platforms</p>
                     <p className="splatform-sub font-size-130 text-center text-color-7 mb-5">Staking options to choose from to earn tokens or NFTs as rewards</p>
 
-                    <div className="splatform-btns mb-4">
+                    <div className="splatform-btns mb-2">
                         <div className="d-flex w-100">
                             <button onClick={(e) => filterStakingOptions(e, 0)} className="btn splatform-btn-item neo-bold active">All</button>
                             <button onClick={(e) => filterStakingOptions(e, 1)} className="btn splatform-btn-item neo-bold">Liquidity</button>

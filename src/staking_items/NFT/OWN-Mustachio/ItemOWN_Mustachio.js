@@ -169,8 +169,12 @@ function ItemOWNMustachio(props) {
     }, [isConnected, acct])
 
     return (
-        <div className="col-12 col-md-6 col-lg-4 s-item nft">
+        <div className="col-12 col-md-6 col-lg-4 mt-3 s-item nft">
             <div className="splatform-item">
+                <div className="splatform-badge-nft font-size-80">
+                    NFT
+                </div>
+
                 <div className="splatform-item-img">
                     <img className="w-100" src={ownMustachio} alt="Stake OWN, Earn Mustachio Ruler" />
                 </div>

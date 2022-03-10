@@ -46,6 +46,32 @@
   margin: 0 auto;
 }
 
+.splatform-item {
+  position: relative;
+}
+
+.splatform-badge-nft {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: auto;
+  padding: 2px 10px;
+  background-color: #16b99a;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.splatform-badge-liquidity {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: auto;
+  padding: 2px 10px;
+  background-color: #f19150;
+  color: #fff;
+  border-radius: 10px;
+}
+
 .splatform-btn-item {
   width: 100px;
   color: #616161;
