@@ -518,9 +518,11 @@ function App() {
             let x = setInterval(function() {
                 let now = new Date().getTime()
                 let distance = countDownDate - now
+
+
     
                 let days = pad_zeroes(Math.floor(distance / (1000 * 60 * 60 * 24)))
-                let hours = pad_zeroes(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)))
+                let hours = pad_zeroes(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) - 5)
                 let minutes = pad_zeroes(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)))
                 let seconds = pad_zeroes(Math.floor((distance % (1000 * 60)) / 1000))
     
@@ -529,7 +531,7 @@ function App() {
                 _setState("cdMins", minutes)
                 _setState("cdSecs", seconds)
     
-                if (distance < 0) {
+                if (hours < 0) {
                     clearInterval(x)
                     _setState("cdDays", "00")
                     _setState("cdHrs", "00")
