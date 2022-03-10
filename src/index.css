@@ -2775,3 +2775,11 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
 }
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}

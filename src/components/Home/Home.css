@@ -1,0 +1,89 @@
+#home {
+  width: 100%;
+  height: 100vh;
+}
+
+.home-title {
+  width: 85%;
+}
+
+.home-sub {
+  width: 75%;
+}
+
+.home-cta a {
+  padding: 14px 0;
+  width: 220px;
+}
+
+.home-btn-1 {
+  margin-right: 10px;
+}
+
+.home-btn-2 {
+  border: 1px solid #ccc;
+}
+
+.home-img {
+  margin: 0 auto;
+  width: 60%;
+}
+
+#how-it-works {
+  margin-bottom: 5em;
+}
+
+.hiw-item-content,
+.splatform-item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 30px 5%;
+  background-color: white;
+}
+
+.hiw-item-sub {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.splatform-btn-item {
+  width: 100px;
+  color: #616161;
+}
+
+.splatform-btn-item.active {
+  background-color: #16b99a;
+  color: white;
+  border-radius: 0;
+  transition: all 0.3s ease;
+}
+
+.splatform-btn-item:not(.active):hover,
+.splatform-btn-item:not(.active):focus {
+  color: #16b99a;
+  background-color: white;
+}
+
+.splatform-btn-item:focus {
+  outline: none !important;
+  box-shadow: none;
+}
+
+.splatform-item-img {
+  width: 170px;
+  margin: 0 auto 20px;
+}
+
+.splatform-item-content {
+  margin-bottom: 2em;
+}
+
+.splatform-item-title {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.splatform-item-divider {
+  width: 100%;
+  border-bottom: 3px solid #f19150;
+}
