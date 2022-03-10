@@ -167,11 +167,7 @@ function ItemCakeLPOWN(props) {
                 <div className="splatform-item-content">
                     <div className="d-flex justify-content-between mb-3">
                         <div className="splatform-desc text-left font-semibold font-size-100">Total Deposits</div>
-                        {isConnected ? (
-                            <div className="splatform-desc text-right text-color-7 font-size-100">{addCommasToNumber(state.totalLPTokensStaked, 5)} OWN/BUSD</div>
-                        ) : (
-                            <div className="splatform-desc text-right text-color-7 font-size-100">Connect Wallet</div>
-                        )}
+                        <div className="splatform-desc text-right text-color-7 font-size-100">{addCommasToNumber(state.totalLPTokensStaked, 5)} OWN/BUSD</div>
                     </div>
                     <div className="d-flex justify-content-between mb-3">
                         <div className="splatform-desc text-left font-semibold font-size-100">Your Total Deposits</div>
