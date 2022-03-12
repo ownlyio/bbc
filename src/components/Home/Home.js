@@ -118,7 +118,7 @@ export default function Home(props) {
                             <button onClick={(e) => filterStakingOptions(e, 2)} className="btn splatform-btn-item neo-bold">NFTs</button>
                         </div>
                     </div>
-                    <div className="row justify-content-start align-items-center">
+                    <div className="row justify-content-start align-items-start">
                         {/* Start from the recent ones */}
                         <ItemOWNMustachio
                             isConnected={isConnected} 

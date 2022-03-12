@@ -11,6 +11,14 @@
   .home-sub {
     width: 80% !important;
   }
+
+  .splatform-item {
+    height: 560px;
+  }
+
+  .splatform-item-title {
+    font-size: 1.3rem !important;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -24,6 +32,14 @@
 
   .home-title {
     width: 100% !important;
+  }
+
+  .splatform-item {
+    height: 530px !important;
+  }
+
+  .splatform-item-title {
+    font-size: 1.1rem !important;
   }
 }
 
@@ -65,6 +81,16 @@
 
   .home-sub {
     width: 90% !important;
+  }
+
+  .splatform-item {
+    height: auto !important;
+  }
+
+  .splatform-item-btn {
+    position: relative !important;
+    bottom: 0 !important;
+    width: 100% !important;
   }
 }
 

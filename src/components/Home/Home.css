@@ -48,6 +48,7 @@
 
 .splatform-item {
   position: relative;
+  height: 540px;
 }
 
 .splatform-badge-nft {
@@ -105,11 +106,17 @@
 }
 
 .splatform-item-title {
-  width: 80%;
+  width: 85%;
   margin: 0 auto;
 }
 
 .splatform-item-divider {
   width: 100%;
   border-bottom: 3px solid #f19150;
+}
+
+.splatform-item-btn {
+  position: absolute;
+  bottom: 20px;
+  width: 90%;
 }
