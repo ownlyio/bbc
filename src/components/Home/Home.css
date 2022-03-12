@@ -110,6 +110,10 @@
   margin: 0 auto;
 }
 
+.splatform-item-title a:hover {
+  text-decoration: underline !important;
+}
+
 .splatform-item-divider {
   width: 100%;
   border-bottom: 3px solid #f19150;
