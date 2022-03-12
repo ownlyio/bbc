@@ -417,7 +417,7 @@ function OWN_Mustachio() {
         } else {
             if (!state.isStaked) {
                 handleShowOnError()
-                _setState("txError", "You do not yet participated in the staking.")
+                _setState("txError", "You need to participate in the staking before you could perform this action.")
             } else {
                 await _nftStakingContract.methods.unstake(state.currentStakeItemId).send({
                     from: state.account
