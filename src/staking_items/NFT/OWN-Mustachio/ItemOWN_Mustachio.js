@@ -176,9 +176,9 @@ function ItemOWNMustachio(props) {
                 </div>
 
                 <div className="splatform-item-img">
-                    <img className="w-100" src={ownMustachio} alt="Stake OWN, Earn Mustachio Ruler" />
+                    <img className="w-100" src={ownMustachio} alt="Stake OWN, Earn Mustachio Marauder NFT" />
                 </div>
-                <p className="splatform-item-title text-center neo-bold text-color-6 font-size-170">Stake OWN, Earn Mustachio Marauder</p>
+                <p className="splatform-item-title text-center neo-bold text-color-6 font-size-150">Stake OWN, Earn Mustachio Marauder NFT</p>
                 <div className="splatform-item-divider my-3"></div>
                 <div className="splatform-item-content">
                     <div className="d-flex justify-content-between mb-3">
@@ -225,6 +225,10 @@ function ItemOWNMustachio(props) {
                 <div className="splatform-item-btn">
                     <Link to="/own-marauders" className="btn btn-custom-3 w-100 font-size-120">Stake Now!</Link>
                 </div>
+            </div>
+
+            <div class="text-center mt-3">
+                <a href="https://mustachioverse.com/#rewards" className="text-decoration-none link-color-3">Learn More About Mustachio Marauders NFT</a>
             </div>
         </div>
     )
