@@ -223,12 +223,12 @@ function ItemOWNMustachio(props) {
                     </div>
                 </div>
                 <div className="splatform-item-btn">
-                    <Link to="/own-marauders" className="btn btn-custom-3 w-100 font-size-120">Stake Now!</Link>
+                    <Link to="/own-marauder" className="btn btn-custom-3 w-100 font-size-120">Stake Now!</Link>
                 </div>
             </div>
 
-            <div class="text-center mt-3">
-                <a href="https://mustachioverse.com/#rewards" className="text-decoration-none link-color-3">Learn More About Mustachio Marauders NFT</a>
+            <div className="text-center mt-3">
+                <a href="https://mustachioverse.com/#rewards" target="_blank" rel="noreferrer" className="text-decoration-none link-color-3">Learn more about Mustachio Marauders NFT</a>
             </div>
         </div>
     )

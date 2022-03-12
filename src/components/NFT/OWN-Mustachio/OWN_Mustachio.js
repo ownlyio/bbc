@@ -556,10 +556,15 @@ function OWN_Mustachio() {
                                 </li>
                                 <li className="font-size-110 text-color-6 mb-3">
                                     <p className="neo-light">After <b>60 days</b> of staking without unstaking your OWN tokens, you can now earn 1 Mustachio Marauder NFT and withdraw your OWN tokens back to your wallet.</p>
-                                    <p className="neo-light"><b>Note:</b> 1 address per staking only.</p>
+                                    <p className="neo-bold">One Mustachio NFT reward per address only.</p>
                                 </li>
                                 <li className="font-size-110 text-color-6 mb-3">
                                     <p className="neo-light">Staking is available until the <b>200 Mustachio Marauders</b> runs out.</p>
+                                </li>
+                                <li className="font-size-110 text-color-6 mb-3">
+                                    <p className="neo-light">
+                                        <a href="https://mustachioverse.com/#rewards" target="_blank" rel="noreferrer" className="text-decoration-none link-color-1">Learn More About Mustachio Marauders NFT</a>
+                                    </p>
                                 </li>
                             </ul>
                             <div className="add-liquidity mx-auto" style={{"width": "60%"}}>
