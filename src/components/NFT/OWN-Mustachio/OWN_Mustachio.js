@@ -546,7 +546,7 @@ function OWN_Mustachio() {
                             <div className="splatform-item-img">
                                 <img className="w-100" src={ownMustachio} alt="Stake OWN, Earn Mustachio Marauder" />
                             </div>
-                            <p className="splatform-item-title text-center font-size-170 text-color-3 neo-black mb-3">Stake OWN, Earn Mustachio Marauder</p>
+                            <p className="splatform-item-title text-center font-size-170 text-color-3 neo-black mb-3">Stake OWN, Earn Mustachio Marauder NFT</p>
                             <p className="total-dep bg-color-21 text-white text-center font-size-90 neo-light mb-5"><b>YOUR BALANCE:</b> {addCommasToNumber(state.currentOwnBalance)} OWN</p>
 
                             <p className="font-size-130 text-color-2 neo-bold mb-3">Rules:</p>
@@ -561,12 +561,12 @@ function OWN_Mustachio() {
                                 <li className="font-size-110 text-color-6 mb-3">
                                     <p className="neo-light">Staking is available until the <b>200 Mustachio Marauders</b> runs out.</p>
                                 </li>
-                                <li className="font-size-110 text-color-6 mb-3">
-                                    <p className="neo-light">
-                                        <a href="https://mustachioverse.com/#rewards" target="_blank" rel="noreferrer" className="text-decoration-none link-color-1">Learn More About Mustachio Marauders NFT</a>
-                                    </p>
-                                </li>
                             </ul>
+
+                            <p className="fst-italic neo-light text-center mb-5">
+                                <a href="https://mustachioverse.com/#rewards" target="_blank" rel="noreferrer" className="text-decoration-none link-color-1">Learn More About Mustachio Marauders NFT</a>
+                            </p>
+
                             <div className="add-liquidity mx-auto" style={{"width": "60%"}}>
                                 <a href="https://ownly.io/pancake" target="_blank" rel="noreferrer" className="w-100 btn btn-custom-7 rounded-lg mb-2">GET YOUR OWN TOKENS</a>
                                 {/* <p className="font-size-90 text-color-6 neo-light mt-3 mb-4">
