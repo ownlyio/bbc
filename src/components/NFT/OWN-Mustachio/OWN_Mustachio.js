@@ -608,7 +608,7 @@ function OWN_Mustachio() {
                                             <button onClick={enterStaking} type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved || state.isStaked}>STAKE</button>
                                         </div>
                                         <div className="d-flex justify-content-between">
-                                            <button onClick={unstake} type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isLoaded}>UNSTAKE</button>
+                                            <button onClick={unstake} type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isLoaded || state.isStakingFinished}>UNSTAKE</button>
                                             <button onClick={mintWithdraw} type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isLoaded}>MINT</button>
                                         </div>
                                     </form>
