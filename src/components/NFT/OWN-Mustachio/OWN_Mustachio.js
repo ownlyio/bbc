@@ -230,7 +230,7 @@ function OWN_Mustachio() {
             _setState("dateStaked", "--")
             _setState("userOwnDeposits", 0)
             _setState("userRemainingDuration", 0)
-            _setState("isStakingFinished", true)
+            _setState("isStakingFinished", false)
         }
 
         _setState("isLoaded", true)
