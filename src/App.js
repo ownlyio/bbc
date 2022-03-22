@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button, Modal } from 'react-bootstrap'
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons'
+import * as smoothscroll from "smoothscroll-polyfill"
 
 import Navbar from './components/Navbar/Navbar'
 import Home from './components/Home/Home'
@@ -16,6 +17,9 @@ import metamask from './img/metamask.png'
 // Utils
 import { configureWeb3 } from './utils/web3Init'
 import networks from './utils/networks'
+
+// smooth scrolling for safari
+smoothscroll.polyfill()
 
 function App() {
     let web3
