@@ -199,7 +199,7 @@ function App() {
                         <Button className="font-w-hermann w-hermann-reg" variant="secondary" onClick={handleCloseMetamaskInstall}>
                             Close
                         </Button>
-                        <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => window.open("https://metamask.io/download", '_blank').focus()}>
+                        <Button className="font-w-hermann w-hermann-reg modal-btn" variant="primary" onClick={() => window.open("https://metamask.io/download", '_blank').focus()}>
                             Install Metamask
                         </Button>
                     </Modal.Footer>
@@ -221,11 +221,11 @@ function App() {
                             Close
                         </Button>
                         {/* PRODUCTION */}
-                        <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => switchNetwork("bscmainnet")}>
+                        <Button className="font-w-hermann w-hermann-reg modal-btn" variant="primary" onClick={() => switchNetwork("bscmainnet")}>
                             Switch Network
                         </Button>
                         {/* DEVELOPMENT */}
-                        {/* <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => switchNetwork("bsctestnet")}>
+                        {/* <Button className="font-w-hermann w-hermann-reg modal-btn" variant="primary" onClick={() => switchNetwork("bsctestnet")}>
                             Switch Network
                         </Button> */}
                     </Modal.Footer>
@@ -240,7 +240,7 @@ function App() {
                         <p className="app-network-modal-content text-center font-andes text-lg">{state.detectedChangeMessage}</p>
                     </Modal.Body>
                     <Modal.Footer className="justify-content-center">
-                        <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => window.location.reload()}>
+                        <Button className="font-w-hermann w-hermann-reg modal-btn" variant="primary" onClick={() => window.location.reload()}>
                             Reload
                         </Button>
                     </Modal.Footer>
