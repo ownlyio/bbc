@@ -596,19 +596,19 @@ function OWN_Mustachio() {
                                     <form>
                                         <p className="font-size-110 neo-light mb-1">Stake $OWN</p>
                                         <div className="form-group stake-form mb-3">
-                                            <input type="number" id="stake-input-num" className="form-control form-control-lg stake-input" readOnly="true" value={state.stakeRequired} />
+                                            <input type="number" id="stake-input-num" className="form-control form-control-lg stake-input" readOnly={true} value={state.stakeRequired} />
                                             <small id="stake-help" className="form-text text-muted">{state.helpText}</small>
                                         </div>
-                                        <p className="font-size-90 text-color-6 neo-light-italic mb-2 text-danger">Staking slots have already been filled.</p>
+                                        {/* <p className="font-size-90 text-color-6 neo-light-italic mb-2 text-danger">Staking slots have already been filled.</p> */}
                                         <div className="d-flex justify-content-between mb-1">
-                                            {/* { state.isConnected ? (
+                                            { state.isConnected ? (
                                                 <button onClick={approveStaking} type="button" className="btn stake-btn-func btn-custom-2" disabled={state.isApproved || state.accountAlreadyClaimed}>APPROVE</button>
                                             ) : (
                                                 <button type="button" onClick={handleShowNotConnected} className="btn stake-btn-func btn-custom-2" disabled={state.isApproved}>APPROVE</button>
-                                            )} *
-                                            <button onClick={enterStaking} type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved || state.isStaked}>STAKE</button>*/}
-                                            <button type="button" className="btn stake-btn-func btn-custom-2" disabled={true}>APPROVE</button>
-                                            <button type="button" className="btn stake-btn-func btn-custom-2" disabled={true}>STAKE</button>
+                                            )}
+                                            <button onClick={enterStaking} type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved || state.isStaked}>STAKE</button>
+                                            {/* <button type="button" className="btn stake-btn-func btn-custom-2" disabled={true}>APPROVE</button>
+                                            <button type="button" className="btn stake-btn-func btn-custom-2" disabled={true}>STAKE</button> */}
                                         </div>
                                         <div className="d-flex justify-content-between">
                                             <button onClick={unstake} type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isLoaded || state.isStakingFinished}>UNSTAKE</button>
@@ -625,10 +625,10 @@ function OWN_Mustachio() {
                                             <p className="mb-3 neo-bold font-size-90">Stake Required</p>
                                             <p className="mb-3 neo-regular font-size-90">{addCommasToNumber(state.stakeRequired)} OWN</p>
                                         </div>
-                                        {/* <div className="d-flex justify-content-between">
+                                        <div className="d-flex justify-content-between">
                                             <p className="mb-3 neo-bold font-size-90">Remaining Rewards</p>
                                             <p className="mb-3 neo-regular font-size-90">{addCommasToNumber(state.remainingRewards)} MUSTACHIOS</p>
-                                        </div> */}
+                                        </div>
                                         <div className="d-flex justify-content-between">
                                             <p className="mb-3 neo-bold font-size-90">Your Deposit</p>
                                             { state.isConnected ? (
