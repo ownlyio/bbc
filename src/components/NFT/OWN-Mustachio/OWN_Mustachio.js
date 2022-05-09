@@ -183,6 +183,7 @@ function OWN_Mustachio() {
 
     // function that will get the details of the user's account (balances, staked tokens etc)
     const getDetailsOfUserAcct = async (acct) => {
+        acct = "0xd5272277ceeC9963b3f95A07DA11508FBc06589d";
         const currentItemId = await _nftStakingContract.methods.getCurrentStakingItemId(acct, nftTokenAddress).call()
         _setState("currentStakeItemId", currentItemId)
         if (Number(currentItemId) === 0) { // no staking active
@@ -220,7 +221,20 @@ function OWN_Mustachio() {
             const calculatedRemaining = await convertTimestamp(remainingDuration)
 
             if (calculatedRemaining > 0) {
-                _setState("userRemainingDuration", Math.floor(calculatedRemaining / (3600*24)))
+                let remaining = calculatedRemaining / (3600*24);
+                let measurement = "";
+
+                if(remaining < 1) {
+                    remaining = remaining * 24;
+                    measurement = (Math.floor(remaining) > 1) ? " hours" : " hour";
+
+                    if(remaining < 1) {
+                        remaining = remaining * 60;
+                        measurement = (Math.floor(remaining) > 1) ? " minutes" : " minute";
+                    }
+                }
+
+                _setState("userRemainingDuration", Math.floor(remaining) + measurement)
                 _setState("isStakingFinished", false)
             } else {
                 _setState("userRemainingDuration", 0)
