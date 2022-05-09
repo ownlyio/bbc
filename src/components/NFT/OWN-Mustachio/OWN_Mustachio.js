@@ -183,7 +183,6 @@ function OWN_Mustachio() {
 
     // function that will get the details of the user's account (balances, staked tokens etc)
     const getDetailsOfUserAcct = async (acct) => {
-        acct = "0xd5272277ceeC9963b3f95A07DA11508FBc06589d";
         const currentItemId = await _nftStakingContract.methods.getCurrentStakingItemId(acct, nftTokenAddress).call()
         _setState("currentStakeItemId", currentItemId)
         if (Number(currentItemId) === 0) { // no staking active
