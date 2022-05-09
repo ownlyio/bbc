@@ -230,7 +230,7 @@ function OWN_Mustachio() {
             _setState("dateStaked", "--")
             _setState("userOwnDeposits", 0)
             _setState("userRemainingDuration", 0)
-            _setState("isStakingFinished", true)
+            _setState("isStakingFinished", false)
         }
 
         _setState("isLoaded", true)
@@ -597,9 +597,10 @@ function OWN_Mustachio() {
                                     <form>
                                         <p className="font-size-110 neo-light mb-1">Stake $OWN</p>
                                         <div className="form-group stake-form mb-3">
-                                            <input type="number" id="stake-input-num" className="form-control form-control-lg stake-input" readOnly="true" value={state.stakeRequired} />
+                                            <input type="number" id="stake-input-num" className="form-control form-control-lg stake-input" readOnly={true} value={state.stakeRequired} />
                                             <small id="stake-help" className="form-text text-muted">{state.helpText}</small>
                                         </div>
+                                        {/* <p className="font-size-90 text-color-6 neo-light-italic mb-2 text-danger">Staking slots have already been filled.</p> */}
                                         <div className="d-flex justify-content-between mb-1">
                                             { state.isConnected ? (
                                                 <button onClick={approveStaking} type="button" className="btn stake-btn-func btn-custom-2" disabled={state.isApproved || state.accountAlreadyClaimed}>APPROVE</button>
@@ -607,9 +608,11 @@ function OWN_Mustachio() {
                                                 <button type="button" onClick={handleShowNotConnected} className="btn stake-btn-func btn-custom-2" disabled={state.isApproved}>APPROVE</button>
                                             )}
                                             <button onClick={enterStaking} type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved || state.isStaked}>STAKE</button>
+                                            {/* <button type="button" className="btn stake-btn-func btn-custom-2" disabled={true}>APPROVE</button>
+                                            <button type="button" className="btn stake-btn-func btn-custom-2" disabled={true}>STAKE</button> */}
                                         </div>
                                         <div className="d-flex justify-content-between">
-                                            <button onClick={unstake} type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isLoaded}>UNSTAKE</button>
+                                            <button onClick={unstake} type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isLoaded || state.isStakingFinished}>UNSTAKE</button>
                                             <button onClick={mintWithdraw} type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isLoaded}>MINT</button>
                                         </div>
                                     </form>
@@ -767,10 +770,10 @@ function OWN_Mustachio() {
                     <p className="app-success-modal-content text-center font-andes text-lg">Your transaction was approved. You may now proceed to the next step. Click on the "STAKE" button.</p>
                 </Modal.Body>
                 <Modal.Footer className="justify-content-center">
-                    <Button className="font-w-hermann w-hermann-reg" variant="secondary" onClick={handleCloseOnApprove}>
+                    <Button className="font-w-hermann w-hermann-reg modal-btn" variant="secondary" onClick={handleCloseOnApprove}>
                         Close
                     </Button>
-                    <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => window.open(explorerUrl + state.txHash, '_blank').focus()}>
+                    <Button className="font-w-hermann w-hermann-reg modal-btn" variant="primary" onClick={() => window.open(explorerUrl + state.txHash, '_blank').focus()}>
                         View on BscScan
                     </Button>
                 </Modal.Footer>
@@ -785,10 +788,10 @@ function OWN_Mustachio() {
                     <p className="app-success-modal-content text-center font-andes text-lg">Your OWN tokens are staked successfully.</p>
                 </Modal.Body>
                 <Modal.Footer className="justify-content-center">
-                    <Button className="font-w-hermann w-hermann-reg" variant="secondary" onClick={handleCloseStaked}>
+                    <Button className="font-w-hermann w-hermann-reg modal-btn" variant="secondary" onClick={handleCloseStaked}>
                         Close
                     </Button>
-                    <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => window.open(explorerUrl + state.txHash, '_blank').focus()}>
+                    <Button className="font-w-hermann w-hermann-reg modal-btn" variant="primary" onClick={() => window.open(explorerUrl + state.txHash, '_blank').focus()}>
                         View on BscScan
                     </Button>
                 </Modal.Footer>
@@ -803,10 +806,10 @@ function OWN_Mustachio() {
                     <p className="app-success-modal-content text-center font-andes text-lg">You have successfully unstaked your tokens.</p>
                 </Modal.Body>
                 <Modal.Footer className="justify-content-center">
-                    <Button className="font-w-hermann w-hermann-reg" variant="secondary" onClick={handleCloseUnstake}>
+                    <Button className="font-w-hermann w-hermann-reg modal-btn" variant="secondary" onClick={handleCloseUnstake}>
                         Close
                     </Button>
-                    <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => window.open(explorerUrl + state.txHash, '_blank').focus()}>
+                    <Button className="font-w-hermann w-hermann-reg modal-btn" variant="primary" onClick={() => window.open(explorerUrl + state.txHash, '_blank').focus()}>
                         View on BscScan
                     </Button>
                 </Modal.Footer>
@@ -824,10 +827,10 @@ function OWN_Mustachio() {
                     <Button className="font-w-hermann w-hermann-reg" variant="secondary" onClick={handleCloseExit}>
                         Close
                     </Button>
-                    <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => window.open(explorerUrl + state.txHash, '_blank').focus()}>
+                    <Button className="font-w-hermann w-hermann-reg modal-btn" variant="primary" onClick={() => window.open(explorerUrl + state.txHash, '_blank').focus()}>
                         View on BscScan
                     </Button>
-                    <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => window.open(ownlyMarketUrl + state.mintedId, '_blank').focus()}>
+                    <Button className="font-w-hermann w-hermann-reg modal-btn" variant="primary" onClick={() => window.open(ownlyMarketUrl + state.mintedId, '_blank').focus()}>
                         View on Ownly Market
                     </Button>
                 </Modal.Footer>
@@ -845,7 +848,7 @@ function OWN_Mustachio() {
                     <Button className="font-w-hermann w-hermann-reg" variant="secondary" onClick={handleCloseMetamaskInstall}>
                         Close
                     </Button>
-                    <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => window.open("https://metamask.io/download", '_blank').focus()}>
+                    <Button className="font-w-hermann w-hermann-reg modal-btn" variant="primary" onClick={() => window.open("https://metamask.io/download", '_blank').focus()}>
                         Install Metamask
                     </Button>
                 </Modal.Footer>
@@ -867,11 +870,11 @@ function OWN_Mustachio() {
                         Close
                     </Button>
                     {/* PRODUCTION */}
-                    <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => switchNetwork("bscmainnet")}>
+                    <Button className="font-w-hermann w-hermann-reg modal-btn" variant="primary" onClick={() => switchNetwork("bscmainnet")}>
                         Switch Network
                     </Button>
                     {/* DEVELOPMENT */}
-                    {/* <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => switchNetwork("bsctestnet")}>
+                    {/* <Button className="font-w-hermann w-hermann-reg modal-btn" variant="primary" onClick={() => switchNetwork("bsctestnet")}>
                         Switch Network
                     </Button> */}
                 </Modal.Footer>
@@ -886,7 +889,7 @@ function OWN_Mustachio() {
                     <p className="app-network-modal-content text-center font-andes text-lg">{state.detectedChangeMessage}</p>
                 </Modal.Body>
                 <Modal.Footer className="justify-content-center">
-                    <Button className="font-w-hermann w-hermann-reg" variant="primary" onClick={() => window.location.reload()}>
+                    <Button className="font-w-hermann w-hermann-reg modal-btn" variant="primary" onClick={() => window.location.reload()}>
                         Reload
                     </Button>
                 </Modal.Footer>

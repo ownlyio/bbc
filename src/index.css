@@ -2783,3 +2783,15 @@ body {
 .text-right {
   text-align: right;
 }
+
+.modal-btn {
+  background-color: #305e83 !important;
+  border-color: #305e83 !important;
+  color: #ffffff !important;
+}
+.modal-btn:hover,
+.modal-btn:active,
+.modal-btn:focus {
+  background-color: #274b69 !important;
+  color: #ffffff !important;
+}
