@@ -495,7 +495,8 @@ function OWN_Mustachio() {
     const convertTimestamp = async unixTime => {
         const req = await axios.get(`https://ownly.tk/api/get-remaining-time-from-timestamp/${unixTime}`)
         // PRODUCTION
-        return Math.floor(req.data / (3600*24))
+        return req.data;
+        // return Math.floor(req.data / (3600*24))
         // DEVELOPMENT
         // return req.data / (3600*24)
     }
