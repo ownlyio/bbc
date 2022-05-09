@@ -61,7 +61,7 @@ function OWN_Mustachio() {
     // DEVELOPMENT
     // const explorerUrl = "https://testnet.bscscan.com/tx/"
 
-    const ownlyMarketUrl = `https://ownly.market/?network=bsc&contract=${nftTokenAddress}&token=`
+    const ownlyMarketUrl = `https://ownly.market/3dmustachios/?network=bsc&contract=${nftTokenAddress}&token=`
 
     // Modals
     const [showNotConnected, setShowNotConnected] = useState(false)
