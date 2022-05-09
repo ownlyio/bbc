@@ -220,7 +220,7 @@ function OWN_Mustachio() {
             const calculatedRemaining = await convertTimestamp(remainingDuration)
 
             if (calculatedRemaining > 0) {
-                _setState("userRemainingDuration", calculatedRemaining)
+                _setState("userRemainingDuration", Math.floor(calculatedRemaining / (3600*24)))
                 _setState("isStakingFinished", false)
             } else {
                 _setState("userRemainingDuration", 0)
