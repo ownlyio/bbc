@@ -61,7 +61,7 @@ function OWN_Mustachio() {
     // DEVELOPMENT
     // const explorerUrl = "https://testnet.bscscan.com/tx/"
 
-    const ownlyMarketUrl = `https://ownly.market/?network=bsc&contract=${nftTokenAddress}&token=`
+    const ownlyMarketUrl = `https://ownly.market/3dmustachios/?network=bsc&contract=${nftTokenAddress}&token=`
 
     // Modals
     const [showNotConnected, setShowNotConnected] = useState(false)
@@ -220,7 +220,20 @@ function OWN_Mustachio() {
             const calculatedRemaining = await convertTimestamp(remainingDuration)
 
             if (calculatedRemaining > 0) {
-                _setState("userRemainingDuration", calculatedRemaining)
+                let remaining = calculatedRemaining / (3600*24);
+                let measurement = "";
+
+                if(remaining < 1) {
+                    remaining = remaining * 24;
+                    measurement = (Math.floor(remaining) > 1) ? " hours" : " hour";
+
+                    if(remaining < 1) {
+                        remaining = remaining * 60;
+                        measurement = (Math.floor(remaining) > 1) ? " minutes" : " minute";
+                    }
+                }
+
+                _setState("userRemainingDuration", Math.floor(remaining) + measurement)
                 _setState("isStakingFinished", false)
             } else {
                 _setState("userRemainingDuration", 0)
@@ -495,7 +508,8 @@ function OWN_Mustachio() {
     const convertTimestamp = async unixTime => {
         const req = await axios.get(`https://ownly.tk/api/get-remaining-time-from-timestamp/${unixTime}`)
         // PRODUCTION
-        return Math.floor(req.data / (3600*24))
+        return req.data;
+        // return Math.floor(req.data / (3600*24))
         // DEVELOPMENT
         // return req.data / (3600*24)
     }
@@ -602,17 +616,23 @@ function OWN_Mustachio() {
                                         {/* <p className="font-size-90 text-color-6 neo-light-italic mb-2 text-danger">Staking slots have already been filled.</p> */}
                                         <div className="d-flex justify-content-between mb-1">
                                             { state.isConnected ? (
-                                                <button onClick={approveStaking} type="button" className="btn stake-btn-func btn-custom-2" disabled={state.isApproved || state.accountAlreadyClaimed}>APPROVE</button>
+                                                // <button onClick={approveStaking} type="button" className="btn stake-btn-func btn-custom-2" disabled={state.isApproved || state.accountAlreadyClaimed}>APPROVE</button>
+                                                <button onClick={approveStaking} type="button" className="btn stake-btn-func btn-custom-2" disabled>APPROVE</button>
                                             ) : (
-                                                <button type="button" onClick={handleShowNotConnected} className="btn stake-btn-func btn-custom-2" disabled={state.isApproved}>APPROVE</button>
+                                                // <button type="button" onClick={handleShowNotConnected} className="btn stake-btn-func btn-custom-2" disabled={state.isApproved}>APPROVE</button>
+                                                <button type="button" onClick={handleShowNotConnected} className="btn stake-btn-func btn-custom-2" disabled>APPROVE</button>
                                             )}
-                                            <button onClick={enterStaking} type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved || state.isStaked}>STAKE</button>
+                                            {/*<button onClick={enterStaking} type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved || state.isStaked}>STAKE</button>*/}
+                                            <button onClick={enterStaking} type="button" className="btn stake-btn-func btn-custom-2" disabled>STAKE</button>
                                             {/* <button type="button" className="btn stake-btn-func btn-custom-2" disabled={true}>APPROVE</button>
                                             <button type="button" className="btn stake-btn-func btn-custom-2" disabled={true}>STAKE</button> */}
                                         </div>
                                         <div className="d-flex justify-content-between">
-                                            <button onClick={unstake} type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isLoaded || state.isStakingFinished}>UNSTAKE</button>
-                                            <button onClick={mintWithdraw} type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isLoaded}>MINT</button>
+                                            {/*<button onClick={unstake} type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isLoaded || state.isStakingFinished}>UNSTAKE</button>*/}
+                                            {/*<button onClick={mintWithdraw} type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isLoaded}>MINT</button>*/}
+
+                                            <button onClick={unstake} type="button" className="btn stake-btn-func btn-custom-2" disabled>UNSTAKE</button>
+                                            <button onClick={mintWithdraw} type="button" className="btn stake-btn-func btn-custom-2" disabled>MINT</button>
                                         </div>
                                     </form>
                                     {/* END STAKING FORM */}
