@@ -10,7 +10,7 @@ import Navbar from './components/Navbar/Navbar'
 import Home from './components/Home/Home'
 import Footer from './components/Footer/Footer'
 import CakeLP_OWN from './components/Liquidity/CakeLP-OWN/CakeLP_OWN'
-import OWN_Mustachio from './components/NFT/OWN-Mustachio/OWN_Mustachio'
+// import OWN_Mustachio from './components/NFT/OWN-Mustachio/OWN_Mustachio'
 
 import metamask from './img/metamask.png'
 
@@ -166,7 +166,7 @@ function App() {
                         {...props} />}>    
                     </Route>
                     <Route exact path="/cakelp-own" component={CakeLP_OWN}></Route>
-                    <Route exact path="/own-marauder" component={OWN_Mustachio}></Route>
+                    {/* <Route exact path="/own-marauder" component={OWN_Mustachio}></Route> */}
                 </Switch>
 
                 <Footer />

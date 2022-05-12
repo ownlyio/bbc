@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { HashLink } from "react-router-hash-link"
 import { faCoins, faReceipt, faWallet } from '@fortawesome/free-solid-svg-icons'
 
-import ItemOWNMustachio from '../../staking_items/NFT/OWN-Mustachio/ItemOWN_Mustachio'
+// import ItemOWNMustachio from '../../staking_items/NFT/OWN-Mustachio/ItemOWN_Mustachio'
 import ItemCakeLPOWN from '../../staking_items/Liquidity/CakeLP-OWN/ItemCakeLP_OWN'
 
 import ownly from '../../img/ownly/own-token.webp'
@@ -115,14 +115,14 @@ export default function Home(props) {
                         <div className="d-flex w-100">
                             <button onClick={(e) => filterStakingOptions(e, 0)} className="btn splatform-btn-item neo-bold active">All</button>
                             <button onClick={(e) => filterStakingOptions(e, 1)} className="btn splatform-btn-item neo-bold">Liquidity</button>
-                            <button onClick={(e) => filterStakingOptions(e, 2)} className="btn splatform-btn-item neo-bold">NFTs</button>
+                            {/* <button onClick={(e) => filterStakingOptions(e, 2)} className="btn splatform-btn-item neo-bold">NFTs</button> */}
                         </div>
                     </div>
                     <div className="row justify-content-start align-items-start">
                         {/* Start from the recent ones */}
-                        <ItemOWNMustachio
+                        {/* <ItemOWNMustachio
                             isConnected={isConnected} 
-                            account={acct} />
+                            account={acct} /> */}
                         <ItemCakeLPOWN 
                             isConnected={isConnected} 
                             account={acct} />
