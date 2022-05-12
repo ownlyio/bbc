@@ -551,12 +551,14 @@ function CakeLP_OWN() {
                                             <button type="button" onClick={triggerMaxAmount} className="font-size-80 btn stake-btn neo-bold" disabled={!state.isConnected || state.isApproved}>MAX</button>
                                         </div>
                                         <div className="d-flex justify-content-between mb-1">
-                                            { state.isConnected ? (
+                                            {/* { state.isConnected ? (
                                                 <button onClick={approveStaking} type="button" className="btn stake-btn-func btn-custom-2" disabled={state.isApproved}>APPROVE</button>
                                             ) : (
                                                 <button type="button" onClick={handleShowNotConnected} className="btn stake-btn-func btn-custom-2" disabled={state.isApproved}>APPROVE</button>
                                             )}
-                                            <button onClick={enterStaking} type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved}>STAKE</button>
+                                            <button onClick={enterStaking} type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isApproved}>STAKE</button> */}
+                                            <button type="button" className="btn stake-btn-func btn-custom-2" disabled={true}>APPROVE</button>
+                                            <button type="button" className="btn stake-btn-func btn-custom-2" disabled={true}>STAKE</button>
                                         </div>
                                         <div className="d-flex justify-content-between">
                                             <button onClick={claimRewards} type="button" className="btn stake-btn-func btn-custom-2" disabled={!state.isLoaded}>CLAIM</button>
