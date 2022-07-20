@@ -1,6 +1,5 @@
 @import url(fonts.css);
 @import url(https://pro.fontawesome.com/releases/v5.10.0/css/all.css);
-@import url(media-queries.css);
 
 * {
   box-sizing: border-box;
@@ -2782,16 +2781,4 @@ body {
 
 .text-right {
   text-align: right;
-}
-
-.modal-btn {
-  background-color: #305e83 !important;
-  border-color: #305e83 !important;
-  color: #ffffff !important;
-}
-.modal-btn:hover,
-.modal-btn:active,
-.modal-btn:focus {
-  background-color: #274b69 !important;
-  color: #ffffff !important;
 }
