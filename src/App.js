@@ -1,6 +1,6 @@
 import './App.css'
 
-import background from './img/4.webp'
+import background from './img/bg.webp'
 
 function App() {
     return (
