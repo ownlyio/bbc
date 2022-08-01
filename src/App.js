@@ -13,7 +13,7 @@ function App() {
     const handleCloseSubscribed = () => setShowSubscribed(false);
     const handleShowSubscribed = () => setShowSubscribed(true);
     const [showErrorEmail, setShowErrorEmail] = useState(false);
-    const handleCloseErrorEmail = () => setShowErrorEmail(false);
+    const handleCloseErrorEmail = () => setShowErrorEmail(false);   
     const handleShowErrorEmail = () => setShowErrorEmail(true);
 
     const submitForm = (e) => {
