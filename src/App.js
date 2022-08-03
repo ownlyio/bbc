@@ -5,7 +5,7 @@ import { faCheckCircle, faExclamationCircle } from '@fortawesome/free-solid-svg-
 import axios from 'axios'
 import './App.css'
 
-import background from './img/bg.webp'
+import background from './img/bbc-banner.png'
 
 function App() {
     const [emailAdd, setEmailAdd] = useState("")
