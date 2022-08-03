@@ -5,7 +5,7 @@ import { faCheckCircle, faExclamationCircle } from '@fortawesome/free-solid-svg-
 import axios from 'axios'
 import './App.css'
 
-import background from './img/bbc-banner.png'
+import background from './img/bbc-banner.jpg'
 
 function App() {
     const [emailAdd, setEmailAdd] = useState("")
@@ -37,7 +37,7 @@ function App() {
             <div className="container h-full">
                 <div className="d-flex justify-content-center align-items-center h-full">
                     <div className="app-wrap">
-                        <h1 className="app-title text-center font-size-280 font-size-md-350 font-size-lg-430 font-size-xl-500 text-white rubik-regular">BICOL BLOCKCHAIN CONFERENCE</h1>
+                        <h1 className="app-title text-center font-size-280 font-size-md-350 font-size-lg-430 font-size-xl-470 text-white neo-bold">BICOL BLOCKCHAIN CONFERENCE</h1>
                         <p className="app-sub text-center font-size-150 font-size-md-180 font-size-lg-230 font-size-xl-300 text-white alegreya-regular mb-5">11.11.2022 | Legazpi City, Albay</p>
 
                         <div className="row justify-content-center">
@@ -47,10 +47,10 @@ function App() {
                                     <form className="app-bbm-form" onSubmit={submitForm}>
                                         <div className="d-flex align-items-center flex-wrap">
                                             <div className="app-form app-input-wrapper d-flex flex-fill justify-content-center">
-                                                <input id="emailAdd" type="email" name="email_address" className="form-control d-block px-3 py-1 font-size-90" style={{ "borderRadius": "5px 0 0 5px" }} placeholder="Your email address" required onChange={(e) => setEmailAdd(e.target.value)} />
+                                                <input id="emailAdd" type="email" name="email_address" className="form-control d-block px-3 py-1 font-size-90 neo-regular" style={{ "borderRadius": "5px 0 0 5px" }} placeholder="Your email address" required onChange={(e) => setEmailAdd(e.target.value)} />
                                             </div>
                                             <div className="app-form app-btn-form-wrapper">
-                                                <button type="submit" className="btn btn-custom-7 px-3 py-1 font-size-90" style={{ "letterSpacing": "0.05em", "borderRadius": "0 5px 5px 0" }}>Join VIP List</button>
+                                                <button type="submit" className="btn btn-custom-7 px-3 py-1 font-size-90 neo-regular" style={{ "letterSpacing": "0.05em", "borderRadius": "0 5px 5px 0" }}>Join VIP List</button>
                                             </div>
                                         </div>
                                     </form>
