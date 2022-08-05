@@ -1,5 +1,15 @@
+#app {
+  position: relative;
+}
+
 .app-title {
   font-weight: 600;
+}
+
+.app-socmed-icons {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
 
 @media (max-width: 480px) {

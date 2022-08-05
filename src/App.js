@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button, Modal } from 'react-bootstrap'
 import { useState } from 'react'
 import { faCheckCircle, faExclamationCircle } from '@fortawesome/free-solid-svg-icons'
+import { faFacebookF, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import axios from 'axios'
 import './App.css'
 
@@ -57,6 +58,21 @@ function App() {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="app-socmed-icons py-4">
+                <div className="d-flex justify-content-center align-items-center w-100">
+                    <div className="mx-3">
+                        <a href="https://web.facebook.com/BicolBlockchain/" target="_blank" rel="noreferrer">
+                            <FontAwesomeIcon color="white" size="2x" icon={faFacebookF} />
+                        </a>
+                    </div>
+                    <div className="mx-3">
+                        <a href="https://twitter.com/BicolBlockchain" target="_blank" rel="noreferrer">
+                            <FontAwesomeIcon color="white" size="2x" icon={faTwitter} />
+                        </a>
                     </div>
                 </div>
             </div>
