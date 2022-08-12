@@ -46,12 +46,22 @@ function App() {
                                 <p className="alegreya-regular text-white font-size-120 font-size-sm-130 text-center px-md-5 mb-4">Wanna be the first to get notified when we announce the details of the first-ever Bicol Blockchain Conference? Join our VIP List to be first to know.</p>
                                 <div className="px-lg-5 mx-lg-5">
                                     <form className="app-bbm-form" onSubmit={submitForm}>
-                                        <div className="d-flex align-items-center flex-wrap">
+                                        <div className="d-flex align-items-center flex-wrap mb-2">
                                             <div className="app-form app-input-wrapper d-flex flex-fill justify-content-center">
                                                 <input id="emailAdd" type="email" name="email_address" className="form-control d-block px-3 py-1 font-size-90 neo-regular" style={{ "borderRadius": "5px 0 0 5px" }} placeholder="Your email address" required onChange={(e) => setEmailAdd(e.target.value)} />
                                             </div>
                                             <div className="app-form app-btn-form-wrapper">
                                                 <button type="submit" className="btn btn-custom-7 px-3 py-1 font-size-90 neo-regular" style={{ "letterSpacing": "0.05em", "borderRadius": "0 5px 5px 0" }}>Join VIP List</button>
+                                            </div>
+                                        </div>
+                                        <div className="form-check d-flex align-items-start mb-3">
+                                            <div>
+                                                <input className="form-check-input" type="checkbox" id="agreement" required />
+                                            </div>
+                                            <div className="ps-1">
+                                                <label className="form-check-label font-size-90 text-white" for="agreement">
+                                                By joining our Ownly VIP list, you agree to receive updates from Ownly for our upcoming IRL events. You can opt out of our marketing emails anytime. Your email will be stored on our database and will not be shared with any third-party.
+                                                </label>
                                             </div>
                                         </div>
                                     </form>

@@ -12,6 +12,11 @@
   bottom: 0;
 }
 
+.form-check-input:checked {
+  background-color: #f19150 !important;
+  border-color: #f19150 !important;
+}
+
 @media (max-width: 480px) {
   .app-form {
     width: 100%;
