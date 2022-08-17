@@ -17,12 +17,26 @@
   border-color: #f19150 !important;
 }
 
+.partner-img {
+  width: 17%;
+}
+
 @media (max-width: 480px) {
   .app-form {
     width: 100%;
   }
 
   .app-btn-form-wrapper {
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .app-btn-form-wrapper .btn,
+  .app-input-wrapper input {
+    border-radius: 5px !important;
+  }
+
+  .partner-img {
+    width: 25%;
   }
 }
