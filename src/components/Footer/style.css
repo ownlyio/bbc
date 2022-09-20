@@ -1,0 +1,65 @@
+.footer-wrapper {
+  background-color: #232323;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  display: flex;
+  padding: 3rem;
+  justify-content: space-between;
+}
+
+.img-org-logo {
+  width: 200px;
+  margin-right: 5px;
+}
+
+.footer-wrapper > .section {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-wrapper > .section > .logo{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-wrapper > .section > .div-organizer, .logo {
+  font-size: 17px;
+}
+
+.footer-wrapper > .section > .logo > .title-1, .subtitle-1 {
+  font-size: 1.2em;
+}
+
+.logo > .title-1 {
+  color: #d9b84c;
+}
+.logo > .subtitle-1 {
+  color: #78520a;
+}
+
+.footer-wrapper > .section > .div-organizer {
+  margin-top: 2.5rem;
+  text-align: left;
+}
+
+.div-organizer > .logo-group {
+  display: flex;
+  margin-top: 1rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.div-organizer > text {
+  font-size: 1.2em;
+}
+
+.ownly-logo {
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+}

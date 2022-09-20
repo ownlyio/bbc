@@ -15,7 +15,7 @@ const Component = ({ children }) => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav" className='justify-content-end'>
             <Nav className="me-right">
-              { config.map((link) => <Nav.Link className={`nav-item ${active && 'active'}`} href={link.href}>{link.name}</Nav.Link>)}
+              { config.map((link) => <Nav.Link className={`nav-item ${active && 'active'}`} href={link.href}>{link.name.toUpperCase()}</Nav.Link>)}
             </Nav>
           </Navbar.Collapse>
         </Container>
