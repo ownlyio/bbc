@@ -67,3 +67,21 @@
 .section.links {
   align-items: flex-start;
 }
+
+.section.socials {
+  align-items: flex-start;
+}
+
+.section.socials > div > .social-group-icons, .div-reach-us {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.section.socials > div > .social-group-icons > * {
+  margin: 5px;
+}
+
+.section.socials > div {
+  text-align: left;
+}
+
