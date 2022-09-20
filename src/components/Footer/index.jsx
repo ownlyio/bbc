@@ -1,4 +1,6 @@
 import React from "react";
+import { Nav } from 'react-bootstrap'
+import config from '../../components/Navigation/config'
 import OWNLYLogo from '../../assets/ownly.png'
 import SRKLogo from '../../assets/SRK_wordmark.svg'
 import "./style.css";
@@ -32,8 +34,13 @@ const Component = () => {
           </div>
         </div>
       </div>
-      <div className="section">
-        <p>Links</p>
+      <div className="section links">
+        <text style={{marginBottom: '0.5rem'}}>QUICK LINKS</text>
+        <Nav className="flex-column align-items-start add-space flex-grow-1 justify-content-evenly">
+          {config.map(link => (
+            <Nav.Link href={link.href} style={{color: '#fff'}}> > &nbsp;{link.name.toUpperCase()}</Nav.Link>
+          ))}
+        </Nav>
       </div>
       <div className="section">
         <p>Socials</p>

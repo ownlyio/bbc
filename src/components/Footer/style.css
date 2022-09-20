@@ -8,7 +8,7 @@
   text-align: center;
   display: flex;
   padding: 3rem;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .img-org-logo {
@@ -62,4 +62,8 @@
   margin-right: 1rem;
   display: flex;
   align-items: center;
+}
+
+.section.links {
+  align-items: flex-start;
 }
