@@ -1,0 +1,29 @@
+.wrapper { 
+  position: relative;
+  width: 100%;
+}
+
+.body-wrapper {
+  position: relative;
+  display: flex;
+}
+
+.inner {
+  flex-grow: 1;
+}
+
+.nav-bar {
+  padding: 0.9rem;
+}
+
+.nav-item {
+  padding: 0.8rem 1rem;
+  margin: 0 1rem;
+  color: black!important;
+}
+
+.nav-item.active {
+  background-color: #c39638;
+  color: #fff!important;
+}
+

@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { faCheckCircle, faExclamationCircle } from '@fortawesome/free-solid-svg-icons'
 import { faFacebookF, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import axios from 'axios'
+import Navigation from './components/Navigation'
 import './App.css'
 
 import background from './img/bbc-banner.jpg'
@@ -35,6 +36,7 @@ function App() {
     }
 
     return (
+        <Navigation>
         <section id="app" className="background-image-cover h-screen" style={{ "backgroundImage": `url(${background})` }}>
             <div className="container h-full">
                 <div className="d-flex justify-content-center align-items-center h-full">
@@ -126,6 +128,7 @@ function App() {
                 </Modal.Footer>
             </Modal>
         </section>
+        </Navigation>
     );
 }
 
