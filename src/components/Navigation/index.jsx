@@ -12,7 +12,7 @@ const Component = ({ children }) => {
       <Navbar collapseOnSelect expand="lg" className="nav-bar">
         <Container>
           <Navbar.Brand href="#home">BBC</Navbar.Brand>
-          {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav" className='justify-content-end'>
             <Nav className="me-right">
               { config.map((link) => <Nav.Link className={`nav-item ${active && 'active'}`} href={link.href}>{link.name}</Nav.Link>)}
