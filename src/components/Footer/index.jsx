@@ -22,21 +22,16 @@ const Component = () => {
         <div className="div-organizer">
           <text>ORGANIZED BY:</text>
           <div className="logo-group">
-            <div className="ownly-logo">
               <img src={OWNLYLogo} alt="org-logo" className="img-org-logo" />
-            </div>
-            <div className="srk-logo">
               <img src={SRKLogo} alt="org-logo" className="img-org-logo" />
-            </div>
           </div>
         </div>
       </div>
       <div className="section links">
         <text style={{ marginBottom: "0.5rem" }}>QUICK LINKS</text>
-        <Nav className="flex-column align-items-start add-space flex-grow-1 justify-content-evenly">
+        <Nav className="flex-column align-items-start flex-grow-1 justify-content-evenly">
           {config.map((link) => (
-            <Nav.Link href={link.href} style={{ color: "#fff" }}>
-              {" "}
+            <Nav.Link key={link.name} href={link.href} style={{ color: "#fff" }}>
               > &nbsp;{link.name.toUpperCase()}
             </Nav.Link>
           ))}
@@ -51,7 +46,7 @@ const Component = () => {
           ))}
           </div>
         </div>
-        <div className="div-reach-us flex-column" style={{marginTop: '1rem'}}>
+        <div className="flex-column" style={{marginTop: '1rem'}}>
           <text>REACH US</text>
           <div className="div-reach-us">
             <text><Mail size={40} /> hello@bicolbc.io</text>
