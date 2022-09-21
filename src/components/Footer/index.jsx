@@ -14,13 +14,13 @@ const Component = () => {
       <div className="section">
         <div className="logo">
           <p>Logo</p>
-          <text className="title-1">BICOL BLOCKCHAIN CONFERENCE 2022</text>
-          <text className="subtitle-1">
+          <p className="title-1">BICOL BLOCKCHAIN CONFERENCE 2022</p>
+          <p className="subtitle-1">
             11.14.22 | LEGAZPI CITY, PHILIPPINES
-          </text>
+          </p>
         </div>
         <div className="div-organizer">
-          <text>ORGANIZED BY:</text>
+          <p>ORGANIZED BY:</p>
           <div className="logo-group">
               <img src={OWNLYLogo} alt="org-logo" className="img-org-logo" />
               <img src={SRKLogo} alt="org-logo" className="img-org-logo" />
@@ -28,7 +28,7 @@ const Component = () => {
         </div>
       </div>
       <div className="section links">
-        <text style={{ marginBottom: "0.5rem" }}>QUICK LINKS</text>
+        <p style={{ marginBottom: "0.5rem" }}>QUICK LINKS</p>
         <Nav className="flex-column align-items-start flex-grow-1 justify-content-evenly">
           {config.map((link) => (
             <Nav.Link key={link.name} href={link.href} style={{ color: "#fff" }}>
@@ -39,17 +39,17 @@ const Component = () => {
       </div>
       <div className="section socials">
         <div>
-          <text>FOLLOW US</text>
+          <p>FOLLOW US</p>
           <div className="social-group-icons">
           {Object.values(socials).map((social) => (
-            <SocialIcon fgColor="#fff" url={social} target="_blank" />
+            <SocialIcon key={social} fgColor="#fff" url={social} target="_blank" />
           ))}
           </div>
         </div>
         <div className="flex-column" style={{marginTop: '1rem'}}>
-          <text>REACH US</text>
+          <p>REACH US</p>
           <div className="div-reach-us">
-            <text><Mail size={40} /> hello@bicolbc.io</text>
+            <p><Mail size={40} /> hello@bicolbc.io</p>
           </div>
         </div>
       </div>

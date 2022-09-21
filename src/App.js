@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import "./App.css";
 import background from "./img/bbc-banner.jpg";
 import dti5 from "./img/dti-logo.png";
+import { Hero } from "./Sections";
 
 function App() {
   const [emailAdd, setEmailAdd] = useState("");
@@ -46,6 +47,7 @@ function App() {
   return (
     <>
       <Navigation />
+      <Hero />
       <Footer />
     </>
   );

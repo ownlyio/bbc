@@ -1,0 +1,10 @@
+.carousel {
+  display: flex;
+  border: 1px solid green;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel > ul > li {
+  border-radius: 0!important;
+}
