@@ -7,9 +7,9 @@ import { ContainerWithBackground } from '../../components/Layout/Container'
 const Hero = () => {
   return (
     <PageLayout height='100vh'>
-    <ContainerWithBackground>
-      <CarouselRenderer />
-    </ContainerWithBackground>
+      <ContainerWithBackground>
+        <CarouselRenderer />
+      </ContainerWithBackground>
     </PageLayout>
   )
 }

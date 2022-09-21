@@ -37,7 +37,14 @@ const CarouselRenderer = () => {
       </Container>
     );
   };
-  return <AppCarousel components={{ item1 }} />;
+  
+  const item2 = () => (
+    <div> </div>
+  )
+  const item3 = () => (
+    <div> </div>
+  )
+  return <AppCarousel components={{ item1, item2, item3}} />;
 };
 
 export default CarouselRenderer;
