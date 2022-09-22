@@ -14,7 +14,7 @@ const Component = () => {
     <div className="footer-wrapper">
       <div className="section">
         <div className="logo">
-        <img alt='bbc-logo' src={BBCLogo} width="250px"/>
+        <img alt='bbc-logo' src={BBCLogo} width="250px" style={{marginBottom: '10px'}}/>
           <p className="title-1">BICOL BLOCKCHAIN CONFERENCE 2022</p>
           <p className="subtitle-1">
             11.14.22 | LEGAZPI CITY, PHILIPPINES
