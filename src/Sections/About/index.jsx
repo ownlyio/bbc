@@ -184,6 +184,9 @@ const NewHome = styled(Section)`
 const TextWrap = styled(Wrapper)`
   padding: 24px;
   font-size: 10px;
+   & > ${Heading} {
+    color: ${props => props.theme.colors.secondary};
+  }
   & > * {
     margin: 10px 24px;
   }
@@ -211,6 +214,9 @@ const LogoBG = styled.div`
   margin: 12px;
   display: flex;
   align-items: center;
+  & > ${Text} { 
+    color: ${props => props.theme.colors.light};
+  }
 `;
 const Logo = styled.img`
   width: 150px;
