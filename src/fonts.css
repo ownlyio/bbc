@@ -100,6 +100,17 @@
   font-family: Helvetica-Light;
   src: url("./fonts/Helvetica/HelveticaLTStd-Light_0.otf");
 }
+
 .helvetica-light {
   font-family: Helvetica-Light;
 }
+
+@font-face {
+  font-family: Josefin-San;
+  src: url('./fonts/Josefin_Sans/static/JosefinSans-Regular.ttf');
+}
+
+.josefina-san {
+  font-family: Josefin-San;
+}
+
