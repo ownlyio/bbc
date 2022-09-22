@@ -22,6 +22,7 @@ export const Text = styled.div`
   font-size: ${props => props.fontSize ?? '16px'};
   font-weight: ${( props ) => (props.bold ? 600 : 400)};
   line-height: 1.5;
+  margin: ${props => props.margin};
 `
 
 export const Heading = styled(Text).attrs({bold: true})`

@@ -1,7 +1,14 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import styled from "styled-components";
-import NewHomeImage from "../../assets/about-image-1.jpeg";
+import DICTLogo from "../../assets/logos/dict.png";
+import DTILogo from "../../assets/logos/dti.png";
+import BICOLITLogo from "../../assets/logos/bicolIT.png";
+import BlockTidesLogo from "../../assets/logos/blocktides.jpeg";
+import Panel from "../../assets/images/panel.jpg";
+import BreakoutSessions from "../../assets/images/breakout.jpg";
+import SideSessions from "../../assets/images/side-sessions.jpg";
+import Networking from "../../assets/images/networking.jpg";
 import PageLayout from "../../components/Layout";
 import { ContainerWithBackground } from "../../components/Layout/Container";
 import { Heading, Text } from "../../components/Text";
@@ -10,127 +17,142 @@ const AboutSection = () => {
   return (
     <PageLayout>
       <ContainerWithBackground padding="0">
-        <Wrapper>
-          <TextWrapper
-            className="d-flex flex-column justify-content-center"
-            style={{ padding: "50px" }}
-          >
-            <Heading bold size="xl" color="#bc9849">
-              BLOCKCHAIN FOUND ITS <br /> NEW HOME, BICOL.
+        <NewHome>
+          <TextWrap>
+            <Heading fontSize="3em">
+              BLOCKCHAIN FOUND ITS NEW HOME, BICOL
             </Heading>
-            <Text fontSize="1.2em">
-              Bicol Blockchain Conference or simply "BBC" is the latest local{" "}
-              <br />
-              blockchain community event in the Philippines. It aims to gather{" "}
-              <br />
-              everyone to discuss and talk about Blockchain Technology and
-              <br />
-              Web3, its various use-cases, applications, and explore the
-              <br />
-              opportunities it provides to our everyday life. It will be the
-              <br />
-              largest gathering for blockchain tech at the south of Metro
-              <br />
-              Manila.
+            <Text fontSize="1.5em">
+              Bicol Blockchain Conference or simply “BBC” is the latest local
+              blockchain community event in the Philippines. It aims to gather
+              everyone to discuss and talk about Blockchain Technology and Web3,
+              its various use-cases, applications, and explore the opportunities
+              it provides to our everyday life. It will be the largest gathering
+              for blockchain tech at the south of Metro Manila.
             </Text>
-          </TextWrapper>
-          <div className="d-flex justify-content-end">
-            <img
-              alt="new-home-image"
-              src={NewHomeImage}
-              width="90%"
-              height="auto"
-            />
-          </div>
-        </Wrapper>
-        <Wrapper>
-          <div className="d-flex justify-content-start">
-            <img
-              alt="new-home-image"
-              src={NewHomeImage}
-              width="90%"
-              height="auto"
-            />
-          </div>
-          <TextWrapper
-            className="d-flex flex-column"
-            style={{ padding: "50px" }}
-          >
-            <Heading bold size="xl" color="#bc9849">
-              A SHOWCASE OF BICOL'S <br />
-              ORAGON SPIRIT IN TECH
+          </TextWrap>
+          <ImageWrap>IMG</ImageWrap>
+        </NewHome>
+        <Organizer>
+          <ImageWrap padding="24px 24px 24px 0px">IMG</ImageWrap>
+          <TextWrap>
+            <Heading fontSize="3em">
+              A SHOWCASE OF BICOL’S ORAGON SPIRIT IN TECH
             </Heading>
-            <Text fontSize="1.2em">
-              With the booming tech industry in the country, new <br />
-              concepts to speediup mass adoption of blockchain tech <br /> came
-              into inception: SparkLearn EdTech and <br /> MetaGaming Guild,
-              which are now paving the way for <br /> blockchain adoption
-              through education and upskilling, <br /> and gaming.
+            <Text fontSize="1.5em">
+              With the booming tech industry in the country, new concepts to
+              speed up mass adoption of blockchain tech came into inception:
+              SparkLearn EdTech and MetaGaming Guild, which are now paving the
+              way for blockchain adoption through education and upskilling, and
+              gaming.
             </Text>
-            <Text fontSize="1.2em">
-              These projects have become the true testament of the <br />{" "}
-              Bicolano spirit, being "oragon" or feisty in their <br />{" "}
-              aspiration to become the breeding ground of the <br />{" "}
-              cutting-edge tech in the Philippines. Welcome to Bicol.
+            <Text fontSize="1.5em">
+              These projects have become the true testament of the Bicolano
+              spirit, being “oragon” or feisty in their aspiration to become the
+              breeding ground of the cutting-edge tech in the Philippines.
+              Welcome to Bicol.
             </Text>
-          </TextWrapper>
-        </Wrapper>
+          </TextWrap>
+        </Organizer>
       </ContainerWithBackground>
-      <ContainerWithBackground padding="0">
-        <Wrapper>
-          <TextWrapper
-            className="d-flex flex-column justify-content-center"
-            style={{ padding: "50px" }}
+      <ContainerWithBackground>
+        <Sponsors>
+          <TextWrap>
+            <Heading fontSize="2.5em">IN SPECIAL COLLABORATION</Heading>
+          </TextWrap>
+          <div className="d-flex flex-wrap justify-content-center">
+            <LogoBG>
+              <Logo alt="logo-1" src={DICTLogo} />
+            </LogoBG>
+            <LogoBG>
+              <Logo alt="logo-1" src={DTILogo} />
+            </LogoBG>
+            <LogoBG>
+              <Logo alt="logo-1" src={BICOLITLogo} />
+            </LogoBG>
+            <LogoBG>
+              <Logo alt="logo-1" src={BlockTidesLogo} />
+            </LogoBG>
+          </div>
+        </Sponsors>
+        <BlockchainInfo className="flex-column align-items-center">
+          <TextWrap
+            style={{ margin: "15px 0px", textAlign: "center" }}
+            className="d-flex flex-column align-items-center"
           >
-            <Heading size="xl" color="#bc9849">
-              IN SPECIAL <br /> COLLABORATION
-            </Heading>
-          </TextWrapper>
-          <LogoWrapper className="d-flex align-items-center">
-            <Logo className="d-flex justify-content-center align-items-center">
-              <p>sa</p>
-            </Logo>
-            <Logo className="d-flex justify-content-center align-items-center">
-              <p>sa</p>
-            </Logo>
-            <Logo className="d-flex justify-content-center align-items-center">
-              <p>sa</p>
-            </Logo>
-            <Logo className="d-flex justify-content-center align-items-center">
-              <p>sa</p>
-            </Logo>
-          </LogoWrapper>
-        </Wrapper>
-        <Wrapper
-          className="d-flex align-items-center flex-column"
-          style={{ padding: "3em" }}
-        >
-          <Heading size="xl" color="#bc9849">
-            A DAY FOR ALL-THINGS-BLOCKCHAIN
-          </Heading>
-          <Text fontSize="1.5em" style={{ textAlign: "center" }}>
-            The conference provides an avenue for founders and leads of
-            blockchain-based projects, spectators, media, enthusiasts and all
-            the curious minds to spark discussions about the latest trends,
-            developments, new products and applications, thoughts and opinions,
-            opportunities, right in the newest blockchain tech hotspot in the
-            Philippines, Bicol.
-          </Text>
-        </Wrapper>
-        <div className="d-flex justify-content-center" style={{margin: '2em 0'}}>
-          <Logo className="d-flex justify-content-center align-items-center">
-            <p>sa</p>
-          </Logo>
-          <Logo className="d-flex justify-content-center align-items-center">
-            <p>sa</p>
-          </Logo>
-          <Logo className="d-flex justify-content-center align-items-center">
-            <p>sa</p>
-          </Logo>
-          <Logo className="d-flex justify-content-center align-items-center">
-            <p>sa</p>
-          </Logo>
-        </div>
+            <Heading fontSize="3em">A DAY FOR ALL-THINGS-BLOCKCHAIN</Heading>
+            <Text fontSize="1.5em">
+              The conference provides an avenue for founders and leads of
+              blockchain-based projects, spectators, media, enthusiasts and all
+              the curious minds to spark discussions about the latest trends,
+              developments, new products and applications, thoughts and
+              opinions, opportunities, right in the newest blockchain tech
+              hotspot in the Philippines, Bicol.
+            </Text>
+          </TextWrap>
+          <div className="d-flex flex-wrap">
+            <LogoBG
+              padding="0"
+              className="flex-column align-items-start"
+              background="transparent"
+            >
+              <Logo
+                alt="logo-1"
+                src={Panel}
+                size="400px"
+                filter="sepia(100%)"
+              />
+              <Text margin="15px 0px" fontSize="1.5em">
+                PANEL DISCUSSIONS
+              </Text>
+            </LogoBG>
+            <LogoBG
+              padding="0"
+              className="flex-column align-items-start"
+              background="transparent"
+            >
+              <Logo
+                alt="logo-1"
+                src={BreakoutSessions}
+                size="400px"
+                filter="sepia(100%)"
+              />
+              <Text margin="15px 0px" fontSize="1.5em">
+                BREAKOUT SESSIONS
+              </Text>
+            </LogoBG>
+            <LogoBG
+              padding="0"
+              className="flex-column align-items-start"
+              background="transparent"
+            >
+              <Logo
+                alt="logo-1"
+                src={SideSessions}
+                size="400px"
+                filter="sepia(100%)"
+              />
+              <Text margin="15px 0px" fontSize="1.5em">
+                SIDE SESSIONS
+              </Text>
+            </LogoBG>
+            <LogoBG
+              padding="0"
+              className="flex-column align-items-start"
+              background="transparent"
+            >
+              <Logo
+                alt="logo-1"
+                src={Networking}
+                size="400px"
+                filter="sepia(100%)"
+              />
+              <Text margin="15px 0px" fontSize="1.5em">
+                NETWORKING
+              </Text>
+            </LogoBG>
+          </div>
+        </BlockchainInfo>
       </ContainerWithBackground>
     </PageLayout>
   );
@@ -138,26 +160,67 @@ const AboutSection = () => {
 
 export default AboutSection;
 
+const Section = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0px;
+  ${(props) => props.theme.mediaQueries.md} {
+    flex-direction: row;
+  }
+`;
+
 const Wrapper = styled.div`
   display: flex;
-  margin: 2rem 0;
-  & > div {
-    flex: 2 1 auto;
-  }
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 `;
-const TextWrapper = styled.div`
-  & > * {
-    margin: 5px 0px;
-  }
-`;
-const LogoWrapper = styled.div`
+const NewHome = styled(Section)`
   & > * {
     flex: 1;
   }
 `;
-const Logo = styled.div`
+
+const TextWrap = styled(Wrapper)`
+  padding: 24px;
+  font-size: 10px;
+  & > * {
+    margin: 10px 24px;
+  }
+
+  ${(props) => props.theme.mediaQueries.md} {
+    font-size: 17px;
+  }
+`;
+const ImageWrap = styled(Wrapper)`
+  padding: ${(props) => props.padding ?? "24px 0px 24px 24px;"};
+`;
+
+const Organizer = styled(Section)`
+  & > * {
+    flex: 1;
+  }
+`;
+
+const Sponsors = styled(Section)`
+  justify-content: space-around;
+`;
+const LogoBG = styled.div`
+  background-color: ${(props) => props.background ?? props.theme.colors.light};
+  padding: ${(props) => props.padding ?? "25px"};
+  margin: 12px;
+  display: flex;
+  align-items: center;
+`;
+const Logo = styled.img`
   width: 150px;
-  height: 150px;
-  background-color: #ffeac1;
-  margin: 0px 2rem;
+  filter: ${(props) => props.filter ?? "none"};
+
+  ${props => props.theme.mediaQueries.lg} {
+    width: ${(props) => props.size ?? "150px"};
+  }
+`;
+
+const BlockchainInfo = styled(Section)`
+  justify-content: space-around;
 `;
