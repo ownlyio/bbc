@@ -4,11 +4,14 @@ import './index.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import App from './App';
+import Providers from './Providers';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
+    <Providers>
     <App />
+    </Providers>
   </React.StrictMode>,
   document.getElementById('root')
 );
