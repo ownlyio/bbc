@@ -7,6 +7,10 @@ const Container = styled.div`
   width: 100%;
   line-height: normal;
   position: relative;
+
+  @media screen and (max-width: 800px) {
+    height: auto;
+  }
 `
 const Layout = ({direction, height, children}) => {
   return (
