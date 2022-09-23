@@ -26,7 +26,6 @@ const AppCarousel = ({ options, type, components }) => {
           renderArrow={CustomArrows}
         >
           {Object.values(components).map((component, key) => {
-            console.log(component())
             if (component().length > 1) {
               return component().map((item) => <div>{item}</div>);
             }
