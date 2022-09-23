@@ -3,10 +3,10 @@ import { Button } from "../../components/Button";
 import styled from "styled-components";
 import useTheme from "../../hooks/useTheme";
 import Accordion from "../Accordion";
-import Faq from "../../config/constant/faq";
 
-const Tabs = ({ triggers, details, children }) => {
-  const { activeIndex, setActiveIndex, setfaqCollection } = triggers;
+
+const Tabs = ({withAll, triggers, details, children}) => {
+  const { activeIndex, setActiveIndex, setCollection} = triggers;
   const { theme } = useTheme();
   const [optionCollection, setOptions] = React.useState(
     Object.keys(details)[0]
@@ -16,13 +16,20 @@ const Tabs = ({ triggers, details, children }) => {
   return (
     <Container className="d-flex">
       <OptionsContainer className="flex-wrap">
+        {
+          withAll && (
+            <Tab  color={theme.colors.light} variant="outline" onClick={() => {
+              setActiveIndex(0)
+            }}>ALL</Tab>
+          )
+        }
         {options.map((option, key) => (
           <Tab
             key={key}
             activeindex={(activeIndex === key + 1).toString()}
             onClick={() => {
               setActiveIndex(key + 1);
-              setfaqCollection(Faq[option])
+              setCollection(details[option])
             }}
             variant="outline"
             color={theme.colors.light}
@@ -62,7 +69,7 @@ const Tab = styled(Button)`
   text-align: right;
   padding: 10px;
   ${(props) =>
-    props.activeindex &&
+    props.activeindex === 'true' &&
     `
     background-color: #fff;
   `}

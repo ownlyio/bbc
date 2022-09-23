@@ -10,10 +10,13 @@ import BreakoutSessions from "../../assets/images/breakout.jpg";
 import SideSessions from "../../assets/images/side-sessions.jpg";
 import Networking from "../../assets/images/networking.jpg";
 import PageLayout from "../../components/Layout";
+import { Logo, LogoBG } from "../../components/Card/Logo";
 import { ContainerWithBackground } from "../../components/Layout/Container";
 import { Heading, Text } from "../../components/Text";
+import useTheme from "../../hooks/useTheme";
 
 const AboutSection = () => {
+  const { theme } = useTheme()
   return (
     <PageLayout>
       <ContainerWithBackground padding="0">
@@ -102,7 +105,7 @@ const AboutSection = () => {
                 size="400px"
                 filter="sepia(100%)"
               />
-              <Text margin="15px 0px" fontSize="1.5em">
+              <Text margin="15px 0px" fontSize="1.5em" color={theme.colors.light}>
                 PANEL DISCUSSIONS
               </Text>
             </LogoBG>
@@ -117,7 +120,7 @@ const AboutSection = () => {
                 size="400px"
                 filter="sepia(100%)"
               />
-              <Text margin="15px 0px" fontSize="1.5em">
+              <Text margin="15px 0px" fontSize="1.5em" color={theme.colors.light}>
                 BREAKOUT SESSIONS
               </Text>
             </LogoBG>
@@ -132,7 +135,7 @@ const AboutSection = () => {
                 size="400px"
                 filter="sepia(100%)"
               />
-              <Text margin="15px 0px" fontSize="1.5em">
+              <Text margin="15px 0px" fontSize="1.5em" color={theme.colors.light}>
                 SIDE SESSIONS
               </Text>
             </LogoBG>
@@ -147,7 +150,7 @@ const AboutSection = () => {
                 size="400px"
                 filter="sepia(100%)"
               />
-              <Text margin="15px 0px" fontSize="1.5em">
+              <Text margin="15px 0px" fontSize="1.5em" color={theme.colors.light}>
                 NETWORKING
               </Text>
             </LogoBG>
@@ -180,7 +183,7 @@ const NewHome = styled(Section)`
   }
 `;
 
-const TextWrap = styled(Wrapper)`
+export const TextWrap = styled(Wrapper)`
   padding: 24px;
   font-size: 10px;
    & > ${Heading} {
@@ -206,24 +209,6 @@ const Organizer = styled(Section)`
 
 const Sponsors = styled(Section)`
   justify-content: space-around;
-`;
-const LogoBG = styled.div`
-  background-color: ${(props) => props.background ?? props.theme.colors.light};
-  padding: ${(props) => props.padding ?? "25px"};
-  margin: 12px;
-  display: flex;
-  align-items: center;
-  & > ${Text} { 
-    color: ${props => props.theme.colors.light};
-  }
-`;
-const Logo = styled.img`
-  width: 150px;
-  filter: ${(props) => props.filter ?? "none"};
-
-  ${props => props.theme.mediaQueries.lg} {
-    width: ${(props) => props.size ?? "150px"};
-  }
 `;
 
 const BlockchainInfo = styled(Section)`

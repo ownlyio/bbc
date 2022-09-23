@@ -47,7 +47,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 
 const CustomAccordion = ({items}) => {
 
-  const [expanded, setExpanded] = React.useState('panel1');
+  const [expanded, setExpanded] = React.useState('');
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
@@ -56,7 +56,7 @@ const CustomAccordion = ({items}) => {
     <Wrapper>
     {Object.entries(items).length !== 0 ? items.map((item,key) => {
       return (
-        <Accordion expanded={expanded === `panel${key}`} onChange={handleChange(`panel${key}`)}>
+        <Accordion key={key} expanded={expanded === `panel${key+1}`} onChange={handleChange(`panel${key+1}`)}>
         <AccordionSummary
           aria-controls="panel1a-content"
           id="panel1a-header"

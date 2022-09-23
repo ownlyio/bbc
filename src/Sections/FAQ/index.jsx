@@ -17,7 +17,7 @@ const FAQ = () => {
     <PageLayout>
       <ContainerWithBackground>
       <Heading className="text-center" fontSize="3em" color={theme.colors.secondary}>FREQUENTLY ASKED QUESTIONS</Heading>
-      <Tabs details={Faq} triggers={{activeIndex, setActiveIndex, setfaqCollection}}>
+      <Tabs details={Faq} triggers={{activeIndex, setActiveIndex, setCollection: setfaqCollection}}>
         <CustomAccordion items={faqCollection} />
       </Tabs>
       </ContainerWithBackground>
