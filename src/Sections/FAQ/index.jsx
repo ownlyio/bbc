@@ -4,6 +4,7 @@ import faq from '../../config/constant/faq'
 import PageLayout from '../../components/Layout'
 import { ContainerWithBackground } from '../../components/Layout/Container'
 import Tabs from '../../components/Tabs'
+import CustomAccordion from '../../components/Accordion'
 
 
 const FAQ = () => {
@@ -13,7 +14,9 @@ const FAQ = () => {
   return (
     <PageLayout>
       <ContainerWithBackground>
-      <Tabs details={faq} />
+      <Tabs details={faq}>
+        <CustomAccordion />
+      </Tabs>
       </ContainerWithBackground>
     </PageLayout>
     

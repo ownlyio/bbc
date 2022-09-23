@@ -18,7 +18,7 @@ const Tabs = ({details, children}) => {
         }
       </OptionsContainer>
       <div>
-        <Accordion />
+        {children}
       </div>
     </Container>
   )
