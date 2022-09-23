@@ -1,4 +1,4 @@
-import ThemeProvider from "./components/context/ThemeProvider";
+import ThemeProvider from "./context/ThemeProvider";
 
 const Providers = ({children}) => {
   return (
