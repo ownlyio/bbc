@@ -45,8 +45,6 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   }
 }));
 
-
-
 const CustomAccordion = ({items}) => {
 
   const [expanded, setExpanded] = React.useState('panel1');
@@ -54,22 +52,20 @@ const CustomAccordion = ({items}) => {
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
-
   return (
     <Wrapper>
-    {Object.entries(items?? {}).length !== 0 ? Object.entries(items).map(item => {
+    {Object.entries(items).length !== 0 ? items.map((item,key) => {
       return (
-        <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+        <Accordion expanded={expanded === `panel${key}`} onChange={handleChange(`panel${key}`)}>
         <AccordionSummary
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Heading fontSize="1.5em"></Heading>
+          <Heading fontSize="1.5em">{item.question}</Heading>
         </AccordionSummary>
         <AccordionDetails>
           <Text fontSize="1.1em">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+            {item.answer}
           </Text>
         </AccordionDetails>
       </Accordion>
@@ -86,7 +82,10 @@ const CustomAccordion = ({items}) => {
 export default CustomAccordion;
 
 const Wrapper = SCStyled.div`
+  padding: 0 1.5rem;
   & > * {
     margin-bottom: 1rem;
   }
 `
+
+
