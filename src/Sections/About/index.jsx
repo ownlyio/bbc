@@ -163,7 +163,6 @@ export default AboutSection;
 const Section = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 10px 0px;
   ${(props) => props.theme.mediaQueries.md} {
     flex-direction: row;
   }

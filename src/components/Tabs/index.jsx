@@ -9,8 +9,8 @@ const Tabs = ({details, children}) => {
   const options = Object.keys(details).map(item => item);
   
   return (
-    <Container className='d-flex flex-xs-column'>
-      <OptionsContainer>
+    <Container className='d-flex'>
+      <OptionsContainer className='flex-wrap'>
         { 
           options.map((option, key) => (
             <Tab variant="outline" color={theme.colors.secondary} bgColor='#fff'>{option.toUpperCase()}</Tab>
@@ -27,10 +27,13 @@ const Tabs = ({details, children}) => {
 export default Tabs;
 
 const Container = styled.div`
+flex-direction: column;
   & > * {
-    padding: 15px;
+    padding: 5px;
   }
   ${props => props.theme.mediaQueries.lg} {
+    padding: 15px;
+    flex-direction: row;
     & > :first-child {
       flex: 1 1 10rem;
     }
@@ -55,6 +58,8 @@ const Tab = styled(Button)`
 
 const OptionsContainer = styled.div`
   display: flex;
+  font-size: 8px;
+  justify-content: center;
   ${props => props.theme.mediaQueries.lg} {
     flex-direction: column;
     align-items: flex-end;
