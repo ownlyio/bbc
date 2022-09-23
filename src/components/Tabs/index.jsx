@@ -61,6 +61,7 @@ const OptionsContainer = styled.div`
   font-size: 8px;
   justify-content: center;
   ${props => props.theme.mediaQueries.lg} {
+    font-size: 17px;
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-end;
