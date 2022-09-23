@@ -3,9 +3,10 @@ import { Button as RBButton }from 'react-bootstrap';
 
 export const Button = styled(RBButton)`
   border: none;
-  color: #906003;
+  color: ${props => props.color ?? '#906003'};
   border-radius: 0;
   &:hover {
-    background-color: #906003;
+    background-color: ${props => props.bgColor ?? '#906003'};
+    color: ${props => props.color};
   }
 `
