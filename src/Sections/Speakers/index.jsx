@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-import Avatar from '../../components/Avatar';
+import CarouselRender from './CarouselRender'
 import PageLayout from '../../components/Layout';
 import { ContainerWithBackground } from '../../components/Layout/Container';
 import { Heading, Text } from '../../components/Text';
@@ -18,8 +18,8 @@ const Speakers = () => {
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis quae nihil pariatur laborum similique, dolore architecto, minima dignissimos repellendus molestiae, facere autem! Minima tempora harum aliquid sapiente ipsa quia ab.
             </Text>
           </div>
-          <div style={{margin: '3rem 0 '}}>
-          <Avatar />
+          <div style={{margin: '3rem 0 ', width: '100%'}}>
+            <CarouselRender />
           </div>
         </SpeakersSection>
       </ContainerWithBackground>
