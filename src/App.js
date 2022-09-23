@@ -13,6 +13,7 @@ import "./App.css";
 import background from "./img/bbc-banner.jpg";
 import dti5 from "./img/dti-logo.png";
 import { About, Hero } from "./Sections";
+import Speakers from "./Sections/Speakers";
 
 function App() {
   const [emailAdd, setEmailAdd] = useState("");
@@ -49,6 +50,7 @@ function App() {
       <Navigation />
       <Hero />
       <About />
+      <Speakers />
       <Footer />
     </>
   );
