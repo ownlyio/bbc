@@ -6,6 +6,7 @@ import Accordion from '../Accordion';
 
 const Tabs = ({details, children}) => {
   const { theme } = useTheme()
+  const [ optionCollection, setOptions ] = React.useState(Object.keys(details)[0])
   const options = Object.keys(details).map(item => item);
   
   return (
@@ -13,7 +14,7 @@ const Tabs = ({details, children}) => {
       <OptionsContainer className='flex-wrap'>
         { 
           options.map((option, key) => (
-            <Tab variant="outline" color={theme.colors.secondary} bgColor='#fff'>{option.toUpperCase()}</Tab>
+            <Tab  key={key} variant="outline" color={theme.colors.secondary}>{option.toUpperCase()}</Tab>
           ))
         }
       </OptionsContainer>
@@ -48,11 +49,12 @@ const Tab = styled(Button)`
   font-size: 1.5em;
   font-weight: bold;
   text-align: right;
+  padding: 10px;
   ${props => props.active && `
     background-color: #fff;
   `}
-  & :hover {
-    color: ${props => props.theme.colors.secondary};
+  &:hover {
+    background-color: #fff;
   }
 `
 

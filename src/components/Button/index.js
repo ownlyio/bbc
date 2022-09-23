@@ -6,7 +6,7 @@ export const Button = styled(RBButton)`
   color: ${props => props.color ?? '#906003'};
   border-radius: 0;
   &:hover {
-    background-color: ${props => props.bgColor ?? '#906003'};
+    background-color: #906003;
     color: ${props => props.color};
   }
 `

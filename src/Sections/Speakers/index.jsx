@@ -9,7 +9,6 @@ import { Button } from "react-bootstrap";
 
 const Speakers = () => {
   const { theme } = useTheme();
-  console.log(theme);
   return (
     <PageLayout>
       <ContainerWithBackground>

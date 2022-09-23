@@ -57,12 +57,14 @@ const CustomAccordion = ({items}) => {
 
   return (
     <Wrapper>
-    <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+    {Object.entries(items?? {}).length !== 0 ? Object.entries(items).map(item => {
+      return (
+        <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <AccordionSummary
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Heading fontSize="1.5em">Accordion 1</Heading>
+          <Heading fontSize="1.5em"></Heading>
         </AccordionSummary>
         <AccordionDetails>
           <Text fontSize="1.1em">
@@ -71,6 +73,12 @@ const CustomAccordion = ({items}) => {
           </Text>
         </AccordionDetails>
       </Accordion>
+      )
+    }): (
+      <div className='d-flex align-items-center'>
+        <Heading>Coming Soon</Heading>
+      </div>
+    )}
     </Wrapper>
   )
 }
