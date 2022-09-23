@@ -70,7 +70,7 @@ const CarouselItem = styled.div`
 `;
 
 const ArrowButtons = styled(Button)`
-  height: 50%;
+  height: 80%;
   & > ${Heading} {
     color: ${(props) => props.theme.colors.primary};
   }
