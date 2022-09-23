@@ -90,7 +90,7 @@ const AboutSection = () => {
               hotspot in the Philippines, Bicol.
             </Text>
           </TextWrap>
-          <div className="d-flex flex-wrap">
+          <Sessions className="d-flex flex-wrap justify-content-center">
             <LogoBG
               padding="0"
               className="flex-column align-items-start"
@@ -151,7 +151,7 @@ const AboutSection = () => {
                 NETWORKING
               </Text>
             </LogoBG>
-          </div>
+          </Sessions>
         </BlockchainInfo>
       </ContainerWithBackground>
     </PageLayout>
@@ -230,3 +230,17 @@ const Logo = styled.img`
 const BlockchainInfo = styled(Section)`
   justify-content: space-around;
 `;
+
+const Sessions = styled.div`
+  & > ${LogoBG}{
+    flex: 1;
+    @media screen and (max-width: 500px) {
+      & > * {
+        margin: 0 auto;
+      }
+      & > ${Logo} {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+`
