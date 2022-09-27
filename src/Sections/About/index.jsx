@@ -65,16 +65,16 @@ const AboutSection = () => {
           </TextWrap>
           <div className="d-flex flex-wrap justify-content-center">
             <LogoBG>
-              <Logo alt="logo-1" src={DICTLogo} />
+              <Logo alt="logo-1" src={DICTLogo} width="75px"/>
             </LogoBG>
             <LogoBG>
-              <Logo alt="logo-1" src={DTILogo} />
+              <Logo alt="logo-1" src={DTILogo} width="75px" />
             </LogoBG>
             <LogoBG>
-              <Logo alt="logo-1" src={BICOLITLogo} />
+              <Logo alt="logo-1" src={BICOLITLogo}  width="75px" />
             </LogoBG>
             <LogoBG>
-              <Logo alt="logo-1" src={BlockTidesLogo} />
+              <Logo alt="logo-1" src={BlockTidesLogo}  width="75px"/>
             </LogoBG>
           </div>
         </Sponsors>
@@ -102,7 +102,7 @@ const AboutSection = () => {
               <Logo
                 alt="logo-1"
                 src={Panel}
-                size="400px"
+                width="300px"
                 filter="sepia(100%)"
               />
               <Text margin="15px 0px" fontSize="1.5em" color={theme.colors.light}>
@@ -117,7 +117,7 @@ const AboutSection = () => {
               <Logo
                 alt="logo-1"
                 src={BreakoutSessions}
-                size="400px"
+                width="300px"
                 filter="sepia(100%)"
               />
               <Text margin="15px 0px" fontSize="1.5em" color={theme.colors.light}>
@@ -132,7 +132,7 @@ const AboutSection = () => {
               <Logo
                 alt="logo-1"
                 src={SideSessions}
-                size="400px"
+                width="300px"
                 filter="sepia(100%)"
               />
               <Text margin="15px 0px" fontSize="1.5em" color={theme.colors.light}>
@@ -147,7 +147,7 @@ const AboutSection = () => {
               <Logo
                 alt="logo-1"
                 src={Networking}
-                size="400px"
+                width="300px"
                 filter="sepia(100%)"
               />
               <Text margin="15px 0px" fontSize="1.5em" color={theme.colors.light}>

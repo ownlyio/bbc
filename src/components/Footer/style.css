@@ -110,4 +110,7 @@
     width: 150px;
     margin-right: 5px;
   }
+  .logo > p {
+    line-height: 1rem;
+  }
 }

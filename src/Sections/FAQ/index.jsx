@@ -7,6 +7,7 @@ import { ContainerWithBackground } from '../../components/Layout/Container'
 import Tabs from '../../components/Tabs'
 import CustomAccordion from '../../components/Accordion'
 import useTheme from '../../hooks/useTheme'
+import { TextWrap } from '../About'
 
 
 const FAQ = () => {
@@ -16,7 +17,9 @@ const FAQ = () => {
   return (
     <PageLayout>
       <ContainerWithBackground>
+        <TextWrap>
       <Heading className="text-center" fontSize="3em" color={theme.colors.secondary}>FREQUENTLY ASKED QUESTIONS</Heading>
+      </TextWrap>
       <Tabs details={Faq} triggers={{activeIndex, setActiveIndex, setCollection: setfaqCollection}}>
         <CustomAccordion items={faqCollection} />
       </Tabs>

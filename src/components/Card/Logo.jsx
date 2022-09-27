@@ -18,16 +18,19 @@ export const LogoBG = styled.div`
     `
     border-left: 2rem solid rgba(188,152,73,1);
   `}
-  margin: 12px;
+  margin: 12px 0px;
   display: flex;
   align-items: center;
+  ${props => props.theme.mediaQueries.md}{
+    margin: 12px;
+  }
 `;
 
 export const Logo = styled.img`
-  width: ${props => `${props.width}!important`?? '150px'};
+  width: ${props => `calc(${props.width}-200px)!important`?? '150px'};
   filter: ${(props) => props.filter ?? "none"};
 
   ${(props) => props.theme.mediaQueries.lg} {
-    width: ${(props) => props.size ?? "150px"};
+    width: ${(props) => `${props.width}!important`?? "150px"};
   }
 `;

@@ -6,6 +6,7 @@ import useTheme from "../../hooks/useTheme";
 import { ContainerWithBackground } from "../../components/Layout/Container";
 import { Heading, Text } from "../../components/Text";
 import { Button } from "react-bootstrap";
+import { TextWrap } from "../About";
 
 const Speakers = () => {
   const { theme } = useTheme();
@@ -13,9 +14,8 @@ const Speakers = () => {
     <PageLayout>
       <ContainerWithBackground>
         <SpeakersSection className="flex-column align-items-center">
-          <div
+          <TextWrap
             className="intro-text d-flex flex-column align-items-center"
-            style={{ padding: "0 25px" }}
           >
             <Heading fontSize="3em">MEET THE SPEAKERS</Heading>
             <Text fontSize="1.5em">
@@ -24,20 +24,20 @@ const Speakers = () => {
               dignissimos repellendus molestiae, facere autem! Minima tempora
               harum aliquid sapiente ipsa quia ab.
             </Text>
-          </div>
+          </TextWrap>
           <div style={{ margin: "3rem 0 ", width: "100%" }}>
             <CarouselRender />
           </div>
           <ApplySection className="d-flex flex-column flex-md-row">
-            <div className="d-flex flex-column align-items-lg-start justify-content-lg-between align-items-sm-center justify-content-sm-center">
+            <TextWrap className="d-flex flex-column align-items-lg-start justify-content-lg-between align-items-sm-center justify-content-sm-center">
               <Heading fontSize="3em">APPLY AS SPEAKER</Heading>
               <Button variant="outline">
                 <Heading fontSize="1.5em" color={theme.colors.secondary}>
                   Apply Here >
                 </Heading>
               </Button>
-            </div>
-            <div>
+            </TextWrap>
+            <TextWrap>
               <Text fontSize="1.5em">
                 BBC's door is always open for brilliant, speaking mind, that are
                 well-versed in the field of Blockchain Technology and Web3.
@@ -49,7 +49,7 @@ const Speakers = () => {
                 wants to become an evangelist of this disruptive tech, then BBC
                 is the starting point for you.
               </Text>
-            </div>
+            </TextWrap>
           </ApplySection>
         </SpeakersSection>
       </ContainerWithBackground>
