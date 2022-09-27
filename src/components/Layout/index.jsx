@@ -7,14 +7,14 @@ const Container = styled.div`
   width: 100%;
   line-height: normal;
   position: relative;
-  margin: 10px 0px;
+  margin: ${props => props.margin ?? '10px 0px;'};
   @media screen and (max-width: 800px) {
     height: auto;
   }
 `
-const Layout = ({direction, height, children}) => {
+const Layout = ({direction, height, margin, children}) => {
   return (
-    <Container direction={direction} height={height}>
+    <Container direction={direction} height={height} margin={margin}>
       {children}
     </Container>
   )

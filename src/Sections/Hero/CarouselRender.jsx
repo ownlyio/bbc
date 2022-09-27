@@ -2,7 +2,9 @@ import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import styled from "styled-components";
+import BG1 from '../../assets/bg/bg_carousel1.png';
 import BBCLogo from "../../assets/official logo.png";
+import { ContainerWithBackground } from "../../components/Layout/Container";
 import { Button } from "../../components/Button";
 import { H1, Heading, Text } from "../../components/Text";
 import AppCarousel from "../../components/Carousel";
@@ -10,9 +12,9 @@ import AppCarousel from "../../components/Carousel";
 const CarouselRenderer = () => {
   const item1 = () => {
     return (
-      <Container>
+      <Container background={BG1}>
         <Wrapper>
-          <Heading fontSize="2.1em">BLOCKCHAIN FOUND ITS NEW HOME.</Heading>
+          <Heading fontSize="2.1em" color="#fff">BLOCKCHAIN FOUND ITS NEW HOME.</Heading>
           <TextWrapper>
             <Heading fontSize="5em">SEE YOU IN</Heading>
             <Heading fontSize="15em">BICOL</Heading>
@@ -24,11 +26,11 @@ const CarouselRenderer = () => {
         <Wrapper className="align-items-center">
           <LogoWrapper>
             <LogoImage alt="bbc-logo" src={BBCLogo} />
-            <Text className='logo-subtitle' fontSize="2.8em">
+            <Text color="#fff" className='logo-subtitle' fontSize="2.8em">
               BICOL BLOCKCHAIN CONFERENCE
             </Text>
           </LogoWrapper>
-          <Heading fontSize="2em">11.14.22 | LEGAZPI CITY</Heading>
+          <Heading color="#fff" fontSize="2em">11.14.22 | LEGAZPI CITY</Heading>
         </Wrapper>
       </Container>
     );
@@ -39,7 +41,8 @@ const CarouselRenderer = () => {
 
 export default CarouselRenderer;
 
-const Container = styled.div`
+const Container = styled(ContainerWithBackground)`
+  padding: 5rem 0;
   display: flex;
   flex-direction: column;
   & > * {
@@ -48,6 +51,7 @@ const Container = styled.div`
 
   ${props => props.theme.mediaQueries.lg} {
     flex-direction: row;
+    padding: 10rem 5rem;
   }
 `
 
@@ -90,9 +94,6 @@ const LogoWrapper = styled(FontResponsive)`
   flex-direction: column;
   margin: 2rem 0;
   text-align: center;
-  & > img {
-    border: 1px solid red;
-  }
 `;
 
 const TextWrapper = styled(FontResponsive)`

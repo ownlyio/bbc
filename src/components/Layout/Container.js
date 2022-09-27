@@ -8,4 +8,10 @@ export const Container = styled.div`
   }
 `
 
-export const ContainerWithBackground = styled(Container)``
+export const ContainerWithBackground = styled(Container)` 
+  background: ${props => `url(${props.background})`};
+  background-blend-mode: overlay;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+`
