@@ -16,7 +16,7 @@ const Partners = () => {
   return (
     <PageLayout>
       <ContainerWithBackground>
-        <div className='d-flex' style={{margin: '15px 0'}}>
+        <div className='d-flex flex-wrap' style={{margin: '15px 0'}}>
           <TextWrap>
           <Heading fontSize="3em">PARTNERSHIP</Heading>
           <Text fontSize="1.5em">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim voluptatem molestiae quod nesciunt esse, veniam, perferendis totam voluptas cumque possimus, iusto blanditiis et? Neque necessitatibus hic expedita illo soluta ipsam.</Text>

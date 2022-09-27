@@ -27,8 +27,10 @@ const AvatarBG = styled.div`
   align-items: flex-end;
   justify-content: center;
   background-color: ${(props) => props.theme.colors.primary};
-  min-height: 200px;
-  min-width: 200px;
+  min-height: 175px;
+  min-width: 175px;
+  width: auto;
+  height: auto;
   border-radius: 50%;
   color: #fff;
 `;
