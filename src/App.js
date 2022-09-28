@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Modal } from "react-bootstrap";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   faCheckCircle,
   faExclamationCircle,
@@ -12,16 +12,33 @@ import Footer from "./components/Footer";
 import "./App.css";
 import background from "./img/bbc-banner.jpg";
 import dti5 from "./img/dti-logo.png";
-import { About, FAQ, Hero, Partners, Schedule, Speakers, Subscription } from "./Sections";
+import {
+  About,
+  FAQ,
+  Hero,
+  Partners,
+  Schedule,
+  Speakers,
+  Subscription,
+} from "./Sections";
+import PageLoader from "./components/Loader";
 
 function App() {
-  const [emailAdd, setEmailAdd] = useState("");
+  const [emailAdd, setEmailAdd] = useState(false);
   const [showSubscribed, setShowSubscribed] = useState(false);
   const handleCloseSubscribed = () => setShowSubscribed(false);
   const handleShowSubscribed = () => setShowSubscribed(true);
   const [showErrorEmail, setShowErrorEmail] = useState(false);
   const handleCloseErrorEmail = () => setShowErrorEmail(false);
   const handleShowErrorEmail = () => setShowErrorEmail(true);
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   const submitForm = (e) => {
     e.preventDefault();
@@ -44,8 +61,8 @@ function App() {
     }
   };
 
-  return (
-    <>
+  return loading? <PageLoader /> : (
+    <div className="main">
       <Navigation />
       <Hero />
       <About />
@@ -55,7 +72,7 @@ function App() {
       <FAQ />
       <Subscription />
       <Footer />
-    </>
+    </div>
   );
 }
 
