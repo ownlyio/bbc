@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0,0,0,0.6)
+  background-color: #252525;
 `
 
 const PageLoader = () => {
