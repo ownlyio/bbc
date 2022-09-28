@@ -7,13 +7,14 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgba(0,0,0,0.6)
 `
 
 const PageLoader = () => {
 
   return (
     <Wrapper>
-       <img className='animate__animated animate__hinge' src={BBCLogo} alt='loading-image' width='300px' />
+       <img className='animate__animated animate__hinge' src={BBCLogo} alt='loading-image' width='25%' />
     </Wrapper>
   )
 }
