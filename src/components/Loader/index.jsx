@@ -14,7 +14,7 @@ const PageLoader = () => {
 
   return (
     <Wrapper>
-       <img className='animate__animated animate__hinge' src={BBCLogo} alt='loading-image' width='25%' />
+       <img className='animate__animated animate__bounce' src={BBCLogo} alt='loading-image' width='25%' />
     </Wrapper>
   )
 }
