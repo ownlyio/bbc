@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import BG6 from '../../assets/bg/pane6.png'
 import Faq from '../../config/constant/faq'
 import { Heading } from '../../components/Text'
 import PageLayout from '../../components/Layout'
@@ -9,14 +10,13 @@ import CustomAccordion from '../../components/Accordion'
 import useTheme from '../../hooks/useTheme'
 import { TextWrap } from '../About'
 
-
 const FAQ = () => {
   const { theme  } = useTheme()
   const [ activeIndex, setActiveIndex ] = useState(0)
   const [faqCollection, setfaqCollection] = useState(Faq[Object.keys(Faq)[0]])
   return (
-    <PageLayout>
-      <ContainerWithBackground>
+    <PageLayout margin="0" height='90vh'>
+      <ContainerWithBackground background={BG6}>
         <TextWrap>
       <Heading className="text-center" fontSize="3em" color={theme.colors.secondary}>FREQUENTLY ASKED QUESTIONS</Heading>
       </TextWrap>

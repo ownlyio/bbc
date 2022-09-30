@@ -18,7 +18,7 @@ const Tabs = ({withAll, triggers, details, children}) => {
       <OptionsContainer className="flex-wrap">
         {
           withAll && (
-            <Tab  color={theme.colors.light} variant="outline" onClick={() => {
+            <Tab activeindex={(activeIndex === 0).toString()} color={theme.colors.light} variant="outline" onClick={() => {
               setActiveIndex(0)
             }}>ALL</Tab>
           )
@@ -64,6 +64,7 @@ const Container = styled.div`
 
 const Tab = styled(Button)`
   color: ${(props) => props.theme.colors.secondary};
+  background-color: transparent;
   font-size: 1.5em;
   font-weight: bold;
   text-align: right;

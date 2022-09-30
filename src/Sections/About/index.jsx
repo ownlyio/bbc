@@ -1,6 +1,8 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import styled from "styled-components";
+import BG from '../../assets/bg/pane2.png'
+import BG2 from '../../assets/bg/pane3.png'
 import DICTLogo from "../../assets/logos/dict.png";
 import DTILogo from "../../assets/logos/dti.png";
 import BICOLITLogo from "../../assets/logos/bicolIT.png";
@@ -18,14 +20,14 @@ import useTheme from "../../hooks/useTheme";
 const AboutSection = () => {
   const { theme } = useTheme()
   return (
-    <PageLayout>
-      <ContainerWithBackground padding="0">
+    <PageLayout margin="0">
+      <ContainerWithBackground padding="2.5rem 0" background={BG}>
         <NewHome>
           <TextWrap>
             <Heading fontSize="3em">
               BLOCKCHAIN FOUND ITS NEW HOME, BICOL
             </Heading>
-            <Text fontSize="1.5em">
+            <Text fontSize="1.5em" color="#fff">
               Bicol Blockchain Conference or simply “BBC” is the latest local
               blockchain community event in the Philippines. It aims to gather
               everyone to discuss and talk about Blockchain Technology and Web3,
@@ -42,14 +44,14 @@ const AboutSection = () => {
             <Heading fontSize="3em">
               A SHOWCASE OF BICOL’S ORAGON SPIRIT IN TECH
             </Heading>
-            <Text fontSize="1.5em">
+            <Text fontSize="1.5em" color="#fff">
               With the booming tech industry in the country, new concepts to
               speed up mass adoption of blockchain tech came into inception:
               SparkLearn EdTech and MetaGaming Guild, which are now paving the
               way for blockchain adoption through education and upskilling, and
               gaming.
             </Text>
-            <Text fontSize="1.5em">
+            <Text fontSize="1.5em" color="#fff">
               These projects have become the true testament of the Bicolano
               spirit, being “oragon” or feisty in their aspiration to become the
               breeding ground of the cutting-edge tech in the Philippines.
@@ -58,7 +60,7 @@ const AboutSection = () => {
           </TextWrap>
         </Organizer>
       </ContainerWithBackground>
-      <ContainerWithBackground>
+      <ContainerWithBackground background={BG2}>
         <Sponsors>
           <TextWrap>
             <Heading fontSize="2.5em">IN SPECIAL COLLABORATION</Heading>
@@ -84,7 +86,7 @@ const AboutSection = () => {
             className="d-flex flex-column align-items-center"
           >
             <Heading fontSize="3em">A DAY FOR ALL-THINGS-BLOCKCHAIN</Heading>
-            <Text fontSize="1.5em">
+            <Text fontSize="1.5em" color="#fff">
               The conference provides an avenue for founders and leads of
               blockchain-based projects, spectators, media, enthusiasts and all
               the curious minds to spark discussions about the latest trends,

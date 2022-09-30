@@ -11,11 +11,11 @@ const Schedule = () => {
   const { theme } = useTheme()
 
   return (
-    <PageLayout>
+    <PageLayout bgColor="#232323" margin="0">
       <ContainerWithBackground>
         <TextWrap className="text-center">
         <Heading fontSize="3em" color={theme.colors.secondary}>SCHEDULE</Heading>
-        <Text fontSize="2em">Watch this space as we collate insightful segments and fun activities for BBC 2022.</Text>
+        <Text fontSize="2em" color='#fff'>Watch this space as we collate insightful segments and fun activities for BBC 2022.</Text>
         </TextWrap>
       </ContainerWithBackground>
     </PageLayout>

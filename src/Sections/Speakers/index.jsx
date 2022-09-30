@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import BG4 from '../../assets/bg/pane4.png'
 import CarouselRender from "./CarouselRender";
 import PageLayout from "../../components/Layout";
 import useTheme from "../../hooks/useTheme";
@@ -11,14 +12,14 @@ import { TextWrap } from "../About";
 const Speakers = () => {
   const { theme } = useTheme();
   return (
-    <PageLayout>
-      <ContainerWithBackground>
+    <PageLayout margin="0">
+      <ContainerWithBackground background={BG4}>
         <SpeakersSection className="flex-column align-items-center">
           <TextWrap
             className="intro-text d-flex flex-column align-items-center"
           >
             <Heading fontSize="3em">MEET THE SPEAKERS</Heading>
-            <Text fontSize="1.5em">
+            <Text fontSize="1.5em" color="#fff">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis
               quae nihil pariatur laborum similique, dolore architecto, minima
               dignissimos repellendus molestiae, facere autem! Minima tempora
@@ -38,11 +39,11 @@ const Speakers = () => {
               </Button>
             </TextWrap>
             <TextWrap>
-              <Text fontSize="1.5em">
+              <Text fontSize="1.5em" color="#fff">
                 BBC's door is always open for brilliant, speaking mind, that are
                 well-versed in the field of Blockchain Technology and Web3.
               </Text>
-              <Text fontSize="1.5em">
+              <Text fontSize="1.5em" color="#fff">
                 If you are a founder, project lead or anyone that has been
                 integral in developing blockchain-based products and services
                 and is willing to share your expertise, passion, knowledge and

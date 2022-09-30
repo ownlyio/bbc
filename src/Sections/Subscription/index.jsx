@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import BG7 from '../../assets/bg/pane7.png'
 import styled from "styled-components";
 import { toast } from "react-toastify";
 import { Text, Heading } from "../../components/Text";
@@ -52,13 +53,13 @@ const Subscribe = () => {
   };
 
   return (
-    <PageLayout>
-      <ContainerWithBackground>
+    <PageLayout margin="0">
+      <ContainerWithBackground background={BG7}>
         <TextWrap className="text-center">
           <Heading fontSize="3em" color={theme.colors.secondary}>
             SUBSCRIBE FOR THE LATEST EVENT UPDATES
           </Heading>
-          <Text fontSize="1.5em">
+          <Text fontSize="1.5em" color="#fff">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est
             tempora quos aut amet nobis. Nesciunt consequatur aperiam soluta
             iste tempora eum doloribus nobis nulla, magni quibusdam velit
