@@ -14,11 +14,12 @@ const Container = styled.div`
   `}
   @media screen and (max-width: 800px) {
     height: auto;
+    min-height: auto;
   }
 `
-const Layout = ({direction, height, margin, bgColor, children}) => {
+const Layout = ({direction, height, margin, bgColor, children, id}) => {
   return (
-    <Container direction={direction} height={height} margin={margin} bgColor={bgColor}>
+    <Container direction={direction} height={height} margin={margin} bgColor={bgColor} id={id}>
       {children}
     </Container>
   )

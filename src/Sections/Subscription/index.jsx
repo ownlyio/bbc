@@ -53,7 +53,7 @@ const Subscribe = () => {
   };
 
   return (
-    <PageLayout margin="0">
+    <PageLayout margin="0" id="contact-us">
       <ContainerWithBackground background={BG7}>
         <TextWrap className="text-center">
           <Heading fontSize="3em" color={theme.colors.secondary}>
@@ -67,7 +67,7 @@ const Subscribe = () => {
           </Text>
         </TextWrap>
         <form
-          className="d-flex align-items-center justify-content-center"
+          className="d-flex align-items-center justify-content-center flex-wrap"
           style={{ marginTop: "2em" }}
           onSubmit={handleSubmit}
         >

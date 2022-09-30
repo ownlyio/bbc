@@ -20,7 +20,7 @@ import useTheme from "../../hooks/useTheme";
 const AboutSection = () => {
   const { theme } = useTheme()
   return (
-    <PageLayout margin="0">
+    <PageLayout margin="0" id="about">
       <ContainerWithBackground padding="2.5rem 0" background={BG}>
         <NewHome>
           <TextWrap>

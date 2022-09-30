@@ -12,7 +12,7 @@ import { TextWrap } from "../About";
 const Speakers = () => {
   const { theme } = useTheme();
   return (
-    <PageLayout margin="0">
+    <PageLayout margin="0" id="speakers">
       <ContainerWithBackground background={BG4}>
         <SpeakersSection className="flex-column align-items-center">
           <TextWrap
@@ -62,7 +62,7 @@ export default Speakers;
 
 const Section = styled.div`
   display: flex;
-  margin: 10px 0px;
+  padding: 10px 0px;
   & > * {
     padding: 5px;
   }

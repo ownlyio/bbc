@@ -11,7 +11,7 @@ const Schedule = () => {
   const { theme } = useTheme()
 
   return (
-    <PageLayout bgColor="#232323" margin="0">
+    <PageLayout bgColor="#232323" margin="0" id="schedule">
       <ContainerWithBackground>
         <TextWrap className="text-center">
         <Heading fontSize="3em" color={theme.colors.secondary}>SCHEDULE</Heading>

@@ -1,27 +1,27 @@
 const MenuConfig = [
   {
     name: 'About',
-    href: ''
+    href: '#about'
   },
   {
     name: 'Speakers',
-    href: ''
+    href: '#speakers'
   },
   {
     name: 'Schedule',
-    href: ''
+    href: '#schedule'
   },
   {
     name: 'Partners',
-    href: ''
+    href: '#partners'
   },
   {
     name: 'FAQS',
-    href: ''
+    href: '#faqs'
   },
   {
     name: 'Contact Us',
-    href: ''
+    href: '#contact-us'
   }
 ]
 

@@ -17,10 +17,10 @@ const Partners = () => {
     partners[Object.keys(partners)[2]]
   );
   return (
-    <PageLayout margin="0">
+    <PageLayout margin="0" id="partners">
       <ContainerWithBackground background={BG5}>
-        <div className="d-flex" style={{ margin: "15px 0" }}>
-          <TextWrap>
+        <div className="d-flex flex-wrap" style={{ padding: "15px 0" }}>
+          <TextWrap style={{flex: 1}}>
             <Heading fontSize="3em">PARTNERSHIP</Heading>
             <Text fontSize="1.5em" color="#fff">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
@@ -29,7 +29,7 @@ const Partners = () => {
               necessitatibus hic expedita illo soluta ipsam.
             </Text>
           </TextWrap>
-          <TextWrap>
+          <TextWrap style={{flex: 1}}>
             <Heading fontSize="3em">BECOME OUR PARTNER!</Heading>
             <Text fontSize="1.5em" color="#fff">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita,
