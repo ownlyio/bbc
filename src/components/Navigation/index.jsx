@@ -45,9 +45,11 @@ const Component = ({ children }) => {
     <div className="wrapper">
       <Navbar collapseOnSelect expand="lg" className={`nav-bar ${!showMenu && 'hide'}`} fixed='top'>
         <Container>
-          <Navbar.Brand href="#home">
+          <Linker href="#top">
+          <Navbar.Brand>
             <img alt="bbc-logo" src={BBCLogo} width="150px" />
           </Navbar.Brand>
+          </Linker>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse
             id="responsive-navbar-nav"
