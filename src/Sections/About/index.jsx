@@ -16,6 +16,7 @@ import { Logo, LogoBG } from "../../components/Card/Logo";
 import { ContainerWithBackground } from "../../components/Layout/Container";
 import { Heading, Text } from "../../components/Text";
 import useTheme from "../../hooks/useTheme";
+import Images from "./Images";
 
 const AboutSection = () => {
   const { theme } = useTheme()
@@ -36,7 +37,7 @@ const AboutSection = () => {
               for blockchain tech at the south of Metro Manila.
             </Text>
           </TextWrap>
-          <ImageWrap>IMG</ImageWrap>
+          <ImageWrap><Images /></ImageWrap>
         </NewHome>
         <Organizer>
           <ImageWrap padding="24px 24px 24px 0px">IMG</ImageWrap>
