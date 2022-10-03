@@ -22,7 +22,7 @@ const Component = ({ children }) => {
           >
             <Nav className="me-right bold">
               {config.map((link) => (
-                <Linker href={link.href}>
+                <Linker href={link.href} key={link.name}>
                 <Nav.Link
                   key={link.name}
                   className={`nav-item ${active && "active"}`}

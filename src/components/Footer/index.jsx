@@ -8,6 +8,7 @@ import OWNLYLogo from "../../assets/ownly.png";
 import SRKLogo from "../../assets/SRK_wordmark.svg";
 import { socials } from "./config";
 import "./style.css";
+import Linker from "../Linker";
 
 const Component = () => {
   return (
@@ -32,9 +33,11 @@ const Component = () => {
         <p style={{ marginBottom: "0.5rem" }}>QUICK LINKS</p>
         <Nav className="flex-column align-items-start flex-grow-1 justify-content-evenly">
           {config.map((link) => (
+            <Linker href={link.href} key={link.key}>
             <Nav.Link key={link.name} href={link.href} style={{ color: "#fff" }}>
               > &nbsp;{link.name.toUpperCase()}
             </Nav.Link>
+            </Linker>
           ))}
         </Nav>
       </div>
