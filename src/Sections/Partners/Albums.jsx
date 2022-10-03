@@ -4,7 +4,6 @@ import LogoBox from '../../components/Card/Logo'
 import IconModules from './FetchLogo'
 
 const Album = ({items, activeIndex}) => {
-  console.log(items)
   return (
     <Wrapper>
       { activeIndex === 0 ? (

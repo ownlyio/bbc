@@ -17,6 +17,7 @@ import { ContainerWithBackground } from "../../components/Layout/Container";
 import { Heading, Text } from "../../components/Text";
 import useTheme from "../../hooks/useTheme";
 import Images from "./Images";
+import Techlist from "./Techlist";
 
 const AboutSection = () => {
   const { theme } = useTheme()
@@ -37,10 +38,10 @@ const AboutSection = () => {
               for blockchain tech at the south of Metro Manila.
             </Text>
           </TextWrap>
-          <ImageWrap><Images /></ImageWrap>
+          <ImageWrap align='flex-end'><Images /></ImageWrap>
         </NewHome>
         <Organizer>
-          <ImageWrap padding="24px 24px 24px 0px">IMG</ImageWrap>
+          <ImageWrap align='flex-start' padding="24px 24px 24px 0px"><Techlist /></ImageWrap>
           <TextWrap>
             <Heading fontSize="3em">
               A SHOWCASE OF BICOL’S ORAGON SPIRIT IN TECH
@@ -201,7 +202,11 @@ export const TextWrap = styled(Wrapper)`
   }
 `;
 const ImageWrap = styled(Wrapper)`
-  padding: ${(props) => props.padding ?? "24px 0px 24px 24px;"};
+  padding: 10px;
+  align-items: ${props => props.align};
+  ${props => props.theme.mediaQueries.md} {
+    padding: 0;
+  }
 `;
 
 const Organizer = styled(Section)`
