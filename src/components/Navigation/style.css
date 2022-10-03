@@ -17,6 +17,14 @@ a {
 
 .nav-bar {
   padding: 0.9rem;
+  background-color: #fff;
+  top: 0;
+  transition: top 0.2s;
+  transform: translate3d(0, 0, 0);
+}
+
+.hide {
+  top: -100vh;
 }
 
 .nav-item {
@@ -26,6 +34,7 @@ a {
 }
 
 .nav-item.active {
+  padding: 0.8rem 1rem;
   background-color: #c39638;
   color: #fff!important;
 }
