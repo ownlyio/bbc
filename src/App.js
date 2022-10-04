@@ -1,4 +1,4 @@
-import { HashRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Switch } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
@@ -27,7 +27,7 @@ function App() {
     <PageLoader />
   ) : (
     <div className="main">
-      <HashRouter>
+      <BrowserRouter>
         <Switch>
           <Route
           exact
@@ -47,7 +47,7 @@ function App() {
             )}
           />
         </Switch>
-      </HashRouter>
+      </BrowserRouter>
     </div>
   );
 }
