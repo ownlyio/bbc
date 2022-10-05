@@ -41,13 +41,13 @@ const ImageContainer = styled.div`
   background-color: ${(props) => props.background};
 
   ${props => props.theme.mediaQueries.lg} {
-    padding: 24px;
+    padding: 50px;
   }
 `;
 
 const Img = styled.img`
 
-  width: ${(props) => props.width ?? "450px"};
+  width: ${(props) => props.width ?? "350px"};
  
 
   @media screen and (max-width: 1200px) {
