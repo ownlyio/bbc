@@ -190,6 +190,8 @@ const NewHome = styled(Section)`
 export const TextWrap = styled(Wrapper)`
   padding: 24px;
   font-size: 10px;
+  justify-content: ${props => props.justify};
+  align-items: ${props => props.align};
    & > ${Heading} {
     color: ${props => props.theme.colors.secondary};
   }
