@@ -75,7 +75,8 @@ const Tab = styled(Button)`
     background-color: #fff;
   `}
   &:hover {
-    background-color: #fff;
+    background-color: rgba(255,255,255,0.3);
+    color: ${(props) => props.theme.colors.secondary};
   }
 `;
 
