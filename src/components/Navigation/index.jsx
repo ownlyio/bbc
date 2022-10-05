@@ -10,31 +10,28 @@ const Component = ({ children }) => {
   const [active, setActive] = useState(false);
   const [showMenu, setShowMenu] = React.useState(true)
   const refPrevOffset = React.useRef(window.pageYOffset)
+  const sections = document.querySelectorAll("section");
+  const navLi = document.querySelectorAll('a .nav-item');
+
   React.useEffect(() => {
     const handleScroll = () => {
-      const currentOffset = window.pageYOffset;
-      const isBottomOfPage =
-        window.document.body.clientHeight ===
-        currentOffset + window.innerHeight;
-      const isTopOfPage = currentOffset === 0;
-      // Always show the menu when user reach the top
-      if (isTopOfPage) {
-        setShowMenu(true);
-      }
-      // Avoid triggering anything at the bottom because of layout shift
-      else if (!isBottomOfPage) {
-        if (currentOffset < refPrevOffset.current) {
-          // Has scroll up
-          setShowMenu(true);
-        } else {
-          // Has scroll down
-          setShowMenu(false);
+      var current = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        if (window.pageYOffset >= sectionTop - 60) {
+          current = section.getAttribute("id"); 
         }
-      }
-      refPrevOffset.current = currentOffset;
+      })
+
+      navLi.forEach((li) => {
+        li.classList.remove("active");
+        console.log(li.classList.contains(current))
+        if (li.classList.contains(current)) {
+          li.classList.add("active");
+        }
+      });
     };
     const throttledHandleScroll = throttle(handleScroll, 200);
-
     window.addEventListener("scroll", throttledHandleScroll);
     return () => {
       window.removeEventListener("scroll", throttledHandleScroll);
@@ -56,11 +53,11 @@ const Component = ({ children }) => {
             className="justify-content-end"
           >
             <Nav className="me-right bold">
-              {config.map((link) => (
-                <Linker href={link.href} key={link.name}>
+              {config.map((link, key) => (
+                <Linker key={key} href={link.href}>
                   <Nav.Link
                     key={link.name}
-                    className={`nav-item ${active && "active"}`}
+                    className={`nav-item ${link.name.toLowerCase()}`}
                     href={link.href}
                   >
                     {link.name.toUpperCase()}

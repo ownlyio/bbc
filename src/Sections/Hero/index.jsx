@@ -5,7 +5,11 @@ import CarouselRenderer from './CarouselRender'
 import { ContainerWithBackground } from '../../components/Layout/Container'
 
 const Hero = () => {
-  return <CarouselRenderer />
+  return (
+    <section id="hero">
+      <CarouselRenderer />
+    </section>
+  )
 }
 
 export default Hero

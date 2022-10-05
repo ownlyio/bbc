@@ -27,7 +27,7 @@ const AppCarousel = ({ options, type, components }) => {
         >
           {Object.values(components).map((component, key) => {
             if (component().length > 1) {
-              return component().map((item) => <div>{item}</div>);
+              return component().map((item, key) => <div key={key}>{item}</div>);
             }
             return <div>{component()}</div>;
           })}
