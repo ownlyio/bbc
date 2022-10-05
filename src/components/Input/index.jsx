@@ -16,6 +16,7 @@ const StyledInput = styled.input`
  background-color: transparent;
  padding: 10px;
  border: none;
+ color: #fff;
  border-bottom: 5px solid ${props => props.theme.colors.secondary};
  &:focus {
   outline: none;
