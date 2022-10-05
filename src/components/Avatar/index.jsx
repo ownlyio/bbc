@@ -26,9 +26,9 @@ const AvatarBG = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  background-color: ${(props) => props.theme.colors.primary};
-  min-height: 175px;
-  min-width: 175px;
+  background-color: ${(props) => props.theme.colors.tertiary};
+  min-height: 170px;
+  min-width: 170px;
   width: auto;
   height: auto;
   border-radius: 50%;
@@ -38,7 +38,7 @@ const AvatarBG = styled.div`
 const LogoContainer = styled.div`
   height: 40px;
   width: 80%;
-  background-color: ${(props) => props.theme.colors.secondary};
+  background-color: ${(props) => props.theme.colors.bgColor};
   padding: 5px;
 `;
 

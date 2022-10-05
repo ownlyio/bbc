@@ -20,8 +20,11 @@ const mediaQueries = {
 export const colors = {
   primary: '#906003',
   secondary: '#bc9849',
+  tertiary: '#c59535',
+  bgColor: '#f4b621',
   dark: '#2a2a29',
-  light: '#ffeac1'
+  light: '#ffeac1',
+  
 }
 
 const theme = {
