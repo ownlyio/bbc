@@ -18,7 +18,7 @@ const Component = ({ children }) => {
       var current = "";
       sections.forEach((section) => {
         const sectionTop = section.offsetTop;
-        if (window.pageYOffset >= sectionTop - 60) {
+        if (window.pageYOffset >= sectionTop - 100) {
           current = section.getAttribute("id"); 
         }
       })
@@ -54,11 +54,11 @@ const Component = ({ children }) => {
           >
             <Nav className="me-right bold">
               {config.map((link, key) => (
-                <Linker key={key} href={link.href}>
+                <Linker key={key} href={`#${link.href}`}>
                   <Nav.Link
                     key={link.name}
-                    className={`nav-item ${link.name.toLowerCase()}`}
-                    href={link.href}
+                    className={`nav-item ${link.href.toLowerCase()}`}
+                    href={`#${link.href}`}
                   >
                     {link.name.toUpperCase()}
                   </Nav.Link>

@@ -53,7 +53,7 @@ const Subscribe = () => {
   };
 
   return (
-    <PageLayout margin="0" id="contact-us">
+    <PageLayout margin="0" id="contact-us" height="70vh">
       <ContainerWithBackground background={BG7}>
         <TextWrap className="text-center">
           <Heading fontSize="3em" color={theme.colors.secondary}>
