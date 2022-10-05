@@ -46,15 +46,18 @@ const ImageContainer = styled.div`
 `;
 
 const Img = styled.img`
-  width: ${(props) => (props.width ? "80px" : "160px")};
 
-  ${(props) => props.theme.mediaQueries.sm} {
-    width: ${(props) => (props.width ? "125px" : "250px")};
+  width: ${(props) => props.width ?? "450px"};
+ 
+
+  @media screen and (max-width: 1200px) {
+    width: ${(props) => (props.width ? "200px" : "350px")};
+  }
+  @media screen and (max-width: 1100px) {
+    width: ${(props) => (props.width ? "80px" : "150px")};
   }
 
-  ${(props) => props.theme.mediaQueries.xl} {
-    width: ${(props) => props.width ?? "550px"};
-  }
+
 `;
 
 const Container = styled.div`

@@ -26,7 +26,7 @@ const Img = styled.img`
   }
 
   ${(props) => props.theme.mediaQueries.md} {
-    width: ${(props) => props.width ?? "550px"};
+    width: ${(props) => props.width ? '200px': "400px"};
   }
 `;
 
