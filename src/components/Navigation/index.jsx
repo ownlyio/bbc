@@ -43,7 +43,7 @@ const Component = ({ children }) => {
 
   return (
     <div className="wrapper">
-      <Navbar collapseOnSelect expand="lg" className={`nav-bar ${!showMenu && 'hide'}`} fixed='top'>
+      <Navbar collapseOnSelect expand="lg" className="nav-bar" fixed='top'>
         <Container>
           <Linker href="#top">
           <Navbar.Brand>
