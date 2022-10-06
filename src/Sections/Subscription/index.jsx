@@ -71,7 +71,7 @@ const Subscribe = () => {
           style={{ marginTop: "2em" }}
           onSubmit={handleSubmit}
         >
-          <Input value={emailAdd} onChange={(e) => setEmailAdd(e.target.value)} placeholder="Email Address" type="email" required/>
+          <Input value={emailAdd} onChange={(e) => setEmailAdd(e.target.value)} placeholder="Email Address" type="email" width="400px" required/>
           <Button variant="outline" type='submit'>
             <Heading color={theme.colors.secondary}>Get Updates</Heading>
           </Button>

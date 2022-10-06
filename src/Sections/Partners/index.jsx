@@ -40,15 +40,14 @@ const Partners = () => {
               })}
             </ul>
           </TextWrap>
-          <TextWrap style={{flex: 1}} align='flex-start'>
+          <TextWrap style={{flex: 1, overflow: 'hidden'}} align='flex-start'>
             <Heading fontSize="3em">BECOME OUR PARTNER!</Heading>
             <Text fontSize="1.5em" color="#fff">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita,
               ad iure. Error animi eos facere facilis quia, hic voluptatem fuga
               eius, repellat quod illum, quos sed ullam nesciunt non magnam!
             </Text>
-
-            <Input placeholder='Email Address' width='100%'/>
+            <Input placeholder='Email Address' style={{flex: 1}}/>
             <div className='d-flex justify-content-end' style={{ width: '100%'}}>
               <Button>Request Sponsorship Deck</Button>
             </div>

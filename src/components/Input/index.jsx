@@ -10,7 +10,7 @@ const Input = (props) => {
 export default Input;
 
 const StyledInput = styled.input`
- max-width: ${props => props.width ?? '400px'};
+ max-width: ${props => props.width ?? 'auto'};
  min-width: 250px;
  width: 100%;
  background-color: transparent;
