@@ -34,7 +34,7 @@ const Component = () => {
         <Nav className="flex-column align-items-start flex-grow-1 justify-content-evenly">
           {config.map((link, key) => (
             <Linker href={`#${link.href}`} key={key}>
-            <Nav.Link key={link.name} href={`#${link.href}`} style={{ color: "#fff" }}>
+            <Nav.Link key={link.name} href={`#${link.href}`} style={{ color: "#fff" }} as="div">
               > &nbsp;{link.name.toUpperCase()}
             </Nav.Link>
             </Linker>

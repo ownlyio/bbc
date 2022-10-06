@@ -13,19 +13,18 @@ const Component = ({ children }) => {
   const sections = document.querySelectorAll("section");
   const navLi = document.querySelectorAll('a .nav-item');
 
+  console.log(sections)
   React.useEffect(() => {
     const handleScroll = () => {
       var current = "";
       sections.forEach((section) => {
         const sectionTop = section.offsetTop;
-        if (window.pageYOffset >= sectionTop - 100) {
+        if (window.pageYOffset >= sectionTop - 60) {
           current = section.getAttribute("id"); 
         }
       })
-
       navLi.forEach((li) => {
         li.classList.remove("active");
-        console.log(li.classList.contains(current))
         if (li.classList.contains(current)) {
           li.classList.add("active");
         }
@@ -56,7 +55,7 @@ const Component = ({ children }) => {
               {config.map((link, key) => (
                 <Linker key={key} href={`#${link.href}`}>
                   <Nav.Link
-                    key={link.name}
+                    as="div"
                     className={`nav-item ${link.href.toLowerCase()}`}
                     href={`#${link.href}`}
                   >
