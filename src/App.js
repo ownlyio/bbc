@@ -33,7 +33,7 @@ function App() {
           exact
             path="/"
             component={() => (
-              <>
+              <div className="app-wrapper">
                 <Navigation />
                 <Hero />
                 <About />
@@ -43,7 +43,7 @@ function App() {
                 <FAQ />
                 <Subscription />
                 <Footer />
-              </>
+              </div>
             )}
           />
         </Switch>
