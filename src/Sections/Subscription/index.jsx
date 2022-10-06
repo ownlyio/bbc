@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { Text, Heading } from "../../components/Text";
 import PageLayout from "../../components/Layout";
 import { ContainerWithBackground } from "../../components/Layout/Container";
-import { Button } from "react-bootstrap";
+import {Button} from '../../components/Button';
 import useTheme from "../../hooks/useTheme";
 import { TextWrap } from "../About";
 import Input from "../../components/Input";
@@ -72,8 +72,8 @@ const Subscribe = () => {
           onSubmit={handleSubmit}
         >
           <Input value={emailAdd} onChange={(e) => setEmailAdd(e.target.value)} placeholder="Email Address" type="email" width="400px" required/>
-          <Button variant="outline" type='submit'>
-            <Heading color={theme.colors.secondary}>Get Updates</Heading>
+          <Button type='submit' margin="10px 0px 0px 24px" padding="12px">
+            <Heading>Get Updates</Heading>
           </Button>
         </form>
       </ContainerWithBackground>
