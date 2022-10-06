@@ -13,6 +13,8 @@ import Input from "../../components/Input";
 import { TextWrap } from "../About";
 import { Button } from "../../components/Button";
 
+const opportunities = ['Speaking slot', 'Branded side events','Branded main event segments','Expo booths', 'And many more!']
+
 const Partners = () => {
   const { theme } = useTheme();
   const [activeIndex, setActiveIndex] = useState(0);
@@ -26,11 +28,17 @@ const Partners = () => {
           <TextWrap style={{flex: 1}} align='flex-start'>
             <Heading fontSize="3em">PARTNERSHIP</Heading>
             <Text fontSize="1.5em" color="#fff">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              voluptatem molestiae quod nesciunt esse, veniam, perferendis totam
-              voluptas cumque possimus, iusto blanditiis et? Neque
-              necessitatibus hic expedita illo soluta ipsam.
+            Searching for brand exposure and interaction in the rapidly evolving Web 3 space? We provide several opportunities for you to present your project at our event:
             </Text>
+            <ul>
+              {opportunities.map((list) => {
+                return (
+                  <li style={{color: '#fff'}}>
+                    <Text fontSize="1.5em" color="#fff">{list}</Text>
+                  </li>
+                )
+              })}
+            </ul>
           </TextWrap>
           <TextWrap style={{flex: 1}} align='flex-start'>
             <Heading fontSize="3em">BECOME OUR PARTNER!</Heading>

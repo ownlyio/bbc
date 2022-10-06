@@ -30,6 +30,9 @@ const CarouselRenderer = () => {
               BICOL BLOCKCHAIN CONFERENCE
             </Text>
           </LogoWrapper>
+          <Heading color="#fff" fontSize="2em">PROXY by: The Oriental – Albay Hotel
+
+CITY OF LEGAZPI</Heading>
           <Heading color="#fff" fontSize="3em">11.14.22 | LEGAZPI CITY</Heading>
         </Wrapper>
       </Container>

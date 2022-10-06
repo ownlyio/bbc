@@ -1,6 +1,5 @@
 export const socials = {
-  twitter: 'https://twitter.com',
-  facebook: 'https://facebook.com',
-  telegram: 'https://telegram.me',
-  instagram: 'https://instagram.com',
+  twitter: 'https://twitter.com/BicolBlockchain',
+  facebook: 'https://www.facebook.com/BicolBlockchain',
+  telegram: 'https://t.me/ownlyio',
 }

@@ -72,7 +72,7 @@ const CustomAccordion = ({items}) => {
       )
     }): (
       <div className='d-flex align-items-center'>
-        <Heading fontSize="3em">Not Available</Heading>
+        <Heading fontSize="3em"> &nbsp;</Heading>
       </div>
     )}
     </Wrapper>
