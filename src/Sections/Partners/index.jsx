@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import BG5 from "../../assets/bg/pane5.png";
 import partners from "../../config/constant/partners";
 import PageLayout from "../../components/Layout";
@@ -24,7 +25,7 @@ const Partners = () => {
   return (
     <PageLayout margin="0" id="partners">
       <ContainerWithBackground background={BG5}>
-        <div className="d-flex flex-wrap align-items-start" style={{ padding: "15px 0" }}>
+        <StyledDiv style={{ padding: "15px 0" }}>
           <TextWrap style={{flex: 1}} align='flex-start'>
             <Heading fontSize="3em">PARTNERSHIP</Heading>
             <Text fontSize="1.5em" color="#fff">
@@ -52,7 +53,7 @@ const Partners = () => {
               <Button>Request Sponsorship Deck</Button>
             </div>
           </TextWrap>
-        </div>
+        </StyledDiv>
         <TextWrap style={{alignItems: 'flex-start'}}>
           <Heading fontSize="3em" color={theme.colors.secondary}>
             OUR EVENT PARTNERS
@@ -78,3 +79,12 @@ const Partners = () => {
 };
 
 export default Partners;
+
+const StyledDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  ${props => props.theme.mediaQueries.sm} {
+    flex-direction: row;
+  }
+`
