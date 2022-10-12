@@ -31,7 +31,7 @@ const Component = () => {
       </div>
       <div className="section links">
         <p style={{ marginBottom: "0.5rem" }}>QUICK LINKS</p>
-        <Nav className="flex-column align-items-start flex-grow-1 justify-content-evenly">
+        <Nav className="flex-column align-items-start justify-content-evenly">
           {config.map((link, key) => (
             <Linker href={`#${link.href}`} key={key}>
             <Nav.Link key={link.name} href={`#${link.href}`} style={{ color: "#fff" }} as="div">

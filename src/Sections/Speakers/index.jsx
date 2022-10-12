@@ -82,7 +82,6 @@ const SpeakersSection = styled(Section)`
   text-align: center;
 }
   & > .intro-text {
-    font-size: 17px;
     & > ${Heading} {
       color: ${(props) => props.theme.colors.secondary};
     }

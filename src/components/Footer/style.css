@@ -33,7 +33,7 @@
 }
 
 .footer-wrapper > .section > .logo > .title-1, .subtitle-1 {
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 .logo > .title-1 {
@@ -96,7 +96,7 @@
 }
 
 
-@media (max-width: 500px) {
+@media (max-width: 650px) {
   .footer-wrapper > .section > .div-organizer, .logo, .section.links, .section.socials > div {
     font-size: 11px;
   }
@@ -112,5 +112,12 @@
   }
   .logo > p {
     line-height: 1rem;
+  }
+  .section.socials {
+    display: flex;
+    align-items: flex-end;
+  }
+  .section.socials > div {
+    text-align: right;
   }
 }
