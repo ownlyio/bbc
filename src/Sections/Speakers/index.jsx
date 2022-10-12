@@ -34,11 +34,11 @@ const Speakers = () => {
           <ApplySection className="d-flex flex-column flex-md-row">
             <TextWrap className="d-flex flex-column align-items-lg-start justify-content-lg-between align-items-sm-center justify-content-sm-center">
               <Heading fontSize="3em">APPLY AS SPEAKER</Heading>
-              <Button variant="outline">
+              <StyledButton variant="outline">
                 <Heading fontSize="1.5em" color={theme.colors.secondary}>
                   Apply Here >
                 </Heading>
-              </Button>
+              </StyledButton>
             </TextWrap>
             <TextWrap>
               <Text fontSize="1.5em" color="#fff">
@@ -61,6 +61,13 @@ const Speakers = () => {
 };
 
 export default Speakers;
+const StyledButton = styled(Button)`
+  &:hover {
+    & > * {
+      color: #fff;
+    }
+  }
+`;
 
 const Section = styled.div`
   display: flex;
