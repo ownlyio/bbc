@@ -18,8 +18,8 @@ export const LogoBG = styled.div`
     `
     border-left: 2rem solid rgba(188,152,73,1);
   `}
-  margin: 12px 0px;
   display: flex;
+  margin: 12px 0px;
   align-items: center;
   ${props => props.theme.mediaQueries.md}{
     margin: 12px;

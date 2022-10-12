@@ -29,7 +29,7 @@ const AboutSection = () => {
             <Heading fontSize="3em">
               BLOCKCHAIN FOUND ITS NEW HOME, BICOL
             </Heading>
-            <Text fontSize="1.5em" color="#fff">
+            <Text fontSize="1.5em" color="#fff" style={{textAlign: 'justify'}}>
               Bicol Blockchain Conference or simply “BBC” is the latest local
               blockchain community event in the Philippines. It aims to gather
               everyone to discuss and talk about Blockchain Technology and Web3,
@@ -46,14 +46,14 @@ const AboutSection = () => {
             <Heading fontSize="3em">
               A SHOWCASE OF BICOL’S ORAGON SPIRIT IN TECH
             </Heading>
-            <Text fontSize="1.5em" color="#fff">
+            <Text fontSize="1.5em" color="#fff" style={{textAlign: 'justify'}}>
               With the booming tech industry in the country, new concepts to
               speed up mass adoption of blockchain tech came into inception:
               SparkLearn EdTech and MetaGaming Guild, which are now paving the
               way for blockchain adoption through education and upskilling, and
               gaming.
             </Text>
-            <Text fontSize="1.5em" color="#fff">
+            <Text fontSize="1.5em" color="#fff" style={{textAlign: 'justify'}}>
               These projects have become the true testament of the Bicolano
               spirit, being “oragon” or feisty in their aspiration to become the
               breeding ground of the cutting-edge tech in the Philippines.
@@ -97,7 +97,7 @@ const AboutSection = () => {
               hotspot in the Philippines, Bicol.
             </Text>
           </TextWrap>
-          <Sessions className="d-flex flex-wrap justify-content-center">
+          <Sessions>
             <LogoBG
               padding="0"
               className="flex-column align-items-start"
@@ -170,7 +170,7 @@ export default AboutSection;
 const Section = styled.div`
   display: flex;
   flex-direction: column;
-  ${(props) => props.theme.mediaQueries.md} {
+  @media screen and (min-width:980px) {
     flex-direction: row;
   }
 `;
@@ -226,8 +226,16 @@ const BlockchainInfo = styled(Section)`
 `;
 
 const Sessions = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   & > ${LogoBG}{
     flex: 1;
+    @media screen and (max-width: 1391px) {
+      & > * {
+        margin: 1rem auto;
+      }
+    }
     @media screen and (max-width: 500px) {
       & > * {
         margin: 0 auto;

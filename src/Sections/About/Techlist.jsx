@@ -20,10 +20,10 @@ const Techlist = () => {
       </Wrapper>
       <Wrapper>
         <ImageContainer background={theme.colors.light}>
-          <Img src={SLETI} alt="image" width="250px" />
+          <Img src={SLETI} alt="image" width="75px" />
         </ImageContainer>
         <ImageContainer background='#e4c24f'>
-          <Img src={ImageT3} alt="image" width="250px" />
+          <Img src={ImageT3} alt="image" width="75px" />
         </ImageContainer>
       </Wrapper>
     </Container>
@@ -37,26 +37,25 @@ const ImageContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex: 1;
-  padding: 10px;
   background-color: ${(props) => props.background};
+  padding: 15px;
 
-  ${props => props.theme.mediaQueries.lg} {
-    padding: 50px;
+  @media screen and (min-width: 980px) {
+    padding: 45px;
   }
+
 `;
 
 const Img = styled.img`
+  width: ${(props) => props.width ?? "100px"};
 
-  width: ${(props) => props.width ?? "350px"};
- 
-
-  @media screen and (max-width: 1200px) {
-    width: ${(props) => (props.width ? "200px" : "350px")};
-  }
-  @media screen and (max-width: 1100px) {
-    width: ${(props) => (props.width ? "80px" : "150px")};
+  @media screen and (min-width: 570px) {
+    width: ${(props) => props.width? `calc(${props.width} * 2)`: '200px'};
   }
 
+  @media screen and (min-width: 980px) {
+    width: ${(props) => props.width? `calc(${props.width} * 3)`: '300px'};
+  }
 
 `;
 
@@ -77,10 +76,13 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  ${(props) => props.theme.mediaQueries.lg} {
+  @media screen and (min-width: 851px)  {
     flex-direction: row;
   }
-  ${(props) => props.theme.mediaQueries.xl} {
+  @media screen and (min-width: 980px)  {
+    flex-direction: column;
+  }
+  @media screen and (min-width: 1400px) {
     flex-direction: column;
   }
 `;

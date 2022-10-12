@@ -25,7 +25,7 @@ const Img = styled.img`
     width: ${props => props.width? '125px' : '250px'};
   }
 
-  ${(props) => props.theme.mediaQueries.md} {
+  @media screen and (min-width: 851px) {
     width: ${(props) => props.width ? '200px': "400px"};
   }
 `;
@@ -47,10 +47,10 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  ${props => props.theme.mediaQueries.lg} {
+  @media screen and (min-width: 851px) {
     flex-direction: row;
   }
-  ${props => props.theme.mediaQueries.xl} {
+  @media screen and (min-width: 1400px)  {
     flex-direction: column;
   }
 `
