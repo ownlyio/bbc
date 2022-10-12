@@ -53,7 +53,7 @@ const Component = () => {
         <div className="flex-column" style={{marginTop: '1rem'}}>
           <p>REACH US</p>
           <div className="div-reach-us">
-            <p><Mail size={40} /> hello@bicolbc.io</p>
+            <a href="mailto:hello@bicolbc.io" style={{textDecoration: 'none', color: '#fff'}}><Mail size={40} /> hello@bicolbc.io</a>
           </div>
         </div>
       </div>
