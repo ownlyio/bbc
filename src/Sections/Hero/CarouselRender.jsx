@@ -23,7 +23,7 @@ const CarouselRenderer = () => {
             <Text fontSize="2em">Register</Text>
           </Button>
         </Wrapper>
-        <Wrapper className="align-items-center">
+        <Wrapper className="align-items-center" style={{textAlign: 'center'}}>
           <LogoWrapper>
             <LogoImage alt="bbc-logo" src={BBCLogo} />
             <Text color="#fff" className='logo-subtitle' fontSize="2.8em">
