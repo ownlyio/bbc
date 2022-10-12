@@ -2,15 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import { Text, Heading } from "../Text";
 
-const Avatar = () => {
+const Avatar = ({name, title, description}) => {
   return (
     <Container className="d-flex flex-column">
       <AvatarBG>
-        <LogoContainer>test</LogoContainer>
+        <LogoContainer>{name}</LogoContainer>
       </AvatarBG>
       <InfoDiv style={{marginTop: '24px', textAlign: 'center'}} >
-        <Heading>NAME NAME</Heading>
-        <Text>DESIGNATION, COMPANY</Text>
+        <Heading>{title}</Heading>
+        <Text>{description}</Text>
       </InfoDiv>
     </Container>
   );

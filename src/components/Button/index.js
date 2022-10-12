@@ -18,6 +18,8 @@ export const Button = styled(RBButton)`
   &:focus, &:active {
     outline:none;
     box-shadow: none;
+    color: ${props => props.color ?? '#906003'};
+    background-color: #fff;
   }
 
 `

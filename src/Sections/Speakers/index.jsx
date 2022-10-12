@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { Button } from "react-bootstrap";
 import BG4 from '../../assets/bg/pane4.png'
 import CarouselRender from "./CarouselRender";
 import PageLayout from "../../components/Layout";
 import useTheme from "../../hooks/useTheme";
 import { ContainerWithBackground } from "../../components/Layout/Container";
 import { Heading, Text } from "../../components/Text";
-import { Button } from "react-bootstrap";
+
 import { TextWrap } from "../About";
 
 const Speakers = () => {
   const { theme } = useTheme();
+  
   return (
     <PageLayout margin="0" id="speakers">
       <ContainerWithBackground background={BG4}>
@@ -26,7 +28,7 @@ const Speakers = () => {
               harum aliquid sapiente ipsa quia ab.
             </Text>
           </TextWrap>
-          <div style={{ margin: "3rem 0 ", width: "100%" }}>
+          <div style={{ margin: "3rem 0 ", width: "100%"}} >
             <CarouselRender />
           </div>
           <ApplySection className="d-flex flex-column flex-md-row">
