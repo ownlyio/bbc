@@ -33,7 +33,7 @@ a {
   color: black!important;
 }
 
-.nav-item.active {
+.active {
   padding: 0.8rem 1rem;
   background-color: #c39638;
   color: #fff!important;

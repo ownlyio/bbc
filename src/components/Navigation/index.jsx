@@ -7,7 +7,6 @@ import config from "./config";
 import Linker from "../Linker";
 
 const Component = ({ children }) => {
-  const [active, setActive] = useState(false);
   const [showMenu, setShowMenu] = useState(true)
   const [sectionList, setSection ] = useState([])
   const sections = document.querySelectorAll("section");
@@ -38,29 +37,7 @@ const Component = ({ children }) => {
     };
 
   }, [sections])
-  // React.useEffect(() => {
-  //   const handleScroll = () => {
-  //     var current = "";
-  //     sections.forEach((section) => {
-  //       const sectionTop = section.offsetTop;
-  //       if (window.pageYOffset >= sectionTop - 60) {
-  //         current = section.getAttribute("id"); 
-  //       }
-  //     })
-  //     navLi.forEach((li) => {
-  //       li.classList.remove("active");
-  //       if (li.classList.contains(current)) {
-  //         li.classList.add("active");
-  //       }
-  //     });
-  //   };
-  //   const throttledHandleScroll = throttle(handleScroll, 200);
-  //   window.addEventListener("scroll", throttledHandleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", throttledHandleScroll);
-  //   };
-  // }, []);
-
+ 
   return (
     <div className="wrapper">
       <Navbar collapseOnSelect expand="lg" className="nav-bar" fixed='top'>
