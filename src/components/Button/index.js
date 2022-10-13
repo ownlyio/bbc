@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import { Button as RBButton }from 'react-bootstrap';
 
 export const Button = styled(RBButton)`
-  border: none;
   background-color: #fff;
   height: ${props => props.height};
   width: ${props => props.width};
@@ -10,10 +9,12 @@ export const Button = styled(RBButton)`
   padding: ${props => props.padding};
   color: ${props => props.color ?? '#906003'};
   border-radius: 0;
+  border: none!important;
   &:hover {
     background-color: #906003;
     color: ${props => props.color};
-    border: none;
+    outline:none;
+    box-shadow: none;
   }
   &:focus, &:active {
     outline:none;
