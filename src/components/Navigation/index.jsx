@@ -73,7 +73,7 @@ const Component = ({ children }) => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse
             id="responsive-navbar-nav"
-            className="justify-content-end"
+            className="justify-content-end menu-links"
           >
             <Nav className="me-right bold">
               {config.map((link, key) => (
