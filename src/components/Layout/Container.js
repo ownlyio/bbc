@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  min-height: ${props => props.minHeight};
   height: 100%;
   padding: ${props => props.padding ?? '4em 3em 5em 3em'};
   @media screen and (max-width: 500px) {

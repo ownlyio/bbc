@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Container = styled.section`
   flex-direction: ${(props) => props.direction? props.direction : 'row'};
-  min-height: ${props => props.height};
+  min-height: ${props => props.minHeight};
   height: ${props => props.height ?? 'auto'};
   width: 100%;
   line-height: normal;
@@ -17,9 +17,9 @@ const Container = styled.section`
     min-height: auto;
   }
 `
-const Layout = ({direction, height, margin, bgColor, children, id}) => {
+const Layout = ({direction, height, margin, bgColor, children, id, minHeight}) => {
   return (
-    <Container direction={direction} height={height} margin={margin} bgColor={bgColor} id={id}>
+    <Container minHeight={minHeight} direction={direction} height={height} margin={margin} bgColor={bgColor} id={id}>
       {children}
     </Container>
   )
