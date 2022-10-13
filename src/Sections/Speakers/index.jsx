@@ -32,14 +32,14 @@ const Speakers = () => {
             <CarouselRender />
           </div>
           <ApplySection className="d-flex flex-column flex-md-row">
-            <TextWrap className="d-flex flex-column align-items-lg-start justify-content-lg-between align-items-sm-center justify-content-sm-center">
-              <Heading fontSize="3em">APPLY AS SPEAKER</Heading>
+            <StyledTextWrap className="d-flex flex-column">
+              <Heading fontSize="3.6em">APPLY AS SPEAKER</Heading>
               <StyledButton variant="outline">
                 <Heading fontSize="1.5em" color={theme.colors.secondary}>
                   Apply Here >
                 </Heading>
               </StyledButton>
-            </TextWrap>
+            </StyledTextWrap>
             <TextWrap>
               <Text fontSize="1.5em" color="#fff">
                 BBC's door is always open for brilliant, speaking mind, that are
@@ -105,3 +105,11 @@ const ApplySection = styled(Section)`
     }
   }
 `;
+
+const StyledTextWrap = styled(TextWrap)`
+  display: flex;
+  flex-column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+`
