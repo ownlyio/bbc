@@ -10,6 +10,7 @@ import {Button} from '../../components/Button';
 import useTheme from "../../hooks/useTheme";
 import { TextWrap } from "../About";
 import Input from "../../components/Input";
+import './style.css'
 
 const Subscribe = () => {
   const [emailAdd, setEmailAdd] = useState("");
@@ -67,12 +68,11 @@ const Subscribe = () => {
           </Text>
         </TextWrap>
         <form
-          className="d-flex align-items-center justify-content-center flex-wrap"
-          style={{ marginTop: "2em" }}
+          className="form-subscribe"
           onSubmit={handleSubmit}
         >
           <Input value={emailAdd} onChange={(e) => setEmailAdd(e.target.value)} placeholder="Email Address" type="email" width="400px" required/>
-          <Button type='submit' margin="10px 0px 0px 24px" padding="12px">
+          <Button type='submit' className='submit-btn'>
             <Heading>Get Updates</Heading>
           </Button>
         </form>

@@ -25,7 +25,7 @@ const Partners = () => {
   return (
     <PageLayout margin="0" id="partners">
       <ContainerWithBackground background={BG5}>
-        <StyledDiv style={{ padding: "15px 0" }}>
+        <StyledDiv style={{ padding: "10px 0" }}>
           <TextWrap style={{flex: 1}} align='flex-start'>
             <Heading fontSize="3em">PARTNERSHIP</Heading>
             <Text fontSize="1.5em" color="#fff">
@@ -48,10 +48,10 @@ const Partners = () => {
               ad iure. Error animi eos facere facilis quia, hic voluptatem fuga
               eius, repellat quod illum, quos sed ullam nesciunt non magnam!
             </Text>
-            <Input placeholder='Email Address' style={{flex: 1}}/>
-            <div className='d-flex justify-content-end' style={{ width: '100%'}}>
-              <Button>Request Sponsorship Deck</Button>
-            </div>
+            <Input placeholder='Email Address' style={{flex: 1}} width='75vw'/>
+            <ActionBtnGrp className="d-flex" style={{width: '100%'}} >
+            <Button >Request Sponsorship Deck</Button>
+            </ActionBtnGrp>
           </TextWrap>
         </StyledDiv>
         <TextWrap style={{alignItems: 'flex-start'}}>
@@ -83,8 +83,15 @@ export default Partners;
 const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
-
-  ${props => props.theme.mediaQueries.sm} {
+  @media screen and (min-width: 615px) {
     flex-direction: row;
+  }
+`
+
+const ActionBtnGrp = styled.div`
+  justify-content: center;
+
+  @media screen and (min-width: 650px) {
+    justify-content: flex-end;
   }
 `
