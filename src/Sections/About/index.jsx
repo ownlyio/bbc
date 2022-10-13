@@ -67,7 +67,7 @@ const AboutSection = () => {
           <TextWrap>
             <Heading fontSize="2.5em">IN SPECIAL COLLABORATION</Heading>
           </TextWrap>
-          <div className="d-flex flex-wrap justify-content-center">
+          <CollabDiv className="d-flex flex-wrap justify-content-center">
             <LogoBG>
               <Logo alt="logo-1" src={DICTLogo} width="75px"/>
             </LogoBG>
@@ -80,7 +80,7 @@ const AboutSection = () => {
             <LogoBG>
               <Logo alt="logo-1" src={BlockTidesLogo}  width="75px"/>
             </LogoBG>
-          </div>
+          </CollabDiv>
         </Sponsors>
         <BlockchainInfo className="flex-column align-items-center">
           <TextWrap
@@ -244,5 +244,11 @@ const Sessions = styled.div`
         margin-bottom: 1rem;
       }
     }
+  }
+`
+
+const CollabDiv = styled.div`
+  & > * {
+    margin: 5px;
   }
 `
