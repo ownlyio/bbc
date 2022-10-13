@@ -15,7 +15,7 @@ const Album = ({items, activeIndex}) => {
         {
           Object.keys(items).length !==0 && items.map(item => {
           return (
-            <LogoBox background="#fff" border src={IconModules[item]} width="70px" padding='15px'/>
+            <LogoBox background="#fff" border src={IconModules[item]} width="200px" padding='15px'/>
           )
         })}
         </>
@@ -28,6 +28,12 @@ export default Album
 
 const Wrapper = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  
+  justify-content: center;
+  flex-wrap: wrap; 
+  & > * {
+    margin: 5px;
+  }
+  ${props => props.theme.mediaQueries.sm} {
+    justify-content: flex-start;
+  }
 `
