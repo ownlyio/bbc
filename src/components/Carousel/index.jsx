@@ -29,7 +29,7 @@ const AppCarousel = ({ options, type, components }) => {
             if (component().length > 1) {
               return component().map((item, key) => <div key={key}>{item}</div>);
             }
-            return <div>{component()}</div>;
+            return <div key={key}>{component()}</div>;
           })}
         </Carousel>
       );

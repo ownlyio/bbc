@@ -15,8 +15,8 @@ const CarouselRender = () => {
     { width: 1750, itemsToShow: 6 },
   ]
   const item1 = () => {
-    return SpeakersList.map((spkr) => (
-      <div>
+    return SpeakersList.map((spkr, key) => (
+      <div key={key}>
         <Avatar name={spkr.name} title={spkr.title} desc={spkr.description} />
       </div>
     ))

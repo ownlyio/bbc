@@ -32,9 +32,9 @@ const Partners = () => {
             Searching for brand exposure and interaction in the rapidly evolving Web 3 space? We provide several opportunities for you to present your project at our event:
             </Text>
             <ul>
-              {opportunities.map((list) => {
+              {opportunities.map((list, key) => {
                 return (
-                  <li style={{color: '#fff'}}>
+                  <li key={key} style={{color: '#fff'}}>
                     <Text fontSize="1.5em" color="#fff">{list}</Text>
                   </li>
                 )
