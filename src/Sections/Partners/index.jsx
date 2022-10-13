@@ -48,7 +48,7 @@ const Partners = () => {
               ad iure. Error animi eos facere facilis quia, hic voluptatem fuga
               eius, repellat quod illum, quos sed ullam nesciunt non magnam!
             </Text>
-            <Input placeholder='Email Address' style={{flex: 1}} width='75vw'/>
+            <Input placeholder='Email Address' width='75vw'/>
             <ActionBtnGrp className="d-flex" style={{width: '100%'}} >
             <Button >Request Sponsorship Deck</Button>
             </ActionBtnGrp>

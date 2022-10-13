@@ -64,7 +64,7 @@ const CustomAccordion = ({items}) => {
           <Heading fontSize="1.5em">{item.question}</Heading>
         </AccordionSummary>
         <AccordionDetails>
-          <Text fontSize="1.1em">
+          <Text fontSize="1.1em" >
             {item.answer}
           </Text>
         </AccordionDetails>

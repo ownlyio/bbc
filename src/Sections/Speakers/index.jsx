@@ -21,7 +21,7 @@ const Speakers = () => {
             className="intro-text d-flex flex-column align-items-center"
           >
             <Heading fontSize="3em">MEET THE SPEAKERS</Heading>
-            <Text fontSize="1.5em" color="#fff">
+            <Text fontSize="1.5em" color="#fff" style={{textAlign: 'justify'}}>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis
               quae nihil pariatur laborum similique, dolore architecto, minima
               dignissimos repellendus molestiae, facere autem! Minima tempora
