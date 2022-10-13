@@ -198,6 +198,9 @@ export const TextWrap = styled(Wrapper)`
   & > * {
     margin: 10px 24px;
   }
+  & :nth-last-child(1) {
+    text-align: justify;
+  }
 
   ${(props) => props.theme.mediaQueries.md} {
     font-size: 17px;
