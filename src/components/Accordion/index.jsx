@@ -71,9 +71,9 @@ const CustomAccordion = ({items}) => {
       </Accordion>
       )
     }): (
-      <div className='d-flex align-items-center'>
-        <Heading fontSize="3em"> &nbsp;</Heading>
-      </div>
+      <StyledDiv className='d-flex align-items-center' >
+        <Heading fontSize="2em"> Any inquires? Contact us at <a href="mailto: hello@bicolbc.io" style={{color: '#bc9849'}}>hello@bicolbc.io</a> </Heading>
+      </StyledDiv>
     )}
     </Wrapper>
   )
@@ -87,5 +87,10 @@ const Wrapper = SCStyled.div`
     margin-bottom: 1rem;
   }
 `
-
+const StyledDiv = SCStyled.div`
+color: #fff;
+  background-color: rgba(0,0,0,0.5);
+  border-left: 2rem solid rgba(188,152,73,1);
+  padding: 12px;
+`
 
