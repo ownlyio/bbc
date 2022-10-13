@@ -34,6 +34,6 @@ const Wrapper = styled.div`
     margin: 5px;
   }
   ${props => props.theme.mediaQueries.sm} {
-    justify-content: flex-
+    justify-content: flex-start;
   }
 `
