@@ -44,7 +44,7 @@ function App() {
 
                         <div className="row justify-content-center">
                             <div className="col-lg-8 text-center">
-                                <p className="alegreya-regular text-white font-size-100 font-size-sm-130 text-center px-md-5 mb-4">Wanna be the first to get notified when we announce the details of the first-ever Bicol Blockchain Conference? Join our VIP List to be first to know.</p>
+                                <p className="app-subtext alegreya-regular text-white font-size-100 font-size-sm-130 text-center px-md-5 mb-4">Wanna be the first to get notified when we announce the details of the first-ever Bicol Blockchain Conference? Join our VIP List to be first to know.</p>
                                 <div className="px-lg-5 mx-lg-5">
                                     <form className="app-bbm-form" onSubmit={submitForm}>
                                         <div className="d-flex align-items-center flex-wrap mb-2">
@@ -70,12 +70,12 @@ function App() {
                             </div>
                         </div>
 
-                        <div className="mt-2 mt-sm-3 mt-lg-5">
-                            <p className="alegreya-regular text-center font-size-110 font-size-md-140 font-size-lg-180 font-size-xl-200 text-white mb-2">Co-presented by:</p>
+                        <div className="co-presentor mt-2 mt-sm-3 mt-lg-5">
+                            <p className="co-presentor-title alegreya-regular text-center font-size-110 font-size-md-140 font-size-lg-180 font-size-xl-200 text-white mb-2">Co-presented by:</p>
                             <div className="partner-img mx-auto">
                                 <img src={dti5} alt="DTI Region 5" className="w-100" />
                             </div>
-                            <p className="alegreya-regular text-center font-size-90 font-size-md-110 font-size-lg-150 font-size-xl-170 text-white mb-2">Region 5</p>
+                            <p className="co-presentor-text alegreya-regular text-center font-size-90 font-size-md-110 font-size-lg-150 font-size-xl-170 text-white mb-2">Region 5</p>
                         </div>
                     </div>
                 </div>

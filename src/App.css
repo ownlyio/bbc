@@ -40,3 +40,57 @@
     width: 25%;
   }
 }
+
+@media (min-width: 1080px) and (max-height: 850px) {
+  .app-title {
+    font-size: 3em !important;
+  }
+
+  .app-sub {
+    font-size: 1.8em !important;
+  }
+
+  .app-subtext,
+  .co-presentor-title {
+    font-size: 1.2em !important;
+  }
+
+  .co-presentor-text {
+    font-size: 1.2em !important;
+  }
+
+  .partner-img {
+    width: 12% !important;
+  }
+
+  .co-presentor {
+    margin-top: 1.2em !important;
+  }
+}
+
+@media (min-width: 1080px) and (max-height: 720px) {
+  .app-title {
+    font-size: 2.5em !important;
+  }
+
+  .app-sub {
+    font-size: 1.5em !important;
+  }
+
+  .app-subtext,
+  .co-presentor-title {
+    font-size: 1em !important;
+  }
+
+  .co-presentor-text {
+    font-size: 0.9em !important;
+  }
+
+  .partner-img {
+    width: 10% !important;
+  }
+
+  .co-presentor {
+    margin-top: 1em !important;
+  }
+}
