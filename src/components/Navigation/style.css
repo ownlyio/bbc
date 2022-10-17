@@ -33,6 +33,10 @@ a {
   color: black!important;
 }
 
+.nav-item:hover {
+  border-bottom: 1px solid #906003;
+}
+
 .active {
   padding: 0.8rem 1rem;
   background-color: #c39638;

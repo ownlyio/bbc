@@ -5,6 +5,7 @@ import BBCLogo from "../../assets/official logo.png";
 import "./style.css";
 import config from "./config";
 import Linker from "../Linker";
+import { Button } from "../Button";
 
 const Component = ({ children }) => {
   const [showMenu, setShowMenu] = useState(true)
@@ -64,6 +65,7 @@ const Component = ({ children }) => {
                   </Nav.Link>
                 </Linker>
               ))}
+              <Button variant='outline-primary' border>REGISTER NOW</Button>
             </Nav>
           </Navbar.Collapse>
         </Container>
