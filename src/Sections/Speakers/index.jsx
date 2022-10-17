@@ -31,7 +31,7 @@ const Speakers = () => {
           <div style={{ margin: "3rem 0 ", width: "100%"}} >
             <CarouselRender />
           </div>
-          <ApplySection className="d-flex flex-column flex-md-row">
+          {/* <ApplySection className="d-flex flex-column flex-md-row">
             <StyledTextWrap className="d-flex flex-column">
               <Heading fontSize="3.6em">APPLY AS SPEAKER</Heading>
               <StyledButton variant="outline">
@@ -53,7 +53,7 @@ const Speakers = () => {
                 is the starting point for you.
               </Text>
             </TextWrap>
-          </ApplySection>
+          </ApplySection> */}
         </SpeakersSection>
       </ContainerWithBackground>
     </PageLayout>
