@@ -9,8 +9,8 @@ const Images = () => {
     <Container style={{ display: "flex" }}>
       <Img src={ImageT1} alt="image1" style={{ flex: "2" }} />
       <Wrapper style={{ flex: "1" }}>
-        <Img src={ImageT2} alt="image1" width="250px"  style={{flex: 1}}/>
-        <Img src={ImageT3} alt="image1" width="250px" style={{flex: 1}} />
+        <Img src={ImageT2} alt="image1" subImg  style={{flex: 1}}/>
+        <Img src={ImageT3} alt="image1" subImg style={{flex: 1}} />
       </Wrapper>
     </Container>
   );
@@ -19,14 +19,21 @@ const Images = () => {
 export default Images;
 
 const Img = styled.img`
-  width: ${props => props.width? '80px' : '160px'};
+  width: ${props => props.subImg? '80px' : '160px'};
 
   ${props => props.theme.mediaQueries.sm} {
-    width: ${props => props.width? '125px' : '250px'};
+    width: ${props => props.subImg? '125px' : '250px'};
   }
 
   @media screen and (min-width: 851px) {
-    width: ${(props) => props.width ? '200px': "400px"};
+    width: ${(props) => props.subImg ? '200px': "400px"};
+  }
+
+  @media screen and (min-width: 1230px) {
+    width: ${(props) => props.subImg ? '200px': "600px"};
+  }
+  @media screen and (min-width: 2000px) {
+    width: ${(props) => props.subImg ? '300px': "750px"};
   }
 `;
 

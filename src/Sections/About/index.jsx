@@ -31,12 +31,13 @@ const AboutSection = () => {
             </Heading>
             <Text fontSize="1.5em" color="#fff" style={{textAlign: 'justify'}}>
               Bicol Blockchain Conference or simply “BBC” is the latest local
-              blockchain community event in the Philippines. It aims to gather
+              blockchain community event in the Philippines. <br /> <br />It aims to gather
               everyone to discuss and talk about Blockchain Technology and Web3,
               its various use-cases, applications, and explore the opportunities
-              it provides to our everyday life. It will be the largest gathering
+              it provides to our everyday life. <br /><br /> It will be the largest gathering
               for blockchain tech at the south of Metro Manila.
             </Text>
+
           </TextWrap>
           <ImageWrap align='flex-end'><Images /></ImageWrap>
         </NewHome>
@@ -48,7 +49,7 @@ const AboutSection = () => {
             </Heading>
             <Text fontSize="1.5em" color="#fff" style={{textAlign: 'justify'}}>
               With the booming tech industry in the country, new concepts to
-              speed up mass adoption of blockchain tech came into inception:
+              speed up mass adoption of blockchain tech came into inception: <br /><br />
               SparkLearn EdTech and MetaGaming Guild, which are now paving the
               way for blockchain adoption through education and upskilling, and
               gaming.
