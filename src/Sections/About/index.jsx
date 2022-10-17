@@ -64,7 +64,7 @@ const AboutSection = () => {
         </Organizer>
       </ContainerWithBackground>
       <ContainerWithBackground background={BG2}>
-        <Sponsors>
+        {/* <Sponsors>
           <TextWrap>
             <Heading fontSize="2.5em">IN SPECIAL COLLABORATION</Heading>
           </TextWrap>
@@ -82,7 +82,7 @@ const AboutSection = () => {
               <Logo alt="logo-1" src={BlockTidesLogo}  width="75px"/>
             </LogoBG>
           </CollabDiv>
-        </Sponsors>
+        </Sponsors> */}
         <BlockchainInfo className="flex-column align-items-center">
           <TextWrap
             style={{ margin: "15px 0px", textAlign: "center" }}
@@ -107,7 +107,7 @@ const AboutSection = () => {
               <Logo
                 alt="logo-1"
                 src={Panel}
-                width="300px"
+                width="500px"
                 filter="sepia(100%)"
               />
               <Text margin="15px 0px" fontSize="1.5em" color={theme.colors.light}>
@@ -119,15 +119,6 @@ const AboutSection = () => {
               className="flex-column align-items-start"
               background="transparent"
             >
-              <Logo
-                alt="logo-1"
-                src={BreakoutSessions}
-                width="300px"
-                filter="sepia(100%)"
-              />
-              <Text margin="15px 0px" fontSize="1.5em" color={theme.colors.light}>
-                BREAKOUT SESSIONS
-              </Text>
             </LogoBG>
             <LogoBG
               padding="0"
@@ -137,7 +128,7 @@ const AboutSection = () => {
               <Logo
                 alt="logo-1"
                 src={SideSessions}
-                width="300px"
+                width="500px"
                 filter="sepia(100%)"
               />
               <Text margin="15px 0px" fontSize="1.5em" color={theme.colors.light}>
@@ -152,7 +143,7 @@ const AboutSection = () => {
               <Logo
                 alt="logo-1"
                 src={Networking}
-                width="300px"
+                width="500px"
                 filter="sepia(100%)"
               />
               <Text margin="15px 0px" fontSize="1.5em" color={theme.colors.light}>
