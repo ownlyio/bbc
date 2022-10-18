@@ -30,14 +30,14 @@ const CarouselRenderer = () => {
           <div style={{ padding: "1rem 0" }}>
             <Button
               variant="outline-primary"
-              border
+              border='true'
               style={{
                 borderRadius: "5px",
                 marginBottom: "5px",
                 width: "250px",
                 height: "70px",
               }}
-              bgColor="transparent"
+              bgcolor="transparent"
               color="#fff"
             >
               REGISTER HERE

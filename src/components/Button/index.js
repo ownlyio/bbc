@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Button as RBButton }from 'react-bootstrap';
 
 export const Button = styled(RBButton)`
-  background-color: ${props => props.bgColor ?? '#fff'};
+  background-color: ${props => props.bgcolor ?? '#fff'};
   height: ${props => props.height};
   width: ${props => props.width};
   margin: ${props => props.margin};

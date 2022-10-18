@@ -27,10 +27,10 @@ export const LogoBG = styled.div`
 `;
 
 export const Logo = styled.img`
-  width: ${props => `calc(${props.width}-200px)!important`?? '150px'};
+  width: ${props => props.width ? props.width : '150px'};
   filter: ${(props) => props.filter ?? "none"};
 
-  ${(props) => props.theme.mediaQueries.lg} {
-    width: ${(props) => `${props.width}!important`?? "150px"};
+  @media screen and (min-width: 1250px) {
+    width: ${props => props.width? `calc(${props.width} + 70px)` : '250px'};
   }
 `;
