@@ -11,7 +11,7 @@ import { MediaGroup } from "./fetchImage";
 const CarouselRenderer = () => {
   const item1 = () => {
     return (
-      <Container background={BG1}>
+      <Container>
         <Wrapper>
           <LogoWrapper>
             <LogoImage alt="bbc-logo" src={BBCLogo} />
@@ -111,9 +111,10 @@ const Container = styled(ContainerWithBackground)`
   padding: 5rem 2.5rem;
   display: flex;
   flex-direction: column;
-
   @media screen and (min-width: 670px) {
+    width: 100%;
     flex-direction: row;
+    justify-content: space-around;
     padding: 5rem 2.5rem;
     margin-top: 2.5rem;
   }
@@ -140,7 +141,6 @@ const FontResponsive = styled.div`
 `;
 
 const Wrapper = styled(FontResponsive)`
-  flex: 1;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -158,7 +158,7 @@ const Wrapper = styled(FontResponsive)`
 
   @media screen and (min-width: 970px) {
     padding: 1.5rem 3rem 0rem 3rem;
-    width: 50vw;
+    width: ${props => props.width};
   }
 
   @media screen and (min-width: 2000px) {
