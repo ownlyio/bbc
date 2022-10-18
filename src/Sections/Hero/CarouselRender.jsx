@@ -19,28 +19,32 @@ const CarouselRenderer = () => {
               BICOL BLOCKCHAIN CONFERENCE
             </BBCText>
           </LogoWrapper>
+          <TextWrapper>
           <Text
             color="rgba(255,255,255,0.5)"
-            fontSize="3em"
-            style={{ textAlign: "left", marginTop: '3rem'}}
+            fontSize="2em"
+            style={{ textAlign: "left", marginTop: '1.3rem'}}
           >
-            The biggest gathering of blockchain enthusiasts, crypto curious,
-            influencers, and experts in south of the metro.
+            The biggest gathering of blockchain enthusiasts, <br /> crypto curious,
+            influencers, and experts <br /> in south of the metro.
           </Text>
+          </TextWrapper>
           <div style={{ padding: "1rem 0" }}>
             <Button
-              variant="outline-primary"
-              border='true'
+             
+             
               style={{
-                borderRadius: "5px",
+                borderRadius: "25px",
                 marginBottom: "5px",
                 width: "250px",
                 height: "70px",
               }}
-              bgcolor="transparent"
-              color="#fff"
+              bgcolor="#fff"
+              color="rgb(0,0,0)"
             >
+              <Heading>
               REGISTER HERE
+              </Heading>
             </Button>
             <Text color="rgba(255,255,255,0.5)" fontSize="1.5em">
               EVENT IS FREE! LIMITED SLOTS ONLY.
@@ -48,31 +52,28 @@ const CarouselRenderer = () => {
           </div>
         </Wrapper>
         <Wrapper>
+          <DetailsContainer>
           <TextWrapper>
-            <Heading color="#fff" fontSize="6em">
+            <Heading color="#fff" fontSize="4em">
               14 NOV 2022
             </Heading>
-            <Heading color="#fff" fontSize="4em">
+            <Heading color="#fff" fontSize="3em">
               CASA BLANCA HOTEL
             </Heading>
-            <Text color="rgba(255,255,255,0.5)" fontSize="3em">
+            <Text color="rgba(255,255,255,0.5)" fontSize="2em">
               LEGAZPI CITY, ALBAY
             </Text>
           </TextWrapper>
-          <DivShowCase>
-            <Text color="#fff" fontSize="1.5em">
-              Supported by:
-            </Text>
-          </DivShowCase>
+          <div>
           <DivShowCase>
             <Text color="#fff" fontSize="1.5em">
               Media Partners:
             </Text>
             <MediaDiv>
-              <Media alt="icn" src={MediaGroup.BLKTides} size="55px" />
-              <Media alt="icn" src={MediaGroup.BitPinas} size="55px" />
-              <Media alt="icn" src={MediaGroup.AsiaTokenFund} size="55px" />
-              <Media alt="icn" src={MediaGroup.CoinVoice} size="55px" />
+              <Media alt="icn" src={MediaGroup.BLKTides} size="40px" />
+              <Media alt="icn" src={MediaGroup.BitPinas} size="40px" />
+              <Media alt="icn" src={MediaGroup.AsiaTokenFund} size="40px" />
+              <Media alt="icn" src={MediaGroup.CoinVoice} size="40px" />
             </MediaDiv>
           </DivShowCase>
           <DivShowCase>
@@ -80,11 +81,13 @@ const CarouselRenderer = () => {
               Organized and Co-presented by:
             </Text>
             <MediaDiv>
-              <Media alt="icn" src={MediaGroup.Ownly} size="75px" />
-              <Media alt="icn" src={MediaGroup.SRK} size="75px"/>
-              <Media alt="icn" src={MediaGroup.DTI} size="75px"/>
+              <Media alt="icn" src={MediaGroup.Ownly} size="70px" />
+              <Media alt="icn" src={MediaGroup.SRK} size="70px"/>
+              <Media alt="icn" src={MediaGroup.DTI} size="70px"/>
             </MediaDiv>
           </DivShowCase>
+          </div>
+          </DetailsContainer>
         </Wrapper>
       </Container>
     );
@@ -96,14 +99,14 @@ const CarouselRenderer = () => {
 export default CarouselRenderer;
 
 const BBCText = styled(Text)`
-  font-size: 2.7em;
+  font-size: 2.6em;
 
   @media screen and (min-width: 1476px) {
-    font-size: 3.5em;
+    font-size: 2.8em;
   }
 
   @media screen and (min-width: 2000px) {
-    font-size: 5em;
+    font-size: 2.9em;
   }
 `
 
@@ -112,9 +115,10 @@ const Container = styled(ContainerWithBackground)`
   display: flex;
   flex-direction: column;
   
-  ${(props) => props.theme.mediaQueries.sm} {
+  @media screen and (min-width: 670px) {
     flex-direction: row;
     padding: 5rem 2.5rem;
+    margin-top: 2.5rem;
   }
 `;
 
@@ -152,11 +156,11 @@ const Wrapper = styled(FontResponsive)`
   }
 
   @media screen and (min-width: 750px) {
-    padding: 3rem;
+    padding: 2.5rem;
   }
 
   @media screen and (min-width: 970px) {
-    padding: 3rem;
+    padding: 1.5rem 3rem 0rem 3rem;
     width: 50vw;
   }
 
@@ -168,13 +172,22 @@ const Wrapper = styled(FontResponsive)`
 `;
 
 const LogoImage = styled.img`
-  padding: 5px;
-  @media screen and (min-width: 425px) {
-    padding: 20px;
+  width: 245px!important;
+
+  @media screen and (min-width: 420px) {
+    width: 300px!important;
   }
 
-  @media screen and (min-width: 768px) {
-    padding: 0px;
+  @media screen and (min-width: 970px) {
+    width: 400px!important;
+  }
+  
+  @media screen and (min-width: 1360px) {
+    width: 600px!important;
+  }
+
+  @media screen and (min-width: 1460px) {
+    width: 650px!important;
   }
 `;
 
@@ -190,12 +203,10 @@ const TextWrapper = styled(FontResponsive)`
 `;
 
 const DivShowCase = styled(FontResponsive)`
-  min-height: 10vh;
   width: 100%;
-  padding: 2rem 0;
+  padding: 1rem 0;
 `;
 const MediaDiv = styled.div`
-  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -204,26 +215,15 @@ const MediaDiv = styled.div`
 
 const Media = styled.img`
   width: ${props => props.size ?? '55px'} !important;
-  @media screen and (min-width: 400px) {
-    width: ${props => `calc(${props.size} + 20px)`} !important;
-  }
 
-  @media screen and (min-width: 400px) {
-    width: ${props => `calc(${props.size} + 20px)`} !important;
+  @media screen and (min-width: 1366px) {
+    width: ${props => `calc(${props.size} + 25px)`}!important;
   }
-
-  @media screen and (min-width: 968px) {
-    width: ${props => `calc(${props.size} + 50px)`} !important;
-    margin: 5px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    width: ${props => `calc(${props.size} + 70px)`} !important;
-    margin: 10px;
-  }
-
-  @media screen and (min-width: 2000px) {
-    width: ${props => `calc(${props.size} + 200px)`} !important;
-  }
-
 `;
+
+const DetailsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+`

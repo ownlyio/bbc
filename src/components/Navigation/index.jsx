@@ -65,7 +65,7 @@ const Component = ({ children }) => {
                   </Nav.Link>
                 </Linker>
               ))}
-              <Button variant='outline-primary' border='true' style={{borderRadius: '5px'}}>REGISTER NOW</Button>
+              <Button variant='outline-primary' border='true' style={{borderRadius: '25px'}}>REGISTER NOW</Button>
             </Nav>
           </Navbar.Collapse>
         </Container>
