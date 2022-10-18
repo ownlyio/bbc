@@ -111,7 +111,7 @@ const BBCText = styled(Text)`
 `
 
 const Container = styled(ContainerWithBackground)`
-  padding: 5rem 0;
+  padding: 5rem 2.5rem;
   display: flex;
   flex-direction: column;
   

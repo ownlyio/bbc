@@ -41,6 +41,7 @@ const AppCarousel = ({ options, type, components }) => {
           showArrows={false}
           infiniteLoop
           autoPlay
+          showIndicators={false}
           showThumbs={false}
           showStatus={false}
           centerMode={Object.values(components).length > 1}
