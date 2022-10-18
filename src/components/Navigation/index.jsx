@@ -41,7 +41,7 @@ const Component = ({ children }) => {
  
   return (
     <div className="wrapper">
-      <Navbar collapseOnSelect expand="lg" className="nav-bar" fixed='top'>
+      <Navbar collapseOnSelect expand="xl" className="nav-bar" fixed='top'>
         <Container>
           <Linker href="#top">
           <Navbar.Brand>
@@ -51,7 +51,7 @@ const Component = ({ children }) => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse
             id="responsive-navbar-nav"
-            className="justify-content-end menu-links"
+            className="justify-content-xl-end menu-links"
           >
             <Nav className="me-right bold">
               {config.map((link, key) => (
