@@ -65,7 +65,7 @@ const Component = ({ children }) => {
                   </Nav.Link>
                 </Linker>
               ))}
-              <Button variant='outline-primary' border='true' style={{borderRadius: '25px'}}>REGISTER NOW</Button>
+              <Button onClick={() => window.open('https://www.eventbrite.com/e/bicol-blockchain-conference-tickets-440189066347')} variant='outline-primary' border='true' style={{borderRadius: '25px'}}>REGISTER NOW</Button>
             </Nav>
           </Navbar.Collapse>
         </Container>
