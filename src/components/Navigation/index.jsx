@@ -8,7 +8,6 @@ import Linker from "../Linker";
 import { Button } from "../Button";
 
 const Component = ({ children }) => {
-  const [showMenu, setShowMenu] = useState(true)
   const [sectionList, setSection ] = useState([])
   const sections = document.querySelectorAll("section");
   const navLi = document.querySelectorAll('a .nav-item');

@@ -15,18 +15,10 @@ import {
 import PageLoader from "./components/Loader";
 
 function App() {
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  }, []);
-
-  return loading ? (
-    <PageLoader />
-  ) : (
+  return (
     <div className="main">
+    <PageLoader />
       <BrowserRouter>
         <Switch>
           <Route

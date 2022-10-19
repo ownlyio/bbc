@@ -30,8 +30,8 @@ const CarouselRenderer = () => {
             </Text>
           </TextWrapper>
           <div style={{ padding: "1rem 0" }}>
+          <a href="https://www.eventbrite.com/e/bicol-blockchain-conference-tickets-440189066347" target="_blank" style={{textDecoration: 'none', color:'inherit'}}>
             <Button
-              onClick={() => window.open('https://www.eventbrite.com/e/bicol-blockchain-conference-tickets-440189066347')}
               style={{
                 borderRadius: "25px",
                 marginBottom: "5px",
@@ -43,6 +43,7 @@ const CarouselRenderer = () => {
             >
               <Heading>REGISTER HERE</Heading>
             </Button>
+            </a>
             <Text color="rgba(255,255,255,0.5)" fontSize="1.5em">
               EVENT IS FREE! LIMITED SLOTS ONLY.
             </Text>

@@ -106,7 +106,6 @@ const Wrapper = SCStyled.div`
 
 const FontResponsive = SCStyled.div`
   font-size: 9px;
-
   @media screen and (min-width: 1200px) {
     font-size: 17px;
   }
