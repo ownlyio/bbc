@@ -67,7 +67,7 @@ const CarouselRenderer = () => {
                   Media Partners:
                 </Text>
                 <MediaDiv>
-                  <Media alt="icn" src={MediaGroup.BLKTides} size="40px" />
+                  <Media alt="icn" src={MediaGroup.BLKTides} size="20px" />
                   <Media alt="icn" src={MediaGroup.BitPinas} size="40px" />
                   <Media alt="icn" src={MediaGroup.AsiaTokenFund} size="40px" />
                   <Media alt="icn" src={MediaGroup.CoinVoice} size="40px" />
@@ -78,9 +78,9 @@ const CarouselRenderer = () => {
                   Organized and Co-presented by:
                 </Text>
                 <MediaDiv>
-                  <Media alt="icn" src={MediaGroup.Ownly} size="70px" />
-                  <Media alt="icn" src={MediaGroup.SRK} size="70px" />
-                  <Media alt="icn" src={MediaGroup.DTI} size="70px" />
+                  <Media alt="icn" src={MediaGroup.Ownly} size="80px" />
+                  <Media alt="icn" src={MediaGroup.SRK} size="80px" />
+                  <Media alt="icn" src={MediaGroup.DTI} size="50px" />
                 </MediaDiv>
               </DivShowCase>
             </div>

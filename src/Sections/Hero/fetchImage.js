@@ -1,5 +1,5 @@
 import BLKTides from '../../assets/logos/blocktides.jpeg'
-import BitPinas from '../../assets/logos/bitpinas.jpeg'
+import BitPinas from '../../assets/logos/bitpinas.png'
 import AsiaTokenFund from '../../assets/logos/asiatokenfund_logo_new.png'
 import CoinVoice from '../../assets/logos/coinvoice.png'
 import Ownly from '../../assets/logos/Ownly/ownly-icon-text-horizontal.png'
