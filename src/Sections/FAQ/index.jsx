@@ -15,7 +15,7 @@ const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(1);
   const [faqCollection, setfaqCollection] = useState(Faq[Object.keys(Faq)[0]]);
   return (
-    <PageLayout margin="0" height="90vh" id="faqs">
+    <PageLayout margin="0" id="faqs">
       <ContainerWithBackground background={BG6}>
         <TextWrap>
           <Heading
