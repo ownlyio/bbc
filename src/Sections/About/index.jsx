@@ -29,11 +29,7 @@ const AboutSection = () => {
             <Heading fontSize="3em">
               BLOCKCHAIN FOUND ITS NEW HOME, BICOL
             </Heading>
-            <Text
-              fontSize="1.5em"
-              color="#fff"
-              style={{ textAlign: "justify" }}
-            >
+            <Text fontSize="1.5em" color="#fff">
               Bicol Blockchain Conference or simply “BBC” is the latest local
               blockchain community event in the Philippines. <br /> <br />
               It aims to gather everyone to discuss and talk about Blockchain
@@ -55,11 +51,7 @@ const AboutSection = () => {
             <Heading fontSize="3em">
               A SHOWCASE OF BICOL’S ORAGON SPIRIT IN TECH
             </Heading>
-            <Text
-              fontSize="1.5em"
-              color="#fff"
-              style={{ textAlign: "justify" }}
-            >
+            <Text fontSize="1.5em" color="#fff">
               With the booming tech industry in the country, new concepts to
               speed up mass adoption of blockchain tech came into inception:{" "}
               <br />
@@ -140,11 +132,6 @@ const AboutSection = () => {
                 PANEL DISCUSSIONS
               </Text>
             </LogoBG>
-            <LogoBG
-              padding="0"
-              className="flex-column align-items-start"
-              background="transparent"
-            ></LogoBG>
             <LogoBG
               padding="0"
               className="flex-column align-items-start"
@@ -259,7 +246,6 @@ const Sessions = styled.div`
   @media screen and (min-width: 1000px) {
     flex-direction: row;
   }
-
 `;
 
 const CollabDiv = styled.div`

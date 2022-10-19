@@ -22,10 +22,7 @@ const Speakers = () => {
           >
             <Heading fontSize="3em">MEET THE SPEAKERS</Heading>
             <Text fontSize="1.5em" color="#fff" style={{textAlign: 'justify'}}>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis
-              quae nihil pariatur laborum similique, dolore architecto, minima
-              dignissimos repellendus molestiae, facere autem! Minima tempora
-              harum aliquid sapiente ipsa quia ab.
+            We are pleased to introduce our line up of distinguished speakers for this conference. Each one has combined their knowledge in Web3, metaverse, and blockchain technology to develop a unique expertise that can benefit the audience in their areas of interest.
             </Text>
           </TextWrap>
           <div style={{ margin: "3rem 0 ", width: "100%"}} >
