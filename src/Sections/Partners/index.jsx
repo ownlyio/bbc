@@ -25,7 +25,7 @@ const Partners = () => {
   return (
     <PageLayout margin="0" id="partners">
       <ContainerWithBackground background={BG5}>
-        <StyledDiv style={{ padding: "10px 0" }}>
+        {/* <StyledDiv style={{ padding: "10px 0" }}>
           <TextWrap style={{flex: 1}} align='flex-start'>
             <Heading fontSize="3em">PARTNERSHIP</Heading>
             <Text fontSize="1.5em" color="#fff">
@@ -53,7 +53,7 @@ const Partners = () => {
             <Button >Request Sponsorship Deck</Button>
             </ActionBtnGrp>
           </TextWrap>
-        </StyledDiv>
+        </StyledDiv> */}
         <TextWrap style={{alignItems: 'flex-start'}}>
           <Heading fontSize="3em" color={theme.colors.secondary}>
             OUR EVENT PARTNERS
