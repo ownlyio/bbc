@@ -29,15 +29,9 @@ const CarouselRenderer = () => {
               curious, influencers, and experts <br /> in south of the metro.
             </Text>
           </TextWrapper>
-          <div style={{ padding: "1rem 0" }}>
+          <RegisterDiv>
           <a href="https://www.eventbrite.com/e/bicol-blockchain-conference-tickets-440189066347" target="_blank" style={{textDecoration: 'none', color:'inherit'}}>
             <Button
-              style={{
-                borderRadius: "25px",
-                marginBottom: "5px",
-                width: "250px",
-                height: "70px",
-              }}
               bgcolor="#fff"
               color="rgb(0,0,0)"
             >
@@ -47,7 +41,7 @@ const CarouselRenderer = () => {
             <Text color="rgba(255,255,255,0.5)" fontSize="1.5em">
               EVENT IS FREE! LIMITED SLOTS ONLY.
             </Text>
-          </div>
+          </RegisterDiv>
         </Wrapper>
         <Wrapper>
           <DetailsContainer>
@@ -96,6 +90,27 @@ const CarouselRenderer = () => {
 
 export default CarouselRenderer;
 
+const RegisterDiv = styled.div`
+  text-align: left;
+  
+  & > a > ${Button} {
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    margin-bottom: 5px;
+  }
+  @media screen and (min-width: 750px) {
+    text-align: left;
+    & > a > ${Button} {
+      padding: 15px;
+      width: 230px;
+      height: 60px;
+      border-radius: 25px;
+    }
+  }
+  
+`
+
 const BBCText = styled(Text)`
   font-size: 2.6em;
 
@@ -109,14 +124,14 @@ const BBCText = styled(Text)`
 `;
 
 const Container = styled(ContainerWithBackground)`
-  padding: 5rem 2.5rem;
+  padding: 5rem 1rem;
   display: flex;
   flex-direction: column;
   @media screen and (min-width: 670px) {
     width: 100%;
     flex-direction: row;
     justify-content: space-around;
-    padding: 5rem 2.5rem;
+    padding: 2.5rem 2.5rem;
     margin-top: 2.5rem;
   }
 `;
@@ -147,14 +162,17 @@ const Wrapper = styled(FontResponsive)`
   flex-direction: column;
   text-align: left;
   align-items: flex-start;
-  justify-content: space-between;
-  min-height: 5vh;
+  justify-content: space-evenly;
+  min-height: 45vh;
   & > button {
     border: ${(props) => `1px solid ${props.theme.colors.primary}`};
   }
 
   @media screen and (min-width: 750px) {
+    align-items: flex-start;
+    justify-content: space-between
     padding: 2.5rem;
+    min-height: 5vh;
   }
 
   @media screen and (min-width: 970px) {
@@ -170,7 +188,7 @@ const Wrapper = styled(FontResponsive)`
 `;
 
 const LogoImage = styled.img`
-  width: 245px !important;
+  width: 280px !important;
 
   @media screen and (min-width: 420px) {
     width: 300px !important;
@@ -192,7 +210,7 @@ const LogoImage = styled.img`
 const LogoWrapper = styled(FontResponsive)`
   display: flex;
   flex-direction: column;
-  text-align: center;
+  align-items: center;
 `;
 
 const TextWrapper = styled(FontResponsive)`
