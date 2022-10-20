@@ -55,7 +55,7 @@ const Subscribe = () => {
 
   return (
     <PageLayout margin="0" id="contact-us">
-      <StyledCont background={BG7}>
+      <ContainerWithBackground background={BG7}>
         <TextWrap className="text-center">
           <Heading fontSize="3em" color={theme.colors.secondary}>
             SUBSCRIBE FOR THE LATEST EVENT UPDATES
@@ -76,7 +76,7 @@ const Subscribe = () => {
             <Heading>Get Updates</Heading>
           </Button>
         </form>
-      </StyledCont>
+      </ContainerWithBackground>
     </PageLayout>
   );
 };

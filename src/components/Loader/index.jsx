@@ -17,11 +17,11 @@ const PageLoader = () => {
   useEffect(() => {
     setTimeout(() => {
       isHidden(true)
-    }, 1000)
+    }, 1500)
   })
   return (
     <Wrapper id="loader" className={hidden && 'hide'}>
-       <img className='animate__animated animate__bounce' src={BBCLogo} alt='loading-image' width='25%' />
+       <img className='animate__animated animate__bounce' src={BBCLogo} alt='loading-image' width='30%' />
     </Wrapper>
   )
 }
