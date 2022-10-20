@@ -17,7 +17,7 @@ const PageLoader = () => {
   useEffect(() => {
     setTimeout(() => {
       isHidden(true)
-    }, 2500)
+    }, 1000)
   })
   return (
     <Wrapper id="loader" className={hidden && 'hide'}>
