@@ -8,14 +8,14 @@ const Album = ({items, activeIndex}) => {
     <Wrapper>
       { activeIndex === 0 ? (
         <>
-        { Object.values(items).map((list) => Object.values(list).map(item => <LogoBox key={item} background="#fff" border src={IconModules[item]} width="70px" padding='15px'/>))}
+        { Object.values(items).map((list) => Object.values(list).map(item => <LogoBox key={item} background="#fff" border src={IconModules[item]} width="15px" padding='10px'/>))}
         </>
       ) : (
         <>
         {
           Object.keys(items).length !==0 && items.map(item => {
           return (
-            <LogoBox background="#fff" border src={IconModules[item]} width="70px" padding='15px'/>
+            <LogoBox background="#fff" border src={IconModules[item]} width="15px" padding='10px'/>
           )
         })}
         </>
