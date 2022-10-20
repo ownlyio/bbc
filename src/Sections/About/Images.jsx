@@ -19,10 +19,10 @@ const Images = () => {
 export default Images;
 
 const Img = styled.img`
-  width: ${props => props.subImg? '80px' : '160px'};
+  width: ${props => props.subImg? '100px' : '200px'};
 
   ${props => props.theme.mediaQueries.sm} {
-    width: ${props => props.subImg? '125px' : '250px'};
+    width: ${props => props.subImg? '150px' : '300px'};
   }
 
   @media screen and (min-width: 851px) {

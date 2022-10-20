@@ -217,9 +217,10 @@ export const TextWrap = styled(Wrapper)`
 `;
 const ImageWrap = styled(Wrapper)`
   padding: 10px;
-  align-items: ${(props) => props.align};
-  ${(props) => props.theme.mediaQueries.md} {
+  align-items: center;
+  ${(props) => props.theme.mediaQueries.sm} {
     padding: 0;
+    align-items: ${(props) => props.align};
   }
 `;
 
