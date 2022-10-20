@@ -129,8 +129,10 @@ const RegisterDiv = styled.div`
 
 const BBCText = styled(Text)`
   margin-top: 0.5rem;
-  font-size: 2.9em;
-
+  font-size: 3em;
+  @media screen and (min-width: 768px) {
+    font-size: 2.9em;
+  }
   @media screen and (min-width: 1476px) {
     font-size: 2.8em;
   }
@@ -158,14 +160,6 @@ const Container = styled(ContainerWithBackground)`
 const FontResponsive = styled.div`
   font-size: 5px;
 
-  @media screen and (min-width: 350px) {
-    font-size: 6px;
-  }
-
-  @media screen and (min-width: 750px) {
-    font-size: 5px;
-  }
-
   @media screen and (min-width: 970px) {
     font-size: 7.8px;
   }
@@ -192,12 +186,7 @@ const Wrapper = styled(FontResponsive)`
     align-items: flex-start;
     justify-content: space-between;
     padding: 0rem 2rem;
-    min-height: 5vh;
-  }
-
-  @media screen and (min-width: 970px) {
-    // padding: 1.5rem 3rem 0rem 3rem;
-    width: ${props => props.width};
+    min-height: 60vh;
   }
 
   @media screen and (min-width: 2000px) {
@@ -207,11 +196,7 @@ const Wrapper = styled(FontResponsive)`
 `;
 
 const LogoImage = styled.img`
-  width: 275px !important;
-
-  @media screen and (min-width: 420px) {
-    width: 300px !important;
-  }
+  width: 280px !important;
 
   @media screen and (min-width: 970px) {
     width: 400px !important;
