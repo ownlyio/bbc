@@ -21,7 +21,7 @@ const Speakers = () => {
             className="intro-text d-flex flex-column align-items-center"
           >
             <Heading fontSize="3em">MEET THE SPEAKERS</Heading>
-            <Text fontSize="1.5em" color="#fff" style={{textAlign: 'justify'}}>
+            <Text fontSize="1.5em" color="#fff" style={{textAlign: 'center'}}>
             We are pleased to introduce our line up of distinguished speakers for this conference. Each one has combined their knowledge in Web3, metaverse, and blockchain technology to develop a unique expertise that can benefit the audience in their areas of interest.
             </Text>
           </TextWrap>

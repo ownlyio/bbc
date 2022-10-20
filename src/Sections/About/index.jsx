@@ -102,7 +102,7 @@ const AboutSection = () => {
             <Text
               fontSize="1.5em"
               color="#fff"
-              style={{ textAlign: "justify" }}
+              style={{ textAlign: "center" }}
             >
               The conference provides an avenue for founders and leads of
               blockchain-based projects, spectators, media, enthusiasts and all
@@ -218,7 +218,7 @@ export const TextWrap = styled(Wrapper)`
 const ImageWrap = styled(Wrapper)`
   padding: 10px;
   align-items: center;
-  ${(props) => props.theme.mediaQueries.sm} {
+  @media screen and (min-width: 979px) {
     padding: 0;
     align-items: ${(props) => props.align};
   }
