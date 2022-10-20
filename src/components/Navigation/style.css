@@ -4,6 +4,7 @@ a {
 .wrapper { 
   position: relative;
   width: 100%;
+  margin-bottom: 77px; 
 }
 
 .body-wrapper {

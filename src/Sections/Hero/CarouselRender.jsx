@@ -46,7 +46,7 @@ const CarouselRenderer = () => {
         <Wrapper>
           <DetailsContainer>
             <TextWrapper>
-              <Heading color="#fff" fontSize="4em">
+              <Heading color="#fff" fontSize="5.3em">
                 14 NOV 2022
               </Heading>
               <Heading color="#fff" fontSize="3em">
@@ -56,16 +56,16 @@ const CarouselRenderer = () => {
                 LEGAZPI CITY, ALBAY
               </Text>
             </TextWrapper>
-            <div>
+            <div style={{display: 'flex', flexDirection: 'column'}}>
               <DivShowCase>
                 <Text color="#fff" fontSize="1.5em">
                   Media Partners:
                 </Text>
                 <MediaDiv>
-                  <Media alt="icn" src={MediaGroup.BLKTides} size="20px" />
-                  <Media alt="icn" src={MediaGroup.BitPinas} size="40px" />
-                  <Media alt="icn" src={MediaGroup.AsiaTokenFund} size="40px" />
-                  <Media alt="icn" src={MediaGroup.CoinVoice} size="40px" />
+                  <Media alt="icn" src={MediaGroup.BLKTides} size="30px" />
+                  <Media alt="icn" src={MediaGroup.BitPinas} size="50px" />
+                  <Media alt="icn" src={MediaGroup.AsiaTokenFund} size="50px" />
+                  <Media alt="icn" src={MediaGroup.CoinVoice} size="50px" />
                 </MediaDiv>
               </DivShowCase>
               <DivShowCase>
@@ -73,9 +73,9 @@ const CarouselRenderer = () => {
                   Organized and Co-presented by:
                 </Text>
                 <MediaDiv>
-                  <Media alt="icn" src={MediaGroup.Ownly} size="80px" />
-                  <Media alt="icn" src={MediaGroup.SRK} size="80px" />
-                  <Media alt="icn" src={MediaGroup.DTI} size="50px" />
+                  <Media alt="icn" src={MediaGroup.Ownly} size="70px" />
+                  <Media alt="icn" src={MediaGroup.SRK} size="70px" />
+                  <Media alt="icn" src={MediaGroup.DTI} size="40px" />
                 </MediaDiv>
               </DivShowCase>
             </div>
@@ -94,25 +94,42 @@ const RegisterDiv = styled.div`
   text-align: left;
   
   & > a > ${Button} {
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 10px;
-    width: 200px;
+    width: 150px;
+    height: 40px;
     margin-bottom: 5px;
+    & > ${Heading} {
+      font-size: 1em;
+    }
   }
   @media screen and (min-width: 750px) {
     text-align: left;
     & > a > ${Button} {
-      padding: 15px;
-      width: 230px;
-      height: 60px;
-      border-radius: 25px;
+      width: 150px;
+      height: 50px;
+  
     }
   }
-  
+  @media screen and (min-width: 970px) {
+    text-align: left;
+    & > a > ${Button} {
+      width: 225px;
+      height: 60px;
+    }
+  }
+  @media screen and (min-width: 1360px) {
+    text-align: left;
+    & > a > ${Button} {
+      width: 350px;
+      height: 70px;
+    }
+  }
 `
 
 const BBCText = styled(Text)`
-  font-size: 2.6em;
+  margin-top: 0.5rem;
+  font-size: 2.9em;
 
   @media screen and (min-width: 1476px) {
     font-size: 2.8em;
@@ -124,14 +141,17 @@ const BBCText = styled(Text)`
 `;
 
 const Container = styled(ContainerWithBackground)`
-  padding: 5rem 1rem;
+  padding: 1rem 1rem;
   display: flex;
   flex-direction: column;
   @media screen and (min-width: 670px) {
     width: 100%;
     flex-direction: row;
     justify-content: space-around;
-    padding: 2.5rem 2.5rem;
+    padding: 0rem 2.5rem;
+  }
+  @media screen and (min-width: 2000px) {
+    padding: 5rem 0rem;
   }
 `;
 
@@ -156,38 +176,38 @@ const FontResponsive = styled.div`
 `;
 
 const Wrapper = styled(FontResponsive)`
-  padding: 2rem;
   display: flex;
+  flex: 1;
   flex-direction: column;
   text-align: left;
   align-items: flex-start;
   justify-content: space-evenly;
-  min-height: 45vh;
+  padding: 2rem 1rem;
+  min-height: 35vh;
   & > button {
     border: ${(props) => `1px solid ${props.theme.colors.primary}`};
   }
 
   @media screen and (min-width: 750px) {
     align-items: flex-start;
-    justify-content: space-between
-    padding: 2.5rem;
+    justify-content: space-between;
+    padding: 0rem 2rem;
     min-height: 5vh;
   }
 
   @media screen and (min-width: 970px) {
-    padding: 1.5rem 3rem 0rem 3rem;
+    // padding: 1.5rem 3rem 0rem 3rem;
     width: ${props => props.width};
   }
 
   @media screen and (min-width: 2000px) {
-    & > * {
-      margin-top: 5rem;
-    }
+    min-height: 30vh;
+    padding-left: 15rem;
   }
 `;
 
 const LogoImage = styled.img`
-  width: 280px !important;
+  width: 275px !important;
 
   @media screen and (min-width: 420px) {
     width: 300px !important;
@@ -219,26 +239,31 @@ const TextWrapper = styled(FontResponsive)`
 
 const DivShowCase = styled(FontResponsive)`
   width: 100%;
-  padding: 1rem 0;
+  margin-top: 1rem;
+  flex: 1;
 `;
 const MediaDiv = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   width: 100%;
 `;
 
 const Media = styled.img`
   width: ${(props) => props.size ?? "55px"} !important;
-
+  margin-right: 1rem;
+  @media screen and (min-width: 770px) {
+    margin-right: 3rem;
+  }
   @media screen and (min-width: 1366px) {
-    width: ${(props) => `calc(${props.size} + 25px)`}!important;
+    width: ${(props) => `calc(${props.size} + 35px)`}!important;
   }
 `;
 
 const DetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
   justify-content: space-between;
   height: 100%;
 `;
