@@ -55,7 +55,7 @@ const Subscribe = () => {
 
   return (
     <PageLayout margin="0" id="contact-us">
-      <StyledCont background={BG7} minHeight='70vh'>
+      <StyledCont background={BG7}>
         <TextWrap className="text-center">
           <Heading fontSize="3em" color={theme.colors.secondary}>
             SUBSCRIBE FOR THE LATEST EVENT UPDATES
