@@ -132,7 +132,6 @@ const Container = styled(ContainerWithBackground)`
     flex-direction: row;
     justify-content: space-around;
     padding: 2.5rem 2.5rem;
-    margin-top: 2.5rem;
   }
 `;
 

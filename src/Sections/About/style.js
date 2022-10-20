@@ -26,7 +26,7 @@ export const Img = styled.img`
   @media screen and (min-width: 980px) {
     width: ${props => `calc(${props.width} * 2)`};
   }
-  @media screen and (min-width: 2000px) {
+  @media screen and (min-width: 2400px) {
     width: ${props => `calc(${props.width} * 3)`};
   }
 `

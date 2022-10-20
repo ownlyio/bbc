@@ -15,7 +15,7 @@ export const ContainerWithBackground = styled(Container)`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  @media screen and (min-width: 2000px) {
-    padding: 10rem 20rem;
+  @media screen and (min-width: 2400px) {
+    padding: 5rem 20rem;
   }
 `

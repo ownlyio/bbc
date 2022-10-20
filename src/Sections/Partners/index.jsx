@@ -3,7 +3,7 @@ import styled from "styled-components";
 import BG5 from "../../assets/bg/pane5.png";
 import partners from "../../config/constant/partners";
 import PageLayout from "../../components/Layout";
-import { Heading, Text } from "../../components/Text";
+import { Heading, Text, Title } from "../../components/Text";
 import { ContainerWithBackground } from "../../components/Layout/Container";
 import useTheme from "../../hooks/useTheme";
 import Tabs from "../../components/Tabs";
@@ -54,10 +54,10 @@ const Partners = () => {
             </ActionBtnGrp>
           </TextWrap>
         </StyledDiv> */}
-        <TextWrap style={{alignItems: 'flex-start'}}>
-          <Heading fontSize="3em" color={theme.colors.secondary}>
+        <TextWrap align="flex-start">
+          <Title fontSize="3em" color={theme.colors.secondary} >
             OUR EVENT PARTNERS
-          </Heading>
+          </Title>
         </TextWrap>
         <Tabs
           withAll

@@ -33,3 +33,7 @@ ${props => props.fontSize && `
   font-size: ${props.fontSize};
 `}
 `
+
+export const Title = styled(Heading)`
+  text-align: center;
+`

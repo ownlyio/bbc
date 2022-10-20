@@ -56,8 +56,8 @@ const ImageContainer = styled.div`
     padding: 45px;
   }
 
-  @media screen and (min-width: 2000px) {
-    font-size: 25px;
+  @media screen and (min-width: 2400px) {
+    font-size: 24px;
   }
 `;
 
