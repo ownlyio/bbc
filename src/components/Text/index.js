@@ -20,7 +20,10 @@ const style = {
 export const Text = styled.div`
   color: ${props => props.color};
   font-size: ${props => props.fontSize ?? '16px'};
-  font-weight: ${( props ) => (props.bold ? 600 : 400)};
+  ${(props) => props.bold && `
+    font-weight: ${props.bold ? 600 : 400};
+  `}
+  font-weight: ${( props ) => props.weight ?? 400};
   line-height: 1.5;
   margin: ${props => props.margin};
 `
