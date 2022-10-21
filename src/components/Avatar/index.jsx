@@ -12,7 +12,8 @@ const Avatar = ({ name, title, desc, src }) => {
       </AvatarBG>
       <InfoDiv style={{ marginTop: "24px", textAlign: "center" }}>
         <Heading>{name.toUpperCase()}</Heading>
-        <Text>{`${title}, ${desc}`}</Text>
+        <Text>{title}</Text>
+        <Text>{desc}</Text>
       </InfoDiv>
     </Container>
   );

@@ -2,32 +2,32 @@ const SpeakersList = [
   {
     src: 'Isma',
     name: 'Ismael Jerusalem',
-    title: 'CEO & Founder',
-    description: 'Ownly'
+    title: 'CEO & Founder, Ownly',
+    description: ''
   },
   {
     src: 'Andy',
     name: 'Andy Agnas',
-    title: 'CEO & Founder',
-    description: 'Ownly',
+    title: 'CEO & Founder, Sparkpoint',
+    description: '',
   },
   {
     src: 'Melissa',
     name: 'Melissa Mesias',
-    title: 'CEO',
-    description: 'SparkLearn EdTech'
+    title: 'CEO, SparkLearn EdTech',
+    description: ''
   },
   {
     src: 'Enrique',
-    name: 'ATTY. Enrique Dela Cruz Jr',
-    title: 'FinTech Blockchain Lawyer',
+    name: 'ATTY. Enrique Dela Cruz Jr.',
+    title: 'FinTech Blockchain Lawyer,',
     description: 'Harvard University',
   },
   {
     src: 'Michael',
     name: 'Michael Mislos',
-    title: 'Editor-in-Cheif',
-    description: 'BitPinas'
+    title: 'Editor-in-Chief, BitPinas',
+    description: ''
   },
   {
     src: 'Gail',
