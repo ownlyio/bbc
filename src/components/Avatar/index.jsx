@@ -29,17 +29,20 @@ const Container = styled.div`
 
 const AvatarBG = styled.div`
   display: flex;
+  
   width: 300px;
   min-height: 200px;
   align-items: flex-end;
   justify-content: center;
+  padding: 5px;
   // background: rgb(254,253,249);
   // background: linear-gradient(71deg, rgba(254,253,249,1) 15%, rgba(255,217,122,1) 54%);
   color: #fff;
 `;
 
 const ProfilePic = styled.img`
-  
+  width: 100%;
+  border-radius: 20px;
 `;
 
 const InfoDiv = styled.div`
