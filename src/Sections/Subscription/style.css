@@ -1,0 +1,26 @@
+.form-subscribe {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+.form-subscribe > .submit-btn {
+  margin: 10px;
+  padding: 10px;
+}
+
+@media screen and (min-width: 652px) {
+  .form-subscribe {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+  }
+  
+  .form-subscribe > .submit-btn {
+    margin: 10px 0px 0px 24px;
+    padding: 15px;
+  }
+}
