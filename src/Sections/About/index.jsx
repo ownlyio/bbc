@@ -100,7 +100,7 @@ const AboutSection = () => {
           >
             <Heading fontSize="3em">A DAY FOR ALL-THINGS-BLOCKCHAIN</Heading>
             <Text
-              fontSize="1.5em"
+              fontSize="2em"
               color="#fff"
               style={{ textAlign: "center" }}
             >
@@ -213,6 +213,10 @@ export const TextWrap = styled(Wrapper)`
 
   ${(props) => props.theme.mediaQueries.md} {
     font-size: 17px;
+  }
+
+  @media screen and (min-width: 2500px) {
+    font-size: 20px;
   }
 `;
 const ImageWrap = styled(Wrapper)`

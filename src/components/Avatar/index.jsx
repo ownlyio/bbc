@@ -1,16 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import SpeakersImages from './fetchSpeakerLogo'
 import { Text, Heading } from "../Text";
 
-const Avatar = ({name, title, description}) => {
+const Avatar = ({ name, title, desc, src }) => {
+  const image = SpeakersImages[`${src}`]
   return (
     <Container className="d-flex flex-column">
       <AvatarBG>
-        <LogoContainer>{name}</LogoContainer>
+        <ProfilePic alt="speaker-img" src={image}/>
       </AvatarBG>
-      <InfoDiv style={{marginTop: '24px', textAlign: 'center'}} >
-        <Heading>{title}</Heading>
-        <Text>{description}</Text>
+      <InfoDiv style={{ marginTop: "24px", textAlign: "center" }}>
+        <Heading>{name.toUpperCase()}</Heading>
+        <Text>{`${title}, ${desc}`}</Text>
       </InfoDiv>
     </Container>
   );
@@ -19,31 +21,35 @@ const Avatar = ({name, title, description}) => {
 export default Avatar;
 
 const Container = styled.div`
-  padding: 15px;
+  flex: 1;
+  height: auto;
+  width: auto;
+  align-items: center;
 `;
 
 const AvatarBG = styled.div`
   display: flex;
+  width: 300px;
+  min-height: 200px;
   align-items: flex-end;
   justify-content: center;
-  background-color: ${(props) => props.theme.colors.tertiary};
-  min-height: 170px;
-  min-width: 170px;
-  width: auto;
-  height: auto;
-  border-radius: 50%;
+  // background: rgb(254,253,249);
+  // background: linear-gradient(71deg, rgba(254,253,249,1) 15%, rgba(255,217,122,1) 54%);
   color: #fff;
 `;
 
-const LogoContainer = styled.div`
-  height: 40px;
-  width: 80%;
-  background-color: ${(props) => props.theme.colors.bgColor};
-  padding: 5px;
+const ProfilePic = styled.img`
+  
 `;
 
 const InfoDiv = styled.div`
+  font-size: 14px;
   & > ${Heading}, ${Text} {
-    color: ${props => props.theme.colors.secondary};
+    color: #fff;
+    font-size: 1em;
   }
-`
+
+  @media screen and (min-width: 1360px) {
+    font-size: 24px;
+  }
+`;

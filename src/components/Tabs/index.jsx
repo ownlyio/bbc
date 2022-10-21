@@ -15,7 +15,7 @@ const Tabs = ({withAll, triggers, details, children}) => {
 
   return (
     <Container className="d-flex">
-      <OptionsContainer className="flex-wrap">
+      <OptionsContainer className="flex-wrap justify-content-start">
         {
           withAll && (
             <Tab activeindex={(activeIndex === 0).toString()} color={theme.colors.light} variant="outline" onClick={() => {

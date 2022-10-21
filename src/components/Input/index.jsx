@@ -21,4 +21,8 @@ const StyledInput = styled.input`
  &:focus {
   outline: none;
  }
+
+ @media screen and (min-width: 2000px) {
+  font-size: 25px;
+ }
 `

@@ -123,6 +123,10 @@ const FontResponsive = styled.div`
   @media screen and (min-width: 1150px) {
     font-size: 11px;
   }
+
+  @media screen and (min-width: 2500px) {
+    font-size: 16px;
+  }
 `;
 
 
@@ -194,6 +198,18 @@ const RegisterDiv = styled.div`
       font-size: 2.4em;
     }
   }
+  @media screen and (min-width: 2500px) {
+    & > a > ${Button} {
+      width: 750px;
+      height: 120px;
+      & > ${Heading} {
+        font-size: 4em;
+      }
+    }
+    & > ${Text} {
+      font-size: 2.4em;
+    }
+  }
 `
 
 const BBCText = styled(Text)`
@@ -230,6 +246,9 @@ const LogoImage = styled.img`
 
   @media screen and (min-width: 1150px) {
     width: 700px !important;
+  }
+  @media screen and (min-width: 2500px) {
+    width: 1000px !important;
   }
 `;
 
@@ -281,6 +300,9 @@ const Media = styled.img`
   }
   @media screen and (min-width: 1200px) {
     width: ${(props) => `calc(${props.size} + 35px)`}!important;
+  }
+  @media screen and (min-width: 2000px) {
+    width: ${(props) => `calc(${props.size} + 100px)`}!important;
   }
 `;
 

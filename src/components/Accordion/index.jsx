@@ -109,6 +109,9 @@ const FontResponsive = SCStyled.div`
   @media screen and (min-width: 1200px) {
     font-size: 17px;
   }
+  @media screen and (min-width: 2500px) {
+    font-size: 30px;
+  }
 `;
 
 const StyledDiv = SCStyled(FontResponsive)`

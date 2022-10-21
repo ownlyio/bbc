@@ -24,7 +24,7 @@ const Partners = () => {
   );
   return (
     <PageLayout margin="0" id="partners">
-      <ContainerWithBackground background={BG5}>
+      <ContainerWithBackground background={BG5} minHeight="70vh">
         {/* <StyledDiv style={{ padding: "10px 0" }}>
           <TextWrap style={{flex: 1}} align='flex-start'>
             <Heading fontSize="3em">PARTNERSHIP</Heading>
@@ -54,7 +54,7 @@ const Partners = () => {
             </ActionBtnGrp>
           </TextWrap>
         </StyledDiv> */}
-        <TextWrap align="flex-start">
+        <TextWrap align="center">
           <Title fontSize="3em" color={theme.colors.secondary} >
             OUR EVENT PARTNERS
           </Title>

@@ -5,6 +5,7 @@ import { Text, Heading } from "../../components/Text";
 import Avatar from "../../components/Avatar";
 import AppCarousel from "../../components/Carousel";
 import { Button as CustomBtn } from "../../components/Button";
+import { Grid } from "@mui/material";
 
 
 const CarouselRender = () => {
@@ -13,40 +14,60 @@ const CarouselRender = () => {
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
     { width: 850, itemsToShow: 3 },
-    { width: 1150, itemsToShow: 4, itemsToScroll: 2 },
-    { width: 1450, itemsToShow: 5 },
-    { width: 1750, itemsToShow: 6 },
+    { width: 1150, itemsToShow: 3, itemsToScroll: 1 },
+    { width: 1450, itemsToShow: 3 },
+    { width: 1750, itemsToShow: 3 },
   ];
   const item1 = () => {
+
     return SpeakersList.map((spkr, key) => (
-      <div key={key}>
-        <Avatar name={spkr.name} title={spkr.title} desc={spkr.description} />
-      </div>
+        <Avatar key={key} name={spkr.name} title={spkr.title} desc={spkr.description} src={spkr.src} />
     ));
   };
 
   return (
-    <div className="d-flex" style={{ textAlign: "center" }}>
-      {/* { 
+    <div style={{ textAlign: "center" }}>
+      { 
       !showAll? <AppCarousel type="Elastic" options={{breakpoints}} components={{ item1 }}/> : (
-        <div className='d-flex flex-wrap justify-content-center'>
-          {item1()}
-        </div>
+        <Grid container columnSpacing={5} rowSpacing={5} direction="row"
+        justifyContent="center">
+          {
+            SpeakersList.map((spkr, key) => (
+              <Grid key={key} item xs={12} sm={3} >
+              <Avatar name={spkr.name} title={spkr.title} desc={spkr.description} src={spkr.src} />
+              </Grid>
+          ))
+          }
+        </Grid>
       )}
-      <CustomBtn onClick={() => setShowAll(!showAll)} style={{marginTop: '2rem'}}>More ></CustomBtn> */}
-      <div style={{margin: '0 auto'}}>
+      <CustomBtn onClick={() => setShowAll(!showAll)} style={{marginTop: '2rem'}}>{!showAll? 'More >' : ' < Back'}</CustomBtn>
+      {/* <div style={{margin: '0 auto'}}>
       <StyledTBADiv style={{margin: '0 auto'}}>
         <Text color="rgba(255,255,255,0.8)" fontSize="2.5rem">
           To be announced!
         </Text>
         <hr style={{color: '#bc9849', width: '100%', height: '5px', opacity: '1'}} />
       </StyledTBADiv>
-      </div>
+      </div> */}
     </div>
   );
 };
 
 export default CarouselRender;
+
+const StyledAllDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  & > * {
+    margin: 1rem 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+`
+
 const StyledTBADiv = styled.div`
   padding: 2rem;
   display: flex;
