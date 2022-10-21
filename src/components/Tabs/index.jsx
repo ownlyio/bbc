@@ -15,7 +15,7 @@ const Tabs = ({withAll, triggers, details, children}) => {
 
   return (
     <Container className="d-flex">
-      <OptionsContainer className="flex-wrap justify-content-start">
+      <OptionsContainer className="justify-content-start">
         {
           withAll && (
             <Tab activeindex={(activeIndex === 0).toString()} color={theme.colors.light} variant="outline" onClick={() => {
@@ -63,11 +63,12 @@ const Container = styled.div`
 `;
 
 const Tab = styled(Button)`
+  flex: 1;
   color: ${(props) => props.theme.colors.secondary};
   background-color: transparent;
   font-size: 1.5em;
   font-weight: bold;
-  text-align: right;
+  text-align: center;
   padding: 10px;
   ${(props) =>
     props.activeindex === 'true' &&
@@ -82,8 +83,10 @@ const Tab = styled(Button)`
 
 const OptionsContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   font-size: 8px;
   justify-content: center;
+  align-items: center;
   ${(props) => props.theme.mediaQueries.lg} {
     font-size: 17px;
     flex-direction: column;
