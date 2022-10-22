@@ -70,10 +70,10 @@ const Component = () => {
             <Text>REACH US</Text>
             <div className="div-reach-us">
               <a
-                href="mailto:hello@bicolbc.io"
+                href="mailto:support@bicolblockchain.com"
                 style={{ textDecoration: "none", color: "#fff" }}
               >
-                <Mail size={40} /> hello@bicolbc.io
+                <Mail size={40} /> support@bicolblockchain.com
               </a>
             </div>
           </div>

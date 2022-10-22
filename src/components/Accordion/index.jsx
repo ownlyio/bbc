@@ -85,8 +85,8 @@ const CustomAccordion = ({ items }) => {
           <Heading fontSize="2em">
             {" "}
             Any inquires? Contact us at{" "}
-            <a href="mailto: hello@bicolbc.io" style={{ color: "#bc9849" }}>
-              hello@bicolbc.io
+            <a href="mailto: support@bicolblockchain.com" style={{ color: "#bc9849" }}>
+              support@bicolblockchain.com
             </a>{" "}
           </Heading>
         </StyledDiv>
