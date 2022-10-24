@@ -70,6 +70,7 @@
 .section.socials > div > .social-group-icons, .div-reach-us {
   display: flex;
   margin-top: 1rem;
+  justify-content: flex-end;
 }
 
 .section.socials > div > .social-group-icons > * , .section.socials > .div-reach-us {
@@ -92,7 +93,7 @@
 }
 
 
-@media (max-width: 650px) {
+@media screen and (max-width: 650px) {
     .div-organizer, .logo, .section.links, .section.socials > div {
     font-size: 11px;
   }
@@ -111,5 +112,8 @@
   }
   .section.socials > div {
     text-align: right;
+  }
+  .section.socials > div > .social-group-icons, .div-reach-us {
+    justify-content: center;
   }
 }
