@@ -121,7 +121,7 @@ const FontResponsive = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   @media screen and (min-width: 2500px) {
@@ -201,7 +201,7 @@ const RegisterDiv = styled.div`
       }
     }
     & > ${Text} {
-      font-size: 1.8em;
+      font-size: 1.9em;
     }
   }
   @media screen and (min-width: 2500px) {
@@ -230,7 +230,7 @@ const BBCText = styled(Text)`
   }
 
   @media screen and (min-width: 1440px) {
-    font-size: 3.1em;
+    font-size: 3.3em;
   }
   @media screen and (min-width: 2500px) {
     font-size: 3.5em;
