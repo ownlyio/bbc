@@ -111,7 +111,7 @@ const AboutSection = () => {
           <Sessions>
             <LogoBG
               padding="0"
-              className="flex-column align-items-start"
+              className="flex-column align-items-center"
               background="transparent"
             >
               <Logo
@@ -130,7 +130,7 @@ const AboutSection = () => {
             </LogoBG>
             <LogoBG
               padding="0"
-              className="flex-column align-items-start"
+              className="flex-column align-items-center"
               background="transparent"
             >
               <Logo
@@ -149,7 +149,7 @@ const AboutSection = () => {
             </LogoBG>
             <LogoBG
               padding="0"
-              className="flex-column align-items-start"
+              className="flex-column align-items-center"
               background="transparent"
             >
               <Logo
