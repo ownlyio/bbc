@@ -24,12 +24,6 @@ const SpeakersList = [
     description: ' '
   },
   {
-    src: 'Isma',
-    name: 'Ismael Jerusalem',
-    title: 'CEO & Founder, Ownly',
-    description: ''
-  },
-  {
     src: 'Andy',
     name: 'Andy Agnas',
     title: 'CEO & Founder, Sparkpoint',
@@ -39,6 +33,12 @@ const SpeakersList = [
     src: 'Melissa',
     name: 'Melissa Mesias',
     title: 'CEO, SparkLearn EdTech',
+    description: ''
+  },
+  {
+    src: 'Isma',
+    name: 'Ismael Jerusalem',
+    title: 'CEO & Founder, Ownly',
     description: ''
   },
 ]

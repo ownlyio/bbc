@@ -33,7 +33,7 @@ const CarouselRender = () => {
         justifyContent="center">
           {
             SpeakersList.map((spkr, key) => (
-              <Grid key={key} item xs={12} sm={6} md={3}>
+              <Grid key={key} item xs={12} sm={6} md={5} lg={3}>
               <Avatar name={spkr.name} title={spkr.title} desc={spkr.description} src={spkr.src} />
               </Grid>
           ))
