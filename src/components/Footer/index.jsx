@@ -4,7 +4,7 @@ import { Mail } from "react-feather";
 import { Nav } from "react-bootstrap";
 import { SocialIcon } from "react-social-icons";
 import { Text } from "../../components/Text";
-import config from "../../components/Navigation/config";
+import {footerConfig as config} from "../../components/Navigation/config";
 import BBCLogo from "../../assets/official logo.png";
 import OWNLYLogo from "../../assets/ownly.png";
 import SRKLogo from "../../assets/SRK_wordmark.svg";
@@ -66,7 +66,7 @@ const Component = () => {
               ))}
             </div>
           </div>
-          <div className="flex-column" style={{ marginTop: "1rem" }}>
+          {/* <div className="flex-column" style={{ marginTop: "1rem" }}>
             <Text>REACH US</Text>
             <div className="div-reach-us">
               <a
@@ -76,7 +76,7 @@ const Component = () => {
                 <Mail size={40} /> support@bicolblockchain.com
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
       </DivLink>
     </div>

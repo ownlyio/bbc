@@ -25,4 +25,27 @@ const MenuConfig = [
   }
 ]
 
+export const footerConfig = [
+  {
+    name: 'About',
+    href: 'about'
+  },
+  {
+    name: 'Speakers',
+    href: 'speakers'
+  },
+  {
+    name: 'Schedule',
+    href: 'schedule'
+  },
+  {
+    name: 'Partners',
+    href: 'partners'
+  },
+  {
+    name: 'FAQS',
+    href: 'faqs'
+  },
+]
+
 export default MenuConfig;
