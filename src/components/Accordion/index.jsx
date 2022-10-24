@@ -56,7 +56,7 @@ const CustomAccordion = ({ items }) => {
   };
   return (
     <Wrapper>
-      {Object.entries(items).length !== 0 ? (
+      {Object.entries(items).length !== 0 && (
         items.map((item, key) => {
           return (
             <Accordion
@@ -80,7 +80,8 @@ const CustomAccordion = ({ items }) => {
             </Accordion>
           );
         })
-      ) : (
+      )} 
+      {/* : (
         <StyledDiv className="d-flex align-items-center">
           <Heading fontSize="2em">
             {" "}
@@ -90,7 +91,7 @@ const CustomAccordion = ({ items }) => {
             </a>{" "}
           </Heading>
         </StyledDiv>
-      )}
+      )} */}
     </Wrapper>
   );
 };

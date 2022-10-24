@@ -13,7 +13,8 @@ import { TextWrap } from "../About";
 const FAQ = () => {
   const { theme } = useTheme();
   const [activeIndex, setActiveIndex] = useState(1);
-  const [faqCollection, setfaqCollection] = useState(Faq[Object.keys(Faq)[0]]);
+  // const [faqCollection, setfaqCollection] = useState(Faq[Object.keys(Faq)[0]]);
+  const [faqCollection, setfaqCollection] = useState(Faq);
   return (
     <PageLayout margin="0" id="faqs" >
       <ContainerWithBackground background={BG6} minHeight="70vh">
@@ -26,7 +27,9 @@ const FAQ = () => {
             FREQUENTLY ASKED QUESTIONS
           </Heading>
         </TextWrap>
-        <Tabs
+        <CustomAccordion items={faqCollection} />
+        {/* <CustomAccordion items={faqCollection} /> */}
+        {/* <Tabs
           details={Faq}
           triggers={{
             activeIndex,
@@ -35,7 +38,7 @@ const FAQ = () => {
           }}
         >
           <CustomAccordion items={faqCollection} />
-        </Tabs>
+        </Tabs> */}
       </ContainerWithBackground>
     </PageLayout>
   );
