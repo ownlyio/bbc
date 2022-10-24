@@ -211,9 +211,6 @@ export const TextWrap = styled(Wrapper)`
     font-size: 17px;
   }
 
-  @media screen and (min-width: 2500px) {
-    font-size: 20px;
-  }
 `;
 const ImageWrap = styled(Wrapper)`
   padding: 10px;
