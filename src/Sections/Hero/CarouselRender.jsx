@@ -26,11 +26,11 @@ const CarouselRenderer = () => {
               weight="100"
             >
               The biggest gathering of blockchain enthusiasts, <br /> crypto
-              curious, influencers, and experts <br /> in south of the metro.
+              curious, influencers, and experts <br />on south of the metro.
             </Text>
           </TextWrapper>
           <RegisterDiv>
-          <a href="https://www.eventbrite.com/e/bicol-blockchain-conference-tickets-440189066347" target="_blank" style={{textDecoration: 'none', color:'inherit'}}>
+          <a href="https://www.eventbrite.com/e/bicol-blockchain-conference-tickets-440189066347?aff=ebdsoporgprofile" target="_blank" style={{textDecoration: 'none', color:'inherit'}}>
             <Button
               bgcolor="#fff"
               color="rgb(0,0,0)"

@@ -99,7 +99,7 @@ const AboutSection = () => {
             className="d-flex flex-column align-items-center"
           >
             <Heading fontSize="3em">A DAY FOR ALL-THINGS-BLOCKCHAIN</Heading>
-            <Text fontSize="2em" color="#fff" style={{ textAlign: "center" }}>
+            <Text fontSize="1.5em" color="#fff" style={{ textAlign: "center" }}>
               The conference provides an avenue for founders and leads of
               blockchain-based projects, spectators, media, enthusiasts and all
               the curious minds to spark discussions about the latest trends,

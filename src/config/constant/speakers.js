@@ -2,8 +2,8 @@ const SpeakersList = [
   {
     src: 'Enrique',
     name: 'ATTY. Enrique Dela Cruz Jr.',
-    title: 'FinTech Blockchain Lawyer,',
-    description: 'Harvard University',
+    title: 'Senior Partner and Head of Fintech',
+    description: 'Divina Law',
   },
   {
     src: 'Michael',
