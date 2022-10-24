@@ -27,7 +27,9 @@ const FAQ = () => {
             FREQUENTLY ASKED QUESTIONS
           </Heading>
         </TextWrap>
+        <div style={{marginTop: '1.5rem'}}>
         <CustomAccordion items={faqCollection} />
+        </div>
         {/* <CustomAccordion items={faqCollection} /> */}
         {/* <Tabs
           details={Faq}

@@ -1,23 +1,5 @@
 const SpeakersList = [
   {
-    src: 'Isma',
-    name: 'Ismael Jerusalem',
-    title: 'CEO & Founder, Ownly',
-    description: ''
-  },
-  {
-    src: 'Andy',
-    name: 'Andy Agnas',
-    title: 'CEO & Founder, Sparkpoint',
-    description: '',
-  },
-  {
-    src: 'Melissa',
-    name: 'Melissa Mesias',
-    title: 'CEO, SparkLearn EdTech',
-    description: ''
-  },
-  {
     src: 'Enrique',
     name: 'ATTY. Enrique Dela Cruz Jr.',
     title: 'FinTech Blockchain Lawyer,',
@@ -40,7 +22,25 @@ const SpeakersList = [
     name: 'Randy Knutson',
     title: 'President/CEO, DynaQuest',
     description: ' '
-  }
+  },
+  {
+    src: 'Isma',
+    name: 'Ismael Jerusalem',
+    title: 'CEO & Founder, Ownly',
+    description: ''
+  },
+  {
+    src: 'Andy',
+    name: 'Andy Agnas',
+    title: 'CEO & Founder, Sparkpoint',
+    description: '',
+  },
+  {
+    src: 'Melissa',
+    name: 'Melissa Mesias',
+    title: 'CEO, SparkLearn EdTech',
+    description: ''
+  },
 ]
 
 export default SpeakersList;

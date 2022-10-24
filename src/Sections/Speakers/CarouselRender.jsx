@@ -9,7 +9,7 @@ import { Grid } from "@mui/material";
 
 
 const CarouselRender = () => {
-  const [showAll, setShowAll] = useState(false);
+  const [showAll, setShowAll] = useState(true);
   const breakpoints = [
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
@@ -40,7 +40,7 @@ const CarouselRender = () => {
           }
         </Grid>
       )}
-      <CustomBtn onClick={() => setShowAll(!showAll)} style={{marginTop: '2rem'}}>{!showAll? 'More >' : ' < Back'}</CustomBtn>
+      <CustomBtn onClick={() => setShowAll(!showAll)} style={{marginTop: '2rem'}}>{!showAll? 'More >' : ' < less'}</CustomBtn>
       {/* <div style={{margin: '0 auto'}}>
       <StyledTBADiv style={{margin: '0 auto'}}>
         <Text color="rgba(255,255,255,0.8)" fontSize="2.5rem">
