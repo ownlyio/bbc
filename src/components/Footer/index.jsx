@@ -54,7 +54,7 @@ const Component = () => {
         </div>
         <div className="section socials">
           <div>
-            <Text>FOLLOW US</Text>
+            <Text>FOLLOW AND GET IN TOUCH</Text>
             <div className="social-group-icons">
               {Object.values(socials).map((social) => (
                 <SocialIcon
