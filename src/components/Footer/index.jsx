@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import useTheme from '../../hooks/useTheme'
+import { Heading } from "../../components/Text";
 import { Mail } from "react-feather";
 import { Nav } from "react-bootstrap";
 import { SocialIcon } from "react-social-icons";
@@ -30,6 +32,7 @@ const Component = () => {
           <p>ORGANIZED BY:</p>
           <div className="logo-group">
             <img src={OWNLYLogo} alt="org-logo" className="img-org-logo" />
+            <Heading color="#d9b84c">&nbsp;X &nbsp; </Heading>
             <img src={SRKLogo} alt="org-logo" className="img-org-logo" />
           </div>
         </div>
