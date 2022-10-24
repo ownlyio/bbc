@@ -61,7 +61,7 @@ const Subscribe = () => {
             SUBSCRIBE FOR THE LATEST EVENT UPDATES
           </Heading>
           <Text fontSize="1.4em" color="#fff" style={{textAlign: 'center'}}>
-          Wanna be the first to get notified about the latest event updates of the first-ever Bicol Blockchain Conference? <br /> Join our VIP List to be first to know.
+          Wanna be the first to get notified about the latest event updates of the first-ever Bicol Blockchain Conference? Join our VIP List to be first to know.
           </Text>
           <Text fontSize="1.6em" color="#fff" style={{textAlign: 'center'}}>
           By joining our Ownly VIP list, you agree to receive updates from Ownly for our upcoming IRL events. You can opt out of our marketing emails anytime. Your email will be stored on our database and will not be shared with any third-party.
