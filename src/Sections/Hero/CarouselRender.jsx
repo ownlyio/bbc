@@ -89,7 +89,7 @@ const CarouselRenderer = () => {
 export default CarouselRenderer;
 
 const Container = styled.div`
-  overflow: hidden;
+  // overflow: hidden;
   display: flex;
   flex-direction: column;
   min-height: 90vh;
