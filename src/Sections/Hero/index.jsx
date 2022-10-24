@@ -8,7 +8,7 @@ import { ContainerWithBackground } from '../../components/Layout/Container'
 const Hero = () => {
   return (
     <section id="hero">
-      <ContainerWithBackground background={BG1} padding="4rem 0rem 3rem 0rem">
+      <ContainerWithBackground background={BG1} padding="1rem 0rem 3rem 0rem">
         <CarouselRenderer />
       </ContainerWithBackground>
     </section>
