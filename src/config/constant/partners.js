@@ -1,6 +1,5 @@
 const partners = {
   presenters: {},
-  platinum: {},
   gold: ['SRK', 'OWNLY'],
   silver: {},
   media: {},

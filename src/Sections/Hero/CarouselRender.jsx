@@ -26,11 +26,11 @@ const CarouselRenderer = () => {
               weight="100"
             >
               The biggest gathering of blockchain enthusiasts, <br /> crypto
-              curious, influencers, and experts <br /> in south of the metro.
+              curious, influencers, and experts <br />on south of the metro.
             </Text>
           </TextWrapper>
           <RegisterDiv>
-          <a href="https://www.eventbrite.com/e/bicol-blockchain-conference-tickets-440189066347" target="_blank" style={{textDecoration: 'none', color:'inherit'}}>
+          <a href="https://www.eventbrite.com/e/bicol-blockchain-conference-tickets-440189066347?aff=ebdsoporgprofile" target="_blank" style={{textDecoration: 'none', color:'inherit'}}>
             <Button
               bgcolor="#fff"
               color="rgb(0,0,0)"
@@ -89,7 +89,7 @@ const CarouselRenderer = () => {
 export default CarouselRenderer;
 
 const Container = styled.div`
-  overflow: hidden;
+  // overflow: hidden;
   display: flex;
   flex-direction: column;
   min-height: 90vh;
@@ -120,7 +120,7 @@ const FontResponsive = styled.div`
     font-size: 9px;
   }
 
-  @media screen and (min-width: 1150px) {
+  @media screen and (min-width: 1440px) {
     font-size: 11px;
   }
 
@@ -145,7 +145,7 @@ const Wrapper = styled(FontResponsive)`
 
   @media screen and (min-width: 700px) {
     align-items: flex-start;
-    padding: 2.5rem 0rem;
+    padding: 2.5rem 1rem;
   }
 
   @media screen and (min-width: 750px) {
@@ -186,28 +186,34 @@ const RegisterDiv = styled.div`
       font-size: 2.4em;
     }
   }
-  @media screen and (min-width: 1150px) {
+  @media screen and (min-width: 970px) {
+    text-align: left;
+    & > ${Text} {
+      font-size: 1.9em;
+    }
+  }
+  @media screen and (min-width: 1440px) {
     & > a > ${Button} {
-      width: 500px;
-      height: 120px;
+      width: 400px;
+      height: 100px;
       & > ${Heading} {
-        font-size: 3em;
+        font-size: 2.8em;
       }
     }
     & > ${Text} {
-      font-size: 2.4em;
+      font-size: 1.9em;
     }
   }
   @media screen and (min-width: 2500px) {
     & > a > ${Button} {
-      width: 750px;
+      width: 600px;
       height: 120px;
       & > ${Heading} {
-        font-size: 4em;
+        font-size: 3.5em;
       }
     }
     & > ${Text} {
-      font-size: 2.4em;
+      font-size: 2em;
     }
   }
 `
@@ -217,14 +223,19 @@ const BBCText = styled(Text)`
   font-size: 3em;
   font-weight: 600;
   @media screen and (min-width: 670px) {
-    font-size: 2.8em;
+    font-size: 3.2em;
   }
   @media screen and (min-width: 900px) {
-    font-size: 2.9em;
+    font-size: 3.25em;
   }
-  @media screen and (min-width: 1150px) {
-    font-size: 3.6em;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 3.3em;
   }
+  @media screen and (min-width: 2500px) {
+    font-size: 3.5em;
+  }
+
 `;
 
 
@@ -244,8 +255,8 @@ const LogoImage = styled.img`
     width: 510px !important;
   }
 
-  @media screen and (min-width: 1150px) {
-    width: 700px !important;
+  @media screen and (min-width: 1440px) {
+    width: 650px !important;
   }
   @media screen and (min-width: 2500px) {
     width: 1000px !important;

@@ -11,9 +11,9 @@ const Avatar = ({ name, title, desc, src }) => {
         <ProfilePic alt="speaker-img" src={image}/>
       </AvatarBG>
       <InfoDiv style={{ marginTop: "24px", textAlign: "center" }}>
-        <Heading>{name.toUpperCase()}</Heading>
-        <Text>{title}</Text>
-        <Text>{desc}</Text>
+        <Heading className='avtr-name'>{name.toUpperCase()}</Heading>
+        <Text className='avtr-desc'>{title}</Text>
+        <Text className='avtr-desc'>{desc}</Text>
       </InfoDiv>
     </Container>
   );
@@ -30,14 +30,11 @@ const Container = styled.div`
 
 const AvatarBG = styled.div`
   display: flex;
-  
   width: 300px;
   min-height: 200px;
   align-items: flex-end;
   justify-content: center;
   padding: 5px;
-  // background: rgb(254,253,249);
-  // background: linear-gradient(71deg, rgba(254,253,249,1) 15%, rgba(255,217,122,1) 54%);
   color: #fff;
 `;
 
@@ -48,9 +45,13 @@ const ProfilePic = styled.img`
 
 const InfoDiv = styled.div`
   font-size: 14px;
-  & > ${Heading}, ${Text} {
+  .avtr-name {
     color: #fff;
-    font-size: 1em;
+    font-size: 0.9em;
+  }
+ .avtr-desc {
+    font-size: 0.8em;
+    color: #fff;
   }
 
   @media screen and (min-width: 1360px) {

@@ -56,7 +56,7 @@ const CustomAccordion = ({ items }) => {
   };
   return (
     <Wrapper>
-      {Object.entries(items).length !== 0 ? (
+      {Object.entries(items).length !== 0 && (
         items.map((item, key) => {
           return (
             <Accordion
@@ -80,7 +80,8 @@ const CustomAccordion = ({ items }) => {
             </Accordion>
           );
         })
-      ) : (
+      )} 
+      {/* : (
         <StyledDiv className="d-flex align-items-center">
           <Heading fontSize="2em">
             {" "}
@@ -90,7 +91,7 @@ const CustomAccordion = ({ items }) => {
             </a>{" "}
           </Heading>
         </StyledDiv>
-      )}
+      )} */}
     </Wrapper>
   );
 };
@@ -110,7 +111,7 @@ const FontResponsive = SCStyled.div`
     font-size: 17px;
   }
   @media screen and (min-width: 2500px) {
-    font-size: 30px;
+    font-size: 25px;
   }
 `;
 

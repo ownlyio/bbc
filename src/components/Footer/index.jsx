@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import useTheme from '../../hooks/useTheme'
+import { Heading } from "../../components/Text";
 import { Mail } from "react-feather";
 import { Nav } from "react-bootstrap";
 import { SocialIcon } from "react-social-icons";
 import { Text } from "../../components/Text";
-import config from "../../components/Navigation/config";
+import {footerConfig as config} from "../../components/Navigation/config";
 import BBCLogo from "../../assets/official logo.png";
 import OWNLYLogo from "../../assets/ownly.png";
 import SRKLogo from "../../assets/SRK_wordmark.svg";
@@ -30,6 +32,7 @@ const Component = () => {
           <p>ORGANIZED BY:</p>
           <div className="logo-group">
             <img src={OWNLYLogo} alt="org-logo" className="img-org-logo" />
+            <Heading color="#d9b84c">&nbsp;X &nbsp; </Heading>
             <img src={SRKLogo} alt="org-logo" className="img-org-logo" />
           </div>
         </div>
@@ -54,7 +57,7 @@ const Component = () => {
         </div>
         <div className="section socials">
           <div>
-            <Text>FOLLOW US</Text>
+            <Text>FOLLOW AND GET IN TOUCH</Text>
             <div className="social-group-icons">
               {Object.values(socials).map((social) => (
                 <SocialIcon
@@ -66,7 +69,7 @@ const Component = () => {
               ))}
             </div>
           </div>
-          <div className="flex-column" style={{ marginTop: "1rem" }}>
+          {/* <div className="flex-column" style={{ marginTop: "1rem" }}>
             <Text>REACH US</Text>
             <div className="div-reach-us">
               <a
@@ -76,7 +79,7 @@ const Component = () => {
                 <Mail size={40} /> support@bicolblockchain.com
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
       </DivLink>
     </div>
