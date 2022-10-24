@@ -29,7 +29,7 @@ const CarouselRender = () => {
     <div style={{ textAlign: "center" }}>
       { 
       !showAll? <AppCarousel type="Elastic" options={{breakpoints}} components={{ item1 }}/> : (
-        <Grid container columnSpacing={3} rowSpacing={3} direction="row"
+        <Grid container columnSpacing={1} rowSpacing={3} direction="row"
         justifyContent="center">
           {
             SpeakersList.map((spkr, key) => (
