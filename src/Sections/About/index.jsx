@@ -35,8 +35,8 @@ const AboutSection = () => {
               It aims to gather everyone to discuss and talk about Blockchain
               Technology and Web3, its various use-cases, applications, and
               explore the opportunities it provides to our everyday life. <br />
-              <br /> It will be the largest gathering for blockchain tech at the
-              south of Metro Manila.
+              <br /> It will be the largest gathering for Blockchain Technology
+              in the south of Metro Manila.
             </Text>
           </TextWrap>
           <ImageWrap align="flex-end">
@@ -53,8 +53,8 @@ const AboutSection = () => {
             </Heading>
             <Text fontSize="1.5em" color="#fff">
               With the booming tech industry in the country, new concepts to
-              speed up mass adoption of blockchain tech came into inception:{" "}
-              <br />
+              speed up mass adoption of Blockchain Technology came into
+              inception: <br />
               <br />
               SparkLearn EdTech and MetaGaming Guild, which are now paving the
               way for blockchain adoption through education and upskilling, and
@@ -67,8 +67,8 @@ const AboutSection = () => {
             >
               These projects have become the true testament of the Bicolano
               spirit, being “oragon” or feisty in their aspiration to become the
-              breeding ground of the cutting-edge tech in the Philippines.
-              Welcome to Bicol.
+              breeding ground of the cutting-edge technologies in the
+              Philippines. Welcome to Bicol.
             </Text>
           </TextWrap>
         </Organizer>
@@ -99,11 +99,7 @@ const AboutSection = () => {
             className="d-flex flex-column align-items-center"
           >
             <Heading fontSize="3em">A DAY FOR ALL-THINGS-BLOCKCHAIN</Heading>
-            <Text
-              fontSize="2em"
-              color="#fff"
-              style={{ textAlign: "center" }}
-            >
+            <Text fontSize="2em" color="#fff" style={{ textAlign: "center" }}>
               The conference provides an avenue for founders and leads of
               blockchain-based projects, spectators, media, enthusiasts and all
               the curious minds to spark discussions about the latest trends,
