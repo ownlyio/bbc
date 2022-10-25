@@ -17,7 +17,7 @@ const FAQ = () => {
   const [faqCollection, setfaqCollection] = useState(Faq);
   return (
     <PageLayout margin="0" id="faqs" >
-      <ContainerWithBackground background={BG6} minHeight="70vh">
+      <ContainerWithBackground background={BG6} minHeight="70vh" padding="4rem 15rem">
         <TextWrap>
           <Heading
             className="text-center"

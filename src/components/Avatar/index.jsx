@@ -30,12 +30,24 @@ const Container = styled.div`
 
 const AvatarBG = styled.div`
   display: flex;
-  width: 300px;
+  width: 250px;
   min-height: 200px;
   align-items: flex-end;
   justify-content: center;
   padding: 5px;
   color: #fff;
+
+  @media screen and (min-width: 1000px) {
+    width: 300px;
+  }
+
+  @media screen and (min-width: 2000px) {
+    width: 350px;
+  }
+  
+  @media screen and (min-width: 2400px) {
+    width: 400px;
+  }
 `;
 
 const ProfilePic = styled.img`

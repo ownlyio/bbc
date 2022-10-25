@@ -22,11 +22,14 @@ export default Images;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-
+  
   @media screen and (min-width: 980px) {
     flex-direction: row;
   }
   @media screen and (min-width: 1400px)  {
+    flex-direction: column;
+  }
+  @media screen and (min-width: 2000px)  {
     flex-direction: column;
   }
 `
