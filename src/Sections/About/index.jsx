@@ -23,7 +23,7 @@ const AboutSection = () => {
   const { theme } = useTheme();
   return (
     <PageLayout margin="0" id="about">
-      <ContainerWithBackground padding="2.5rem 0" background={BG}>
+      <ContainerWithBackground padding="4rem 0" background={BG}>
         <NewHome>
           <TextWrap>
             <Heading fontSize="3em">

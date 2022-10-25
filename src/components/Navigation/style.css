@@ -34,9 +34,9 @@ a {
   color: black!important;
 }
 
-.nav-item:hover {
+/* .nav-item:hover {
   border-bottom: 1px solid #906003;
-}
+} */
 
 .active {
   border-radius: 10px;
