@@ -32,7 +32,7 @@ const SpeakersList = [
   {
     src: 'Melissa',
     name: 'Melissa Mesias',
-    title: 'CEO, SparkLearn EdTech',
+    title: 'CEO & Founder, SparkLearn EdTech',
     description: ''
   },
   {
