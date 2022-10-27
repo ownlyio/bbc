@@ -60,7 +60,7 @@ const Subscribe = () => {
           <Heading fontSize="3em" color={theme.colors.secondary}>
             SUBSCRIBE FOR THE LATEST EVENT UPDATES
           </Heading>
-          <Text fontSize="1.5em" color="#fff" style={{textAlign: 'center'}}>
+          <Text fontSize="1em" color="#fff" style={{textAlign: 'center'}}>
           Wanna be the first to get notified about the latest event updates of the first-ever Bicol Blockchain Conference? Join our VIP List to be first to know.
           </Text>
           <Text fontSize="1.5em" color="#fff" style={{textAlign: 'center'}}>
