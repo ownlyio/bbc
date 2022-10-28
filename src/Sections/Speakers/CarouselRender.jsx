@@ -30,7 +30,7 @@ const CarouselRender = () => {
       { 
       !showAll? <AppCarousel type="Elastic" options={{breakpoints}} components={{ item1 }}/> : (
         <Grid container columnSpacing={1} rowSpacing={3} direction="row"
-        justifyContent="center">
+        justifyContent="center" >
           {
             SpeakersList.map((spkr, key) => (
               <Grid key={key} item xs={12} sm={6} md={5} lg={3}>
