@@ -49,8 +49,8 @@ const CarouselRenderer = () => {
               <Heading color="#fff" fontSize="6.5em">
                 14 NOV 2022
               </Heading>
-              <Heading color="#fff" fontSize="3.6em">
-                CASA BLANCA HOTEL
+              <Heading color="#fff" fontSize="4.5em">
+                ALICIA HOTEL
               </Heading>
               <Text color="rgba(255,255,255,0.5)" fontSize="2.4em">
                 LEGAZPI CITY, ALBAY
