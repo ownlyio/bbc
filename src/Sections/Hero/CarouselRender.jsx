@@ -21,7 +21,7 @@ const CarouselRenderer = () => {
           <TextWrapper>
             <Text
               color="#fff"
-              fontSize="3em"
+              fontSize="2.9em"
               style={{marginTop: '1rem'}}
               weight="100"
             >
@@ -93,7 +93,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 90vh;
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 768px) {
     width: 100%;
     flex-direction: row;
     justify-content: space-around;
@@ -116,12 +116,12 @@ const FontResponsive = styled.div`
   }
 
 
-  @media screen and (min-width: 970px) {
-    font-size: 9px;
-  }
+  // @media screen and (min-width: 970px) {
+  //   font-size: 7px;
+  // }
 
   @media screen and (min-width: 1440px) {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   @media screen and (min-width: 2500px) {
@@ -143,10 +143,12 @@ const Wrapper = styled(FontResponsive)`
     border: ${(props) => `1px solid ${props.theme.colors.primary}`};
   }
 
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 768px) {
     align-items: flex-start;
     padding: 2.5rem 1rem;
   }
+
+
 
   @media screen and (min-width: 750px) {
     justify-content: space-between;
@@ -226,7 +228,7 @@ const BBCText = styled(Text)`
     font-size: 3.2em;
   }
   @media screen and (min-width: 900px) {
-    font-size: 3.25em;
+    font-size: 3.2em;
   }
 
   @media screen and (min-width: 1440px) {
@@ -251,12 +253,12 @@ const LogoImage = styled.img`
     width: 400px!important;
   }
 
-  @media screen and (min-width: 970px) {
-    width: 510px !important;
-  }
+  // @media screen and (min-width: 900px) {
+  //   width: 400px !important;
+  // }
 
   @media screen and (min-width: 1440px) {
-    width: 650px !important;
+    width: 590px !important;
   }
   @media screen and (min-width: 2500px) {
     width: 1000px !important;
@@ -276,7 +278,7 @@ const TextWrapper = styled(FontResponsive)`
   margin-bottom: 2rem;
   text-align: center;
 
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 768px) {
     text-align: left;
   }
 `;
@@ -286,6 +288,11 @@ const DivShowCase = styled(FontResponsive)`
   margin-top: 1rem;
   flex: 1;
   font-size: 13px;
+  padding: 1rem;
+
+  @media screen and (min-width: 768px) {
+    padding: 0;
+  }
 `;
 const MediaDiv = styled.div`
   margin-top:5px;
@@ -294,7 +301,7 @@ const MediaDiv = styled.div`
   justify-content: center;
   width: 100%;
 
-  @media screen and (min-width: 670px) {
+  @media screen and (min-width: 768px) {
     justify-content: space-between;
   }
 
