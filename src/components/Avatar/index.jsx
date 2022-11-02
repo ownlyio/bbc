@@ -51,13 +51,13 @@ const AvatarBG = styled.div`
 `;
 
 const ProfilePic = styled.img`
-  width: 200px;
-  height: 200px;
+  width: 227px;
+  height: 188px;
   border-radius: 20px;
 
   @media screen and (min-width: 1500px) {
-    width: 350px;
-    height: 300px;  
+    width: 327px;
+    height: 288px;  
   }
 `;
 
