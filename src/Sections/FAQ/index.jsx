@@ -9,15 +9,17 @@ import Tabs from "../../components/Tabs";
 import CustomAccordion from "../../components/Accordion";
 import useTheme from "../../hooks/useTheme";
 import { TextWrap } from "../About";
+import { useMediaQuery } from "react-responsive";
 
 const FAQ = () => {
   const { theme } = useTheme();
   const [activeIndex, setActiveIndex] = useState(1);
   // const [faqCollection, setfaqCollection] = useState(Faq[Object.keys(Faq)[0]]);
+  const isBigScreen = useMediaQuery({query: '(min-width: 769px)'})
   const [faqCollection, setfaqCollection] = useState(Faq);
   return (
     <PageLayout margin="0" id="faqs" >
-      <ContainerWithBackground background={BG6} minHeight="70vh" padding="4rem 15rem">
+      <ContainerWithBackground background={BG6} minHeight="70vh" padding={isBigScreen? '4rem 15rem': '4rem 5rem'}>
         <TextWrap>
           <Heading
             className="text-center"
