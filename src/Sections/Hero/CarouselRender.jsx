@@ -21,7 +21,7 @@ const CarouselRenderer = () => {
           <TextWrapper>
             <Text
               color="#fff"
-              fontSize="2.9em"
+              fontSize="2.5em"
               style={{marginTop: '1rem'}}
               weight="100"
             >
@@ -178,14 +178,14 @@ const RegisterDiv = styled.div`
   @media screen and (min-width: 670px) {
     text-align: left;
     & > a > ${Button} {
-      width: 320px;
-      height: 80px;
+      width: 250px;
+      height: 70px;
       & > ${Heading} {
-        font-size: 2em;
+        font-size: 1.5em;
       }
     }
     & > ${Text} {
-      font-size: 2.4em;
+      font-size: 1.9em;
     }
   }
   @media screen and (min-width: 970px) {
