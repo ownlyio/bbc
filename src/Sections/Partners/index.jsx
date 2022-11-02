@@ -24,7 +24,7 @@ const Partners = () => {
   );
   return (
     <PageLayout margin="0" id="partners">
-      <ContainerWithBackground background={BG5} minHeight="70vh">
+      <ContainerWithBackground background={BG5} minHeight="30vh">
         {/* <StyledDiv style={{ padding: "10px 0" }}>
           <TextWrap style={{flex: 1}} align='flex-start'>
             <Heading fontSize="3em">PARTNERSHIP</Heading>
@@ -59,7 +59,7 @@ const Partners = () => {
             OUR EVENT PARTNERS
           </Title>
         </TextWrap>
-        <Tabs
+        {/* <Tabs
           withAll
           details={partners}
           triggers={{
@@ -67,12 +67,14 @@ const Partners = () => {
             activeIndex,
             setCollection: setPartnersCollection,
           }}
-        >
+        > */}
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
           <Album
             items={activeIndex === 0 ? partners : partnersCollection}
             activeIndex={activeIndex}
           />
-        </Tabs>
+        {/* </Tabs> */}
+        </div>
       </ContainerWithBackground>
     </PageLayout>
   );
