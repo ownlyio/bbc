@@ -6,10 +6,10 @@ import IconModules from "./FetchLogo";
 
 const sizes = {
   presenters: { width: "150px", grid: {} },
-  gold: { width: "150px", grid: {xs: 6, sm: 3, md: 3, lg: 2.5}},
+  gold: { width: "150px", grid: {xs: 6, sm: 3, md: 3, lg: 2}},
   silver: { width: "100px", grid: {}},
   bronze: { width: "100px", grid: {}},
-  media: { width: "100px", grid: {xs: 3, sm:2, md: 2, lg: 1.5}},
+  media: { width: "100px", grid: {xs: 3, sm:2, md: 2, lg: 1}},
   community: { width: "100px", grid: {}},
 };
 
