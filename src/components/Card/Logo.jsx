@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-const LogoBox = ({ background, border, src, padding, width }) => {
+const LogoBox = ({ background, border, src, padding, width, height }) => {
   return (
     <LogoBG background={background} border={border} padding={padding}>
-      <Logo alt="logo" src={src} width={width}/>
+      <Logo alt="logo" src={src} width={width} height={height ?? 'auto'}/>
     </LogoBG>
   );
 };
@@ -29,8 +29,6 @@ export const LogoBG = styled.div`
 export const Logo = styled.img`
   width: ${props => props.width ? props.width : '150px'};
   filter: ${(props) => props.filter ?? "none"};
-
   @media screen and (min-width: 1250px) {
     width: ${props => props.width? `calc(${props.width} + 70px)` : '250px'};
-  }
 `;
