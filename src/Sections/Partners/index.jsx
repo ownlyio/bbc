@@ -70,7 +70,7 @@ const Partners = () => {
         > */}
         <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
           <Album
-            items={activeIndex === 0 ? partners : partnersCollection}
+            items={partners}
             activeIndex={activeIndex}
           />
         {/* </Tabs> */}
