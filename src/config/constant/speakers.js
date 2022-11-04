@@ -8,8 +8,8 @@ const SpeakersList = [
   {
     src: 'Michael',
     name: 'Michael Mislos',
-    title: 'Editor-in-Chief, BitPinas',
-    description: ''
+    title: 'Editor-in-Chief',
+    description: 'BitPinas'
   },
   {
     src: 'Gail',
@@ -20,26 +20,26 @@ const SpeakersList = [
   {
     src: 'Randy',
     name: 'Randy Knutson',
-    title: 'President/CEO, DynaQuest',
-    description: ' '
+    title: 'President/CEO',
+    description: 'DynaQuest'
   },
   {
     src: 'Andy',
     name: 'Andy Agnas',
-    title: 'CEO & Founder, Sparkpoint',
-    description: '',
+    title: 'CEO & Founder',
+    description: 'Sparkpoint',
   },
   {
     src: 'Melissa',
     name: 'Melissa Mesias',
-    title: 'CEO & Founder, SparkLearn EdTech',
-    description: ''
+    title: 'CEO & Founder',
+    description: 'SparkLearn EdTech'
   },
   {
     src: 'Isma',
     name: 'Ismael Jerusalem',
-    title: 'CEO & Founder, Ownly',
-    description: ''
+    title: 'CEO & Founder',
+    description: 'Ownly'
   },
 ]
 

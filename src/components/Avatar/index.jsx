@@ -34,7 +34,7 @@ const AvatarBG = styled.div`
   min-height: 200px;
   align-items: flex-end;
   justify-content: center;
-  padding: 5px;
+  // padding: 5px;
   color: #fff;
 
   // @media screen and (min-width: 1000px) {
@@ -65,14 +65,15 @@ const InfoDiv = styled.div`
   font-size: 14px;
   .avtr-name {
     color: #fff;
-    font-size: 0.9em;
+    font-size: 1.3em;
   }
  .avtr-desc {
-    font-size: 0.8em;
+    font-size: 1em;
     color: #fff;
+    font-weight: 300;
   }
 
   @media screen and (min-width: 1360px) {
-    font-size: 24px;
+    font-size: 17px;
   }
 `;
