@@ -7,7 +7,8 @@ import BLOCKTIDES from '../../assets/logos/blocktides.jpeg'
 import BITPINAS from '../../assets/logos/bitpinas.png'
 import ASIATOKENFUND from '../../assets/logos/asiatokenfund_logo_new.png'
 import COINVOICE from '../../assets/logos/coinvoice_black.png'
+import MGG from '../../assets/logos/mgg.png'
 
-const IconModules = {SRK, OWNLY, SLETI, DIVINALAW, BIT, BLOCKTIDES, BITPINAS, ASIATOKENFUND, COINVOICE}
+const IconModules = {SRK, OWNLY, SLETI, DIVINALAW, BIT, BLOCKTIDES, BITPINAS, ASIATOKENFUND, COINVOICE, MGG}
 
 export default IconModules;
