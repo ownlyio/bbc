@@ -38,12 +38,12 @@ const AvatarBG = styled.div`
 `;
 
 const ProfilePic = styled.img`
-  width: 227px;
+  width: 220px;
   height: 188px;
   border-radius: 20px;
 
   @media screen and (min-width: 1500px) {
-    width: 300px;
+    width: 280px;
     height: 288px;  
   }
 `;
