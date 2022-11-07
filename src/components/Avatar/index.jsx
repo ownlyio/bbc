@@ -43,7 +43,7 @@ const ProfilePic = styled.img`
   border-radius: 20px;
 
   @media screen and (min-width: 1500px) {
-    width: 327px;
+    width: 300px;
     height: 288px;  
   }
 `;
