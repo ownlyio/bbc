@@ -45,7 +45,6 @@ const Component = () => {
               <Linker href={`#${link.href}`} key={key}>
                 <Nav.Link
                   key={link.name}
-                  href={`#${link.href}`}
                   style={{ color: "#fff" }}
                   as="div"
                 >
