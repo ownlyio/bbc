@@ -14,7 +14,7 @@ const SpeakersList = [
   {
     src: 'Melissa',
     name: 'Melissa Mesias',
-    title: 'CEO & Founder',
+    title: 'Co-founder & CEO',
     description: 'SparkLearn EdTech'
   },
   {
@@ -44,7 +44,7 @@ const SpeakersList = [
   {
     src: 'Harvey',
     name: 'Harvey Javier',
-    title: 'CTO',
+    title: 'Co-founder & CTO',
     description: 'SparkLearn EdTech'
   },
   {
