@@ -30,10 +30,10 @@ const Album = ({ items, activeIndex }) => {
         })}
         </>
       )} */}
-      {Object.entries(items).map((partners) => {
+      {Object.entries(items).map((partners, key) => {
         return (
           partners[1].length !== 0 && (
-            <Grid container justifyContent='center' alignItems='justify' spacing={{xs: 1, sm: 1, md: 0}} fluid>
+            <Grid key={key} container justifyContent='center' alignItems='justify' spacing={{xs: 1, sm: 1, md: 0}}>
               {partners[1].map((partner) => (
                 <Grid key={partner} item xs={sizes[partners[0]].grid.xs} sm={sizes[partners[0]].grid.sm} md={sizes[partners[0]].grid.md} lg={sizes[partners[0]].grid.lg}  >
                 <LogoBox

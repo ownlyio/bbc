@@ -5,6 +5,10 @@ import Enrique from '../../assets/Speakers/Enrique.png'
 import Michael from '../../assets/Speakers/Michael.png'
 import Gail from '../../assets/Speakers/Gail.png'
 import Randy from '../../assets/Speakers/Randy.png'
+import Harvey from '../../assets/Speakers/Harvey.png'
+import Morris from '../../assets/Speakers/Morris.png'
+import Janice from '../../assets/Speakers/Janice.png'
+import Denley from '../../assets/Speakers/Denley.png'
 
 
 const SpeakersImages = {
@@ -15,6 +19,10 @@ const SpeakersImages = {
   Michael,
   Gail,
   Randy,
+  Harvey,
+  Morris,
+  Janice,
+  Denley
 }
 
 export default SpeakersImages

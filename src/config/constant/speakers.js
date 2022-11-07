@@ -1,9 +1,9 @@
 const SpeakersList = [
   {
-    src: 'Enrique',
-    name: 'ATTY. Enrique Dela Cruz Jr.',
-    title: 'Senior Partner and Head of Fintech',
-    description: 'Divina Law',
+    src: 'Andy',
+    name: 'Andy Agnas',
+    title: 'CEO & Founder',
+    description: 'Sparkpoint',
   },
   {
     src: 'Michael',
@@ -12,28 +12,44 @@ const SpeakersList = [
     description: 'BitPinas'
   },
   {
+    src: 'Melissa',
+    name: 'Melissa Mesias',
+    title: 'CEO & Founder',
+    description: 'SparkLearn EdTech'
+  },
+  {
     src: 'Gail',
     name: 'Gail Cruz-Macapagal',
     title: 'Country Director, DynaQuest',
     description: 'Founder, Women in Blockchain',
   },
   {
-    src: 'Randy',
-    name: 'Randy Knutson',
-    title: 'President/CEO',
-    description: 'DynaQuest'
+    src: 'Morris',
+    name: 'Morris Perico',
+    title: 'COO',
+    description: 'MetaGamingGuild'
   },
   {
-    src: 'Andy',
-    name: 'Andy Agnas',
-    title: 'CEO & Founder',
-    description: 'Sparkpoint',
+    src: 'Enrique',
+    name: 'Atty. Enrique Dela Cruz Jr.',
+    title: 'Senior Partner and Head of Fintech',
+    description: 'Divina Law',
   },
   {
-    src: 'Melissa',
-    name: 'Melissa Mesias',
-    title: 'CEO & Founder',
+    src: 'Janice',
+    name: 'Janice Arino',
+    title: 'CEO',
+    description: 'Filipay'
+  },
+  {
+    src: 'Harvey',
+    name: 'Harvey Javier',
+    title: 'CTO',
     description: 'SparkLearn EdTech'
+  },
+  {
+    src: 'Denley',
+    name: 'Denley Mirabueno'
   },
   {
     src: 'Isma',

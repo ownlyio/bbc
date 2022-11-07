@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import SpeakersList from "../../config/constant/speakers";
 import { Text, Heading } from "../../components/Text";
@@ -6,10 +6,15 @@ import Avatar from "../../components/Avatar";
 import AppCarousel from "../../components/Carousel";
 import { Button as CustomBtn } from "../../components/Button";
 import { Grid } from "@mui/material";
+import { useMediaQuery } from "react-responsive";
 
 
 const CarouselRender = () => {
+  const isDesktop = useMediaQuery({
+    query: '(min-width: 768)'
+  })
   const [showAll, setShowAll] = useState(true);
+
   const breakpoints = [
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },

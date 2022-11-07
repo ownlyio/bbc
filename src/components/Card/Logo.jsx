@@ -14,7 +14,7 @@ export const LogoBG = styled.div`
   background-color: ${(props) => props.background ?? props.theme.colors.light};
   padding: ${(props) => props.padding ?? "25px"};
   ${(props) =>
-    props.border &&
+    props.border === 'true' &&
     `
     border-left: 2rem solid rgba(188,152,73,1);
   `}
