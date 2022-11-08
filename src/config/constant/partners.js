@@ -1,6 +1,6 @@
 const partners = {
-  // presenters: ['BIT'],
-  gold: ['SRK', 'OWNLY','DIVINALAW', 'BIT', ],
+  presenters: ['BIT', 'DIVINALAW', 'DTI'],
+  gold: ['SRK', 'OWNLY', 'MGG'],
   silver: [],
   media: ['BLOCKTIDES', 'BITPINAS', 'ASIATOKENFUND', 'COINVOICE'],
   community: [],

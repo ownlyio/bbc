@@ -24,7 +24,7 @@ const Partners = () => {
   );
   return (
     <PageLayout margin="0" id="partners">
-      <ContainerWithBackground background={BG5} minHeight="30vh">
+      <ContainerWithBackground background={BG5} minHeight="30vh" padding="4rem 8rem">
         {/* <StyledDiv style={{ padding: "10px 0" }}>
           <TextWrap style={{flex: 1}} align='flex-start'>
             <Heading fontSize="3em">PARTNERSHIP</Heading>

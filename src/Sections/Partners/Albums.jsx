@@ -3,14 +3,15 @@ import styled from "styled-components";
 import { Grid } from "@mui/material";
 import LogoBox from "../../components/Card/PartnersImg";
 import IconModules from "./FetchLogo";
+import { Heading, Text } from "../../components/Text";
 
 const sizes = {
-  presenters: { width: "150px", grid: {} },
-  gold: { width: "150px", grid: {xs: 6, sm: 3, md: 3, lg: 2}},
-  silver: { width: "100px", grid: {}},
-  bronze: { width: "100px", grid: {}},
-  media: { width: "100px", grid: {xs: 3, sm:2, md: 2, lg: 1}},
-  community: { width: "100px", grid: {}},
+  presenters: { width: "100px", grid: {xs: 4, sm: 3, md: 3, lg: 2} },
+  gold: { width: "100px", grid: { xs: 4, sm: 3, md: 3, lg: 2 } },
+  silver: { width: "100px", grid: {} },
+  bronze: { width: "100px", grid: {} },
+  media: { width: "100px", grid: { xs: 3, sm: 2, md: 2, lg: 1 } },
+  community: { width: "100px", grid: {} },
 };
 
 const Album = ({ items, activeIndex }) => {
@@ -33,20 +34,36 @@ const Album = ({ items, activeIndex }) => {
       {Object.entries(items).map((partners, key) => {
         return (
           partners[1].length !== 0 && (
-            <Grid key={key} container justifyContent='center' alignItems='justify' spacing={{xs: 1, sm: 1, md: 0}}>
-              {partners[1].map((partner) => (
-                <Grid key={partner} item xs={sizes[partners[0]].grid.xs} sm={sizes[partners[0]].grid.sm} md={sizes[partners[0]].grid.md} lg={sizes[partners[0]].grid.lg}  >
-                <LogoBox
-                  key={partner}
-                  background="#fff"
-                  border
-                  src={IconModules[partner]}
-                  // width={sizes[partners[0]].width}
-                  padding="0.5rem"
-                />
-                </Grid>
-              ))}
-            </Grid>
+            <div style={{textAlign: 'center', margin: '2rem 0'}}>
+            <Heading size="lg" style={{marginBottom: '1.5rem', color: '#fff', textDecoration: 'underline #bc9849', textUnderlineOffset: '0.5em'}}>{partners[0].toUpperCase()}</Heading>
+              <Grid
+                key={key}
+                container
+                justifyContent="space-evenly"
+                alignItems="justify"
+                // spacing={{ xs: 2, sm: 1 }}
+              >
+                {partners[1].map((partner) => (
+                  <Grid
+                    key={partner}
+                    item
+                    xs={sizes[partners[0]].grid.xs}
+                    sm={sizes[partners[0]].grid.sm}
+                    md={sizes[partners[0]].grid.md}
+                    lg={sizes[partners[0]].grid.lg}
+                    xl={sizes[partners[0]].grid.xl}
+                  >
+                    <LogoBox
+                      key={partner}
+                      background="transparent"
+                      src={IconModules[partner]}
+                      // width={sizes[partners[0]].width}
+                      padding="0.5rem"
+                    />
+                  </Grid>
+                ))}
+              </Grid>
+            </div>
           )
         );
       })}
