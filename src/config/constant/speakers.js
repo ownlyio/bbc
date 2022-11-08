@@ -49,7 +49,8 @@ const SpeakersList = [
   },
   {
     src: 'Denley',
-    name: 'Denley Mirabueno'
+    name: 'Denley Mirabueno',
+    title: 'Finance and Risk Professional'
   },
   {
     src: 'Isma',

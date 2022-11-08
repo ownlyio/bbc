@@ -38,13 +38,17 @@ const AvatarBG = styled.div`
 `;
 
 const ProfilePic = styled.img`
-  width: 220px;
-  height: 188px;
+  width: 200px;
+  height: 200px;
   border-radius: 20px;
 
-  @media screen and (min-width: 1500px) {
-    width: 280px;
-    height: 288px;  
+  @media screen and (min-width: 1440px) {
+    width: 270px;
+    height: 270px;  
+  }
+  @media screen and (min-width: 2400px) {
+    width: 350px;
+    height: 350px;  
   }
 `;
 
@@ -52,15 +56,18 @@ const InfoDiv = styled.div`
   font-size: 14px;
   .avtr-name {
     color: #fff;
-    font-size: 1.3em;
+    font-size: 1.1em;
   }
  .avtr-desc {
-    font-size: 1em;
+    font-size: 0.9em;
     color: #fff;
     font-weight: 300;
   }
 
   @media screen and (min-width: 1360px) {
     font-size: 17px;
+  }
+  @media screen and (min-width: 2400px) {
+    font-size: 24px;
   }
 `;

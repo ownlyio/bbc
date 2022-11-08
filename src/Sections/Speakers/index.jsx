@@ -15,7 +15,7 @@ const Speakers = () => {
   
   return (
     <PageLayout margin="0" id="speakers">
-      <ContainerWithBackground background={BG4} padding="4rem 8rem">
+      <ContainerWithBackground background={BG4} padding="4rem 5rem">
         <SpeakersSection className="flex-column align-items-center">
           <TextWrap
             className="intro-text d-flex flex-column align-items-center"
