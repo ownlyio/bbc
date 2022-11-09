@@ -4,19 +4,17 @@ import SpeakersImages from './fetchSpeakerLogo'
 import { Text, Heading } from "../Text";
 
 const Avatar = ({ name, title, desc, src }) => {
-  const image = SpeakersImages[`${src}`]
-  return (
-    <Container className="d-flex flex-column">
-      <AvatarBG>
-        <ProfilePic alt="speaker-img" src={image}/>
-      </AvatarBG>
-      <InfoDiv style={{ marginTop: "24px", textAlign: "center" }}>
-        <Heading className='avtr-name'>{name.toUpperCase()}</Heading>
-        <Text className='avtr-desc'>{title}</Text>
-        <Text className='avtr-desc'>{desc}</Text>
-      </InfoDiv>
-    </Container>
-  );
+    const image = SpeakersImages[`${src}`]
+    return (
+        <Container className="d-flex flex-column">
+            <AvatarBG style={{"backgroundImage":"url('" + image + "')"}}></AvatarBG>
+            <InfoDiv style={{ marginTop: "24px", textAlign: "center" }}>
+                <Heading className='avtr-name'>{name.toUpperCase()}</Heading>
+                <Text className='avtr-desc'>{title}</Text>
+                <Text className='avtr-desc'>{desc}</Text>
+            </InfoDiv>
+        </Container>
+    );
 };
 
 export default Avatar;
@@ -26,6 +24,11 @@ const Container = styled.div`
   height: auto;
   width: auto;
   align-items: center;
+  padding:0 30px;
+  
+  @media screen and (min-width: 576px) {
+    padding:0 20px;
+  }
 `;
 
 const AvatarBG = styled.div`
@@ -35,6 +38,11 @@ const AvatarBG = styled.div`
   align-items: flex-end;
   justify-content: center;
   color: #fff;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  padding-top:100%;
+  border-radius: 20px;
 `;
 
 const ProfilePic = styled.img`

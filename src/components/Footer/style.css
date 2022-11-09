@@ -9,7 +9,7 @@
 }
 
 .img-org-logo {
-  width: 200px;
+  width: 150px;
   margin-right: 5px;
 }
 
@@ -21,7 +21,7 @@
 .footer-wrapper > .section > .logo{
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: start;
 }
 
 .logo > p {
@@ -33,7 +33,7 @@
 }
 
 .logo > .title-1, .subtitle-1 {
-  font-size: 1em;
+  font-size: 0.8em;
 }
 
 .logo > .title-1 {
@@ -44,7 +44,7 @@
 }
 
 .footer-wrapper > .section > .div-organizer {
-  margin-top: 2.5rem;
+  margin-top: 1rem;
   text-align: left;
 }
 
@@ -79,8 +79,12 @@
 
 
 @media screen and (max-width: 800px) {
+  .footer-wrapper > .section > .div-organizer {
+    text-align: center;
+  }
   .div-organizer, .logo, .section.links, .section.socials > div {
     font-size: 12px;
+    justify-content: center;
   }
   .logo-group {
     flex-direction: column;
@@ -94,8 +98,13 @@
 
 
 @media screen and (max-width: 650px) {
-    .div-organizer, .logo, .section.links, .section.socials > div {
+  .footer-wrapper > .section > .div-organizer {
+    text-align: center;
+  }
+  .div-organizer, .logo, .section.links, .section.socials > div {
     font-size: 11px;
+      flex-direction: row;
+      align-items: center;
   }
   .footer-wrapper {
     flex-direction: column;
