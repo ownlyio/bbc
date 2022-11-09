@@ -17,13 +17,13 @@ import Linker from "../Linker";
 const Component = () => {
   return (
     <div className="footer-wrapper">
-      <div className="section">
-        <div className="logo">
+      <div className="section mb-5 mb-md-0">
+        <div className="d-flex align-items-center align-items-md-start logo text-center text-md-start">
           <img
             alt="bbc-logo"
             src={BBCLogo}
-            width="250px"
-            style={{ marginBottom: "10px" }}
+            width="160px"
+            style={{ marginBottom: "15px" }}
           />
           <p className="title-1">BICOL BLOCKCHAIN CONFERENCE 2022</p>
           <p className="subtitle-1">11.14.22 | LEGAZPI CITY, PHILIPPINES</p>
