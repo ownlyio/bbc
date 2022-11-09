@@ -6,12 +6,14 @@ import IconModules from "./FetchLogo";
 import { Heading, Text } from "../../components/Text";
 
 const sizes = {
-  presenters: { width: "100px", grid: {xs: 4, sm: 3, md: 3, lg: 2} },
-  gold: { width: "100px", grid: { xs: 4, sm: 3, md: 3, lg: 2 } },
+  presenters: { width: "100px", grid: {xs: 5, sm: 3, md: 3, lg: 3} },
+  gold: { width: "100px", grid: { xs: 5, sm: 3, md: 3, lg: 3 } },
   silver: { width: "100px", grid: {} },
+  ['Supported By']: {width: '100px', grid: {xs: 4, sm: 3}},
   bronze: { width: "100px", grid: {} },
-  media: { width: "100px", grid: { xs: 3, sm: 2, md: 2, lg: 1 } },
-  community: { width: "100px", grid: {} },
+  media: { width: "100px", grid: { xs: 3, sm: 2, md: 2, lg: 2 } },
+  community: { width: "100px", grid: { xs: 3, sm: 2, md: 2, lg: 12 } },
+  ['Organized By']: {width: '100px', grid: {xs: 3, sm: 2, md: 2, lg: 2}}
 };
 
 const Album = ({ items, activeIndex }) => {
