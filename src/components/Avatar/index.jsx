@@ -4,17 +4,17 @@ import SpeakersImages from './fetchSpeakerLogo'
 import { Text, Heading } from "../Text";
 
 const Avatar = ({ name, title, desc, src }) => {
-  const image = SpeakersImages[`${src}`]
-  return (
-    <Container className="d-flex flex-column">
-      <AvatarBG style={{"backgroundImage":"url('" + image + "')"}}></AvatarBG>
-      <InfoDiv style={{ marginTop: "24px", textAlign: "center" }}>
-        <Heading className='avtr-name'>{name.toUpperCase()}</Heading>
-        <Text className='avtr-desc'>{title}</Text>
-        <Text className='avtr-desc'>{desc}</Text>
-      </InfoDiv>
-    </Container>
-  );
+    const image = SpeakersImages[`${src}`]
+    return (
+        <Container className="d-flex flex-column">
+            <AvatarBG style={{"backgroundImage":"url('" + image + "')"}}></AvatarBG>
+            <InfoDiv style={{ marginTop: "24px", textAlign: "center" }}>
+                <Heading className='avtr-name'>{name.toUpperCase()}</Heading>
+                <Text className='avtr-desc'>{title}</Text>
+                <Text className='avtr-desc'>{desc}</Text>
+            </InfoDiv>
+        </Container>
+    );
 };
 
 export default Avatar;
@@ -27,7 +27,7 @@ const Container = styled.div`
   padding:0 30px;
   
   @media screen and (min-width: 576px) {
-    padding:0 12px;
+    padding:0 20px;
   }
 `;
 
