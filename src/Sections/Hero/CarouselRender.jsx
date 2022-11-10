@@ -32,13 +32,15 @@ const CarouselRenderer = () => {
           <RegisterDiv>
           <a href="https://www.eventbrite.com/e/bicol-blockchain-conference-tickets-440189066347?aff=ebdsoporgprofile" target="_blank" style={{textDecoration: 'none', color:'inherit'}}>
             <Button
+              className="pt-3"
               bgcolor="#fff"
               color="rgb(0,0,0)"
+              style={{"height":"initial"}}
             >
-              <Heading>REGISTER HERE</Heading>
+              <Heading className="pt-1">SOLD OUT!</Heading>
             </Button>
             </a>
-            <Text color="rgba(255,255,255,0.9)" fontSize="1.5em" weight="100">
+            <Text className="invisible" color="rgba(255,255,255,0.9)" fontSize="1.5em" weight="100">
               EVENT IS FREE! LIMITED SLOTS ONLY.
             </Text>
           </RegisterDiv>
