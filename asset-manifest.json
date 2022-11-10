@@ -1,25 +1,26 @@
 {
   "files": {
     "main.css": "/static/css/main.68d50af0.chunk.css",
-    "main.js": "/static/js/main.e39a3b81.chunk.js",
-    "main.js.map": "/static/js/main.e39a3b81.chunk.js.map",
+    "main.js": "/static/js/main.f0fae705.chunk.js",
+    "main.js.map": "/static/js/main.f0fae705.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.0f53c1a4.js",
     "runtime-main.js.map": "/static/js/runtime-main.0f53c1a4.js.map",
     "static/css/2.d6951448.chunk.css": "/static/css/2.d6951448.chunk.css",
-    "static/js/2.d0f7f0bb.chunk.js": "/static/js/2.d0f7f0bb.chunk.js",
-    "static/js/2.d0f7f0bb.chunk.js.map": "/static/js/2.d0f7f0bb.chunk.js.map",
+    "static/js/2.9fb3e19b.chunk.js": "/static/js/2.9fb3e19b.chunk.js",
+    "static/js/2.9fb3e19b.chunk.js.map": "/static/js/2.9fb3e19b.chunk.js.map",
     "static/js/3.e16c1af4.chunk.js": "/static/js/3.e16c1af4.chunk.js",
     "static/js/3.e16c1af4.chunk.js.map": "/static/js/3.e16c1af4.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.d6951448.chunk.css.map": "/static/css/2.d6951448.chunk.css.map",
     "static/css/main.68d50af0.chunk.css.map": "/static/css/main.68d50af0.chunk.css.map",
-    "static/js/2.d0f7f0bb.chunk.js.LICENSE.txt": "/static/js/2.d0f7f0bb.chunk.js.LICENSE.txt",
+    "static/js/2.9fb3e19b.chunk.js.LICENSE.txt": "/static/js/2.9fb3e19b.chunk.js.LICENSE.txt",
     "static/media/index.css": "/static/media/Rubik-Regular.0f56ab0b.ttf",
     "static/media/Andy.6971bee2.png": "/static/media/Andy.6971bee2.png",
     "static/media/Black_wLogo.a39fb36d.svg": "/static/media/Black_wLogo.a39fb36d.svg",
     "static/media/Denley.170b91a6.png": "/static/media/Denley.170b91a6.png",
     "static/media/DivinaLaw.9f796381.png": "/static/media/DivinaLaw.9f796381.png",
     "static/media/Enrique.864a63f2.png": "/static/media/Enrique.864a63f2.png",
+    "static/media/Filipay.20327fe6.png": "/static/media/Filipay.20327fe6.png",
     "static/media/Gail.054cefe3.png": "/static/media/Gail.054cefe3.png",
     "static/media/Harvey.38de74e1.png": "/static/media/Harvey.38de74e1.png",
     "static/media/Ismael Jerusalem.000b527f.png": "/static/media/Ismael Jerusalem.000b527f.png",
@@ -60,8 +61,8 @@
   "entrypoints": [
     "static/js/runtime-main.0f53c1a4.js",
     "static/css/2.d6951448.chunk.css",
-    "static/js/2.d0f7f0bb.chunk.js",
+    "static/js/2.9fb3e19b.chunk.js",
     "static/css/main.68d50af0.chunk.css",
-    "static/js/main.e39a3b81.chunk.js"
+    "static/js/main.f0fae705.chunk.js"
   ]
 }
