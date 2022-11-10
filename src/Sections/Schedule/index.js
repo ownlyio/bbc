@@ -80,7 +80,7 @@ const ScheduleSection = () => {
               Master of Ceremonies:{" "}
               <span style={{ fontWeight: "bold" }}>
                 {" "}
-                Carl Andrei Bongalos, CMO SparkPoint{" "}
+                Carl Andre Bongalos, CMO SparkPoint{" "}
               </span>
             </Text>
           </div>

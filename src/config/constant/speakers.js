@@ -3,7 +3,7 @@ const SpeakersList = [
     src: 'Andy',
     name: 'Andy Agnas',
     title: 'CEO & Founder',
-    description: 'Sparkpoint',
+    description: 'SparkPoint',
   },
   {
     src: 'Michael',
@@ -27,7 +27,7 @@ const SpeakersList = [
     src: 'Morris',
     name: 'Morris Perico',
     title: 'COO',
-    description: 'MetaGamingGuild'
+    description: 'MetaGaming Guild'
   },
   {
     src: 'Enrique',
