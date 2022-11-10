@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import styled from "styled-components";
 import BG4 from "../../assets/bg/pane4.png";
 import SRK from '../../assets/logos/srk.png'
@@ -19,12 +19,12 @@ const ScheduleSection = () => {
   const Program = () => (
     <div className="program-body">
       <Grid container justifyContent="center">
-        {Object.entries(Schedule).map((sched) => {
+        {Object.entries(Schedule).map((sched, key) => {
           const time = sched[0];
           const act = sched[1];
           return (
-            <>
-              <Grid item xs={12} sm={4} md={4} padding="0rem" textAlign='center'>
+            <Fragment key={key}>
+              <Grid  item xs={12} sm={4} md={4} padding="0rem" textAlign='center'>
                 <Text color="#fff" fontSize="1.5em" className="time-txt">
                   {time}
                 </Text>
@@ -39,9 +39,10 @@ const ScheduleSection = () => {
                   </Text>
                 )}
                 {act.talks &&
-                  act.talks.map((talks) => (
-                    <>
-                      <Text
+                  act.talks.map((talks, key) => (
+                    <Fragment  key={key}>
+                      <Text 
+                        key={key}
                         color={theme.colors.secondary}
                         style={{ fontWeight: "bold" }}
                         fontSize="1.5em"
@@ -52,10 +53,10 @@ const ScheduleSection = () => {
                       <Text color="#fff" fontSize="1em" className="spkr-txt">
                       -{talks.speaker}
                       </Text>
-                    </>
+                    </Fragment>
                   ))}
               </Grid>
-            </>
+            </Fragment>
           );
         })}
       </Grid>

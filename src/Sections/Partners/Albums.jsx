@@ -36,7 +36,7 @@ const Album = ({ items, activeIndex }) => {
       {Object.entries(items).map((partners, key) => {
         return (
           partners[1].length !== 0 && (
-            <div style={{textAlign: 'center', margin: '2rem 0'}}>
+            <div key={key} style={{textAlign: 'center', margin: '2rem 0'}}>
             <Heading size="lg" style={{marginBottom: '1.5rem', color: '#fff', textDecoration: 'underline #bc9849', textUnderlineOffset: '0.5em'}}>{partners[0].toUpperCase()}</Heading>
               <Grid
                 key={key}

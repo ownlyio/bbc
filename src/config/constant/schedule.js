@@ -123,7 +123,7 @@ const Schedule = {
     talks: [
       {
         talk: 'Countryside Founders and Builders',
-        speaker: '(Isma, Andy, Melissa, Morris, Mike)'
+        speaker: 'Isma, Andy, Melissa, Morris, Mike'
       }
     ]
   },
