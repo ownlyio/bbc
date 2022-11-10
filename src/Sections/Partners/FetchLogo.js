@@ -9,7 +9,8 @@ import ASIATOKENFUND from '../../assets/logos/asiatokenfund_logo_new.png'
 import COINVOICE from '../../assets/logos/coinvoice.png'
 import MGG from '../../assets/logos/mgg.png'
 import DTI from '../../assets/logos/dti.png'
+import FILIPAY from '../../assets/logos/Filipay.png'
 
-const IconModules = {SRK, OWNLY, SLETI, DIVINALAW, BIT, BLOCKTIDES, BITPINAS, ASIATOKENFUND, COINVOICE, MGG, DTI}
+const IconModules = {SRK, OWNLY, SLETI, DIVINALAW, BIT, BLOCKTIDES, BITPINAS, ASIATOKENFUND, COINVOICE, MGG, DTI, FILIPAY}
 
 export default IconModules;
