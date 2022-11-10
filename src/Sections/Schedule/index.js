@@ -1,9 +1,6 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
 import BG4 from "../../assets/bg/pane4.png";
-import SRK from '../../assets/logos/srk.png'
-import OWNLY from '../../assets/logos/Ownly/ownly-icon.png'
-import DTI from '../../assets/logos/dti.png'
 import Schedule from "../../config/constant/schedule";
 import PageLayout from "../../components/Layout";
 import { ContainerWithBackground } from "../../components/Layout/Container";
@@ -89,11 +86,6 @@ const ScheduleSection = () => {
           </div>
           <div className="container-program">{Program()}</div>
         </TextWrap>
-        <div className="d-flex justify-content-around pt-5 pb-5"> 
-          { [SRK, OWNLY, DTI].map((src, key) => (
-            <img key={key} alt='logo' src={src} width='15%' />
-          ))}
-        </div>
       </ContainerWithBackground>
     </PageLayout>
   );
