@@ -1,0 +1,35 @@
+.container-program {
+  text-align: left;
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+  padding: 1.5rem;
+  border-radius: 5px;
+}
+
+.program-headers {
+  text-align: left;
+  width: 100%;
+}
+
+.program-body {
+  margin-top: 1rem;
+}
+
+.time-txt {
+  text-decoration: underline #bc9849;
+  text-underline-offset: 10px;
+}
+
+.sched-txt {
+  text-align: center;
+}
+
+.spkr-txt  {
+  text-align: center;
+}
+
+@media screen and (min-width: 600px) {
+  .sched-txt, .spkr-txt {
+    text-align: left;
+  }
+}
