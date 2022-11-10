@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import BG4 from "../../assets/bg/pane4.png";
+import SRK from '../../assets/logos/srk.png'
+import OWNLY from '../../assets/logos/Ownly/ownly-icon.png'
+import DTI from '../../assets/logos/dti.png'
 import Schedule from "../../config/constant/schedule";
 import PageLayout from "../../components/Layout";
 import { ContainerWithBackground } from "../../components/Layout/Container";
@@ -15,7 +18,7 @@ const ScheduleSection = () => {
 
   const Program = () => (
     <div className="program-body">
-      <Grid container justifyContent="space-around">
+      <Grid container justifyContent="center">
         {Object.entries(Schedule).map((sched) => {
           const time = sched[0];
           const act = sched[1];
@@ -26,7 +29,7 @@ const ScheduleSection = () => {
                   {time}
                 </Text>
               </Grid>
-              <Grid item xs={12} sm={8} md={8} padding="0.5rem">
+              <Grid item xs={12} sm={8} md={6} padding="0.5rem">
                 <Text color="#fff" fontSize="1.5em" className="sched-txt">
                   {act.sched}
                 </Text>
@@ -85,6 +88,11 @@ const ScheduleSection = () => {
           </div>
           <div className="container-program">{Program()}</div>
         </TextWrap>
+        <div className="d-flex justify-content-around pt-5 pb-5"> 
+          { [SRK, OWNLY, DTI].map((src, key) => (
+            <img key={key} alt='logo' src={src} width='15%' />
+          ))}
+        </div>
       </ContainerWithBackground>
     </PageLayout>
   );
