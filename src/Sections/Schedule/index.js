@@ -15,7 +15,7 @@ const ScheduleSection = () => {
 
   const Program = () => (
     <div className="program-body">
-      <Grid container justifyContent="center">
+      <Grid container justifyContent="center" rowSpacing={{xs: 2, md: 0}}>
         {Object.entries(Schedule).map((sched, key) => {
           const time = sched[0];
           const act = sched[1];
