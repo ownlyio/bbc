@@ -64,7 +64,7 @@ const Component = ({ children }) => {
                   </Nav.Link>
                 </Linker>
               ))}
-              <Button className='register-btn' onClick={() => window.open('https://www.eventbrite.com/e/bicol-blockchain-conference-tickets-440189066347?aff=ebdsoporgprofile')} variant='outline-primary' border='true' style={{borderRadius: '25px'}}>REGISTER NOW</Button>
+              <Button className='register-btn px-4' onClick={() => window.open('https://www.eventbrite.com/e/bicol-blockchain-conference-tickets-440189066347?aff=ebdsoporgprofile')} variant='outline-primary' border='true' style={{borderRadius: '25px'}}>SOLD OUT!</Button>
             </Nav>
           </Navbar.Collapse>
         </Container>
