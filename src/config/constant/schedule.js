@@ -24,7 +24,7 @@ const Talks = {
     talk: 'The Story of Crypto in the Philippines'
   },
   Filipay: {
-    speaker: 'Janice Aringo, CEO Filipay',
+    speaker: 'Janice Ariño, CEO Filipay',
     talk: 'Filipicoin: Decentralized Network for Transportation'
   },
   DivinaLaw: {
