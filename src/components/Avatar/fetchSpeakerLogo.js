@@ -8,6 +8,7 @@ import Randy from '../../assets/Speakers/Randy.png'
 import Harvey from '../../assets/Speakers/Harvey.png'
 import Morris from '../../assets/Speakers/Morris.png'
 import Janice from '../../assets/Speakers/Janice.png'
+import Loreleen from '../../assets/Speakers/Loreleen.png'
 import Denley from '../../assets/Speakers/Denley.png'
 
 
@@ -22,6 +23,7 @@ const SpeakersImages = {
   Harvey,
   Morris,
   Janice,
+  Loreleen,
   Denley
 }
 

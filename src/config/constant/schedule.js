@@ -24,7 +24,7 @@ const Talks = {
     talk: 'The Story of Crypto in the Philippines'
   },
   Filipay: {
-    speaker: 'Janice Aringo, CEO Filipay',
+    speaker: 'Janice Ariño, CEO Filipay',
     talk: 'Filipicoin: Decentralized Network for Transportation'
   },
   DivinaLaw: {
@@ -50,6 +50,10 @@ const Talks = {
   MSW: {
     speaker: 'Mike Reñevo, Lead Game Designer MetaSaga Warriors',
     talk: 'MetaSaga Warriors: The Fun Side of Blockchain'
+  },
+  BicolIT: {
+    speaker: 'Loreleen Mae Sablot, VP for Events, Bicol IT',
+    talk: 'Building IT Community in Bicol'
   }
 };
 
@@ -77,6 +81,11 @@ const Schedule = {
   },
   ["12:00 NN - 1:30 PM"]: {
     break: 'LUNCH BREAK'
+  },
+  ["1:15 PM - 1:30 PM"]: {
+    talks: [
+      Talks.BicolIT
+    ] 
   },
   ["1:30 PM - 1:50 PM"]: {
     talks: [

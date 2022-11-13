@@ -37,9 +37,15 @@ const SpeakersList = [
   },
   {
     src: 'Janice',
-    name: 'Janice Arino',
+    name: 'Janice Ariño',
     title: 'CEO',
     description: 'Filipay'
+  },
+  {
+    src: 'Loreleen',
+    name: 'Loreleen Mae Sablot',
+    title: 'VP for Events',
+    description: 'Bicol IT'
   },
   {
     src: 'Harvey',
