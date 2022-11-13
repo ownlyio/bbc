@@ -42,6 +42,12 @@ const SpeakersList = [
     description: 'Filipay'
   },
   {
+    src: 'Loreleen',
+    name: 'Loreleen Mae Sablot',
+    title: 'VP for Events',
+    description: 'Bicol IT'
+  },
+  {
     src: 'Harvey',
     name: 'Harvey Javier',
     title: 'Co-founder & CTO',
