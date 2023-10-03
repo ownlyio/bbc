@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/bbc/static/css/main.5d329c4d.chunk.css",
-    "main.js": "/bbc/static/js/main.351f6685.chunk.js",
-    "main.js.map": "/bbc/static/js/main.351f6685.chunk.js.map",
+    "main.js": "/bbc/static/js/main.b65d1637.chunk.js",
+    "main.js.map": "/bbc/static/js/main.b65d1637.chunk.js.map",
     "runtime-main.js": "/bbc/static/js/runtime-main.a735d09c.js",
     "runtime-main.js.map": "/bbc/static/js/runtime-main.a735d09c.js.map",
     "static/css/2.a3e0af66.chunk.css": "/bbc/static/css/2.a3e0af66.chunk.css",
@@ -64,6 +64,6 @@
     "static/css/2.a3e0af66.chunk.css",
     "static/js/2.32662bab.chunk.js",
     "static/css/main.5d329c4d.chunk.css",
-    "static/js/main.351f6685.chunk.js"
+    "static/js/main.b65d1637.chunk.js"
   ]
 }
