@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="main">
     <PageLoader />
-      <BrowserRouter>
+      <BrowserRouter basename="/bbc">
         <Switch>
           <Route
           exact
